@@ -1,0 +1,1 @@
+Search.setIndex({objects:{},terms:{index:0,search:0,welcom:0,coinsmanag:0,titl:1,modul:0,readm:1,indic:0,content:0,includ:1,tabl:0,rst:1,document:0,page:0},objtypes:{},titles:["Welcome to CoinsManager&#8217;s documentation!","&lt;no title&gt;"],objnames:{},filenames:["index","include_readme"]})
