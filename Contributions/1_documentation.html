@@ -63,11 +63,14 @@ example to write your own documentation.</p>
 </div>
 <div class="section" id="publish-documentation-to-the-coinsmanager-online-documentation">
 <h3>Publish documentation to the <a class="reference external" href="_online-doc">CoinsManager Online Documentation</a><a class="headerlink" href="#publish-documentation-to-the-coinsmanager-online-documentation" title="Permalink to this headline">¶</a></h3>
-<p>First, git clone the repository, then copy the directory:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone git@github.com:CoinsManager/CoinsManager.git
+<p>First, fork the repository in your own github account, then git clone your
+repository and copy it:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone git@github.com:Fandekasp/CoinsManager.git
 <span class="gp">$</span> cp CoinsManager CoinsManagerDoc
 <span class="gp">$</span> <span class="nb">cd </span>CoinsManagerDoc <span class="o">&amp;&amp;</span> git checkout gh-pages
 <span class="gp">$</span> <span class="nb">cd</span> ../CoinsManager <span class="o">&amp;&amp;</span> git checkout develop
+<span class="gp">$</span> git remote add upstream https://github.com/CoinsManager/CoinsManager.git
+<span class="gp">$</span> git fetch upstream
 <span class="gp">$</span> <span class="nb">cd </span>docs/
 </pre></div>
 </div>
