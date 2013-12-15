@@ -2,5 +2,7 @@
 Contribution Documentation
 ==========================
 
+.. toctree::
+    :glob:
 
-.. include:: Documentation/0_title.rst
+    *

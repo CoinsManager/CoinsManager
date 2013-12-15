@@ -1,5 +1,6 @@
-Publishing sphinx-generated docs on github
-==========================================
+Guidance for Scribers
+=====================
+
 
 Requirements
 ------------
@@ -11,9 +12,8 @@ example to write your own documentation.
 .. seealso:: `github rst cheatsheet <https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst>`_
 
 
-
 Publish documentation to the `CoinsManager Online Documentation`__
-------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. _online-doc: http://coinsmanager.github.io/CoinsManager/
 
@@ -29,7 +29,15 @@ First, git clone the repository, then copy the directory:
     $ cd ../CoinsManager && git checkout develop
     $ cd docs/
 
-Then edit the 
+Then edit the documentation, and when you're finished commiting it, publish as
+follow:
+
+.. code-block:: console
+
+    $ make html
+    $ cd ../../CoinsManagerDoc/
+    $ git commit -am "Rebuild html documentation"
+    $ git push origin gh-pages
 
 
 .. seealso:: `Publishing sphinx-generated docs on github <http://daler.github.io/sphinxdoc-test/includeme.html>`_
