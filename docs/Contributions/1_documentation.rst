@@ -19,14 +19,17 @@ Publish documentation to the `CoinsManager Online Documentation`__
 
 __ _online-doc
 
-First, git clone the repository, then copy the directory:
+First, fork the repository in your own github account, then git clone your
+repository and copy it:
 
 .. code-block:: console
 
-    $ git clone git@github.com:CoinsManager/CoinsManager.git
+    $ git clone git@github.com:Fandekasp/CoinsManager.git
     $ cp CoinsManager CoinsManagerDoc
     $ cd CoinsManagerDoc && git checkout gh-pages
     $ cd ../CoinsManager && git checkout develop
+    $ git remote add upstream https://github.com/CoinsManager/CoinsManager.git
+    $ git fetch upstream
     $ cd docs/
 
 Then edit the documentation, and when you're finished commiting it, publish as
