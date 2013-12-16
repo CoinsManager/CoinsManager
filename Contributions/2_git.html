@@ -1,0 +1,226 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Guidance about Git &mdash; CoinsManager v0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     'v0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="CoinsManager v0.0.1 documentation" href="../index.html" />
+    <link rel="up" title="Contribution Documentation" href="0_title.html" />
+    <link rel="prev" title="Guidance for Scribers" href="1_documentation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="1_documentation.html" title="Guidance for Scribers"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">CoinsManager v0.0.1 documentation</a> &raquo;</li>
+          <li><a href="0_title.html" accesskey="U">Contribution Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="guidance-about-git">
+<h1>Guidance about Git<a class="headerlink" href="#guidance-about-git" title="Permalink to this headline">¶</a></h1>
+<p>Below are described the steps to get started with Git &amp; Github.</p>
+<div class="section" id="installing-the-repo">
+<h2>Installing the repo<a class="headerlink" href="#installing-the-repo" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fork">
+<h3>Fork<a class="headerlink" href="#fork" title="Permalink to this headline">¶</a></h3>
+<p>First, go to the <a class="reference external" href="https://github.com/CoinsManager/CoinsManager/">CoinsManager Github</a>
+and click on the <strong>Fork</strong> button:</p>
+<img alt="../_images/git_fork.png" src="../_images/git_fork.png" />
+<p>This will create a clone of the main repository in your Github account.</p>
+</div>
+<div class="section" id="clone">
+<h3>Clone<a class="headerlink" href="#clone" title="Permalink to this headline">¶</a></h3>
+<p>In a shell, run:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone git@github.com:YourUsername/CoinsManager.git
+<span class="gp">$</span> <span class="nb">cd </span>CoinsManager <span class="o">&amp;&amp;</span> git flow init
+</pre></div>
+</div>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="1_documentation.html#git-doc"><em>Copy repository for documentation</em></a></p>
+</div>
+</div>
+<div class="section" id="feature">
+<h3>Feature<a class="headerlink" href="#feature" title="Permalink to this headline">¶</a></h3>
+<p>So you cloned your repository and would like to work on some feature.
+Because we are using the <a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a>,
+you can create a new branch as follow:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git flow feature start my_new_feature
+<span class="gp">$</span> git commit <span class="c"># as many times as needed</span>
+<span class="gp">$</span> git flow feature publish my_new_feature
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">That git flow command is equivalent to
+<tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">feature/my_new_feature</span> <span class="pre">develop</span></tt></p>
+</div>
+</div>
+<div class="section" id="pull-request">
+<h3>Pull Request<a class="headerlink" href="#pull-request" title="Permalink to this headline">¶</a></h3>
+<p>Great, you create your new code and it&#8217;s available in your github repository.
+But you would like to see it integrated in the main repository. How can you do
+that ?</p>
+<p>Go to your github repository, and you should see something like this:</p>
+<img alt="../_images/git_compare_and_pull_request.png" src="../_images/git_compare_and_pull_request.png" />
+<p>Click on <em class="guilabel">Compare &amp; pull request</em>, this will bring you to the pull
+request interface.</p>
+<p>Note that by default, your branches will always try to merge into the master
+branch:</p>
+<img alt="../_images/git_pull_request_from_1.png" src="../_images/git_pull_request_from_1.png" />
+<p>Click on the <em class="guilabel">Edit</em> button and change it to the appropriate branch
+(most often <strong>develop</strong>)</p>
+<img alt="../_images/git_pull_request_from_2.png" src="../_images/git_pull_request_from_2.png" />
+<p>Add a useless message to describe the feature that you want to merge, and press
+<em class="guilabel">Send pull request</em>. Congratulations, you sent your first
+contribution !</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can always add more commits after sending a pull request. Just
+push them to your feature branch, and the pull request will automatically
+be updated with it.</p>
+</div>
+</div>
+<div class="section" id="remotes">
+<h3>Remotes<a class="headerlink" href="#remotes" title="Permalink to this headline">¶</a></h3>
+<p>You already did a contribution before, but want to do more, and your repository
+became quite outdated compared to the upstream repository.</p>
+<p>That&#8217;s no problem ! Just add a remote for the upstream repository and rebase
+from it:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git remote add upstream https://github.com/CoinsManager/CoinsManager.git
+<span class="gp">$</span> git fetch upstream
+<span class="gp">$</span> git checkout develop <span class="o">&amp;&amp;</span> git rebase upstream/develop
+</pre></div>
+</div>
+<p>Then, if you&#8217;ve been working on a feature and also want to update that branch
+with the latest:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git checkout feature/my_new_feature
+<span class="gp">$</span> git rebase develop
+</pre></div>
+</div>
+<p>It&#8217;s a good idea to rebase often, to make the pull request as easy to merge as
+possible for the core developers (you&#8217;ll probably be asked to rebase your branch
+and fix conflicts otherwise).</p>
+<p>If your code doesn&#8217;t break anything, you should see a successful Travis build
+appear:</p>
+<img alt="../_images/git_travis.png" src="../_images/git_travis.png" />
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">We just added upstream as remote, but you can add as many remotes as
+you want. If you want to participate in a feature that is awaiting merging
+in a pull request, add that user repo as a new remote, and pull request
+directly to that user branch for the upstream pull request to be
+auto-updated !</p>
+</div>
+</div>
+<div class="section" id="merge">
+<h3>Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h3>
+<p>If you are a power user, then you&#8217;ll be able to accept pull requests from other
+users. Go to the <a class="reference external" href="https://github.com/CoinsManager/CoinsManager/pulls">Pull request page</a>,
+select the pull request that you want to merge, and click on <em class="guilabel">Merge
+pull request</em>.</p>
+<img alt="../_images/git_merge.png" src="../_images/git_merge.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Guidance about Git</a><ul>
+<li><a class="reference internal" href="#installing-the-repo">Installing the repo</a><ul>
+<li><a class="reference internal" href="#fork">Fork</a></li>
+<li><a class="reference internal" href="#clone">Clone</a></li>
+<li><a class="reference internal" href="#feature">Feature</a></li>
+<li><a class="reference internal" href="#pull-request">Pull Request</a></li>
+<li><a class="reference internal" href="#remotes">Remotes</a></li>
+<li><a class="reference internal" href="#merge">Merge</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="1_documentation.html"
+                        title="previous chapter">Guidance for Scribers</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/Contributions/2_git.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="1_documentation.html" title="Guidance for Scribers"
+             >previous</a> |</li>
+        <li><a href="../index.html">CoinsManager v0.0.1 documentation</a> &raquo;</li>
+          <li><a href="0_title.html" >Contribution Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2013, Adrien Lemaire, Vladimir Plokhov.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
