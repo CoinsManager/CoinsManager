@@ -12,6 +12,8 @@ example to write your own documentation.
 .. seealso:: `github rst cheatsheet <https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst>`_
 
 
+.. _git-doc:
+
 Publish documentation to the `CoinsManager Online Documentation`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -28,8 +30,6 @@ repository and copy it:
     $ cp CoinsManager CoinsManagerDoc
     $ cd CoinsManagerDoc && git checkout gh-pages
     $ cd ../CoinsManager && git checkout develop
-    $ git remote add upstream https://github.com/CoinsManager/CoinsManager.git
-    $ git fetch upstream
     $ cd docs/
 
 Then edit the documentation, and when you're finished commiting it, publish as
