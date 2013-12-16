@@ -10,3 +10,4 @@ preserve-inputs
 coffeescript
 belt-jade-handlebars
 iron-router
+spin
