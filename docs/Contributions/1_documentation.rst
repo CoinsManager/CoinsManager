@@ -12,6 +12,8 @@ example to write your own documentation.
 .. seealso:: `github rst cheatsheet <https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst>`_
 
 
+.. _git-doc:
+
 Publish documentation to the `CoinsManager Online Documentation`__
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
