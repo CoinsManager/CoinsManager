@@ -9,3 +9,6 @@ insecure
 preserve-inputs
 coffeescript
 belt-jade-handlebars
+scss
+bourbon
+neat
