@@ -1,6 +1,8 @@
+$primary-color: #666666;
+
 body {
     background: #eee;
-    color: #666666;
+    color: $primary-color;
 }
 .main {
     background: #fff;
