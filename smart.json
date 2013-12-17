@@ -1,3 +1,8 @@
 {
-  "packages": {}
+  "packages": {
+    "belt-jade-handlebars": {
+          "git": "https://github.com/meteorbelt/belt-jade-handlebars",
+                "tag": "v0.1.0"
+    }
+  }
 }
