@@ -1,10 +1,17 @@
+@import "packages/bourbon/bourbon";
+@import "packages/neat/neat";
+
 $primary-color: #666666;
 
+
 body {
+    @include outer-container;
     background: #eee;
     color: $primary-color;
 }
 .main {
+    @include span-columns(6);
+    @include shift(3);
     background: #fff;
     border-radius: 3px;
     padding: 10px;
@@ -12,8 +19,12 @@ body {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-.navbar { margin-bottom: 10px }
+.navbar {
+    margin-bottom: 10px;
+}
 .navbar .navbar-inner {
     border-radius: 0px 0px 3px 3px;
 }
-
+.logo {
+    background-image: url("/public/logo/logo_mvp_256x256.png");
+}
