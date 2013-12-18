@@ -1,4 +1,4 @@
-Guidance for programmers
+Guidance for Programmers
 ========================
 
 We, at CoinsManager, are going to develop a product using the latest
