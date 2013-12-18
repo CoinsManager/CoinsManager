@@ -8,6 +8,7 @@
     "bourbon": {},
     "neat": {},
     "iron-router": {},
-    "spin": {}
+    "spin": {},
+    "GAnalytics": {}
   }
 }
