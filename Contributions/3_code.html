@@ -99,8 +99,9 @@ migrate the code to <a class="reference external" href="http://angularjs.org/">A
 <h3>Deploy code<a class="headerlink" href="#deploy-code" title="Permalink to this headline">¶</a></h3>
 <p>Since we installed <a class="reference external" href="https://atmosphere.meteor.com/package/GAnalytics">GAnalytics</a>,
 we need to specify the settings (containing our Google Analytics code) when
-deploying.</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> meteor deploy www.coinsmanager.com --settings settings.json
+deploying (note that you need to be a privileged user with access to the
+deployment password).</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> meteor deploy www.coinsmanager.com --password --settings settings.json
 </pre></div>
 </div>
 <div class="admonition note">
