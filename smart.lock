@@ -5,13 +5,31 @@
       "belt-jade-handlebars": {
         "git": "https://github.com/meteorbelt/belt-jade-handlebars",
         "tag": "v0.1.0"
-      }
+      },
+      "scss": {},
+      "bourbon": {},
+      "neat": {}
     },
     "packages": {
       "belt-jade-handlebars": {
         "git": "https://github.com/meteorbelt/belt-jade-handlebars",
         "tag": "v0.1.0",
         "commit": "d1f6189203401b677e22c7ef7d171b33185b5e2e"
+      },
+      "scss": {
+        "git": "https://github.com/fourseven/meteor-scss.git",
+        "tag": "v0.7.0",
+        "commit": "39f60d58c2b890bdd897ef52188644f3093fc2ac"
+      },
+      "bourbon": {
+        "git": "https://github.com/chicagogrooves/meteor-bourbon.git",
+        "tag": "v3.1.8.1",
+        "commit": "b55f0968fe7d4a2886898cd8e81394de066a3ae1"
+      },
+      "neat": {
+        "git": "https://github.com/chicagogrooves/meteor-neat.git",
+        "tag": "v1.5.0",
+        "commit": "6c318cce1c02e822d6a340c547273b29b6379197"
       }
     }
   }
