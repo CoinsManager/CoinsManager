@@ -6,10 +6,7 @@
     },
     "scss": {},
     "bourbon": {},
-    "neat": {}
-      "git": "https://github.com/meteorbelt/belt-jade-handlebars",
-      "tag": "v0.1.0"
-    },
+    "neat": {},
     "iron-router": {},
     "spin": {}
   }
