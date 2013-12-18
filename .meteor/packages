@@ -12,3 +12,5 @@ belt-jade-handlebars
 scss
 bourbon
 neat
+iron-router
+spin
