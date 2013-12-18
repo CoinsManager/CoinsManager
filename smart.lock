@@ -8,7 +8,7 @@
       },
       "scss": {},
       "bourbon": {},
-      "neat": {}
+      "neat": {},
       "iron-router": {},
       "spin": {}
     },
@@ -32,6 +32,7 @@
         "git": "https://github.com/chicagogrooves/meteor-neat.git",
         "tag": "v1.5.0",
         "commit": "6c318cce1c02e822d6a340c547273b29b6379197"
+      },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.6.1",
