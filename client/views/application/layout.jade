@@ -1,7 +1,4 @@
-head
-  title CoinsManager
-
-body
+template(name="layout")
   div.container
     header.navbar
       div.navbar-inner
@@ -9,4 +6,5 @@ body
           | CoinsManager
 
     div#main.row-fluid
-      | Coming Soon !
+        {{ yield }}
+
