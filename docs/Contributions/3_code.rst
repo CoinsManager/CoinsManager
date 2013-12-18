@@ -48,10 +48,11 @@ Deploy code
 ~~~~~~~~~~~
 Since we installed `GAnalytics <https://atmosphere.meteor.com/package/GAnalytics>`_,
 we need to specify the settings (containing our Google Analytics code) when
-deploying.
+deploying (note that you need to be a privileged user with access to the
+deployment password).
 
 .. code-block:: console
 
-    $ meteor deploy www.coinsmanager.com --settings settings.json
+    $ meteor deploy www.coinsmanager.com --password --settings settings.json
 
 .. note:: You don't need to run meteor with settings in your local environment.
