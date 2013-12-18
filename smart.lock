@@ -10,7 +10,8 @@
       "bourbon": {},
       "neat": {},
       "iron-router": {},
-      "spin": {}
+      "spin": {},
+      "GAnalytics": {}
     },
     "packages": {
       "belt-jade-handlebars": {
@@ -42,6 +43,11 @@
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v0.2.0",
         "commit": "fd3a2871a69442848b4b4e74f5e1ae28fa4a95a4"
+      },
+      "GAnalytics": {
+        "git": "https://github.com/datariot/meteor-ganalytics.git",
+        "tag": "v0.1.0",
+        "commit": "937c664cf755f26c6273e4970450c988291c8208"
       }
     }
   }

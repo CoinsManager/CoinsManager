@@ -9,5 +9,6 @@
     "neat": {},
     "iron-router": {},
     "spin": {}
+    "GAnalytics": {}
   }
 }
