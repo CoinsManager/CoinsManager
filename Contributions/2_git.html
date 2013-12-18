@@ -173,6 +173,7 @@ github pull request)</p>
 <span class="gp">$</span> git push origin --force
 </pre></div>
 </div>
+<p>Then you can merge the pull request from Github without conflict.</p>
 </li>
 <li><p class="first">Do a merge a-la git flow:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git remote add &lt;CONTRIBUTOR&gt; https://github.com/&lt;CONTRIBUTOR&gt;/CoinsManager.git
@@ -182,6 +183,7 @@ github pull request)</p>
 <span class="gp">$</span> git rebase upstream/origin
 <span class="gp">$</span> git flow feature finish &lt;NAME&gt;
 <span class="gp">$</span> <span class="c"># RESOLVE CONFLICT</span>
+<span class="gp">$</span> git commit
 <span class="gp">$</span> git push upstream develop
 </pre></div>
 </div>

@@ -145,6 +145,7 @@ conflict. Two options are available:
       $ git rebase --continue
       $ git push origin --force
 
+  Then you can merge the pull request from Github without conflict.
 
 * Do a merge a-la git flow:
 
@@ -157,4 +158,5 @@ conflict. Two options are available:
       $ git rebase upstream/origin
       $ git flow feature finish <NAME>
       $ # RESOLVE CONFLICT
+      $ git commit
       $ git push upstream develop
