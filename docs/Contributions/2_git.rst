@@ -123,3 +123,38 @@ select the pull request that you want to merge, and click on :guilabel:`Merge
 pull request`.
 
 .. image:: ../_static/git_merge.png
+
+Merge conflict
+~~~~~~~~~~~~~~
+You tried to merge a pull request from Github, but it failed due to some
+conflict. Two options are available:
+
+* Merge is too difficult to resolve, or you lack time to resolve it: Ask the
+  author of the pull request to rebase his feature from upstream (therefore
+  he'll need to deal with the conflict, then ``push --force`` to update his
+  github pull request)
+
+  The Author would need to proceed as follow:
+
+  .. code-block:: console
+
+      $ git checkout feature/<NAME>
+      $ git fetch upstream
+      $ git rebase upstream/develop
+      $ # RESOLVE CONFLICT
+      $ git rebase --continue
+      $ git push origin --force
+
+
+* Do a merge a-la git flow:
+
+  .. code-block:: console
+  
+      $ git remote add <CONTRIBUTOR> https://github.com/<CONTRIBUTOR>/CoinsManager.git
+      $ git checkout -b feature/<NAME> <CONTRIBUTOR>/feature/<NAME>
+      $ git checkout develop
+      $ git fetch upstream
+      $ git rebase upstream/origin
+      $ git flow feature finish <NAME>
+      $ # RESOLVE CONFLICT
+      $ git push upstream develop
