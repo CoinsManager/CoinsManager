@@ -155,6 +155,39 @@ select the pull request that you want to merge, and click on <em class="guilabel
 pull request</em>.</p>
 <img alt="../_images/git_merge.png" src="../_images/git_merge.png" />
 </div>
+<div class="section" id="merge-conflict">
+<h3>Merge conflict<a class="headerlink" href="#merge-conflict" title="Permalink to this headline">¶</a></h3>
+<p>You tried to merge a pull request from Github, but it failed due to some
+conflict. Two options are available:</p>
+<ul>
+<li><p class="first">Merge is too difficult to resolve, or you lack time to resolve it: Ask the
+author of the pull request to rebase his feature from upstream (therefore
+he&#8217;ll need to deal with the conflict, then <tt class="docutils literal"><span class="pre">push</span> <span class="pre">--force</span></tt> to update his
+github pull request)</p>
+<p>The Author would need to proceed as follow:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git checkout feature/&lt;NAME&gt;
+<span class="gp">$</span> git fetch upstream
+<span class="gp">$</span> git rebase upstream/develop
+<span class="gp">$</span> <span class="c"># RESOLVE CONFLICT</span>
+<span class="gp">$</span> git rebase --continue
+<span class="gp">$</span> git push origin --force
+</pre></div>
+</div>
+</li>
+<li><p class="first">Do a merge a-la git flow:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git remote add &lt;CONTRIBUTOR&gt; https://github.com/&lt;CONTRIBUTOR&gt;/CoinsManager.git
+<span class="gp">$</span> git checkout -b feature/&lt;NAME&gt; &lt;CONTRIBUTOR&gt;/feature/&lt;NAME&gt;
+<span class="gp">$</span> git checkout develop
+<span class="gp">$</span> git fetch upstream
+<span class="gp">$</span> git rebase upstream/origin
+<span class="gp">$</span> git flow feature finish &lt;NAME&gt;
+<span class="gp">$</span> <span class="c"># RESOLVE CONFLICT</span>
+<span class="gp">$</span> git push upstream develop
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -177,6 +210,7 @@ pull request</em>.</p>
 <li><a class="reference internal" href="#pull-request">Pull Request</a></li>
 <li><a class="reference internal" href="#remotes">Remotes</a></li>
 <li><a class="reference internal" href="#merge">Merge</a></li>
+<li><a class="reference internal" href="#merge-conflict">Merge conflict</a></li>
 </ul>
 </li>
 </ul>
