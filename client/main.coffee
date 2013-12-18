@@ -1,1 +1,0 @@
-do GAnalytics.pageview
