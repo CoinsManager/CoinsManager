@@ -1,0 +1,44 @@
+/* Import
+
+@import compass
+@import compass/layout
+@import breakpoint
+@import media_queries
+
+/* Colors
+
+$primary-color: #6cae48
+$secondary-color: #333333
+$accent-color: #f09609
+
+/* Variables
+
+$body-gap: 1rem
+
+/* Sprites
+
+$sprites: sprite-map("sprites/*.png")
+$sprites-retina: sprite-map("sprites-retina/*.png")
+
+/* Mixins
+
+// Retina sprites support
+
+=sprite-background($name, $add_block_size: true)
+    background-image: sprite-url($sprites)
+    background-position: sprite-position($sprites, $name)
+    background-repeat: no-repeat
+    @if $add_block_size == true
+        display: block
+        height: image-height(sprite-file($sprites, $name))
+        width: image-width(sprite-file($sprites, $name))
+    @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3 / 2), (min-device-pixel-ratio: 2)
+        @if sprite-position($sprites, $name) != sprite-position($sprites-retina, $name)
+            $ypos: round(nth(sprite-position($sprites-retina, $name), 2) / 2)
+            background-position: 0 $ypos
+
+        // Grab size of non-retina sprite image.
+        $img_width: image-width(sprite-path($sprites))
+        $img_height: image-height(sprite-path($sprites))
+        +background-size($img_width $img_height)
+        background-image: sprite-url($sprites-retina)

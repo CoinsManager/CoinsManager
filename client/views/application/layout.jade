@@ -1,11 +1,15 @@
 template(name="layout")
-  div.container
-    header.navbar
+    <!--[if lt IE 7]>
+    p.browsehappy
+      | You are using an <strong>outdated</strong> browser.
+      | Please <a href="http://browsehappy.com/">upgrade your browser</a>
+      | to improve your experience.
+    <![endif]-->
+    div.wrapper
       div.logo
-      div.navbar-inner
-        a.brand(href="/")
-          | CoinsManager
+      {{> news}}
+      {{> donate}}
 
-    div#main.row-fluid
-        {{ yield }}
+
+
 
