@@ -2,4 +2,5 @@ packages
 *swp
 *swo
 *.jade~
+*.js~
 .sass-cache

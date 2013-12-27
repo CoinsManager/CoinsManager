@@ -695,7 +695,6 @@ a:active {
     right: 12rem;
     bottom: auto;
     left: auto;
-    margin: 0;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
@@ -705,11 +704,10 @@ a:active {
     right: 5rem;
     bottom: auto;
     left: auto;
-    margin: 0;
   }
 }
 
-/* line 71, ../compass/sass/main.sass */
+/* line 67, ../compass/sass/main.sass */
 .news, .donate {
   color: white;
   font-size: 2rem;
@@ -718,7 +716,7 @@ a:active {
   background: rgba(51, 51, 51, 0.7);
 }
 @media only screen and (max-width: 1060px) {
-  /* line 71, ../compass/sass/main.sass */
+  /* line 67, ../compass/sass/main.sass */
   .news, .donate {
     width: 100%;
     float: none !important;
@@ -728,54 +726,54 @@ a:active {
 }
 
 @media only screen and (max-width: 1060px) {
-  /* line 83, ../compass/sass/main.sass */
+  /* line 79, ../compass/sass/main.sass */
   .wrapper {
     width: 50rem;
     margin: 0 auto;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 83, ../compass/sass/main.sass */
+  /* line 79, ../compass/sass/main.sass */
   .wrapper {
     width: 100%;
   }
 }
 
-/* line 94, ../compass/sass/main.sass */
+/* line 89, ../compass/sass/main.sass */
 .news {
   float: left;
 }
-/* line 96, ../compass/sass/main.sass */
+/* line 91, ../compass/sass/main.sass */
 .news iframe {
   display: block;
   margin: 0 auto;
 }
 
-/* line 100, ../compass/sass/main.sass */
+/* line 95, ../compass/sass/main.sass */
 .donate {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
 }
 
-/* line 105, ../compass/sass/main.sass */
+/* line 100, ../compass/sass/main.sass */
 .bitcoin {
   float: left;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 105, ../compass/sass/main.sass */
+  /* line 100, ../compass/sass/main.sass */
   .bitcoin {
     float: none;
     margin: 0 auto;
   }
 }
 
-/* line 111, ../compass/sass/main.sass */
+/* line 106, ../compass/sass/main.sass */
 .bitcoin-line {
   line-height: 41px;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 111, ../compass/sass/main.sass */
+  /* line 106, ../compass/sass/main.sass */
   .bitcoin-line {
     font-size: 1.2rem;
     text-align: center;
