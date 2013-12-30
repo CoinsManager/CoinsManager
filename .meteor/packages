@@ -9,9 +9,7 @@ insecure
 preserve-inputs
 coffeescript
 belt-jade-handlebars
-scss
-bourbon
-neat
 iron-router
 spin
 GAnalytics
+font-awesome
