@@ -1,111 +1,77 @@
 @import base
 @import normalize
+@import base_elements
+@import animations
 
-/* Define font
+.tour
+    h1
+        font-size: 7rem
+        line-height: 8rem
+        text-align: center
+        display: inline-block
+        +breakpoint($smartphone)
+            font-size: 3rem
+            line-height: 4rem
+    header
+        i
+            font-size: 10rem
+            margin-right: 3rem
+            +breakpoint($smartphone)
+                margin-right: 1rem
+                font-size: 3rem
+    section
+        font-size: 2.4rem
+        text-align: center
+        border: dotted 0.5rem white
+        padding: 6rem
+        margin: 10rem 6rem 20rem
+        background: rgba(white, 0.2)
+        visibility: hidden
+        +breakpoint($smartphone)
+            border: none
+            background: inherit
+            margin: 0
+            padding: 1rem
+        &.is-visible
+            visibility: visible
+    article
+        font-size: 3.6rem
+        word-break: break-word
+        +breakpoint($smartphone)
+            font-size: 2rem
 
-+font-face("OpenSans", font-files("OpenSans-Light-webfont.ttf", ttf, "OpenSans-Light-webfont.woff", woff, "OpenSans-Light-webfont.svg", svg), "OpenSans-Light-webfont.eot", normal)
+.logo
+    margin: 10rem auto
+    +breakpoint($smartphone)
+        margin: 3rem auto
 
-+font-face("OpenSans", font-files("OpenSans-Regular-webfont.ttf", ttf, "OpenSans-Regular-webfont.woff", woff, "OpenSans-Regular-webfont.svg", svg), "OpenSans-Regular-webfont.eot", bold)
+.slogan, .coming_soon
+    font-size: 4rem
+    text-align: center
+    margin: 15rem 0
+    +breakpoint($smartphone)
+        margin: 3rem
+        font-size: 2.4rem
 
-/* Trick for force smooth in Chrome
-
-// SVG looks better in chrome. Also, Opera needs another fix: ttf after svg for correct rendering
-
-@media screen and (-webkit-min-device-pixel-ratio: 0)
-    +font-face("OpenSans", font-files("OpenSans-Light-webfont.svg", svg, "OpenSans-Light-webfont.ttf", ttf), $weight: normal)
-    +font-face("OpenSans", font-files("OpenSans-Semibold-webfont.svg", svg, "OpenSans-Semibold-webfont.ttf", ttf), $weight: bold)
-
-/* Generating Sprites
-
-@each $i in sprite_names($sprites)
-    .#{$i}
-        +sprite-background($i)
-
-/* General page styles
-
-html
-    font-family: "OpenSans"
-    font-size: 62.5%
-    -webkit-text-size-adjust: 100%
-    -ms-text-size-adjust: 100%
-
-body
-    background: $primary-color
-    margin: $body-gap
-
-header
-    background: rgba($secondary-color, 0.9)
+.news
+    color: white
+    font-size: 2rem
+    background: rgba($secondary-color, 0.7)
+    max-width: 36rem
+    margin: 0 auto
+    header
+        background: $secondary-color
+        text-align: center
     h1
         margin: 0
         padding: 3rem
-        text-align: center
-        font-weight: normal
-
-a
-    +link-colors($accent-color, tint($accent-color, 30%), shade($accent-color, 20%))
-
-.content
-    padding: 3rem
-
-.logo // Has image in sprite
-    +stretch(0)
-    margin: auto
-    +breakpoint($broken_by_width)
-        position: static
-        margin-bottom: 1rem
-    +breakpoint($broken_by_height)
-        top: 10rem
-        right: 12rem
-        bottom: auto
-        left: auto
-    +breakpoint($ipad)
-        top: 5rem
-        right: 5rem
-        bottom: auto
-        left: auto
-
-%cloud
-    color: white
-    font-size: 2rem
-    min-width: 30rem
-    min-height: 5rem
-    background: rgba($secondary-color, 0.7)
-    +breakpoint($broken_by_width)
-        width: 100%
-        float: none !important
-        position: static !important
-        margin-bottom: 1rem
-
-.wrapper
-    +breakpoint($broken_by_width)
-        width: 50rem
-        margin: 0 auto
-    +breakpoint($smartphone)
-        width: 100%
-
-.news, .donate
-    @extend %cloud
-
-.news
-    float: left
+        font-weight: bold
     iframe
+        width: 30rem
         display: block
-        margin: 0 auto
-
-.donate
-    position: absolute
-    bottom: $body-gap
-    right: $body-gap
-
-.bitcoin  // Has image in sprite
-    float: left
+        margin: 0 aut
+    .content
+        padding: 3rem
+        margin: auto
     +breakpoint($smartphone)
-        float: none
-        margin: 0 auto
-
-.bitcoin-line
-    $image: "sprites/bitcoin.png"
-    line-height: image-height($image)
-    +breakpoint($smartphone)
-        font-size: 1.2rem
-        text-align: center
+        width: 100%
