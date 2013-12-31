@@ -612,11 +612,11 @@ body {
 
 /* line 33, ../compass/sass/_base_elements.sass */
 a {
-  color: #f09609;
+  color: white;
 }
 /* line 24, ../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 a:hover {
-  color: #f4b552;
+  color: #333333;
 }
 /* line 27, ../../../../../../Ruby193/lib/ruby/gems/1.9.1/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 a:active {
@@ -2149,6 +2149,47 @@ stretchRight
 }
 
 /* line 56, ../compass/sass/main.sass */
+.subscribe {
+  margin: 15rem 0;
+}
+/* line 58, ../compass/sass/main.sass */
+.subscribe header {
+  text-align: center;
+}
+/* line 60, ../compass/sass/main.sass */
+.subscribe h1 {
+  font-size: 7rem;
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  /* line 60, ../compass/sass/main.sass */
+  .subscribe h1 {
+    font-size: 3rem;
+  }
+}
+/* line 64, ../compass/sass/main.sass */
+.subscribe .content {
+  text-align: center;
+  font-size: 10rem;
+}
+/* line 67, ../compass/sass/main.sass */
+.subscribe .content a {
+  margin: 3rem;
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  /* line 64, ../compass/sass/main.sass */
+  .subscribe .content {
+    font-size: 6rem;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  /* line 56, ../compass/sass/main.sass */
+  .subscribe {
+    margin: 3rem;
+    font-size: 2.4rem;
+  }
+}
+
+/* line 75, ../compass/sass/main.sass */
 .news {
   color: white;
   font-size: 2rem;
@@ -2156,30 +2197,30 @@ stretchRight
   max-width: 36rem;
   margin: 0 auto;
 }
-/* line 62, ../compass/sass/main.sass */
+/* line 81, ../compass/sass/main.sass */
 .news header {
   background: #333333;
   text-align: center;
 }
-/* line 65, ../compass/sass/main.sass */
+/* line 84, ../compass/sass/main.sass */
 .news h1 {
   margin: 0;
   padding: 3rem;
   font-weight: bold;
 }
-/* line 69, ../compass/sass/main.sass */
+/* line 88, ../compass/sass/main.sass */
 .news iframe {
   width: 30rem;
   display: block;
   margin: 0 aut;
 }
-/* line 73, ../compass/sass/main.sass */
+/* line 92, ../compass/sass/main.sass */
 .news .content {
   padding: 3rem;
   margin: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 767px) {
-  /* line 56, ../compass/sass/main.sass */
+  /* line 75, ../compass/sass/main.sass */
   .news {
     width: 100%;
   }
