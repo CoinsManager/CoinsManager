@@ -1,0 +1,34 @@
+// Define font
+
++font-face("OpenSans", font-files("OpenSans-Light-webfont.ttf", ttf, "OpenSans-Light-webfont.woff", woff, "OpenSans-Light-webfont.svg", svg), "OpenSans-Light-webfont.eot", normal)
+
++font-face("OpenSans", font-files("OpenSans-Regular-webfont.ttf", ttf, "OpenSans-Regular-webfont.woff", woff, "OpenSans-Regular-webfont.svg", svg), "OpenSans-Regular-webfont.eot", bold)
+
+// Trick for force smooth in Chrome. SVG looks better in chrome. Also, Opera
+// needs another fix: ttf after svg for correct rendering
+
+@media screen and (-webkit-min-device-pixel-ratio: 0)
+    +font-face("OpenSans", font-files("OpenSans-Light-webfont.svg", svg, "OpenSans-Light-webfont.ttf", ttf), $weight: normal)
+    +font-face("OpenSans", font-files("OpenSans-Semibold-webfont.svg", svg, "OpenSans-Semibold-webfont.ttf", ttf), $weight: bold)
+
+// Generating Sprites
+
+@each $i in sprite_names($sprites)
+    .#{$i}
+        +sprite-background($i)
+
+// General page styles
+
+html
+    font-family: "OpenSans"
+    font-size: 62.5%
+    -webkit-text-size-adjust: 100%
+    -ms-text-size-adjust: 100%
+
+body
+    background: $primary-color
+    margin: $body-gap
+    color: white
+
+a
+    +link-colors($accent-color, tint($accent-color, 30%), shade($accent-color, 20%))
