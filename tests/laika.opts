@@ -1,0 +1,3 @@
+--ui bdd
+--compilers coffee:coffee-script
+--reporter dot
