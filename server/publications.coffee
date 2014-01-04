@@ -1,2 +1,2 @@
-Meteor.publish 'BaseCoin' ->
+Meteor.publish 'BaseCoin', () ->
   BaseCoin.find
