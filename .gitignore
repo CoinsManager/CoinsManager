@@ -1,5 +1,7 @@
-packages
-*swp
-*swo
 .sass-cache
 *~
+*.css
+*.js
+*.swp
+*.swo
+packages
