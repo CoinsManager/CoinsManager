@@ -43,6 +43,15 @@ you can create a new branch as follow:
     That git flow command is equivalent to
     ``git checkout -b feature/my_new_feature develop``
 
+.. important::
+
+    If you're going to work on a specific branch (for example
+    **alpha**), and wish to use git flow for it, you'll need to change your
+    :file:`.git/config` to match your new main development branch:
+
+      .. image:: ../_static/git_gitflow_develop.png
+
+
 Pull Request
 ~~~~~~~~~~~~
 Great, you create your new code and it's available in your github repository.
