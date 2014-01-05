@@ -1,0 +1,68 @@
+// Flat form elements
+
+// Base parameters
+
+$height: 4.4rem
+$padding: 1rem
+$border-width: 0.2rem
+
+// Mobile-size parameters
+
+$padding-small: 0.5rem
+$height-small: 3rem
+
+.btn-flat
+    background: none
+    border: $border-width solid white
+    outline: none
+    color: white
+    font-family: $default-font
+    font-size: 1.6rem
+    height: $height
+    padding: $padding
+    &:hover
+        background: white
+        color: $secondary-color
+    +breakpoint($smartphone-portrait)
+        font-size: 1.4rem
+        padding: $padding-small
+        height: $height-small
+
+.inpt-flat
+    background: rgba($secondary-color, 0.7)
+    border: 0.2rem solid $secondary-color
+    color: white
+    font-family: $default-font
+    height: $height - $padding*2 - $border-width*2
+    padding: $padding
+    &:focus
+        outline: $border-width solid white
+    +breakpoint($smartphone-portrait)
+        font-size: 1.4rem
+        padding: $padding-small
+        height: $height-small - $padding-small*2 - $border-width*2
+
+// Active blocks
+
+%active_block
+    color: white
+    font-size: 2rem
+    background: rgba($secondary-color, 0.7)
+    max-width: 56rem
+    margin: 0 auto
+    header
+        background: $secondary-color
+        text-align: center
+    h1
+        margin: 0
+        padding: 3rem
+        font-weight: bold
+        +breakpoint($smartphone-portrait)
+            padding: 1rem
+    .content
+        padding: 3rem
+        margin: auto
+        +breakpoint($smartphone-portrait)
+            padding: 2rem 1rem
+    +breakpoint($smartphone)
+        width: 100%

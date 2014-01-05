@@ -1,6 +1,7 @@
 @import base
 @import normalize
 @import base_elements
+@import modules
 @import animations
 
 .tour
@@ -73,24 +74,20 @@
         font-size: 2.4rem
 
 .news
-    color: white
-    font-size: 2rem
-    background: rgba($secondary-color, 0.7)
-    max-width: 36rem
-    margin: 0 auto
-    header
-        background: $secondary-color
-        text-align: center
-    h1
-        margin: 0
-        padding: 3rem
-        font-weight: bold
+    @extend %active_block
     iframe
         width: 30rem
         display: block
-        margin: 0 aut
-    .content
-        padding: 3rem
-        margin: auto
-    +breakpoint($smartphone)
-        width: 100%
+        margin: 0 auto
+
+.newsletter
+    @extend %active_block
+    input[type="text"]
+        width: 60%
+        +breakpoint($smartphone-portrait)
+            width: 45%
+    input[type="submit"]
+        float: right
+        width: 30%
+        +breakpoint($smartphone-portrait)
+            width: 40%
