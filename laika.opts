@@ -1,4 +1,4 @@
+--debug-brk
 --ui bdd
 --compilers coffee:coffee-script
---reporter spec
---debug-brk
+--reporter nyan
