@@ -4,6 +4,7 @@ node_js:
 before_install:
   #- "curl -L http://git.io/ejPSng | /bin/sh"
   - "curl -L http://git.io/3l-rRA | /bin/sh"
+  - npm install coffee-script
 services:
     - mongodb
 env:
