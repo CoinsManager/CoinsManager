@@ -2,8 +2,7 @@
   ##if Meteor.coins.find().count() is 0
 if Coins.find().count() is 0
   Coins.insert
-    name: 'Bitcoin'
-    avg_value: 1000
+    avg_value: 2000
   Coins.insert
     name: 'Litecoin'
     avg_value: 40

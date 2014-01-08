@@ -2,4 +2,6 @@ template(name="coinItem")
     div.coin
         div.coin-content
             h3
-                {{name}}: {{avg_value}}
+                {{printInfo}}
+            div.avg_value
+                {{attributes.avg_value}}
