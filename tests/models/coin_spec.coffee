@@ -1,4 +1,5 @@
-{BaseCrypto, Bitcoin} = require "#{__dirname}/../../models/base_coins"
+{BaseCrypto} = require "#{__dirname}/../../models/base_coins"
+{Bitcoin} = require "#{__dirname}/../../models/bitcoin"
 
 
 describe 'BaseCrypto', ->
