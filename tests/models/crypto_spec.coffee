@@ -8,7 +8,7 @@ describe 'BaseCrypto', ->
     BaseCrypto.should.be.ok
 
 
-describe 'Coins', ->
+describe 'CryptoCurrencies', ->
 
   coin = false
 
@@ -19,13 +19,13 @@ describe 'Coins', ->
 
     it 'should have a default name', ->
       coin.should.be.an.instanceOf BaseCrypto
-      coin.should.have.property 'name', 'Bitcoin'
+      coin.should.have.a.property 'name', 'Bitcoin'
 
     it 'should have an average value', ->
       coin.avg_value.should.eql 1000
 
     it 'should contain a list of exchanges', ->
-      coin.should.have.property 'exchanges'
+      coin.should.have.a.property 'exchanges'
 
     #it 'should have a public address', ->
       #@coin.should.exist 'address'

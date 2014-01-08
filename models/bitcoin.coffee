@@ -1,4 +1,8 @@
 class @Bitcoin extends @BaseCrypto
+  ###
+  This class define all the informations needed for Bitcoin.
+  The average value corresponds to the user favorite fiat currency.
+  ###
 
   constructor: (@attributes) ->
     @attributes.name = @attributes.name or 'Bitcoin'
