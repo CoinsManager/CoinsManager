@@ -1,2 +1,2 @@
-#Meteor.publish 'coins', () ->
-  #Coins.find()
+Meteor.publish 'coins', () ->
+  Coins.find()
