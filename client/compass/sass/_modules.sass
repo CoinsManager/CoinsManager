@@ -5,6 +5,7 @@
 $height: 4.4rem
 $padding: 1rem
 $border-width: 0.2rem
+$block-gap: 60rem
 
 // Mobile-size parameters
 
@@ -49,7 +50,7 @@ $height-small: 3rem
     font-size: 2rem
     background: rgba($secondary-color, 0.7)
     max-width: 56rem
-    margin: 0 auto
+    margin: $block-gap auto
     header
         background: $secondary-color
         text-align: center
@@ -66,3 +67,4 @@ $height-small: 3rem
             padding: 2rem 1rem
     +breakpoint($smartphone)
         width: 100%
+        margin: 0 auto

@@ -4,6 +4,39 @@
 @import modules
 @import animations
 
+body > nav
+    $height: 6rem
+    $width: 70rem
+    $count: 5
+    & > ul
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        margin: auto
+        width: $width
+        list-style: none
+        padding: 0
+        z-index: 100
+        +breakpoint($smartphone)
+            display: none
+    li
+        display: block
+        float: left
+        height: $height
+        margin: 0
+        line-height: $height
+        width: $width / $count
+        font-size: 1.8rem
+        text-align: center
+        background: $secondary-color
+        position: relative
+        &:hover
+            background: tint($secondary-color, 10%)
+            cursor: pointer
+        &.is-active
+            background: tint($secondary-color, 30%)
+
 .tour
     h1
         font-size: 7rem
@@ -25,9 +58,10 @@
         text-align: center
         border: dotted 0.5rem white
         padding: 6rem
-        margin: 10rem 6rem 20rem
+        margin: $block-gap 6rem
         background: rgba(white, 0.2)
         visibility: hidden
+        position: relative
         +breakpoint($smartphone)
             border: none
             background: inherit
@@ -40,22 +74,39 @@
         word-break: break-word
         +breakpoint($smartphone)
             font-size: 2rem
+    .subnavigation
+        position: absolute
+        bottom: -10rem
+        left: 0
+        right: 0
+        margin: 0 auto
+        font-size: 6rem
+        width: 16rem
+        i
+            margin: 0 1rem
+            cursor: pointer
+        &.solo
+            i
+                float: none
+                margin: 0 auto
+        +breakpoint($smartphone)
+            display: none
 
 .logo
-    margin: 10rem auto
+    margin: 20rem auto 10rem
     +breakpoint($smartphone)
         margin: 3rem auto
 
 .slogan, .coming_soon
     font-size: 4rem
     text-align: center
-    margin: 15rem 0
+    margin: 10rem 0
     +breakpoint($smartphone)
         margin: 3rem
         font-size: 2.4rem
 
 .subscribe
-    margin: 15rem 0
+    margin: $block-gap 0
     header
         text-align: center
     h1
