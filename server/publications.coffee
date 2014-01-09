@@ -4,3 +4,7 @@ Meteor.publish 'coins', () ->
 
 Meteor.publish 'exchanges', () ->
   Exchanges.find()
+
+
+Meteor.publish 'fiats', () ->
+  Fiats.find()

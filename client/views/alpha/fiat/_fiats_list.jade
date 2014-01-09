@@ -1,0 +1,6 @@
+template(name="fiatsList")
+    h1 List of Fiat Currencies
+    div.fiats
+        {{#each fiats}}
+            {{> fiatItem}}
+        {{/each}}
