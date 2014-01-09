@@ -1,5 +1,3 @@
-##Meteor.startup ->
-  ##if Meteor.coins.find().count() is 0
 if Coins.find().count() is 0
   Coins.insert
     avg_value: 2000
@@ -12,3 +10,8 @@ if Coins.find().count() is 0
   Coins.insert
     name: 'FeatherCoin'
     avg_value: 5
+
+
+if Exchanges.find().count() is 0
+  names = ['Mt.Gox', 'Bitstamp', 'Vircurex', 'BTC-e', 'BTCChina']
+  Exchanges.insert {name: name} for name in names

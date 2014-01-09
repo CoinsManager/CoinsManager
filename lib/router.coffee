@@ -11,3 +11,4 @@ Router.map ->
     path: '/',
     waitOn: ->
       Meteor.subscribe 'coins'
+      Meteor.subscribe 'exchanges'
