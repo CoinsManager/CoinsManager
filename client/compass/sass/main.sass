@@ -1,32 +1,72 @@
 @import base
 @import normalize
 @import base_elements
+@import modules
 @import animations
+
+body > nav
+    $height: 6rem
+    $width: 70rem
+    $count: 5
+    & > ul
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        margin: auto
+        width: $width
+        list-style: none
+        padding: 0
+        z-index: 100
+        +breakpoint($smartphone)
+            display: none
+    li
+        display: block
+        float: left
+        height: $height
+        margin: 0
+        line-height: $height
+        width: $width / $count
+        font-size: 1.8rem
+        text-align: center
+        background: $secondary-color
+        position: relative
+        &:hover
+            background: tint($secondary-color, 10%)
+            cursor: pointer
+        &.is-active
+            background: tint($secondary-color, 30%)
 
 .tour
     h1
-        font-size: 7rem
+        font-size: 6rem
         line-height: 8rem
         text-align: center
         display: inline-block
+        margin: 0 0 2rem 0
         +breakpoint($smartphone)
             font-size: 3rem
             line-height: 4rem
+        +breakpoint($small-height-laptop)
+            font-size: 4rem
     header
         i
-            font-size: 10rem
+            font-size: 8rem
             margin-right: 3rem
             +breakpoint($smartphone)
                 margin-right: 1rem
                 font-size: 3rem
+            +breakpoint($small-height-laptop)
+                font-size: 5rem
     section
         font-size: 2.4rem
         text-align: center
         border: dotted 0.5rem white
-        padding: 6rem
-        margin: 10rem 6rem 20rem
+        padding: 4rem
+        margin: $block-gap 6rem
         background: rgba(white, 0.2)
         visibility: hidden
+        position: relative
         +breakpoint($smartphone)
             border: none
             background: inherit
@@ -37,24 +77,44 @@
     article
         font-size: 3.6rem
         word-break: break-word
+        text-align: justify
         +breakpoint($smartphone)
             font-size: 2rem
+        +breakpoint($small-height-laptop)
+            font-size: 2.8rem
+    .subnavigation
+        position: absolute
+        bottom: -10rem
+        left: 0
+        right: 0
+        margin: 0 auto
+        font-size: 6rem
+        width: 16rem
+        i
+            margin: 0 1rem
+            cursor: pointer
+        &.solo
+            i
+                float: none
+                margin: 0 auto
+        +breakpoint($smartphone)
+            display: none
 
 .logo
-    margin: 10rem auto
+    margin: 12rem auto 10rem
     +breakpoint($smartphone)
         margin: 3rem auto
 
 .slogan, .coming_soon
     font-size: 4rem
     text-align: center
-    margin: 15rem 0
+    margin: 10rem 0
     +breakpoint($smartphone)
         margin: 3rem
         font-size: 2.4rem
 
 .subscribe
-    margin: 15rem 0
+    margin: $block-gap 0
     header
         text-align: center
     h1
@@ -73,24 +133,23 @@
         font-size: 2.4rem
 
 .news
-    color: white
-    font-size: 2rem
-    background: rgba($secondary-color, 0.7)
-    max-width: 36rem
-    margin: 0 auto
-    header
-        background: $secondary-color
-        text-align: center
-    h1
-        margin: 0
-        padding: 3rem
-        font-weight: bold
+    @extend %active_block
     iframe
         width: 30rem
         display: block
-        margin: 0 aut
-    .content
-        padding: 3rem
-        margin: auto
-    +breakpoint($smartphone)
-        width: 100%
+        margin: 0 auto
+
+.newsletter
+    @extend %active_block
+    input[type="text"]
+        width: 60%
+        +breakpoint($smartphone-portrait)
+            width: 45%
+    input[type="submit"]
+        float: right
+        width: 30%
+        +breakpoint($smartphone-portrait)
+            width: 40%
+
+.donation_address
+    text-align: center

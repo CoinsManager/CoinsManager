@@ -1,17 +1,15 @@
 template(name="newsletter")
-    iframe.subscribe(src="https://madmimi.com/signups/98001/iframe",
-           scrolling="no",
-           frameborder="0",
-           height="314",
-           width="400")
-
-template(name="newsletter_without_iframe")
-    div.subscribe
-        form(action="https://madmimi.com/signups/subscribe/98001",
-             method="post",
-             target="_blank")
-            input.subscribe-form-email(type="text",
-                                       name="signup[email]",
-                                       placeholder="Enter your email")
-            input.subscribe-form-submit(type="submit",
-                                        value="Subscribe Now")
+    section.newsletter#newsletter
+        header
+            h1 Newsletter
+        div.content
+          form(action="https://madmimi.com/signups/subscribe/98001",
+               method="post",
+               target="_blank")
+              input.subscribe-form-email(type="text",
+                                         name="signup[email]",
+                                         placeholder="Enter your email",
+                                         class="inpt-flat")
+              input.subscribe-form-submit(type="submit",
+                                          value="Subscribe Now",
+                                          class="btn-flat tossing")

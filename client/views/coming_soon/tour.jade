@@ -1,39 +1,80 @@
 template(name="tour")
-    div.tour
-        section.open
+    div.tour#about
+        section#open
             header
-                i(class="fa fa-users")
+                i.fa.fa-users
                 h1 Open Source
             article
-                | Completely transparent, encouraging contribution
-        section.free
+                | Completely transparent, encouraging contribution. This project
+                | will be community-driven, and new features will be added by
+                | popularity.
+            div.subnavigation.solo
+                i.fa.fa-chevron-down(data-link="#free")
+        section#free
             header
-                i(class="fa fa-dollar")
+                i.fa.fa-dollar
                 h1 Free
             article
-                | Works only on donations
-        section.easy
+                | It is, and will always be, completely free!
+                | Donations are appreciated to support the project.
+            div.subnavigation
+                i.fa.fa-chevron-up(data-link="#open")
+                i.fa.fa-chevron-down(data-link="#easy")
+        section#easy
             header
-                i(class="fa fa-gavel")
+                i.fa.fa-gavel
                 h1 Easy to use
             article
-                | Simply add your public addresses and you're good to go!
-        section.fast
+                | Simply add your public addresses and you're good to go! Your
+                | coins will be automatically found for you, and the service
+                | will tell you the profit/losses per coin you own as well as a
+                | total estimation of your wealth.
+            div.subnavigation
+                i.fa.fa-chevron-up(data-link="#free")
+                i.fa.fa-chevron-down(data-link="#fast")
+        section#fast
             header
-                i(class="fa fa-flash")
+                i.fa.fa-flash
                 h1 Fast
             article
-                | Using cutting-edge technologies to give the best browsing
-                | experience
-        section.secure
+                | We are using cutting-edge technologies to give the best
+                | browsing experience. Your browser page will automatically
+                | update itself, no more ctrl-R required to refresh the page!
+            div.subnavigation
+                i.fa.fa-chevron-up(data-link="#easy")
+                i.fa.fa-chevron-down(data-link="#beautiful")
+        section#beautiful
             header
-                i(class="fa fa-laptop")
+                i.fa.fa-magic
+                h1 Beautiful interface
+            article
+                | We have an awesome designer in the team, who has committed to
+                | building a magnificent interface that should delight our users!
+            div.subnavigation
+                i.fa.fa-chevron-up(data-link="#fast")
+                i.fa.fa-chevron-down(data-link="#secure")
+        section#secure
+            header
+                i.fa.fa-laptop
                 h1 Secure
             article
-                | No sensitive data stored
-        section.donate
+                | We will never ask you for personal or sensitive data, so
+                | you'll never have to worry about the safety of this website.
+                | We'll also be working hard on keeping this website very
+                | secure, for future feature enhancements (eg gamification).
+            div.subnavigation
+                i.fa.fa-chevron-up(data-link="#beautiful")
+                i.fa.fa-chevron-down(data-link="#donate")
+        section#donate
             header
-                i(class="fa fa-bitcoin")
+                i.fa.fa-bitcoin
                 h1 Donations
             article
-                | 1CoinsMPAy5Mz5SVzeAmU6qNmUThiLXYv1
+                | Do you like our project ? Want to participate but do not have
+                | time to contribute ? Feel free to make a donation&nbsp;
+                i.fa.fa-smile-o
+                p.donation_address
+                    strong BitCoin:
+                    | &nbsp;1CoinsMPAy5Mz5SVzeAmU6qNmUThiLXYv1
+            div.subnavigation.solo
+                i.fa.fa-chevron-up(data-link="#secure")
