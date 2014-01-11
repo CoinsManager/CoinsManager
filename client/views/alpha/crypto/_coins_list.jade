@@ -1,0 +1,6 @@
+template(name="coinsList")
+    h1 List of Crypto Currencies
+    div.coins
+        {{#each coins}}
+            {{> coinItem}}
+        {{/each}}

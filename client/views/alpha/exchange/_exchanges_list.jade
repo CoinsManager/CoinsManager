@@ -1,0 +1,6 @@
+template(name="exchangesList")
+    h1 List of Exchanges
+    div.exchanges
+        {{#each exchanges}}
+            {{> exchangeItem}}
+        {{/each}}

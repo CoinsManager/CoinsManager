@@ -9,7 +9,8 @@
       "iron-router": {},
       "spin": {},
       "GAnalytics": {},
-      "font-awesome": {}
+      "font-awesome": {},
+      "phantomjs": {}
     },
     "packages": {
       "belt-jade-handlebars": {
@@ -36,6 +37,11 @@
         "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
         "tag": "v4.0.3",
         "commit": "61e9361384347547ae144f8228faa4deffda23db"
+      },
+      "phantomjs": {
+        "git": "https://github.com/gadicohen/meteor-phantomjs.git",
+        "tag": "v0.0.2",
+        "commit": "a72eb79af068dd5d5d617ac71a42bd74e0cb52a4"
       }
     }
   }
