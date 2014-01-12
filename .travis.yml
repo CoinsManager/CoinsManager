@@ -6,7 +6,7 @@ before_install:
   - curl https://install.meteor.com | /bin/sh
   - npm install -g meteorite
   - npm install -g laika
-  - npm install -g coffee-script
+  - npm install -g coffee-script should underscore
 services:
     - mongodb
 env:
