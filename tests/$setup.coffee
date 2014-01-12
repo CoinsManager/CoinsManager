@@ -1,1 +1,1 @@
-should = require('should').should
+should = require 'should'

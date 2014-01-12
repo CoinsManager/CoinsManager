@@ -7,7 +7,7 @@ before_install:
   - npm install -g meteorite
   - npm install -g laika
   - npm install -g coffee-script
-  - npm install -g should
+  - npm install -g should --save-dev
   - npm install -g underscore
 services:
     - mongodb
