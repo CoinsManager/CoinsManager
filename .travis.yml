@@ -5,9 +5,10 @@ before_install:
   #- "curl -L http://git.io/3l-rRA | /bin/sh"
   - curl https://install.meteor.com | /bin/sh
   - npm install -g meteorite
-  - npm install -g should
   - npm install -g laika
   - npm install -g coffee-script
+  - npm install -g mocha should
+  - npm link should
 services:
     - mongodb
 env:
