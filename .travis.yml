@@ -8,7 +8,7 @@ before_install:
 services:
     - mongodb
 env:
-    - LAIKA_OPTIONS="-t 5000"
+    - LAIKA_OPTIONS="-t 5000 --ui bdd --compilers coffee:coffee-script --reporter nyan -V"
 notifications:
   email:
     - coinsmanager@gmail.com
