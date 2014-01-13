@@ -8,7 +8,6 @@ before_install:
   - npm install -g laika
   - npm install -g coffee-script
   - npm install -g mocha should underscore --save-dev
-  - npm link mocha
   - npm link should
 services:
     - mongodb
