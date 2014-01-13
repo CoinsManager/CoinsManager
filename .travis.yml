@@ -10,7 +10,6 @@ before_install:
   - npm install -g mocha should underscore --save-dev
   - npm link mocha
   - npm link should
-  - npm link underscore
 services:
     - mongodb
 env:
