@@ -7,7 +7,7 @@ before_install:
   - npm install -g meteorite
   - npm install -g laika
   - npm install -g coffee-script
-  - npm install should
+  - npm install should underscore
 services:
     - mongodb
 env:
