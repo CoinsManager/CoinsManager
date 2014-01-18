@@ -1,3 +1,6 @@
+.. |date| date::
+
+
 Guidance for Programmers
 ========================
 
@@ -20,6 +23,13 @@ Development tools:
 * `Sass <http://sass-lang.com/>`_
 * `Compass <http://compass-style.org/>`_
 * `Susy <http://susy.oddbird.net/>`_
+* `Breakpoint <http://breakpoint-sass.com/>`_
+
+The design workflow looks like this:
+
+.. image:: ../_static/design_parts.png
+
+.. seealso:: `SMACSS <http://smacss.com/book/>`_
 
 Testing tools:
 
@@ -34,14 +44,56 @@ HTML
 
 Javascript
 ~~~~~~~~~~
+Development tools:
+
 * `Meteor <http://www.meteor.com/>`_
 * `CoffeeScript <http://coffeescript.org/>`_
+
+Testing tools:
+
+* `Laika <http://arunoda.github.io/laika/>`_
+* `Mocha <http://visionmedia.github.io/mocha/>`_
+* `Chai <http://chaijs.com/>`_
+* `Sinon <http://sinonjs.org/>`_
 
 .. note::
 
     Meteor is still in beta, and we might face a wall during our
     development. If we cannot resolve it or wait for the v1 to comes out, we'll
     migrate the code to `AngularJS <http://angularjs.org/>`_
+
+All technologies can be represented as below:
+
+.. image:: ../_static/dev_tools.png
+
+
+Infrastructure
+--------------
+
+Here is the current state of the infrastructure (as per |date|)
+
+.. image:: ../_static/infrastructure.png
+
+
+Workflow
+--------
+
+Test code
+~~~~~~~~~
+To run the tests, we use **Laika** in BDD style. Install it as follow:
+
+.. code-block:: console
+
+    $ sudo npm install -g laika
+    $ mongod --smallfiles --noprealloc --nojournal
+    $ cd CoinsManager/
+    $ laika
+
+If all goes well, then you should see something like that:
+
+.. image:: ../_static/laika_success.png
+
+.. seealso:: `Laika documentation <http://arunoda.github.io/laika/>`_
 
 
 Deploy code
@@ -51,8 +103,56 @@ we need to specify the settings (containing our Google Analytics code) when
 deploying (note that you need to be a privileged user with access to the
 deployment password).
 
+Meteor hosting
+^^^^^^^^^^^^^^
+Used temporarily to deploy the **Coming Soon Page**
+
 .. code-block:: console
 
     $ meteor deploy www.coinsmanager.com --password --settings settings.json
 
 .. note:: You don't need to run meteor with settings in your local environment.
+
+Heroku
+^^^^^^
+First, install the toolbelt.
+
+.. code-block:: console
+
+    $ wget -qO- https://toolbelt.heroku.com/install.sh | sh
+    $ echo 'PATH="/usr/local/heroku/bin:$PATH"' >> ~/.profile
+
+Then login with your authorized Heroku account
+
+.. code-block:: console
+
+    $ heroku login
+
+Edit your :file:`.git/config` to add the new heroku remote::
+
+    [remote "heroku"]
+        url = git@heroku.com:coinsmanager.git
+        fetch = +refs/heads/*:refs/remotes/heroku/*
+
+Now you can push on **heroku** (Heroku git repository) like you would do with
+**origin** (your Github fork) or **upstream** (CoinsManager Github repository).
+Confer :ref:`Git Remotes <git-remotes>` if needed.
+
+Because heroku doesn't know yet how to compile our `.sass` files into css
+(missing feature in the buildpack, or missing **meteor-compass** package to
+handle it), we need to compile it ourselves and commit it in git before pushing
+it to Heroku.
+
+In the following example, we will deploy the **alpha** branch on Heroku:
+
+.. code-block:: console
+
+    $ git checkout -b heroku alpha
+    $ cd client/compass && compass compile
+    $ git add . && git commit -am "add css files for Heroku"
+    $ git push heroku heroku:master
+
+.. note::
+
+    The latest command will push our local branch heroku in the branch master of
+    the remote heroku.
