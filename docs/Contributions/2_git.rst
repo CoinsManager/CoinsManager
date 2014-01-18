@@ -85,6 +85,9 @@ contribution !
     push them to your feature branch, and the pull request will automatically
     be updated with it.
 
+
+.. _git-remotes:
+
 Remotes
 ~~~~~~~
 You already did a contribution before, but want to do more, and your repository
