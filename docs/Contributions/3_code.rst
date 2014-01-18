@@ -44,6 +44,24 @@ Javascript
     migrate the code to `AngularJS <http://angularjs.org/>`_
 
 
+Test code
+---------
+To run the tests, we use **Laika** in BDD style. Install it as follow:
+
+.. code-block:: console
+
+    $ sudo npm install -g laika
+    $ mongod --smallfiles --noprealloc --nojournal
+    $ cd CoinsManager/
+    $ laika
+
+If all goes well, then you should see something like that:
+
+.. image:: ../_static/laika_success.png
+
+.. seealso:: `Laika documentation <http://arunoda.github.io/laika/>`_
+
+
 Deploy code
 ~~~~~~~~~~~
 Since we installed `GAnalytics <https://atmosphere.meteor.com/package/GAnalytics>`_,
