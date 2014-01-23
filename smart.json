@@ -8,7 +8,6 @@
     "spin": {},
     "GAnalytics": {},
     "font-awesome": {},
-    "phantomjs": {},
-    "meteor-newrelic": {}
+    "phantomjs": {}
   }
 }

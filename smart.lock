@@ -10,8 +10,7 @@
       "spin": {},
       "GAnalytics": {},
       "font-awesome": {},
-      "phantomjs": {},
-      "meteor-newrelic": {}
+      "phantomjs": {}
     },
     "packages": {
       "belt-jade-handlebars": {
@@ -21,18 +20,18 @@
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.6.2",
-        "commit": "ce56e58b45624dce992490f3a1c10f10d3948bae"
+        "tag": "v0.6.1",
+        "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
       },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
-        "tag": "v0.2.2",
-        "commit": "3f655f0016228e4195acc784c45d3e3a247dc39f"
+        "tag": "v0.2.0",
+        "commit": "fd3a2871a69442848b4b4e74f5e1ae28fa4a95a4"
       },
       "GAnalytics": {
         "git": "https://github.com/datariot/meteor-ganalytics.git",
-        "tag": "v0.1.1",
-        "commit": "91b19d37687bb2cd7976fb43b482143a53509d7e"
+        "tag": "v0.1.0",
+        "commit": "937c664cf755f26c6273e4970450c988291c8208"
       },
       "font-awesome": {
         "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
@@ -43,11 +42,6 @@
         "git": "https://github.com/gadicohen/meteor-phantomjs.git",
         "tag": "v0.0.2",
         "commit": "a72eb79af068dd5d5d617ac71a42bd74e0cb52a4"
-      },
-      "meteor-newrelic": {
-        "git": "https://github.com/andreioprisan/meteor-newrelic.git",
-        "tag": "v1.0.1",
-        "commit": "54131ffaa2f47533339959bd296557ccb692e314"
       }
     }
   }
