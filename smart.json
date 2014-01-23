@@ -8,6 +8,7 @@
     "spin": {},
     "GAnalytics": {},
     "font-awesome": {},
-    "phantomjs": {}
+    "phantomjs": {},
+    "handlebar-helpers": {}
   }
 }

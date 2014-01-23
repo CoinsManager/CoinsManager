@@ -20,3 +20,21 @@ if Exchanges.find().count() is 0
 if Fiats.find().count() is 0
   names = ['USD', 'EUR', 'JPY', 'AUD']
   Fiats.insert {name: name} for name in names
+
+
+if Meteor.users.find().count() is 0
+  coinsManagerId = Meteor.users.insert
+    userId: 1
+    emails:
+      address: "coinsmanager@gmail.com"
+
+  Addresses.insert
+    userId: coinsManagerId
+    crypto: "btc"
+    address: "1CoinsMPAy5Mz5SVzeAmU6qNmUThiLXYv1"
+
+  Addresses.insert
+    userId: coinsManagerId
+    crypto: "btc"
+    address: "16sVbwiEZo47CSdvc7utB1g5X7fd2CWtc5"
+

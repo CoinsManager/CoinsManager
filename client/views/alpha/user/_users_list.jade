@@ -1,0 +1,6 @@
+template(name="coinsManager")
+    h1 List of CoinsManager donation addresses
+    div.addresses
+        {{#each addresses}}
+            {{> addressItem}}
+        {{/each}}
