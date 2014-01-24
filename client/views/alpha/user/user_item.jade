@@ -5,5 +5,6 @@ template(name="addressItem")
                 Test {{crypto}}
             div.address
                 {{address}}
-            div.nb_coins
-                {{nb_coins address}}
+            b Nb of coins:&nbsp;
+            span(id="{{address}}")
+                | {{check_bitcoin address}}

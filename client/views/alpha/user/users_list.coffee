@@ -6,9 +6,8 @@ Template.coinsManager.helpers
       Addresses.find
         userId: coinsManager._id
 
-Template.addressItem.helpers
-  nb_coins: (address) ->
-    value = -1
-    Meteor.call "check_bitcoin", (error, results) ->
-      value = results.data.final_balance
-    return value
+#Template.addressItem.helpers
+  #nb_coins: (address) ->
+    #Meteor.call "check_bitcoin", address, (error, results) ->
+      #return results.data.final_balance
+    #return "fail"
