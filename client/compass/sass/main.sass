@@ -5,7 +5,7 @@
 @import animations
 
 body
-    margin-bottom: 0
+    margin: 0
     & > nav
         $height: 6rem
         $width: 70rem
@@ -78,6 +78,8 @@ body
             visibility: visible
         &:last-child
             margin-bottom: 13rem
+            +breakpoint($smartphone)
+                margin-bottom: 2rem
     article
         font-size: 3.6rem
         word-break: break-word
@@ -169,5 +171,16 @@ footer
     text-align: center
     font-size: 2rem
     margin: 0 auto
+    +breakpoint($smartphone-landscape)
+        width: 100%
+        font-size: 1.6rem
+    +breakpoint($smartphone-portrait)
+        width: 100%
+        font-size: 1.6rem
+        line-height: 2rem
+        padding: 2.8rem
+        +box-sizing(border-box)
+    +breakpoint($ipad)
+        width: 100%
     a:hover
         color: $accent-color
