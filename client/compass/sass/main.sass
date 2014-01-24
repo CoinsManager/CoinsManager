@@ -4,38 +4,40 @@
 @import modules
 @import animations
 
-body > nav
-    $height: 6rem
-    $width: 70rem
-    $count: 5
-    & > ul
-        position: fixed
-        top: 0
-        left: 0
-        right: 0
-        margin: auto
-        width: $width
-        list-style: none
-        padding: 0
-        z-index: 100
-        +breakpoint($smartphone)
-            display: none
-    li
-        display: block
-        float: left
-        height: $height
-        margin: 0
-        line-height: $height
-        width: $width / $count
-        font-size: 1.8rem
-        text-align: center
-        background: $secondary-color
-        position: relative
-        &:hover
-            background: tint($secondary-color, 10%)
-            cursor: pointer
-        &.is-active
-            background: tint($secondary-color, 30%)
+body
+    margin-bottom: 0
+    & > nav
+        $height: 6rem
+        $width: 70rem
+        $count: 5
+        & > ul
+            position: fixed
+            top: 0
+            left: 0
+            right: 0
+            margin: auto
+            width: $width
+            list-style: none
+            padding: 0
+            z-index: 100
+            +breakpoint($smartphone)
+                display: none
+        li
+            display: block
+            float: left
+            height: $height
+            margin: 0
+            line-height: $height
+            width: $width / $count
+            font-size: 1.8rem
+            text-align: center
+            background: $secondary-color
+            position: relative
+            &:hover
+                background: tint($secondary-color, 10%)
+                cursor: pointer
+            &.is-active
+                background: tint($secondary-color, 30%)
 
 .tour
     h1
@@ -74,6 +76,8 @@ body > nav
             padding: 1rem
         &.is-visible
             visibility: visible
+        &:last-child
+            margin-bottom: 13rem
     article
         font-size: 3.6rem
         word-break: break-word
@@ -155,3 +159,15 @@ body > nav
 
 .donation_address
     text-align: center
+
+footer
+    $height: 10rem
+    height: $height
+    line-height: $height
+    width: 50%
+    background: $secondary-color
+    text-align: center
+    font-size: 2rem
+    margin: 0 auto
+    a:hover
+        color: $accent-color
