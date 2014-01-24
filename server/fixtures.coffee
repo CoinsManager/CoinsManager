@@ -13,7 +13,7 @@ if Coins.find().count() is 0
 
 
 if Exchanges.find().count() is 0
-  names = ['Mt.Gox', 'Bitstamp', 'Vircurex', 'BTC-e', 'BTCChina']
+  names = ['mtgox', 'bitstamp', 'vircurex', 'btce', 'btcchina']
   Exchanges.insert {name: name} for name in names
 
 
