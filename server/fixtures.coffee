@@ -13,21 +13,26 @@ if Coins.find().count() is 0
 
 
 if Exchanges.find().count() is 0
-  names = ['mtgox', 'bitstamp', 'vircurex', 'btce', 'btcchina']
+  # Create exchanges
+  mtgoxId = Exchanges.insert {name: 'mtgox'}
+  names = ['bitstamp', 'vircurex', 'btce', 'btcchina']
   Exchanges.insert {name: name} for name in names
 
-
-if Fiats.find().count() is 0
-  names = ['USD', 'EUR', 'JPY', 'AUD']
+  # Create fiats
+  usdId = Fiats.insert {name: 'USD'}
+  names = ['EUR', 'JPY', 'AUD']
   Fiats.insert {name: name} for name in names
 
-
-if Meteor.users.find().count() is 0
   # Create CoinsManager user
   coinsManagerId = Meteor.users.insert
     userId: 1
     emails:
       address: Meteor.settings.public.email
+    public:
+      favorites:
+        fiatId: usdId
+        exchangeId: mtgoxId
+
 
   # Add public addresses for CoinsManager
   for crypto, address of Meteor.settings.public.donations

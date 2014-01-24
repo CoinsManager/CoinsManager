@@ -5,6 +5,10 @@ template(name="addressItem")
                 {{crypto}}
             div.address
                 {{address}}
-            b Nb of coins:&nbsp;
-            span(id="{{address}}")
-                | {{get_coin_balance crypto address}}
+            {{get_balance crypto address}}
+            div.balance
+                b Nb of coins:&nbsp;
+                span(class="{{address}}")
+            div.value
+                b Asset value:&nbsp;
+                span(class="{{address}}")

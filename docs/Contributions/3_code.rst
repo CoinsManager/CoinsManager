@@ -96,12 +96,19 @@ If all goes well, then you should see something like that:
 .. seealso:: `Laika documentation <http://arunoda.github.io/laika/>`_
 
 
+Running code
+------------
+.. code-block:: console
+
+    $ meteor run --settings settings.json
+
+
 Deploy code
 ~~~~~~~~~~~
-Since we installed `GAnalytics <https://atmosphere.meteor.com/package/GAnalytics>`_,
-we need to specify the settings (containing our Google Analytics code) when
-deploying (note that you need to be a privileged user with access to the
-deployment password).
+we need to specify the settings (containing our
+`Google Analytics <https://atmosphere.meteor.com/package/GAnalytics>`_ code
+among other things) when deploying (note that you need to be a privileged user
+with access to the deployment password).
 
 Meteor hosting
 ^^^^^^^^^^^^^^
@@ -110,8 +117,6 @@ Used temporarily to deploy the **Coming Soon Page**
 .. code-block:: console
 
     $ meteor deploy www.coinsmanager.com --password --settings settings.json
-
-.. note:: You don't need to run meteor with settings in your local environment.
 
 Heroku
 ^^^^^^
