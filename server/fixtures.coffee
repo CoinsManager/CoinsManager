@@ -23,18 +23,15 @@ if Fiats.find().count() is 0
 
 
 if Meteor.users.find().count() is 0
+  # Create CoinsManager user
   coinsManagerId = Meteor.users.insert
     userId: 1
     emails:
-      address: "coinsmanager@gmail.com"
+      address: Meteor.settings.public.email
 
-  Addresses.insert
-    userId: coinsManagerId
-    crypto: "btc"
-    address: "1CoinsMPAy5Mz5SVzeAmU6qNmUThiLXYv1"
-
-  Addresses.insert
-    userId: coinsManagerId
-    crypto: "btc"
-    address: "16sVbwiEZo47CSdvc7utB1g5X7fd2CWtc5"
-
+  # Add public addresses for CoinsManager
+  for crypto, address of Meteor.settings.public.donations
+    Addresses.insert
+      userId: coinsManagerId
+      crypto: crypto
+      address: address

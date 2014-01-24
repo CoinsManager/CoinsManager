@@ -2,9 +2,9 @@ template(name="addressItem")
     div.address
         div.address-content
             h3
-                Test {{crypto}}
+                {{crypto}}
             div.address
                 {{address}}
             b Nb of coins:&nbsp;
             span(id="{{address}}")
-                | {{check_bitcoin address}}
+                | {{get_coin_balance crypto address}}

@@ -1,7 +1,13 @@
 {
-  "public" : {
+  "public": {
     "ga": {
-      "account":"UA-46570120-1"
+      "account": "UA-46570120-1"
+    },
+    "email": "coinsmanager@gmail.com",
+    "donations": {
+      "btc": "1CoinsMPAy5Mz5SVzeAmU6qNmUThiLXYv1",
+      "ltc": "LiCoinshw5X2yd3vmUhubSchmzRehQhJJC",
+      "ftc": "71CoinsnLeK6xhgdyZKfBeJn8Q6Ng9uVFG"
     }
   }
 }

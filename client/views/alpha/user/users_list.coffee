@@ -8,6 +8,6 @@ Template.coinsManager.helpers
 
 #Template.addressItem.helpers
   #nb_coins: (address) ->
-    #Meteor.call "check_bitcoin", address, (error, results) ->
+    #Meteor.call "get_coin_balance", address, (error, results) ->
       #return results.data.final_balance
     #return "fail"

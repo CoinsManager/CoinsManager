@@ -3,7 +3,11 @@ Handlebars.registerHelper 'arrayify', (obj) ->
     return {name:key, value:obj[key]} for key in obj
 
 
-Handlebars.registerHelper 'check_bitcoin', (address) ->
-  Meteor.call "check_bitcoin", address, (error, result) ->
-    $("#" + address).text result.data.final_balance / 100000000
+Handlebars.registerHelper 'get_coin_balance', (crypto, address) ->
+  Meteor.call "get_coin_balance", crypto, address, (error, result) ->
+    if _.isNumber result
+      console.log "result: #{result}"
+      $("#" + address).text result / 100000000
+    else
+      $("#" + address).text "This coin isn't yet supported"
 
