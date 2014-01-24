@@ -6,8 +6,3 @@ Template.coinsManager.helpers
       Addresses.find
         userId: coinsManager._id
 
-#Template.addressItem.helpers
-  #nb_coins: (address) ->
-    #Meteor.call "get_coin_balance", address, (error, results) ->
-      #return results.data.final_balance
-    #return "fail"
