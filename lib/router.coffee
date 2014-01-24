@@ -1,6 +1,5 @@
 Router.configure
-  #layoutTemplate: 'layout'
-  layoutTemplate: 'alpha'
+  layoutTemplate: 'alphaLayout'  # other choices: 'comingSoonLayout'
   loadingTemplate: 'loading'
 
 
