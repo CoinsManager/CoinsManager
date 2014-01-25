@@ -4,42 +4,44 @@
 @import modules
 @import animations
 
-body > nav
-    $height: 6rem
-    $width: 70rem
-    $count: 5
-    & > ul
-        position: fixed
-        top: 0
-        left: 0
-        right: 0
-        margin: auto
-        width: $width
-        list-style: none
-        padding: 0
-        z-index: 100
-        +breakpoint($smartphone)
-            display: none
-    li
-        display: block
-        float: left
-        height: $height
-        margin: 0
-        line-height: $height
-        width: $width / $count
-        font-size: 1.8rem
-        text-align: center
-        background: $secondary-color
-        position: relative
-        &:hover
-            background: tint($secondary-color, 10%)
-            cursor: pointer
-        &.is-active
-            background: tint($secondary-color, 30%)
+body
+    margin: 0
+    & > nav
+        $height: 6rem
+        $width: 70rem
+        $count: 5
+        & > ul
+            position: fixed
+            top: 0
+            left: 0
+            right: 0
+            margin: auto
+            width: $width
+            list-style: none
+            padding: 0
+            z-index: 100
+            +breakpoint($smartphone)
+                display: none
+        li
+            display: block
+            float: left
+            height: $height
+            margin: 0
+            line-height: $height
+            width: $width / $count
+            font-size: 1.8rem
+            text-align: center
+            background: $secondary-color
+            position: relative
+            &:hover
+                background: tint($secondary-color, 10%)
+                cursor: pointer
+            &.is-active
+                background: tint($secondary-color, 30%)
 
 .tour
     h1
-        font-size: 6rem
+        font-size: 4rem
         line-height: 8rem
         text-align: center
         display: inline-block
@@ -47,17 +49,13 @@ body > nav
         +breakpoint($smartphone)
             font-size: 3rem
             line-height: 4rem
-        +breakpoint($small-height-laptop)
-            font-size: 4rem
     header
         i
-            font-size: 8rem
+            font-size: 5rem
             margin-right: 3rem
             +breakpoint($smartphone)
                 margin-right: 1rem
                 font-size: 3rem
-            +breakpoint($small-height-laptop)
-                font-size: 5rem
     section
         font-size: 2.4rem
         text-align: center
@@ -74,14 +72,16 @@ body > nav
             padding: 1rem
         &.is-visible
             visibility: visible
+        &:last-child
+            margin-bottom: 13rem
+            +breakpoint($smartphone)
+                margin-bottom: 2rem
     article
-        font-size: 3.6rem
+        font-size: 2.8rem
         word-break: break-word
         text-align: justify
         +breakpoint($smartphone)
             font-size: 2rem
-        +breakpoint($small-height-laptop)
-            font-size: 2.8rem
     .subnavigation
         position: absolute
         bottom: -10rem
@@ -155,3 +155,26 @@ body > nav
 
 .donation_address
     text-align: center
+
+footer
+    $height: 10rem
+    height: $height
+    line-height: $height
+    width: 50%
+    background: $secondary-color
+    text-align: center
+    font-size: 2rem
+    margin: 0 auto
+    +breakpoint($smartphone-landscape)
+        width: 100%
+        font-size: 1.6rem
+    +breakpoint($smartphone-portrait)
+        width: 100%
+        font-size: 1.6rem
+        line-height: 2rem
+        padding: 2.8rem
+        +box-sizing(border-box)
+    +breakpoint($ipad)
+        width: 100%
+    a:hover
+        color: $accent-color

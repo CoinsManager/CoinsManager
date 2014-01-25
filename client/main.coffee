@@ -2,7 +2,7 @@ runAnimation = ($obj) ->
   $obj.addClass("is-visible")
   $obj.find("i").addClass("hatch")
   $obj.find("h1").addClass("slideLeft")
-  $obj.find("article").addClass("fadeIn")
+  $obj.find("article").addClass("pullUp")
 
 $(window).scroll ->
   $(".tour section").each ->
