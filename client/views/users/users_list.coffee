@@ -3,6 +3,8 @@ Template.coinsManager.helpers
     coinsManager = Meteor.users.findOne
       "emails.address": "coinsmanager@gmail.com"
     if coinsManager
-      Addresses.find
+      addresses = Addresses.find
         userId: coinsManager._id
+      address.set_balance() for address in addresses
+      return addresses
 

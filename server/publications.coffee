@@ -13,6 +13,7 @@ Meteor.publish 'fiats', () ->
 Meteor.publish 'users', () ->
   Meteor.users.find()
 
+
 Meteor.publish 'addresses', () ->
   coinsManager = Meteor.users.findOne
     "emails.address": "coinsmanager@gmail.com"

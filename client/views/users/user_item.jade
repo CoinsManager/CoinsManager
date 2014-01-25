@@ -1,14 +1,11 @@
 template(name="addressItem")
     div.address
         div.address-content
-            h3
-                {{crypto}}
-            div.address
-                {{address}}
-            {{get_balance crypto address}}
+            h3 {{code}}
+            div.address {{address}}
             div.balance
-                b Nb of coins:&nbsp;
-                span(class="{{address}}")
+                b Nb of coins:
+                div {{get_balance}}
             div.value
-                b Asset value:&nbsp;
-                span(class="{{address}}")
+                b Asset value:
+                div {{get_value}}
