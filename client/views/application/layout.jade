@@ -12,6 +12,8 @@ template(name="comingSoonLayout")
         {{> news}}
         {{> tour}}
         div.coming_soon Coming Soon!
+    div.wrapper.left
+        {{> coinsManager}}
 
 
 template(name="alphaLayout")
@@ -22,11 +24,5 @@ template(name="alphaLayout")
       | to improve your experience.
     <![endif]-->
     {{loginButtons}}
-    div.wrapper.left
-        {{> coinsList}}
-    div.wrapper.left
-        {{> exchangesList}}
-    div.wrapper.left
-        {{> fiatsList}}
     div.wrapper.left
         {{> coinsManager}}
