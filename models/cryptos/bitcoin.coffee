@@ -15,4 +15,5 @@ class @Bitcoin extends @BaseCrypto
     super url, @lambda_balance
 
   get_value: ->
-    MtGox.get_value('btc')
+    balance = @get_balance()
+    _.isNumber(balance) and balance * MtGox.get_value('btc') or balance

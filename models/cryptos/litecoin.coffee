@@ -31,4 +31,4 @@ class @Litecoin extends @BaseCrypto
         cls.deps['balance'].changed()
 
   get_value: ->
-    return 5
+    @get_balance() * 23.02

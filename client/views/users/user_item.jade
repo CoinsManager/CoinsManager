@@ -6,6 +6,10 @@ template(name="addressItem")
             div.balance
                 b Nb of coins:
                 div {{get_balance}}
+            {{#if get_value}}
             div.value
                 b Asset value:
-                div {{get_value}}
+                div
+                    i.fa.fa-dollar
+                    {{get_value}}
+            {{/if}}

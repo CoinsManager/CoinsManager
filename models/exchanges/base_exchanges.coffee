@@ -10,7 +10,6 @@ class @BaseExchange
   @ensureDeps = (key) ->
     if not @deps[key]
       @deps[key] = new Deps.Dependency()
-      @set_value()
 
   @get_value = (key) ->
     @ensureDeps key

@@ -1,6 +1,7 @@
 Template.coinsManager.helpers
   addresses: ->
-    MtGox.set_btc_value()
+    Meteor.setInterval MtGox.set_btc_value, 2000
+    #Deps.autorun(-> MtGox.set_btc_value)
 
     coinsManager = Meteor.users.findOne
       "emails.address": "coinsmanager@gmail.com"
