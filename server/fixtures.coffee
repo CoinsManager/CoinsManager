@@ -1,22 +1,23 @@
-if Coins.find().count() is 0
-  Coins.insert
-    avg_value: 2000
-  Coins.insert
-    name: 'Litecoin'
-    avg_value: 40
-  Coins.insert
-    name: 'NameCoin'
-    avg_value: 8
-  Coins.insert
-    name: 'FeatherCoin'
-    avg_value: 5
+"""
+Initial data:
+
+  → set a default user CoinsManager
+  - create its donation addresses
+"""
+
+if Meteor.users.find().count() is 0
+  # TODO create user with Accounts.createUser()
+  coinsManagerId = Accounts.createUser
+    email: Meteor.settings.public.email
+    profile:
+      favorites:
+        fiat: 'USD'
+        exchange: 'MtGox'
 
 
-if Exchanges.find().count() is 0
-  names = ['Mt.Gox', 'Bitstamp', 'Vircurex', 'BTC-e', 'BTCChina']
-  Exchanges.insert {name: name} for name in names
-
-
-if Fiats.find().count() is 0
-  names = ['USD', 'EUR', 'JPY', 'AUD']
-  Fiats.insert {name: name} for name in names
+  # Add public addresses for CoinsManager
+  for code, address of Meteor.settings.public.donations
+    Addresses.insert
+      userId: coinsManagerId
+      code: code
+      address: address

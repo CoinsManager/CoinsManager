@@ -1,4 +1,4 @@
-template(name="layout")
+template(name="comingSoonLayout")
     <!--[if lt IE 7]>
     p.browsehappy
       | You are using an <strong>outdated</strong> browser.
@@ -12,3 +12,21 @@ template(name="layout")
         {{> news}}
         {{> tour}}
         div.coming_soon Coming Soon!
+
+
+template(name="alphaLayout")
+    <!--[if lt IE 7]>
+    p.browsehappy
+      | You are using an <strong>outdated</strong> browser.
+      | Please <a href="http://browsehappy.com/">upgrade your browser</a>
+      | to improve your experience.
+    <![endif]-->
+    {{loginButtons}}
+    div.wrapper.left
+        {{> coinsList}}
+    div.wrapper.left
+        {{> exchangesList}}
+    div.wrapper.left
+        {{> fiatsList}}
+    div.wrapper.left
+        {{> coinsManager}}
