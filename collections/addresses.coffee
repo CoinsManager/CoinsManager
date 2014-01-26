@@ -8,5 +8,5 @@
       when 'BTC' then new @Bitcoin args.address
       when 'EAC' then new @Earthcoin args.address
       when 'LTC' then new @Litecoin args.address
-      when 'NOBLE' then new @Noblecoin args.address
+      when 'NOBL' then new @Noblecoin args.address
       else args
