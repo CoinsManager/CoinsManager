@@ -1,5 +1,7 @@
 Template.coinsManager.helpers
   addresses: ->
+    MtGox.set_btc_value()
+
     coinsManager = Meteor.users.findOne
       "emails.address": "coinsmanager@gmail.com"
     if coinsManager

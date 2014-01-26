@@ -4,13 +4,26 @@ Base class for Exchanges
 
 
 class @BaseExchange
+  @keys = {}
+  @deps = {}
 
-  constructor: (@attributes) ->
+  @ensureDeps = (key) ->
+    if not @deps[key]
+      @deps[key] = new Deps.Dependency()
+      @set_value()
 
-  printInfo: ->
-    "Name: #{@attributes.name}"
+  @get_value = (key) ->
+    @ensureDeps key
+    @deps[key].depend()
+    return @keys[key]
 
-  get_btc_value: ->
-    return -1
+  @set_value = (url, key, lambda_value) ->
+    cls = this
+    Meteor.call "call_url", url, (error, result) ->
+      if error
+        throw error
+      cls.keys[key] = lambda_value(result)
+      cls.deps[key].changed()
+
 
 exports.BaseExchange = BaseExchange unless Meteor?
