@@ -12,4 +12,5 @@ Router.map ->
     waitOn: ->
       collections = ['users', 'donationAddresses']
       Meteor.subscribe collection for collection in collections
-      Meteor.subscribe 'userAddresses', Meteor.user()._id
+      if Meteor.user()
+        Meteor.subscribe 'userAddresses', Meteor.user()._id
