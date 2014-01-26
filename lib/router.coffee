@@ -10,5 +10,5 @@ Router.map ->
   @route 'alpha',
     path: '/',
     waitOn: ->
-      collections = ['coins', 'exchanges', 'fiats', 'users', 'addresses']
+      collections = ['users', 'donationAddresses', 'userAddresses']
       Meteor.subscribe collection for collection in collections

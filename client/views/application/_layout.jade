@@ -11,10 +11,12 @@ template(name="comingSoonLayout")
 
 
 template(name="alphaLayout")
+    {{yield}}
     {{loginButtons}}
     div.wrapper.left
         {{> coinsManager}}
     // TODO: Add condition if Meteor.user is loaded
+    {{#if loggedIn}}
     div.wrapper.left
         {{> userAddresses}}
-    {{yield}}
+    {{/if}}

@@ -1,6 +1,6 @@
 Template.userAddresses.helpers
-  addresses: ->
+  userAddresses: ->
     addresses = Addresses.find
-      userId: Meteor.user._id
+      userId: Meteor.user()._id
     address.set_balance() for address in addresses
     return addresses
