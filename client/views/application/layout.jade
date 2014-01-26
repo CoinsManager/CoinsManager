@@ -1,10 +1,4 @@
 template(name="comingSoonLayout")
-    <!--[if lt IE 7]>
-    p.browsehappy
-      | You are using an <strong>outdated</strong> browser.
-      | Please <a href="http://browsehappy.com/">upgrade your browser</a>
-      | to improve your experience.
-    <![endif]-->
     div.wrapper
         div.logo
         div.slogan The fastest way to evaluate your currencies
@@ -17,12 +11,10 @@ template(name="comingSoonLayout")
 
 
 template(name="alphaLayout")
-    <!--[if lt IE 7]>
-    p.browsehappy
-      | You are using an <strong>outdated</strong> browser.
-      | Please <a href="http://browsehappy.com/">upgrade your browser</a>
-      | to improve your experience.
-    <![endif]-->
     {{loginButtons}}
     div.wrapper.left
         {{> coinsManager}}
+    // TODO: Add condition if Meteor.user is loaded
+    div.wrapper.left
+        {{> userAddresses}}
+    {{yield}}

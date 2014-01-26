@@ -9,4 +9,4 @@
       when 'EAC' then new @Earthcoin args.address
       when 'LTC' then new @Litecoin args.address
       when 'NOBLE' then new @Noblecoin args.address
-      else new @Bitcoin args.address
+      else args

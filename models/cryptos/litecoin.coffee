@@ -6,7 +6,7 @@ class @Litecoin extends @BaseCrypto
     super
     @api_url = "http://explorer.litecoin.net/chain/Litecoin/q/"
     @code = "LTC"
-    @name = "Bitcoin"
+    @name = "Litecoin"
     @lambda_balance = (received, sent) -> (+received - +sent) / Math.pow(10, 8)
 
   set_balance: ->

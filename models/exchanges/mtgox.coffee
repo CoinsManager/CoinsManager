@@ -12,4 +12,3 @@ class @MtGox extends @BaseExchange
         +result.data.return.last_all.value_int / Math.pow(10, 5)
       else
         return 0
-
