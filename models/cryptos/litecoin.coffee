@@ -2,7 +2,7 @@ class @Litecoin extends @BaseCrypto
   """
   This class define all the informations needed for Litecoin.
   """
-  code = "LTC"
+  @code = "LTC"
 
   constructor: ->
     super
