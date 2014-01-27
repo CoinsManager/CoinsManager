@@ -1,0 +1,14 @@
+template(name="addAddress")
+    form.main
+        div.control-group
+            label.control-label(for="address") Public Address
+            div.controls
+                input(name="address", type="text",
+                      placeholder="Your public address")
+        div.control-group
+            label.control-label(for="code") Crytocurrency code
+            div.controls
+                select(name="code")
+                    {{#each codes}}
+                    option(value="{{this}}") {{this}}
+                    {{/each}}
