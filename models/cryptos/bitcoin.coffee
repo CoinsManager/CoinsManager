@@ -3,10 +3,11 @@ class @Bitcoin extends @BaseCrypto
   This class define all the informations needed for Bitcoin.
   The average value corresponds to the user favorite fiat currency.
   """
+  @code = "BTC"
+
   constructor: ->
     super
     @api_url = "http://blockchain.info/address/"
-    @code = "BTC"
     @lambda_balance = (result) -> result.data.final_balance / Math.pow(10, 8)
     @name = "Bitcoin"
 
@@ -19,3 +20,6 @@ class @Bitcoin extends @BaseCrypto
     #_.isNumber(balance) and balance * MtGox.get_value('btc') or balance
     # Just return Bitcoin value until we get a donation
     MtGox.get_value('btc')
+
+
+@cryptoClassesList[@Bitcoin.code] = @Bitcoin

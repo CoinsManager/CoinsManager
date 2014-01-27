@@ -29,3 +29,6 @@ class @BaseCrypto
         throw error
       cls.keys['balance'] = lambda_balance(result)
       cls.deps['balance'].changed()
+
+
+@cryptoClassesList = {}

@@ -2,10 +2,11 @@ class @Earthcoin extends @BaseCrypto
   """
   This class define all the informations needed for Earthcoin.
   """
+  @code = "EAC"
+
   constructor: ->
     super
     @api_url = "http://earthchain.info/chain/Earthcoin/q/addressbalance/"
-    @code = "EAC"
     @lambda_balance = (result) -> +result.content
     @name = "Earthcoin"
 
@@ -15,3 +16,6 @@ class @Earthcoin extends @BaseCrypto
 
   get_value: ->
     @get_balance() * 0.0016
+
+
+@cryptoClassesList[@Earthcoin.code] = @Earthcoin
