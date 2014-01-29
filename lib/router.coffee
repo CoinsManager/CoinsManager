@@ -1,5 +1,6 @@
 Router.configure
-  layoutTemplate: 'alphaLayout'  # other choices: 'comingSoonLayout'
+  layoutTemplate: 'alphaLayout'
+  #layoutTemplate: 'comingSoonLayout'
   loadingTemplate: 'loading'
 
 
@@ -9,5 +10,7 @@ Router.map ->
   @route 'alpha',
     path: '/',
     waitOn: ->
-      collections = ['coins', 'exchanges', 'fiats', 'users', 'addresses']
+      collections = ['users', 'donationAddresses']
       Meteor.subscribe collection for collection in collections
+      if Meteor.user()
+        Meteor.subscribe 'userAddresses', Meteor.user()._id

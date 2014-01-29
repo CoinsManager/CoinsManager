@@ -1,11 +1,17 @@
 template(name="addressItem")
     div.address
         div.address-content
-            h3 {{code}}
+            h3 {{#if name}}{{name}} -{{/if}} {{code}}
             div.address {{address}}
+            {{#if get_balance}}
             div.balance
                 b Nb of coins:
                 div {{get_balance}}
+            {{/if}}
+            {{#if get_value}}
             div.value
                 b Asset value:
-                div {{get_value}}
+                div
+                    i.fa.fa-dollar
+                    {{get_value}}
+            {{/if}}

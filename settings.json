@@ -5,11 +5,35 @@
     },
     "email": "coinsmanager@gmail.com",
     "donations": {
+      "ANC": "AaCoinsyJRD8FTeXpnsHHb5P2TJZSNKFx1",
+      "BBQ": "bCoinsM1FHuMGwZDPX4fuTEMuM1CMD6VDR",
       "BTC": "1CoinsMPAy5Mz5SVzeAmU6qNmUThiLXYv1",
+      "CIN": "CcoinsMDcN9cUpL3crTTjAWxQjEm4brXb2",
+      "COL": "288oPahfqp7vvscnxqSh3k6ZFia6QZrVfc",
+      "DGC": "288oPahfqp7vvscnxqSh3k6ZFia6QZrVfc",
+      "DIME": "78pgN8DnkPz57gropEsysH81ApUmaUte4v",
+      "DOGE": "D6ascim4uwAbRD7ySqEiJYJKtkW4oSvQDN",
       "EAC": "ecoinsMG8nXNmqnzYfCokc7SBc3X2SnhBf",
+      "EMU": "tVPQUZ5fsDBnv9kuszhvA3EZTaoK2foCcN",
+      "FRK": "FCoinsMTgnyDbXpXrYHAbL2DMmQLpJMxr3",
       "FTC": "71CoinsnLeK6xhgdyZKfBeJn8Q6Ng9uVFG",
+      "IFC": "iEMHeoZtNdaDrz2TxghtCtbdXHkc8mZ6Kg",
+      "LOT": "M521tEZaawAFx28QSyujStht77b8SEcfrb",
       "LTC": "LiCoinshw5X2yd3vmUhubSchmzRehQhJJC",
-      "NOBLE": "9X5vzUYpe2mFWnTnp4N6Y7qT5gZVREjwqS"
+      "MOON": "2UGNzRy6tD3rZSYYvkctEYCmen98HWtgMU",
+      "NMC": "NCoinsMsR33WsxqmsHKBZYH95WQdcdh2NT",
+      "NOBL": "9X5vzUYpe2mFWnTnp4N6Y7qT5gZVREjwqS",
+      "NVC": "4aCoinsCLFQa6rMME6kEzjy1w2xxcsmE8b",
+      "NXT": "10550104963181811448",
+      "PRT": "PcoinsM7kZW68uqdA3QMDAvk28ySktkkdF",
+      "PPC": "PCoinsM3swnTHze9155SwDeWJfn83TqSdX",
+      "QRK": "QcoinsM2RDkzSTwCMZLx1r1CNQiPx7u7tk",
+      "USDe": "GcoinsMbigRrzFLVbmxEpgVnXCayxpQz7r",
+      "VLC": "VKsDz6tsomzgfNRmHybEZJMBoRCTaABZ3H",
+      "WDC": "WeZSeE8LjEp3hGyx6gEnCY6WAddDzY2hPZ",
+      "XPM": "AWdyRFoEqZiLPvvqwgmm87Y67gC51x9rDp",
+      "XRP": "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox",
+      "YAC": "YCoinsMoMu1ds9ab1YJY8ceZnnsBChBKLA"
     }
   }
 }

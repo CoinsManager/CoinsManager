@@ -25,8 +25,10 @@ class @BaseCrypto
   set_balance: (url, lambda_balance) ->
     cls = this
     Meteor.call "call_url", url, (error, result) ->
+      if error
+        throw error
       cls.keys['balance'] = lambda_balance(result)
       cls.deps['balance'].changed()
 
-  exchanges: ->
-    console.log 'Many-to-Many relationship with BaseExchange'
+
+@cryptoClassesList = {}

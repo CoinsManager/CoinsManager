@@ -6,7 +6,6 @@ Initial data:
 """
 
 if Meteor.users.find().count() is 0
-  # TODO create user with Accounts.createUser()
   coinsManagerId = Accounts.createUser
     email: Meteor.settings.public.email
     profile:
