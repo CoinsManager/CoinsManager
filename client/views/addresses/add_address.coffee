@@ -4,11 +4,13 @@ Template.addAddress.helpers
 
 Template.addAddress.events
   'submit form': (e) ->
-    post =
+    e.preventDefault()
+    data =
       address: $(e.target).find('[name=address]').val()
       code: $(e.target).find('[name=code]').val()
 
-    Meteor.call 'post', post, (error, id) ->
+    Meteor.call 'add_address', data, (error, id) ->
       if error
         # Display the error
         Errors.throw error.reason
+      alert "adress " + id + " created !"
