@@ -1,8 +1,12 @@
+Session.set 'show_complete_form', false
+
+
 Template.addAddress.helpers
   codes: ->
     _.keys cryptoClassesList
-  coin_not_recognized: ->
-    true
+  coin_recognized: ->
+    not Session.get 'show_complete_form'
+
 
 Template.addAddress.events
   'submit form': (e) ->
@@ -15,3 +19,5 @@ Template.addAddress.events
       if error
         # Display the error
         Errors.throw error.reason
+  'click .fa-plus-square': (e) ->
+    Session.set 'show_complete_form', true

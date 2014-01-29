@@ -5,6 +5,7 @@ template(name="addAddress")
             div.controls
                 input(name="address", type="text",
                       placeholder="Your public address")
+        {{#if coin_recognized}}
         div.control-group
             label.control-label(for="code-alpha") Crytocurrency code
             div.controls
@@ -12,7 +13,8 @@ template(name="addAddress")
                     {{#each codes}}
                     option(value="{{this}}") {{this}}
                     {{/each}}
-        {{#if coin_not_recognized}}
+                i.fa.fa-plus-square
+        {{else}}
         div.control-group
             label.control-label(for="code") Code
             div.controls
