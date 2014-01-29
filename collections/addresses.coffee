@@ -8,3 +8,7 @@
       new @cryptoClassesList[args.code] args.address
     else args
 
+
+Addresses.allow
+  update: @ownsDocument
+  remove: @ownsDocument
