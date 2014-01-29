@@ -33,4 +33,5 @@ Meteor.methods
     addressId = Addresses.insert
       address: attributes.address
       code: attributes.code
+      userId: user._id
     return addressId
