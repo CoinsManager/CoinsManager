@@ -9,6 +9,7 @@
     "GAnalytics": {},
     "font-awesome": {},
     "phantomjs": {},
-    "handlebar-helpers": {}
+    "handlebar-helpers": {},
+    "errors": {}
   }
 }
