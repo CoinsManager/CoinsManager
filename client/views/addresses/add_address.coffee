@@ -11,9 +11,12 @@ Template.addAddress.helpers
 Template.addAddress.events
   'submit form': (e) ->
     e.preventDefault()
+    code = $(e.target).find('[name=code-alpha]').val()
+    if not code
+      code = $(e.target).find('[name=code]').val()
     data =
       address: $(e.target).find('[name=address]').val()
-      code: $(e.target).find('[name=code]').val()
+      code: code
 
     Meteor.call 'add_address', data, (error, id) ->
       if error
