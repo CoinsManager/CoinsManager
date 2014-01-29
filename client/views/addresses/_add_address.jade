@@ -6,12 +6,37 @@ template(name="addAddress")
                 input(name="address", type="text",
                       placeholder="Your public address")
         div.control-group
-            label.control-label(for="code") Crytocurrency code
+            label.control-label(for="code-alpha") Crytocurrency code
             div.controls
-                select(name="code")
+                select(name="code-alpha")
                     {{#each codes}}
                     option(value="{{this}}") {{this}}
                     {{/each}}
+        {{#if coin_not_recognized}}
+        div.control-group
+            label.control-label(for="code") Code
+            div.controls
+                input(name="code", type="text",
+                      placeholder="Coin code (eg BTC)")
+        div.control-group
+            label.control-label(for="name") Name
+            div.controls
+                input(name="name", type="text",
+                      placeholder="The coin name")
+        div.control-group
+            label.control-label(for="nb_coin") Number of coins
+            div.controls
+                input(name="nb_coin", type="number",
+                      placeholder="how many coins do you possess in that address")
+        div.control-group
+            label.control-label(for="value") Asset value
+            div.controls
+                input(name="nb_coin", type="number",
+                      placeholder="how much is this address worth in your fiat currency")
+
+
+
+        {{/if}}
         div.control-group
             div.controls
                 input.btn.btn-primary(type="submit", value="Submit")

@@ -1,6 +1,8 @@
 Template.addAddress.helpers
   codes: ->
     _.keys cryptoClassesList
+  coin_not_recognized: ->
+    true
 
 Template.addAddress.events
   'submit form': (e) ->
