@@ -13,4 +13,3 @@ Template.addAddress.events
       if error
         # Display the error
         Errors.throw error.reason
-      alert "adress " + id + " created !"
