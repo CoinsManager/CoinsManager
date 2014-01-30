@@ -14,9 +14,13 @@ Template.addAddress.events
     code = $(e.target).find('[name=code-alpha]').val()
     if not code
       code = $(e.target).find('[name=code]').val()
+
     data =
       address: $(e.target).find('[name=address]').val()
       code: code
+      name: $(e.target).find('[name=name]').val()
+      nb_coin: $(e.target).find('[name=nb_coin]').val()
+      value: $(e.target).find('[name=value]').val()
 
     Meteor.call 'add_address', data, (error, id) ->
       if error

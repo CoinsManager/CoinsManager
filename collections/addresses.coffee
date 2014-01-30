@@ -17,9 +17,11 @@ Addresses.allow
 Meteor.methods
   add_address: (attributes) ->
     user = Meteor.user()
-    sameAddress = Addresses.findOne
+    options =
       address: attributes.address
       code: attributes.code
+
+    sameAddress = Addresses.findOne options
 
     if not user
       throw new Meteor.Error 401, "You need to login to add a new address"
@@ -30,8 +32,11 @@ Meteor.methods
       # TODO: Only applies this rule to verified addresses
       throw new Meteor.Error 302, "This address already exists"
 
-    addressId = Addresses.insert
-      address: attributes.address
-      code: attributes.code
-      userId: user._id
+    options.userId = user._id
+    if 'name' of attributes
+      options.name = attributes.name
+      options.get_balance = attributes.nb_coin
+      options.get_value = attributes.value
+
+    addressId = Addresses.insert options
     return addressId
