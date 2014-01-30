@@ -31,5 +31,9 @@ Template.addAddress.events
         Errors.throw error.reason
   'click .fa-plus-square': (e) ->
     Session.set 'show_complete_form', true
+  'click #close-form': (e) ->
+    Session.set 'show_complete_form', false
   'click .fa-question-circle': (e) ->
     Session.set 'show_coin_help', true
+  'click #close-coin-help': (e) ->
+    Session.set 'show_coin_help', false

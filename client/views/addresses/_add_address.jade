@@ -35,10 +35,9 @@ template(name="addAddress")
             div.controls
                 input(name="value", type="number",
                       placeholder="how much is this address worth in your fiat currency")
-
-
-
+            i.fa.fa-level-up#close-form
         {{/if}}
+
         div.control-group
             div.help
                 {{#if coin_help}}
@@ -54,6 +53,7 @@ template(name="addAddress")
                         a(href="https://trello.com/c/oIVgdFEB/1-early-contributors")
                             | Contribute&nbsp;
                             i.fa.fa-smile.o
+                i.fa.fa-level-up#close-coin-help
                 {{else}}
                 i.fa.fa-question-circle
                 {{/if}}
