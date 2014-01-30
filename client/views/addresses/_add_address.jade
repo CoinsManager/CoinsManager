@@ -40,5 +40,24 @@ template(name="addAddress")
 
         {{/if}}
         div.control-group
+            div.help
+                {{#if coin_help}}
+                Want to have your coin implemented ?
+                ul
+                    li
+                        a(href="https://trello.com/c/p7U95R2D/22-online-visitors-your-suggestions")
+                            | Request that it be added
+                    li
+                        a(href="https://trello.com/c/HU0dPqwB/39-donors")
+                            | Support your coin by making a donation
+                    li
+                        a(href="https://trello.com/c/oIVgdFEB/1-early-contributors")
+                            | Contribute&nbsp;
+                            i.fa.fa-smile.o
+                {{else}}
+                i.fa.fa-question-circle
+                {{/if}}
+
+        div.control-group
             div.controls
                 input.btn.btn-primary(type="submit", value="Submit")

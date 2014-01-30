@@ -1,4 +1,5 @@
 Session.set 'show_complete_form', false
+Session.set 'show_coin_help', false
 
 
 Template.addAddress.helpers
@@ -6,6 +7,8 @@ Template.addAddress.helpers
     _.keys cryptoClassesList
   coin_recognized: ->
     not Session.get 'show_complete_form'
+  coin_help: ->
+    Session.get 'show_coin_help'
 
 
 Template.addAddress.events
@@ -28,3 +31,5 @@ Template.addAddress.events
         Errors.throw error.reason
   'click .fa-plus-square': (e) ->
     Session.set 'show_complete_form', true
+  'click .fa-question-circle': (e) ->
+    Session.set 'show_coin_help', true
