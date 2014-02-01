@@ -4,4 +4,4 @@
 *.js
 *.swp
 *.swo
-packages
+build/
