@@ -6,7 +6,7 @@ Base Class for Crypto Currencies
 class @BaseCrypto
   constructor: (@address) ->
     @keys =
-      balance: 'Processing...'
+      balance: "Processing..."
     @deps = {}
 
   printInfo: ->
@@ -18,17 +18,18 @@ class @BaseCrypto
       @set_balance()
 
   get_balance: ->
-    @ensureDeps 'balance'
-    @deps['balance'].depend()
-    return @keys['balance']
+    @ensureDeps "balance"
+    @deps.balance.depend()
+    return @keys.balance
 
   set_balance: (url, lambda_balance) ->
     cls = this
     Meteor.call "call_url", url, (error, result) ->
       if error
-        throw error
-      cls.keys['balance'] = lambda_balance(result)
-      cls.deps['balance'].changed()
+        throw new Meteor.Error 605, error.reason
+      else
+        cls.keys.balance = lambda_balance result
+        cls.deps.balance.changed()
 
 
 @cryptoClassesList = {}
