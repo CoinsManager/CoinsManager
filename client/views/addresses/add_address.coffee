@@ -21,16 +21,16 @@ Template.addAddress.events
 
     Meteor.call "verify_address", address, code, (error, result) ->
       if error
-        # Display the error
         Errors.throw error.reason
       else
         data =
           address: address
           code: code
-        if not result.content
+        if not result
           data.name = $(e.target).find("[name=name]").val()
           data.nb_coin = $(e.target).find("[name=nb_coin]").val()
           data.value = $(e.target).find("[name=value]").val()
+        else Errors.throw result
 
         Meteor.call "add_address", data, (error, id) ->
           if error

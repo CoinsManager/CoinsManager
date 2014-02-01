@@ -12,6 +12,3 @@
 Addresses.allow
   update: @ownsDocument
   remove: @ownsDocument
-
-
-
