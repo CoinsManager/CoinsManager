@@ -2,9 +2,12 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  #- "curl -L http://git.io/ejPSng | /bin/sh"
-  - "curl -L http://git.io/3l-rRA | /bin/sh"
-  - npm install coffee-script
+  #- "curl -L http://git.io/3l-rRA | /bin/sh"
+  - curl https://install.meteor.com | /bin/sh
+  - npm install -g meteorite
+  - npm install -g laika
+  - npm install -g coffee-script
+  - npm install should underscore
 services:
     - mongodb
 env:
