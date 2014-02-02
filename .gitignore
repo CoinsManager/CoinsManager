@@ -4,5 +4,6 @@
 *.js
 *.swp
 *.swo
+build/
 packages/
 npm-debug.log
