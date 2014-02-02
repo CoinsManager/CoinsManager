@@ -1,0 +1,22 @@
+@import base
+
+%top_header_block
+	$height: prem(50)
+	height: $height
+	line-height: $height
+	background: $secondary-color
+	+border-radius(prem(10))
+	a
+		text-decoration: none
+
+#login-buttons
+	@extend %top_header_block
+	+span-columns(3, 12)
+
+.top_menu
+	@extend %top_header_block
+	+span-columns(6, 12)
+
+.top_wealth
+	@extend %top_header_block
+	+span-columns(1 omega, 12)

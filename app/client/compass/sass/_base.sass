@@ -3,17 +3,25 @@
 @import compass
 @import compass/layout
 @import breakpoint
+@import susy
 @import media_queries
 
 // Colors
 
 $primary-color: #6cae48
-$secondary-color: #333333
+$secondary-color: #303030
 $accent-color: #f09609
 
 // Variables
 
-$body-gap: 1rem
+$baseFontSize: 16
+
+// Grid configuration
+
+$total-columns: 12
+$column-width: 60px
+$gutter-width: 20px
+$grid-padding: 0
 
 // Sprites
 
@@ -34,9 +42,12 @@ $sprites-retina: sprite-map("sprites-retina/*.png")
         @if sprite-position($sprites, $name) != sprite-position($sprites-retina, $name)
             $ypos: round(nth(sprite-position($sprites-retina, $name), 2) / 2)
             background-position: 0 $ypos
-
         // Grab size of non-retina sprite image.
         $img_width: image-width(sprite-path($sprites))
         $img_height: image-height(sprite-path($sprites))
         +background-size($img_width $img_height)
         background-image: sprite-url($sprites-retina)
+
+@function prem($pxval)
+    $remSize: $pxval / $baseFontSize
+    @return #{$remSize}rem
