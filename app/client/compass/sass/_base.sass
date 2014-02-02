@@ -6,13 +6,15 @@
 @import susy
 @import media_queries
 
-// Colors
+// Main Colors
 
 $primary-color: #6cae48
 $secondary-color: #303030
 $accent-color: #f09609
 
-// Variables
+// Size-Variables
+
+$border-radius: prem(10)
 
 $baseFontSize: 16
 
@@ -20,7 +22,7 @@ $baseFontSize: 16
 
 $total-columns: 12
 $column-width: 60px
-$gutter-width: 20px
+$gutter-width: 30px
 $grid-padding: 0
 
 // Sprites
@@ -51,3 +53,6 @@ $sprites-retina: sprite-map("sprites-retina/*.png")
 @function prem($pxval)
     $remSize: $pxval / $baseFontSize
     @return #{$remSize}rem
+
+=address_gradient($color)
+    +background-image(linear-gradient(left top, $color, shade($color,50%)))

@@ -1,0 +1,66 @@
+@import base
+
+// Gradients
+
+$blue: #3d7fe0
+
+// Shadows
+
+$shadow_in: inset 0 prem(2) prem(1) rgba(white, 0.2)
+$shadow_out: 0 prem(5) prem(15) rgba(black, 0.3)
+
+// Sizes
+
+$card_padding: prem(15)
+$header_height: prem(40)
+$coin_balance_height: prem(70)
+$fiat_balance_height: prem(55)
+$card_height: $header_height + $coin_balance_height + $fiat_balance_height
+
+.addresses
+	+container
+
+%block_of_address
+	padding: 0 $card_padding
+
+.address
+	+span-columns(3, 12)
+	+nth-omega(4n)
+	height: $card_height
+	margin-bottom: $gutter-width
+	+address_gradient($blue)
+	+border-radius($border-radius)
+	+box-shadow($shadow_in, $shadow_out)
+	header
+		@extend %block_of_address
+		height: $header_height
+		padding-top: $card_padding
+		h3
+			margin: 0
+			font-size: prem(22)
+			font-weight: normal
+
+.coin_address
+	@extend %block_of_address
+	overflow: hidden
+	display: none
+
+.coin_balance
+	@extend %block_of_address
+	height: $coin_balance_height
+	line-height: $coin_balance_height
+	font-size: prem(24)
+
+.coin_name
+	float: right
+
+.fiat_balance
+	@extend %block_of_address
+	height: $fiat_balance_height
+	line-height: $fiat_balance_height
+	font-size: prem(26)
+	background: rgba(black, 0.3)
+	+border-bottom-radius($border-radius)
+
+.fiat_value
+	float: right
