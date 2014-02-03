@@ -9,10 +9,10 @@ describe "the Bitcoin model", ->
     Bitcoin.should.be.an.Object
 
   it "is in the cryptoClassesList list", ->
-    #cryptoClassesList.should.have.key 'BTC'
-    #cryptoClassesList.BTC.should.eql Bitcoin
-    cryptoClassesList.should.containEql
-      BTC: Bitcoin
+    cryptoClassesList.should.contain.keys 'BTC'
+    cryptoClassesList.BTC.should.eql Bitcoin
+    #cryptoClassesList.should.containEql
+      #BTC: Bitcoin
 
   describe "verify_address", ->
 
