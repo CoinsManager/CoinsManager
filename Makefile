@@ -1,3 +1,4 @@
 test:
-	cd test/rtd && grunt --debug
-.PHONY test
+	cd test/rtd && ./rtd --debug
+
+.PHONY: test
