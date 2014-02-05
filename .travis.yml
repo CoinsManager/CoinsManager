@@ -4,10 +4,11 @@ node_js:
 before_install:
   - curl https://install.meteor.com | /bin/sh
   - npm -g coffee-script meteorite
-  - npm i -g karma phantomjs istanbul grunt-cli selenium-webdriver mocha karma-chai
+  - npm i -g karma phantomjs istanbul grunt-cli selenium-webdriver karma-mocha karma-chai
+install:
+  - cd test/rtd && npm install && cd -
 services:
-    - mongodb
-#env:
+  - mongodb
 notifications:
   email:
     - coinsmanager@gmail.com
