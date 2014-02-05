@@ -4,7 +4,9 @@ node_js:
 before_install:
   - curl https://install.meteor.com | /bin/sh
   - npm -g coffee-script meteorite
-  - npm i -g karma phantomjs istanbul grunt-cli selenium-webdriver karma-mocha karma-chai
+  - npm i -g karma phantomjs istanbul grunt-cli selenium-webdriver
+  - npm i karma-mocha --save-dev
+  - npm i karma-chai --save-dev
 install:
   - cd test/rtd && npm install && cd -
 services:
