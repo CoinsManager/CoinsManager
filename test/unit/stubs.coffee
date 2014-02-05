@@ -1,3 +1,9 @@
+# Core
+Meteor.users.find = ->
+  count: ->
+  fetch: ->
+  observeChanges: ->
+
 # templates
 Template.stub 'addAddress'
 Template.stub 'addressItem'
