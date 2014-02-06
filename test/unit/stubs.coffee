@@ -4,6 +4,16 @@ Meteor.users.find = ->
   fetch: ->
   observeChanges: ->
 
+Deps =
+  autorun: (func) ->
+    func()
+  autosubscribe: (func) ->
+    func()
+  afterFlush: ->
+  Dependency: ->
+    depend: ->
+
+
 # templates
 Template.stub 'addAddress'
 Template.stub 'addressItem'
