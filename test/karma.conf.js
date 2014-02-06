@@ -74,7 +74,7 @@ module.exports = function(config){
         ],
 
         preprocessors : {
-            //'**/app/**/*.js': 'coverage',
+            '**/app/**/*.js': 'coverage',
             '**/*.coffee': 'coffee'
         },
 
@@ -100,7 +100,7 @@ module.exports = function(config){
 
         // test results reporter to use
         // possible values: 'dots', 'progress', 'junit', 'coverage',
-        reporters : ['dots', 'progress', 'junit'],
+        reporters : ['dots', 'progress', 'coverage', 'junit'],
 
 
         // web server port
