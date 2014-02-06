@@ -14,9 +14,8 @@ $accent-color: #f09609
 
 // Size-Variables
 
-$border-radius: prem(10)
-
-$baseFontSize: 16
+$border-radius: 1rem
+$body_margin: 3rem
 
 // Grid configuration
 
@@ -29,6 +28,14 @@ $grid-padding: 0
 
 $sprites: sprite-map("sprites/*.png")
 $sprites-retina: sprite-map("sprites-retina/*.png")
+
+// Helpers
+
+%group
+    &:after
+        content: ""
+        display: table
+        clear: both
 
 // Retina sprites support
 
@@ -50,9 +57,26 @@ $sprites-retina: sprite-map("sprites-retina/*.png")
         +background-size($img_width $img_height)
         background-image: sprite-url($sprites-retina)
 
-@function prem($pxval)
-    $remSize: $pxval / $baseFontSize
-    @return #{$remSize}rem
+=triangle($dir: left, $size: 2rem, $color: white, $type: flat)
+    $opposite: opposite-position($dir)
+    border:
+        width: $size
+        style: solid
+        color: transparent
+    @if $type == 'prolate'
+        border-#{$opposite}:
+            width: $size*2
+            style: solid
+            color: $color
+    @else if $type == 'flat'
+        border-#{$opposite}:
+            width: $size*1
+            style: solid
+            color: $color
+    border-#{$dir}: 0
+    height: 0
+    width: 0
+    display: block
 
 =address_gradient($color)
     +background-image(linear-gradient(left top, $color, shade($color,50%)))

@@ -1,22 +1,51 @@
 @import base
 
-%top_header_block
-	$height: prem(50)
-	height: $height
-	line-height: $height
-	background: $secondary-color
-	+border-radius($border-radius)
-	a
-		text-decoration: none
+// Sizes
 
-#login-buttons
-	@extend %top_header_block
-	+span-columns(3, 12)
+$header_height: 5rem
+
+%top_header_block
+    height: $header_height
+    line-height: $header_height
+    background: $secondary-color
+    +border-radius($border-radius)
+    a
+        text-decoration: none
+
+.top_header
+    @extend %group
+    a
+        +link-colors(white, $accent-color, shade($accent-color, 40%))
 
 .top_menu
-	@extend %top_header_block
-	+span-columns(6, 12)
+    @extend %top_header_block
+    +span-columns(6, 12)
+    display: none
 
 .top_wealth
-	@extend %top_header_block
-	+span-columns(3 omega, 12)
+    @extend %top_header_block
+    +span-columns(3 omega, 12)
+    display: none
+
+// Login Part
+
+#login-buttons
+    @extend %top_header_block
+    +span-columns(3, 12)
+    font-size: 1.6rem
+
+#login-dropdown-list
+    top: 7rem !important
+    left: 0 !important
+    width: 100%
+    margin: 0
+    background: $secondary-color
+    color: white
+
+.login-form-sign-in
+    text-align: center
+    a
+        display: block
+
+.login-close-text
+    line-height: 2.6rem !important

@@ -2,26 +2,33 @@
 
 // Gradients
 
-$blue: #3d7fe0
+$blue: #5895ef
 
 // Shadows
 
-$shadow_in: inset 0 prem(2) prem(1) rgba(white, 0.2)
-$shadow_out: 0 prem(5) prem(15) rgba(black, 0.3)
+$shadow_in: inset 0 0.2rem 0.1rem rgba(white, 0.2)
+$shadow_out: 0 0.5rem 1.5rem rgba(black, 0.3)
 
 // Sizes
 
-$card_padding: prem(15)
-$header_height: prem(40)
-$coin_balance_height: prem(70)
-$fiat_balance_height: prem(55)
+$card_padding: 1.5rem
+$header_height: 3.5rem
+$coin_balance_height: 7rem
+$fiat_balance_height: 5.5rem
 $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 
-.addresses
-	+container
+.donation_title
+	margin: 8rem 0
+	text-align: center
+	color: $secondary-color
+	text-shadow: 0 0.1rem 0.1rem white
+	font-size: 3.6rem
 
 %block_of_address
 	padding: 0 $card_padding
+
+.addresses	
+	@extend %group
 
 .address
 	+span-columns(3, 12)
@@ -37,19 +44,22 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 		padding-top: $card_padding
 		h3
 			margin: 0
-			font-size: prem(22)
+			font-size: 2.2rem
 			font-weight: normal
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+	&:last-child
+		margin: 0
 
 .coin_address
-	@extend %block_of_address
-	overflow: hidden
-	display: none
+	margin-left: 1rem
 
 .coin_balance
 	@extend %block_of_address
 	height: $coin_balance_height
 	line-height: $coin_balance_height
-	font-size: prem(24)
+	font-size: 2.4rem
 
 .coin_name
 	float: right
@@ -58,9 +68,12 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 	@extend %block_of_address
 	height: $fiat_balance_height
 	line-height: $fiat_balance_height
-	font-size: prem(26)
-	background: rgba(black, 0.3)
+	font-size: 2.6rem
+	background: rgba(black, 0.1)
 	+border-bottom-radius($border-radius)
 
 .fiat_value
 	float: right
+
+.unavailable
+	font-size: 1.6rem

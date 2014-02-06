@@ -23,13 +23,17 @@
 
 html
     font-family: "DroidSans"
+    font-size: 62.5%
     -webkit-text-size-adjust: 100%
     -ms-text-size-adjust: 100%
+    +border-box-sizing
 
 body
-    background: $primary-color
+    background: $primary-color image-url("bg.png") top center no-repeat
+    margin-top: $body_margin
     color: white
+    font-size: 1.6rem
     +container
 
 a
-    +link-colors(white, $accent-color, shade($accent-color, 30%))
+    +link-colors($accent-color, shade($accent-color, 20%), shade($accent-color, 40%))
