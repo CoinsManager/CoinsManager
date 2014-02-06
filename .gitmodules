@@ -1,0 +1,3 @@
+[submodule "test/rtd"]
+	path = test/rtd
+	url = https://github.com/Fandekasp/rtd.git

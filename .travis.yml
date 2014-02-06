@@ -2,13 +2,13 @@ language: node_js
 node_js:
   - "0.10"
 before_install:
-  #- "curl -L http://git.io/ejPSng | /bin/sh"
-  - "curl -L http://git.io/3l-rRA | /bin/sh"
-  - npm install coffee-script
+  - curl https://install.meteor.com | /bin/sh
+  - npm i -g coffee-script meteorite karma phantomjs istanbul grunt-cli selenium-webdriver
+  - cd test/rtd && npm i karma-mocha karma-chai --save-dev && cd -
+install:
+  - cd test/rtd && npm install && cd -
 services:
-    - mongodb
-env:
-    - LAIKA_OPTIONS="-t 5000 --ui bdd --compilers coffee:coffee-script --reporter nyan -V"
+  - mongodb
 notifications:
   email:
     - coinsmanager@gmail.com
