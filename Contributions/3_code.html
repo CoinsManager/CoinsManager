@@ -50,10 +50,10 @@
             
   <div class="section" id="guidance-for-programmers">
 <h1>Guidance for Programmers<a class="headerlink" href="#guidance-for-programmers" title="Permalink to this headline">¶</a></h1>
-<p>We, at CoinsManager, are going to develop a product using the latest
+<p>At CoinsManager, we are going to develop a product using the latest
 technologies available, for the best user &amp; developer experiences possible.</p>
 <p>If you want to contribute, but feel a bit scared by all those frameworks (after
-all, we aren&#8217;t writing any css, javascript or html code), don&#8217;t be ! See that as
+all, we aren&#8217;t writing any css, javascript or html code), don&#8217;t be! See that as
 a learning experience with free coaching to help you master all those awesome
 technologies.</p>
 <div class="section" id="list-of-technologies-used">
@@ -113,42 +113,45 @@ migrate the code to <a class="reference external" href="http://angularjs.org/">A
 </div>
 <div class="section" id="infrastructure">
 <h2>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h2>
-<p>Here is the current state of the infrastructure (as per 2014-01-18)</p>
+<p>Here is the current state of the infrastructure (as per 2014-02-07)</p>
 <img alt="../_images/infrastructure.png" src="../_images/infrastructure.png" />
 </div>
 <div class="section" id="workflow">
 <h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="test-code">
 <h3>Test code<a class="headerlink" href="#test-code" title="Permalink to this headline">¶</a></h3>
-<p>To run the tests, we use <strong>Laika</strong> in BDD style. Install it as follow:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> sudo npm install -g laika
-<span class="gp">$</span> mongod --smallfiles --noprealloc --nojournal
-<span class="gp">$</span> <span class="nb">cd </span>CoinsManager/
-<span class="gp">$</span> laika
+<p>Here are all the steps required to run the tests:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd </span>CoinsManager/
+<span class="gp">$</span> make install <span class="o">&amp;&amp;</span> make <span class="nb">test</span>
 </pre></div>
 </div>
 <p>If all goes well, then you should see something like that:</p>
-<img alt="../_images/laika_success.png" src="../_images/laika_success.png" />
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference external" href="http://arunoda.github.io/laika/">Laika documentation</a></p>
+<img alt="../_images/test_success.png" src="../_images/test_success.png" />
+<p>If you want to use RTD as a Continuous Integration tool in your local
+environment, do this instead of <cite>make test</cite>:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd test</span>/rtd
+<span class="gp">$</span> ./rtd --debug
+</pre></div>
 </div>
+</div>
+</div>
+<div class="section" id="running-code">
+<h2>Running code<a class="headerlink" href="#running-code" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd </span>app/
+<span class="gp">$</span> meteor run --settings settings.json
+</pre></div>
 </div>
 <div class="section" id="deploy-code">
 <h3>Deploy code<a class="headerlink" href="#deploy-code" title="Permalink to this headline">¶</a></h3>
-<p>Since we installed <a class="reference external" href="https://atmosphere.meteor.com/package/GAnalytics">GAnalytics</a>,
-we need to specify the settings (containing our Google Analytics code) when
-deploying (note that you need to be a privileged user with access to the
-deployment password).</p>
+<p>we need to specify the settings (containing our
+<a class="reference external" href="https://atmosphere.meteor.com/package/GAnalytics">Google Analytics</a> code
+among other things) when deploying (note that you need to be a privileged user
+with access to the deployment password).</p>
 <div class="section" id="meteor-hosting">
 <h4>Meteor hosting<a class="headerlink" href="#meteor-hosting" title="Permalink to this headline">¶</a></h4>
 <p>Used temporarily to deploy the <strong>Coming Soon Page</strong></p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> meteor deploy www.coinsmanager.com --password --settings settings.json
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You don&#8217;t need to run meteor with settings in your local environment.</p>
 </div>
 </div>
 <div class="section" id="heroku">
@@ -163,13 +166,14 @@ deployment password).</p>
 </pre></div>
 </div>
 <p>Edit your <tt class="file docutils literal"><span class="pre">.git/config</span></tt> to add the new heroku remote:</p>
-<div class="highlight-python"><pre>[remote "heroku"]
+<div class="highlight-python"><div class="highlight"><pre>[remote &quot;heroku&quot;]
     url = git@heroku.com:coinsmanager.git
-    fetch = +refs/heads/*:refs/remotes/heroku/*</pre>
+    fetch = +refs/heads/*:refs/remotes/heroku/*
+</pre></div>
 </div>
 <p>Now you can push on <strong>heroku</strong> (Heroku git repository) like you would do with
 <strong>origin</strong> (your Github fork) or <strong>upstream</strong> (CoinsManager Github repository).
-Confer <em class="xref std std-ref">Git Remotes</em> if needed.</p>
+Confer <a class="reference internal" href="2_git.html#git-remotes"><em>Git Remotes</em></a> if needed.</p>
 <p>Because heroku doesn&#8217;t know yet how to compile our <cite>.sass</cite> files into css
 (missing feature in the buildpack, or missing <strong>meteor-compass</strong> package to
 handle it), we need to compile it ourselves and commit it in git before pushing
@@ -212,6 +216,9 @@ the remote heroku.</p>
 <li><a class="reference internal" href="#infrastructure">Infrastructure</a></li>
 <li><a class="reference internal" href="#workflow">Workflow</a><ul>
 <li><a class="reference internal" href="#test-code">Test code</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-code">Running code</a><ul>
 <li><a class="reference internal" href="#deploy-code">Deploy code</a><ul>
 <li><a class="reference internal" href="#meteor-hosting">Meteor hosting</a></li>
 <li><a class="reference internal" href="#heroku">Heroku</a></li>
@@ -263,7 +270,7 @@ the remote heroku.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2013, Adrien Lemaire, Vladimir Plokhov.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
     </div>
   </body>
 </html>
