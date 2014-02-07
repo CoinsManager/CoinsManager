@@ -48,3 +48,6 @@ Template.addAddress.events
 
   "click #close-coin-help": (e) ->
     Session.set "show_coin_help", false
+
+  "click .is_unactive": (e) ->
+    $(e.target).removeClass "is_unactive"

@@ -1,8 +1,9 @@
 @import base
 
-// Gradients
+// Colors
 
 $blue: #5895ef
+$new_address: white
 
 // Shadows
 
@@ -17,7 +18,7 @@ $coin_balance_height: 7rem
 $fiat_balance_height: 5.5rem
 $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 
-.donation_title
+.addresses_title
 	margin: 8rem 0
 	text-align: center
 	color: $secondary-color
@@ -77,3 +78,24 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 
 .unavailable
 	font-size: 1.6rem
+
+// Add address
+
+.add_address
+	+span-columns(3, 12)
+	&.is_unactive
+		.control-group
+			display: none
+		border: 0.3rem $new_address dashed
+		height: $card_height
+		+border-radius($border-radius)
+		position: relative
+		cursor: pointer
+		&:after
+			content: '+'
+			color: $new_address
+			font-size: 15rem
+			display: inline-block
+			width: 100%
+			line-height: $card_height
+			text-align: center
