@@ -17,11 +17,14 @@ describe "Generic tests for all Cryptocurrencies", ->
     describe "Generic tests for #{code}", ->
 
       beforeEach ->
-        @coin = cryptoClassesList[code]
+        @coin = new cryptoClassesList[code] 'Address'
+
+      it "inherits BaseCrypto", ->
+        @coin.should.be.an.instanceof BaseCrypto
 
       it "has a code", ->
-        @coin.should.have.a.property "code"
+        @coin.constructor.should.have.a.property "code"
 
       it "has a name", ->
-        @coin.should.have.a.property "name"
-        @coin.name.should.not.equal ""
+        @coin.constructor.should.have.a.property "name"
+        @coin.constructor.name.should.not.equal ""
