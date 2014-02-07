@@ -40,7 +40,7 @@ class @BaseCrypto
         return balance * rate
 
     """
-    return "Value calculation has not been implemented for " + @name
+    return "Value calculation has not been implemented for #{@name}"
 
   set_balance: (url, lambda_balance) ->
     """
