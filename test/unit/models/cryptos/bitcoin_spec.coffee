@@ -9,10 +9,8 @@ describe "the Bitcoin model", ->
     Bitcoin.should.be.an.Object
 
   it "is in the cryptoClassesList list", ->
-    cryptoClassesList.should.contain.keys 'BTC'
+    cryptoClassesList.should.contain.keys "BTC"
     cryptoClassesList.BTC.should.eql Bitcoin
-    #cryptoClassesList.should.containEql
-      #BTC: Bitcoin
 
   describe "verify_address", ->
 
@@ -20,12 +18,18 @@ describe "the Bitcoin model", ->
       Bitcoin.should.have.a.property "verify_address"
       Bitcoin.verify_address.should.be.a.Function
 
-    it "returns a 601 error if address is not base58", ->
-      Meteor.call = ->
-        content: "X5"
-      (->
-        Bitcoin.verify_address @data.address
-      ).should.throw()
+    errors =
+      X5: "Address not base58"
+      SZ: "Address not the correct size"
+      CK: "Failed hash check"
+      anythingElse: "An error occured"
+
+    for error of errors
+      it "can return an error '#{errors[error]}'", ->
+        Meteor.call = -> content: error
+        (->
+          Bitcoin.verify_address @data.address
+        ).should.throw()
 
     it "returns false if the address is correct", ->
       Meteor.call = ->

@@ -5,7 +5,7 @@ Guidance for Scribers
 Requirements
 ------------
 
-You will need to write the documentation is RestructuredText.
+You will need to write the documentation in RestructuredText.
 The best way is to read the project documentation files, and use them as
 example to write your own documentation.
 
@@ -42,5 +42,10 @@ follow:
     $ git commit -am "Rebuild html documentation"
     $ git push origin gh-pages
 
+.. note::
+
+    You need to be part of the Github contributors team in order to push
+    directly to the upstream gh-pages branch. If you aren't part of the team,
+    make a request! Otherwise, do a pull request against the gh-pages branch.
 
 .. seealso:: `Publishing sphinx-generated docs on github <http://daler.github.io/sphinxdoc-test/includeme.html>`_

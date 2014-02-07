@@ -9,7 +9,6 @@ class @Bitcoin extends @BaseCrypto
     super
     @api_url = "http://blockchain.info/address/"
     @lambda_balance = (result) -> result.data.final_balance / Math.pow(10, 8)
-    @name = "Bitcoin"
 
   get_value: ->
     balance = @get_balance()

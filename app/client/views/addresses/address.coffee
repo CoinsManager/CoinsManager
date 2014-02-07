@@ -5,3 +5,6 @@ Template.addressItem.helpers
     Else, return the class variable code
     """
     this.code or this.constructor.code
+  name: ->
+    name = this.constructor.name
+    return name if name isnt 'Object'

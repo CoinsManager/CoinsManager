@@ -6,7 +6,6 @@ class @Noblecoin extends @BaseCrypto
 
   constructor: ->
     super
-    @name = "Noblecoin"
     @api_url = "http://cryptexplorer.com/chain/Noblecoin/q/addressbalance/"
     @lambda_balance = (result) -> +result.content
 

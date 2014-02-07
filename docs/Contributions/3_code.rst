@@ -4,11 +4,11 @@
 Guidance for Programmers
 ========================
 
-We, at CoinsManager, are going to develop a product using the latest
+At CoinsManager, we are going to develop a product using the latest
 technologies available, for the best user & developer experiences possible.
 
 If you want to contribute, but feel a bit scared by all those frameworks (after
-all, we aren't writing any css, javascript or html code), don't be ! See that as
+all, we aren't writing any css, javascript or html code), don't be! See that as
 a learning experience with free coaching to help you master all those awesome
 technologies.
 
@@ -80,26 +80,32 @@ Workflow
 
 Test code
 ~~~~~~~~~
-To run the tests, we use **Laika** in BDD style. Install it as follow:
+Here are all the steps required to run the tests:
 
 .. code-block:: console
 
-    $ sudo npm install -g laika
-    $ mongod --smallfiles --noprealloc --nojournal
     $ cd CoinsManager/
-    $ laika
+    $ make install && make test
 
 If all goes well, then you should see something like that:
 
-.. image:: ../_static/laika_success.png
+.. image:: ../_static/test_success.png
 
-.. seealso:: `Laika documentation <http://arunoda.github.io/laika/>`_
+If you want to use RTD as a Continuous Integration tool in your local
+environment, do this instead of `make test`:
+
+.. code-block:: console
+
+    $ cd test/rtd
+    $ ./rtd --debug
+
 
 
 Running code
 ------------
 .. code-block:: console
 
+    $ cd app/
     $ meteor run --settings settings.json
 
 

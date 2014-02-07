@@ -1,17 +1,16 @@
-###
-Base Class for Crypto Currencies
-
-This class needs to be inherited by specific coins classes, and following
-methods should be overrided:
-
-  * get_value
-  * set_balance
-  * verify_address
-  * get_exchange_rate (TODO: not implemented yet)
-###
-
-
 class @BaseCrypto
+  """
+  Base Class for Crypto Currencies
+
+  This class needs to be inherited by specific coins classes, and following
+  methods should be overrided:
+
+    * get_value
+    * set_balance
+    * verify_address
+    * get_exchange_rate (TODO: not implemented yet)
+  """
+
   constructor: (@address) ->
     @keys =
       balance: "Processing..."
@@ -41,7 +40,7 @@ class @BaseCrypto
         return balance * rate
 
     """
-    return "Value calculation has not been implemented for " + @name
+    return "Value calculation has not been implemented for #{@constructor.name}"
 
   set_balance: (url, lambda_balance) ->
     """
@@ -67,7 +66,7 @@ class @BaseCrypto
     correspond to a correct address (good algorith, correct size, hash check
     pass)
     """
-    return "Verification for " + @name + " has not been implemented yet"
+    return "Verification for #{@name} has not been implemented yet"
 
 
 @cryptoClassesList = {}
