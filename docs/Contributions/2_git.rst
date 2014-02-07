@@ -65,8 +65,7 @@ Go to your github repository, and you should see something like this:
 Click on :guilabel:`Compare & pull request`, this will bring you to the pull
 request interface.
 
-Note that by default, your branches will always try to merge into the master
-branch:
+Note that your branch will try to merge against the default one automatically.
 
 .. image:: ../_static/git_pull_request_from_1.png
 
@@ -75,9 +74,9 @@ Click on the :guilabel:`Edit` button and change it to the appropriate branch
 
 .. image:: ../_static/git_pull_request_from_2.png
 
-Add a useless message to describe the feature that you want to merge, and press
+Add a useful message to describe the feature you want to merge, and press
 :guilabel:`Send pull request`. Congratulations, you sent your first
-contribution !
+contribution!
 
 .. note::
 
@@ -93,7 +92,7 @@ Remotes
 You already did a contribution before, but want to do more, and your repository
 became quite outdated compared to the upstream repository.
 
-That's no problem ! Just add a remote for the upstream repository and rebase
+That's no problem! Just add a remote for the upstream repository and rebase
 from it:
 
 .. code-block:: console
@@ -125,7 +124,7 @@ appear:
     you want. If you want to participate in a feature that is awaiting merging
     in a pull request, add that user repo as a new remote, and pull request
     directly to that user branch for the upstream pull request to be
-    auto-updated !
+    auto-updated!
 
 Merge
 ~~~~~
