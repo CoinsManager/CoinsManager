@@ -8,10 +8,10 @@ module.exports = {
         debug: false,           // enables all outputs. This is also switched on if you run grunt --debug
         appOutput: false,       // this shows the output from the 'meteor run' command
         mirrorOutput: false,    // this shows the output from the 'meteor run' command on the mirror app
-        karma: false            // shows Karma's output
+        karma: true            // shows Karma's output
     },
     options: {
-        useCucumberJs: false, // EXPERIMENTAL FEATURE: DISABLES THE RUNNING OF SPEC FILES AND CODE COVERAGE FOR NOW
+        useCucumberJs: true, // EXPERIMENTAL FEATURE: DISABLES THE RUNNING OF SPEC FILES AND CODE COVERAGE FOR NOW
         cucumberjs: { // See here for more details: https://github.com/s9tpepper/grunt-cucumber-js
             src: '<%= basePath %>/test/features',
             options: {
