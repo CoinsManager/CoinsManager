@@ -8,3 +8,5 @@ services:
 notifications:
   email:
     - coinsmanager@gmail.com
+git:
+  submodules: false
