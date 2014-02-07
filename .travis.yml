@@ -3,8 +3,8 @@ node_js:
   - "0.10"
 before_install:
   - curl https://install.meteor.com | /bin/sh
-  - npm i -g coffee-script meteorite karma phantomjs istanbul grunt-cli selenium-webdriver
-  - cd test/rtd && npm i karma-mocha karma-mocha-reporter karma-chai --save-dev && cd -
+  - npm i -g coffee-script meteorite karma phantomjs istanbul grunt-cli selenium-webdriver karma-mocha-reporter
+  - cd test/rtd && npm i karma-mocha karma-chai --save-dev && cd -
 install:
   - cd test/rtd && npm install && cd -
 services:

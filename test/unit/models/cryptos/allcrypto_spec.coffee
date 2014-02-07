@@ -1,10 +1,27 @@
+implementedCoins = [
+  'BTC',
+  'LTC',
+  'EAC',
+  'NOBL'
+]
+
+
 describe "Generic tests for all Cryptocurrencies", ->
 
-  it "allows us to test all coins automatically", ->
-    for coin in cryptoClassesList
+  it "makes sure all implemented coins are tested", ->
+    implementedCoins.sort().should.eql (
+      key for key of cryptoClassesList).sort()
 
-      describe "Generic tests for #{coin}",
+  for code in implementedCoins
 
-        it "has a code", ->
-          console.log coin.code
-          coin.should.have.a.property "code"
+    describe "Generic tests for #{code}", ->
+
+      beforeEach ->
+        @coin = cryptoClassesList[code]
+
+      it "has a code", ->
+        @coin.should.have.a.property "code"
+
+      it "has a name", ->
+        @coin.should.have.a.property "name"
+        @coin.name.should.not.equal ""
