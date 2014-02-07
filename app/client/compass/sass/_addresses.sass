@@ -28,6 +28,12 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 %block_of_address
 	padding: 0 $card_padding
 
+%card_template
+	margin-bottom: $gutter-width
+	+address_gradient($blue)
+	+border-radius($border-radius)
+	+box-shadow($shadow_in, $shadow_out)
+
 .addresses	
 	@extend %group
 
@@ -35,10 +41,7 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 	+span-columns(3, 12)
 	+nth-omega(4n)
 	height: $card_height
-	margin-bottom: $gutter-width
-	+address_gradient($blue)
-	+border-radius($border-radius)
-	+box-shadow($shadow_in, $shadow_out)
+	@extend %card_template
 	header
 		@extend %block_of_address
 		height: $header_height
@@ -99,3 +102,6 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 			width: 100%
 			line-height: $card_height
 			text-align: center
+	&.is_active
+		@extend %card_template
+		padding: $card_padding

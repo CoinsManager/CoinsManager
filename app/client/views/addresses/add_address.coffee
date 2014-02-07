@@ -51,3 +51,4 @@ Template.addAddress.events
 
   "click .is_unactive": (e) ->
     $(e.target).removeClass "is_unactive"
+    $(e.target).addClass "is_active"
