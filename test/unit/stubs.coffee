@@ -13,6 +13,9 @@ Deps =
   Dependency: ->
     depend: ->
 
+Meteor.Error = (error, reason) ->
+  throw reason
+
 
 # templates
 Template.stub 'addAddress'

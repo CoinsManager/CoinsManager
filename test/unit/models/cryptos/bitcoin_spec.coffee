@@ -24,12 +24,15 @@ describe "the Bitcoin model", ->
       CK: "Failed hash check"
       anythingElse: "An error occured"
 
-    for error of errors
-      it "can return an error '#{errors[error]}'", ->
-        Meteor.call = -> content: error
-        (->
-          Bitcoin.verify_address @data.address
-        ).should.throw()
+    for error, reason of errors
+      do (error, reason) ->
+        it "can return an error '#{reason}'", ->
+          address = @data.address
+          Meteor.call = -> content: error
+
+          (->
+            Bitcoin.verify_address address
+          ).should.throw reason
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
