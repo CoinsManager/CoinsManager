@@ -10,3 +10,6 @@
 /phantomjs
 /handlebar-helpers
 /errors
+/fs
+/assert
+/blocking

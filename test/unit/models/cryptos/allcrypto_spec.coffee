@@ -4,6 +4,8 @@ implementedCoins = [
   'EAC',
   'NOBL'
 ]
+files = fs.readdirSync '../../../../app/models/cryptos/'
+console.log files
 
 
 describe "Generic tests for all Cryptocurrencies", ->
