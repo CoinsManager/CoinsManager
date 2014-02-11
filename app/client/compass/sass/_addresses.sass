@@ -17,6 +17,7 @@ $header_height: 3.5rem
 $coin_balance_height: 7rem
 $fiat_balance_height: 5.5rem
 $card_height: $header_height + $coin_balance_height + $fiat_balance_height
+$input_height: 3rem
 
 .addresses_title
 	margin: 8rem 0
@@ -34,6 +35,9 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 	+border-radius($border-radius)
 	+box-shadow($shadow_in, $shadow_out)
 
+%text_shadow
+	text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
+
 .addresses	
 	@extend %group
 
@@ -42,6 +46,7 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 	+nth-omega(4n)
 	height: $card_height
 	@extend %card_template
+	@extend %text_shadow
 	header
 		@extend %block_of_address
 		height: $header_height
@@ -64,6 +69,7 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 	height: $coin_balance_height
 	line-height: $coin_balance_height
 	font-size: 2.4rem
+	overflow: hidden
 
 .coin_name
 	float: right
@@ -75,6 +81,7 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 	font-size: 2.6rem
 	background: rgba(black, 0.1)
 	+border-bottom-radius($border-radius)
+	overflow: hidden
 
 .fiat_value
 	float: right
@@ -86,8 +93,9 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 
 .add_address
 	+span-columns(3, 12)
+	margin-right: 0
 	&.is_unactive
-		.control-group
+		div
 			display: none
 		border: 0.3rem $new_address dashed
 		height: $card_height
@@ -105,3 +113,69 @@ $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 	&.is_active
 		@extend %card_template
 		padding: $card_padding
+	input[type="text"], input[type="number"], select
+		height: $input_height
+		padding: 0.5rem
+		background: shade($blue, 50%)
+		width: 100%
+		border: 0.1rem solid tint($blue, 10%)
+		color: white
+		+border-radius(0.3rem)
+	select[name="code-alpha"]
+		width: 90%
+	label
+		@extend %text_shadow
+		display: inline-block
+		margin-bottom: 0.5rem
+	input[type="submit"]
+		display: block
+		margin: $card_padding auto 0
+	.controls
+		@extend %group
+	i
+		@extend %text_shadow
+		$height: 1.6rem
+		height: $height
+		cursor: pointer
+		float: right
+		&.y-centered
+			margin-top: ($input_height - $height)/2
+	.help
+		p
+			margin-top: 0
+			@extend %text_shadow
+		ul
+			padding: 0 0 0 2rem
+			font-size: 1.3rem
+	#close
+		margin-left: 0.5rem
+
+
+.bottom_line
+	position: relative
+	@extend %text_shadow
+	&:after, &:before
+		content: ''
+		display: block
+		width: 40%
+		border-bottom: 0.1rem solid white
+		position: absolute
+		top: 0
+		bottom: 0
+		margin: auto
+		height: 0.1rem
+	&:after
+		left: 0
+	&:before
+		right: 0
+	.slide_up
+		margin: 1rem auto
+		float: none
+		font-size: 1.6rem
+		text-align: center
+		width: 100%
+
+.control-group
+	margin-bottom: 1rem
+	&:last-child
+		margin-bottom: 0
