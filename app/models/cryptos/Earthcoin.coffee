@@ -15,6 +15,3 @@ class @Earthcoin extends @BaseCrypto
 
   get_value: ->
     @get_balance() * 0.0016
-
-
-@cryptoClassesList[@Earthcoin.code] = @Earthcoin

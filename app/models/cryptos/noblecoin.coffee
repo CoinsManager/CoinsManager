@@ -14,6 +14,3 @@ class @Noblecoin extends @BaseCrypto
     super url, @lambda_balance
 
   get_value: ->
-
-
-@cryptoClassesList[@Noblecoin.code] = @Noblecoin

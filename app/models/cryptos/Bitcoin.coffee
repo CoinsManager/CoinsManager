@@ -29,6 +29,3 @@ class @Bitcoin extends @BaseCrypto
       when "CK" then throw new Meteor.Error 603, "Failed hash check"
       when "00" then false
       else throw new Meteor.Error 604, "An error occured"
-
-
-@cryptoClassesList[@Bitcoin.code] = @Bitcoin

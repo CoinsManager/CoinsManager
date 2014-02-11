@@ -4,8 +4,6 @@ implementedCoins = [
   'EAC',
   'NOBL'
 ]
-files = fs.readdirSync '../../../../app/models/cryptos/'
-console.log files
 
 
 describe "Generic tests for all Cryptocurrencies", ->
@@ -30,3 +28,7 @@ describe "Generic tests for all Cryptocurrencies", ->
       it "has a name", ->
         @coin.constructor.should.have.a.property "name"
         @coin.constructor.name.should.not.equal ""
+
+      #it "can use fs", ->
+        #files = fs.readdirSync '../../../../app/models/cryptos/'
+        #console.log files

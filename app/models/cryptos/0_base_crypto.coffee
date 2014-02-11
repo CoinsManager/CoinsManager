@@ -53,6 +53,7 @@ class @BaseCrypto
 
     """
     cls = this
+
     Meteor.call "call_url", url, (error, result) ->
       if error
         throw new Meteor.Error 605, error.reason
@@ -67,6 +68,3 @@ class @BaseCrypto
     pass)
     """
     return "Verification for #{@name} has not been implemented yet"
-
-
-@cryptoClassesList = {}
