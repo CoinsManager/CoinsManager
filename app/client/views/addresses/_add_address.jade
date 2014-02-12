@@ -1,5 +1,26 @@
 template(name="addAddress")
-    form.main
+    form.add_address.is_unactive
+        div.icon_block
+            i.fa.fa-times-circle#close
+        div.help
+            {{#if coin_help}}
+            p Want to have your coin implemented ?
+            ul
+                li
+                    a(href="https://trello.com/c/p7U95R2D/22-online-visitors-your-suggestions")
+                        | Request that it be added
+                li
+                    a(href="https://trello.com/c/HU0dPqwB/39-donors")
+                        | Support your coin by making a donation
+                li
+                    a(href="https://trello.com/c/oIVgdFEB/1-early-contributors")
+                        | Contribute&nbsp;
+                        i.fa.fa-smile.o
+            span.bottom_line
+                i.fa.fa-chevron-up.slide_up#close-coin-help
+                {{else}}
+                i.fa.fa-question-circle
+                {{/if}}
         div.control-group
             label.control-label(for="address") Public Address
             div.controls
@@ -13,7 +34,7 @@ template(name="addAddress")
                     {{#each codes}}
                     option(value="{{this}}") {{this}}
                     {{/each}}
-                i.fa.fa-plus-square
+                i.fa.fa-plus-square.y-centered
         {{else}}
         div.control-group
             label.control-label(for="code") Code
@@ -35,28 +56,10 @@ template(name="addAddress")
             div.controls
                 input(name="value", type="number",
                       placeholder="how much is this address worth in your fiat currency")
-            i.fa.fa-level-up#close-form
+        div.icon_block
+            span.bottom_line
+                i.fa.fa-chevron-up.slide_up#close-form
         {{/if}}
-
-        div.control-group
-            div.help
-                {{#if coin_help}}
-                Want to have your coin implemented ?
-                ul
-                    li
-                        a(href="https://trello.com/c/p7U95R2D/22-online-visitors-your-suggestions")
-                            | Request that it be added
-                    li
-                        a(href="https://trello.com/c/HU0dPqwB/39-donors")
-                            | Support your coin by making a donation
-                    li
-                        a(href="https://trello.com/c/oIVgdFEB/1-early-contributors")
-                            | Contribute&nbsp;
-                            i.fa.fa-smile.o
-                i.fa.fa-level-up#close-coin-help
-                {{else}}
-                i.fa.fa-question-circle
-                {{/if}}
 
         div.control-group
             div.controls

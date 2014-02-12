@@ -3,22 +3,39 @@
 @import compass
 @import compass/layout
 @import breakpoint
+@import susy
 @import media_queries
 
-// Colors
+// Main Colors
 
 $primary-color: #6cae48
-$secondary-color: #333333
+$secondary-color: #303030
 $accent-color: #f09609
 
-// Variables
+// Size-Variables
 
-$body-gap: 1rem
+$border-radius: 1rem
+$body_margin: 3rem
+
+// Grid configuration
+
+$total-columns: 12
+$column-width: 60px
+$gutter-width: 30px
+$grid-padding: 0
 
 // Sprites
 
 $sprites: sprite-map("sprites/*.png")
 $sprites-retina: sprite-map("sprites-retina/*.png")
+
+// Helpers
+
+%group
+    &:after
+        content: ""
+        display: table
+        clear: both
 
 // Retina sprites support
 
@@ -34,9 +51,32 @@ $sprites-retina: sprite-map("sprites-retina/*.png")
         @if sprite-position($sprites, $name) != sprite-position($sprites-retina, $name)
             $ypos: round(nth(sprite-position($sprites-retina, $name), 2) / 2)
             background-position: 0 $ypos
-
         // Grab size of non-retina sprite image.
         $img_width: image-width(sprite-path($sprites))
         $img_height: image-height(sprite-path($sprites))
         +background-size($img_width $img_height)
         background-image: sprite-url($sprites-retina)
+
+=triangle($dir: left, $size: 2rem, $color: white, $type: flat)
+    $opposite: opposite-position($dir)
+    border:
+        width: $size
+        style: solid
+        color: transparent
+    @if $type == 'prolate'
+        border-#{$opposite}:
+            width: $size*2
+            style: solid
+            color: $color
+    @else if $type == 'flat'
+        border-#{$opposite}:
+            width: $size*1
+            style: solid
+            color: $color
+    border-#{$dir}: 0
+    height: 0
+    width: 0
+    display: block
+
+=address_gradient($color)
+    +background-image(linear-gradient(left top, $color, shade($color,50%)))

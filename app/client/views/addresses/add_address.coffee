@@ -10,7 +10,6 @@ Template.addAddress.helpers
   coin_help: ->
     Session.get "show_coin_help"
 
-
 Template.addAddress.events
   "submit form": (e) ->
     e.preventDefault()
@@ -48,3 +47,17 @@ Template.addAddress.events
 
   "click #close-coin-help": (e) ->
     Session.set "show_coin_help", false
+
+  "click .is_unactive": (e) ->
+    $(e.target).removeClass "is_unactive"
+    $(e.target).addClass "is_active"
+    Session.set 'showAddAddressForm', true
+
+  "click #close": (e) ->
+    $(".add_address").removeClass("is_active").addClass("is_unactive")
+    Session.set 'showAddAddressForm', false
+
+Template.addAddress.rendered = () ->
+  formStatus = Session.get "show_coin_help"
+  if Session.get "showAddAddressForm"
+    $(".add_address").removeClass("is_unactive").addClass("is_active")

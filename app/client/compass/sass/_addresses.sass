@@ -1,0 +1,181 @@
+@import base
+
+// Colors
+
+$blue: #5895ef
+$new_address: white
+
+// Shadows
+
+$shadow_in: inset 0 0.2rem 0.1rem rgba(white, 0.2)
+$shadow_out: 0 0.5rem 1.5rem rgba(black, 0.3)
+
+// Sizes
+
+$card_padding: 1.5rem
+$header_height: 3.5rem
+$coin_balance_height: 7rem
+$fiat_balance_height: 5.5rem
+$card_height: $header_height + $coin_balance_height + $fiat_balance_height
+$input_height: 3rem
+
+.addresses_title
+	margin: 8rem 0
+	text-align: center
+	color: $secondary-color
+	text-shadow: 0 0.1rem 0.1rem white
+	font-size: 3.6rem
+
+%block_of_address
+	padding: 0 $card_padding
+
+%card_template
+	margin-bottom: $gutter-width
+	+address_gradient($blue)
+	+border-radius($border-radius)
+	+box-shadow($shadow_in, $shadow_out)
+
+%text_shadow
+	text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
+
+.addresses	
+	@extend %group
+
+.address
+	+span-columns(3, 12)
+	+nth-omega(4n)
+	height: $card_height
+	@extend %card_template
+	@extend %text_shadow
+	header
+		@extend %block_of_address
+		height: $header_height
+		padding-top: $card_padding
+		h3
+			margin: 0
+			font-size: 2.2rem
+			font-weight: normal
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+	&:last-child
+		margin: 0
+
+.coin_address
+	margin-left: 1rem
+
+.coin_balance
+	@extend %block_of_address
+	height: $coin_balance_height
+	line-height: $coin_balance_height
+	font-size: 2.4rem
+	overflow: hidden
+
+.coin_name
+	float: right
+
+.fiat_balance
+	@extend %block_of_address
+	height: $fiat_balance_height
+	line-height: $fiat_balance_height
+	font-size: 2.6rem
+	background: rgba(black, 0.1)
+	+border-bottom-radius($border-radius)
+	overflow: hidden
+
+.fiat_value
+	float: right
+
+.unavailable
+	font-size: 1.6rem
+
+// Add address
+
+.add_address
+	+span-columns(3, 12)
+	margin-right: 0
+	&.is_unactive
+		div
+			display: none
+		border: 0.3rem $new_address dashed
+		height: $card_height
+		+border-radius($border-radius)
+		position: relative
+		cursor: pointer
+		&:after
+			content: '+'
+			color: $new_address
+			font-size: 15rem
+			display: inline-block
+			width: 100%
+			line-height: $card_height
+			text-align: center
+	&.is_active
+		@extend %card_template
+		padding: $card_padding
+	input[type="text"], input[type="number"], select
+		height: $input_height
+		padding: 0.5rem
+		background: shade($blue, 50%)
+		width: 100%
+		border: 0.1rem solid tint($blue, 10%)
+		color: white
+		+border-radius(0.3rem)
+	select[name="code-alpha"]
+		width: 90%
+	label
+		@extend %text_shadow
+		display: inline-block
+		margin-bottom: 0.5rem
+	input[type="submit"]
+		display: block
+		margin: $card_padding auto 0
+	.controls
+		@extend %group
+	i
+		@extend %text_shadow
+		$height: 1.6rem
+		height: $height
+		cursor: pointer
+		float: right
+		&.y-centered
+			margin-top: ($input_height - $height)/2
+	.help
+		p
+			margin-top: 0
+			@extend %text_shadow
+		ul
+			padding: 0 0 0 2rem
+			font-size: 1.3rem
+	#close
+		margin-left: 0.5rem
+
+
+.bottom_line
+	position: relative
+	@extend %text_shadow
+	&:after, &:before
+		content: ''
+		display: block
+		width: 40%
+		border-bottom: 0.1rem solid white
+		position: absolute
+		top: 0
+		bottom: 0
+		margin: auto
+		height: 0.1rem
+	&:after
+		left: 0
+	&:before
+		right: 0
+	.slide_up
+		margin: 1rem auto
+		float: none
+		font-size: 1.6rem
+		text-align: center
+		width: 100%
+
+.control-group
+	margin-bottom: 1rem
+	&:last-child
+		margin-bottom: 0

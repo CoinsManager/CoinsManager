@@ -1,5 +1,6 @@
 # Require any additional compass plugins here.
 require 'breakpoint'
+require "susy"
 
 # Set this to the root of your project when deployed:
 http_path = "/"
@@ -10,6 +11,7 @@ fonts_dir = "../../public/fonts"
 
 # Deployed paths:
 http_generated_images_path = "/img"
+http_images_path = "/img"
 http_fonts_path = "/fonts"
 
 # You can select your preferred output style here (can be overridden via the command line):

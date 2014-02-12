@@ -1,15 +1,17 @@
+@import base
+
 // Define font
 
-+font-face("OpenSans", font-files("OpenSans-Light-webfont.ttf", ttf, "OpenSans-Light-webfont.woff", woff, "OpenSans-Light-webfont.svg", svg), "OpenSans-Light-webfont.eot", normal)
++font-face("DroidSans", font-files("DroidSans-webfont.ttf", ttf, "DroidSans-webfont.woff", woff, "DroidSans-webfont.svg", svg), null, normal)
 
-+font-face("OpenSans", font-files("OpenSans-Regular-webfont.ttf", ttf, "OpenSans-Regular-webfont.woff", woff, "OpenSans-Regular-webfont.svg", svg), "OpenSans-Regular-webfont.eot", bold)
++font-face("DroidSans", font-files("DroidSans-Bold-webfont.ttf", ttf, "DroidSans-Bold-webfont.woff", woff, "DroidSans-Bold-webfont.svg", svg), null, bold)
 
 // Trick for force smooth in Chrome. SVG looks better in chrome. Also, Opera
 // needs another fix: ttf after svg for correct rendering
 
 @media screen and (-webkit-min-device-pixel-ratio: 0)
-    +font-face("OpenSans", font-files("OpenSans-Light-webfont.svg", svg, "OpenSans-Light-webfont.ttf", ttf), $weight: normal)
-    +font-face("OpenSans", font-files("OpenSans-Semibold-webfont.svg", svg, "OpenSans-Semibold-webfont.ttf", ttf), $weight: bold)
+    +font-face("DroidSans", font-files("DroidSans-webfont.svg", svg, "DroidSans-webfont.ttf", ttf), $weight: normal)
+    +font-face("DroidSans", font-files("DroidSans-Bold-webfont.svg", svg, "DroidSans-Bold-webfont.ttf", ttf), $weight: bold)
 
 // Generating Sprites
 
@@ -20,15 +22,18 @@
 // General page styles
 
 html
-    font-family: "OpenSans"
+    font-family: "DroidSans"
     font-size: 62.5%
     -webkit-text-size-adjust: 100%
     -ms-text-size-adjust: 100%
+    +border-box-sizing
 
 body
-    background: $primary-color
-    margin: $body-gap
+    background: $primary-color image-url("bg.png") top center no-repeat
+    margin-top: $body_margin
     color: white
+    font-size: 1.6rem
+    +container
 
 a
-    +link-colors(white, $secondary-color, shade($accent-color, 20%))
+    +link-colors($accent-color, shade($accent-color, 20%), shade($accent-color, 40%))

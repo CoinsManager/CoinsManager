@@ -1,17 +1,32 @@
 template(name="addressItem")
     div.address
-        div.address-content
-            h3 {{#if name}}{{name}} -{{/if}} {{code}}
-            div.address {{address}}
-            {{#if get_balance}}
-            div.balance
-                b Nb of coins:
-                div {{get_balance}}
-            {{/if}}
-            {{#if get_value}}
-            div.value
-                b Asset value:
-                div
-                    i.fa.fa-dollar
-                    {{get_value}}
-            {{/if}}
+        header 
+            h3
+                span.coin_code
+                    {{code}}:
+                span.coin_address
+                    {{address}}
+        {{#if get_balance}}
+        div.coin_balance
+            span.coin_value
+                {{get_balance}}
+            span.coin_name
+                {{#if name}}                
+                    {{name}}
+                {{else}}
+                    {{code}}
+                {{/if}} 
+        {{else}}
+        div.coin_balance.unavailable
+            | Coin balance: Unavailable
+        {{/if}}
+        {{#if get_value}}
+        div.fiat_balance
+            span.fiat_name
+                | USD
+            span.fiat_value
+                {{get_value}}
+        {{else}}
+        div.fiat_balance.unavailable
+            | Fiat balance: Unavailable
+        {{/if}}
