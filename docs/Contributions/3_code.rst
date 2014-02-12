@@ -154,16 +154,20 @@ Because heroku doesn't know yet how to compile our `.sass` files into css
 handle it), we need to compile it ourselves and commit it in git before pushing
 it to Heroku.
 
-In the following example, we will deploy the **alpha** branch on Heroku:
+In the following example, we will deploy the **EXAMPLEBRANCH** branch on Heroku:
 
 .. code-block:: console
 
-    $ git checkout -b heroku alpha
-    $ cd client/compass && compass compile
-    $ git add . && git commit -am "add css files for Heroku"
-    $ git push heroku heroku:master
+    $ git co EXAMPLEBRANCH
+    $ cd app/client/compass && compass compile
+    $ for file in `find . -name "*css"`; do git add -f $file; done; git ci -am "heroku style"
+    $ git push heroku `git subtree split --prefix app EXAMPLEBRANCH`:master --force
+    $ git reset --soft HEAD~1 && git reset HEAD .
 
 .. note::
 
-    The latest command will push our local branch heroku in the branch master of
-    the remote heroku.
+    * the for loop searches for all css files and commit them (by default css
+      files are ignored by the repo).
+    * the git subtree command is a trick to push only the content from the
+      :file:`app/` directory to heroku, which expects the code to be at the root
+      directory.
