@@ -1,8 +1,9 @@
 #blockchain = DDP.connect "ws://ws.blockchain.info/inv"
 #blockchain = new WebSocket "ws://ws.blockchain.info/inv"
 
-if Meteor.isReady
-  @implementedCoins = Meteor.call "implemented_coins"
+Meteor.startup ->
+  Meteor.call "implemented_coins", (err, result) ->
+    @implementedCoins = result
 
 
 @Addresses = new Meteor.Collection "addresses",
