@@ -11,5 +11,4 @@ Template.coinsManager.helpers
 
 Template.coinsManager.events
   "click #close_donation": (e) ->
-    console.log("close donation")
     $("#donation_block").slideUp()
