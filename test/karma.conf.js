@@ -70,7 +70,8 @@ module.exports = function(config){
             'app/.meteor/local',
             'app/server/fixture.js',
             'app/server/fixture.coffee',
-            'app/packages/**/*'
+            'app/packages/**/*',
+            'app/client/views/includes/jquery.formalize.js'
         ],
 
         preprocessors : {
