@@ -86,6 +86,8 @@ First, install `npm <https://www.npmjs.org/>`_ (Node.js package manager).
 
     To run npm install commands as your normal user, do the following:
 
+    .. code-block:: console
+
         $ echo "prefix = /usr/local" > ~/.npmrc
         $ chown -R youruser /usr/local
 
