@@ -113,7 +113,7 @@ migrate the code to <a class="reference external" href="http://angularjs.org/">A
 </div>
 <div class="section" id="infrastructure">
 <h2>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h2>
-<p>Here is the current state of the infrastructure (as per 2014-02-07)</p>
+<p>Here is the current state of the infrastructure (as per 2014-02-12)</p>
 <img alt="../_images/infrastructure.png" src="../_images/infrastructure.png" />
 </div>
 <div class="section" id="workflow">
@@ -178,17 +178,23 @@ Confer <a class="reference internal" href="2_git.html#git-remotes"><em>Git Remot
 (missing feature in the buildpack, or missing <strong>meteor-compass</strong> package to
 handle it), we need to compile it ourselves and commit it in git before pushing
 it to Heroku.</p>
-<p>In the following example, we will deploy the <strong>alpha</strong> branch on Heroku:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git checkout -b heroku alpha
-<span class="gp">$</span> <span class="nb">cd </span>client/compass <span class="o">&amp;&amp;</span> compass compile
-<span class="gp">$</span> git add . <span class="o">&amp;&amp;</span> git commit -am <span class="s2">&quot;add css files for Heroku&quot;</span>
-<span class="gp">$</span> git push heroku heroku:master
+<p>In the following example, we will deploy the <strong>EXAMPLEBRANCH</strong> branch on Heroku:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git co EXAMPLEBRANCH
+<span class="gp">$</span> <span class="nb">cd </span>app/client/compass <span class="o">&amp;&amp;</span> compass compile
+<span class="gp">$</span> <span class="k">for </span>file in <span class="sb">`</span>find . -name <span class="s2">&quot;*css&quot;</span><span class="sb">`</span>; <span class="k">do </span>git add -f <span class="nv">$file</span>; <span class="k">done</span>; git ci -am <span class="s2">&quot;heroku style&quot;</span>
+<span class="gp">$</span> git push heroku <span class="sb">`</span>git subtree split --prefix app EXAMPLEBRANCH<span class="sb">`</span>:master --force
+<span class="gp">$</span> git reset --soft HEAD~1 <span class="o">&amp;&amp;</span> git reset HEAD .
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The latest command will push our local branch heroku in the branch master of
-the remote heroku.</p>
+<ul class="last simple">
+<li>the for loop searches for all css files and commit them (by default css
+files are ignored by the repo).</li>
+<li>the git subtree command is a trick to push only the content from the
+<a href="#id1"><span class="problematic" id="id2">:path:`app/`</span></a> directory to heroku, which expects the code to be at the root
+directory.</li>
+</ul>
 </div>
 </div>
 </div>
