@@ -7,8 +7,8 @@ class @Bitcoin extends @BaseCrypto
 
   constructor: ->
     super
-    @api_url = "http://blockchain.info/address/"
-    @lambda_balance = (result) -> result.data.final_balance / Math.pow(10, 8)
+    @api_url = "http://blockexplorer.com/q/"
+    @lambda_balance = (result) -> +result.content / Math.pow(10, 8)
 
   get_value: ->
     balance = @get_balance()
@@ -17,11 +17,11 @@ class @Bitcoin extends @BaseCrypto
     MtGox.get_value("btc")
 
   set_balance: ->
-    url = "#{@api_url}#{@address}?format=json"
+    url = "#{@api_url}addressbalance/#{@address}"
     super url, @lambda_balance
 
   @verify_address: (address) ->
-    url = "http://blockexplorer.com/q/checkaddress/"  + address
+    url = "#{@api_url}checkaddress/#{address}"
     result = Meteor.call "call_url", url
     switch result.content
       when "X5" then throw new Meteor.Error 601, "Address not base58"
