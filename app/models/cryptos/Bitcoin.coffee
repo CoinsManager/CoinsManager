@@ -12,9 +12,8 @@ class @Bitcoin extends @BaseCrypto
 
   get_value: ->
     balance = @get_balance()
-    #_.isNumber(balance) and balance * MtGox.get_value("btc") or balance
+    _.isNumber(balance) and balance * MtGox.get_value("btc") or balance
     # Just return Bitcoin value until we get a donation
-    MtGox.get_value("btc")
 
   set_balance: ->
     url = "#{@api_url}addressbalance/#{@address}"
