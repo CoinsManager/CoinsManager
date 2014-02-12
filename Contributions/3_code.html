@@ -113,20 +113,30 @@ migrate the code to <a class="reference external" href="http://angularjs.org/">A
 </div>
 <div class="section" id="infrastructure">
 <h2>Infrastructure<a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h2>
-<p>Here is the current state of the infrastructure (as per 2014-02-12)</p>
+<p>Here is the current state of the infrastructure (as per 2014-02-13)</p>
 <img alt="../_images/infrastructure.png" src="../_images/infrastructure.png" />
 </div>
 <div class="section" id="workflow">
 <h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="test-code">
 <h3>Test code<a class="headerlink" href="#test-code" title="Permalink to this headline">¶</a></h3>
-<p>Here are all the steps required to run the tests:</p>
+<p>First, install <a class="reference external" href="https://www.npmjs.org/">npm</a> (Node.js package manager).</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p>To run npm install commands as your normal user, do the following:</p>
+<div class="last highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;prefix = /usr/local&quot;</span> &gt; ~/.npmrc
+<span class="gp">$</span> chown -R youruser /usr/local
+</pre></div>
+</div>
+</div>
+<p>Then, run the following steps to execute your tests</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd </span>CoinsManager/
 <span class="gp">$</span> make install <span class="o">&amp;&amp;</span> make <span class="nb">test</span>
 </pre></div>
 </div>
 <p>If all goes well, then you should see something like that:</p>
 <img alt="../_images/test_success.png" src="../_images/test_success.png" />
+<p><cite>make install</cite> needs to be executed only once.</p>
 <p>If you want to use RTD as a Continuous Integration tool in your local
 environment, do this instead of <cite>make test</cite>:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd test</span>/rtd

@@ -80,7 +80,18 @@ Workflow
 
 Test code
 ~~~~~~~~~
-Here are all the steps required to run the tests:
+First, install `npm <https://www.npmjs.org/>`_ (Node.js package manager).
+
+.. tip::
+
+    To run npm install commands as your normal user, do the following:
+
+    .. code-block:: console
+
+        $ echo "prefix = /usr/local" > ~/.npmrc
+        $ chown -R youruser /usr/local
+
+Then, run the following steps to execute your tests
 
 .. code-block:: console
 
@@ -90,6 +101,8 @@ Here are all the steps required to run the tests:
 If all goes well, then you should see something like that:
 
 .. image:: ../_static/test_success.png
+
+`make install` needs to be executed only once.
 
 If you want to use RTD as a Continuous Integration tool in your local
 environment, do this instead of `make test`:
