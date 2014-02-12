@@ -169,5 +169,5 @@ In the following example, we will deploy the **EXAMPLEBRANCH** branch on Heroku:
     * the for loop searches for all css files and commit them (by default css
       files are ignored by the repo).
     * the git subtree command is a trick to push only the content from the
-      :path:`app/` directory to heroku, which expects the code to be at the root
+      :file:`app/` directory to heroku, which expects the code to be at the root
       directory.
