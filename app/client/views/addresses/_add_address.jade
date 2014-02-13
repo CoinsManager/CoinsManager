@@ -28,10 +28,10 @@ template(name="addAddress")
                       placeholder="Your public address")
         {{#if coin_recognized}}
         div.control-group
-            label.control-label(for="code-alpha") Cryptocurrency code
+            label.control-label(for="code-alpha") Cryptocurrency name
             div.controls
                 select(name="code-alpha")
-                    {{#each codes}}
+                    {{#each cryptos}}
                     option(value="{{this}}") {{this}}
                     {{/each}}
                 i.fa.fa-plus-square.y-centered
