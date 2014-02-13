@@ -172,7 +172,7 @@ In the following example, we will deploy the **EXAMPLEBRANCH** branch on Heroku:
 .. code-block:: console
 
     $ git co EXAMPLEBRANCH
-    $ cd app/client/compass && compass compile
+    $ cd app/client/compass && compass compile && cd -
     $ for file in `find . -name "*css"`; do git add -f $file; done; git ci -am "heroku style"
     $ git push heroku `git subtree split --prefix app EXAMPLEBRANCH`:master --force
     $ git reset --soft HEAD~1 && git reset HEAD .
