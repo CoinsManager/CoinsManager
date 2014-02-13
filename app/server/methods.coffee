@@ -1,12 +1,18 @@
+global = @  # Shortcut to access Cryptocoins global vars, cf l.11
+
+
 Meteor.methods
   call_url: (url) ->
-    this.unblock()
-    Meteor.http.get url
+    @unblock()
+    try
+      Meteor.http.get url
+    catch error
+      content: error.stack
 
-  verify_address: (address, code) ->
-    if code of @
-      @[code].verify_address address
-    else false
+
+  verify_address: (address, name) ->
+    if name of global
+      global[name].verify_address address
 
   add_address: (attributes) ->
     user = Meteor.user()

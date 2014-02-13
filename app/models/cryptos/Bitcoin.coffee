@@ -4,20 +4,16 @@ class @Bitcoin extends @BaseCrypto
   The average value corresponds to the user favorite fiat currency.
   """
   @code = "BTC"
-
-  constructor: ->
-    super
-    @api_url = "http://blockexplorer.com/q/"
-    @lambda_balance = (result) -> +result.content / Math.pow(10, 8)
+  @api_url = "http://blockexplorer.com/q/"
 
   get_value: ->
     balance = @get_balance()
     _.isNumber(balance) and balance * MtGox.get_value("btc") or balance
-    # Just return Bitcoin value until we get a donation
 
   set_balance: ->
-    url = "#{@api_url}addressbalance/#{@address}"
-    super url, @lambda_balance
+    url = "#{@constructor.api_url}addressbalance/#{@address}"
+    lambda_balance = (result) -> +result.content / Math.pow(10, 8)
+    super url, lambda_balance
 
   @verify_address: (address) ->
     url = "#{@api_url}checkaddress/#{address}"
