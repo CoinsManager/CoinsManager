@@ -6,3 +6,9 @@ Template.coinsManager.helpers
       addresses = Addresses.find({userId: coinsManager._id}, {sort: {name: 1}})
       address.set_balance() for address in addresses
       return addresses
+  loggedIn: ->
+    Meteor.user()
+
+Template.coinsManager.events
+  "click #close_donation": (e) ->
+    $("#donation_block").slideUp()

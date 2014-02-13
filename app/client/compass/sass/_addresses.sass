@@ -19,11 +19,17 @@ $fiat_balance_height: 5.5rem
 $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 $input_height: 3rem
 
+%text_shadow
+	text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
+
+%indented_text_shadow
+	text-shadow: 0 0.1rem 0.1rem white
+
 .addresses_title
+	@extend %indented_text_shadow
 	margin: 8rem 0
 	text-align: center
 	color: $secondary-color
-	text-shadow: 0 0.1rem 0.1rem white
 	font-size: 3.6rem
 
 %block_of_address
@@ -35,11 +41,19 @@ $input_height: 3rem
 	+border-radius($border-radius)
 	+box-shadow($shadow_in, $shadow_out)
 
-%text_shadow
-	text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
-
 .addresses	
 	@extend %group
+
+#donation_block
+	&.is_hidden
+		display: none
+
+#close_donation
+	margin-left: 3rem
+	cursor: pointer
+	&:hover
+		@extend %text_shadow
+		color: white
 
 .address
 	+span-columns(3, 12)
