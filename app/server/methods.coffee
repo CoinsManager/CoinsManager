@@ -4,8 +4,8 @@ Meteor.methods
     Meteor.http.get url
 
   verify_address: (address, code) ->
-    if code of cryptoClassesList
-      cryptoClassesList[code].verify_address address
+    if code of @
+      @[code].verify_address address
     else false
 
   add_address: (attributes) ->

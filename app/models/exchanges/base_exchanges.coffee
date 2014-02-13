@@ -21,7 +21,10 @@ class @BaseExchange
     Meteor.call "call_url", url, (error, result) ->
       if error
         throw error
-      cls.keys[key] = lambda_value(result)
+      new_value = lambda_value(result)
+      if EJSON.equals cls.keys[key], new_value
+        return
+      cls.keys[key] = new_value
       cls.deps[key].changed()
 
 

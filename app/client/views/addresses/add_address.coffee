@@ -4,7 +4,7 @@ Session.set "show_coin_help", false
 
 Template.addAddress.helpers
   codes: ->
-    _.keys cryptoClassesList
+    Meteor.call 'implemented_coins'
   coin_recognized: ->
     not Session.get "show_complete_form"
   coin_help: ->
