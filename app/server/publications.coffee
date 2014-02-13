@@ -1,7 +1,6 @@
 Meteor.publish 'users', () ->
   Meteor.users.find()
 
-
 Meteor.publish 'donationAddresses', () ->
   coinsManager = Meteor.users.findOne
     "emails.address": "coinsmanager@gmail.com"

@@ -1,4 +1,4 @@
-class @Noblecoin extends @BaseCrypto
+class @NobleCoin extends @BaseCrypto
   """
   This class define all the informations needed for Noblecoin
   """
@@ -14,6 +14,4 @@ class @Noblecoin extends @BaseCrypto
     super url, @lambda_balance
 
   get_value: ->
-
-
-@cryptoClassesList[@Noblecoin.code] = @Noblecoin
+    @get_balance() * 0.00073

@@ -2,13 +2,19 @@ Session.set "show_complete_form", false
 Session.set "show_coin_help", false
 
 
+Template.addAddress.created = ->
+  Meteor.call 'implemented_coins', (error, result) ->
+    Session.set "cryptos", result
+
+
 Template.addAddress.helpers
-  codes: ->
-    _.keys cryptoClassesList
+  cryptos: ->
+    Session.get "cryptos"
   coin_recognized: ->
     not Session.get "show_complete_form"
   coin_help: ->
     Session.get "show_coin_help"
+
 
 Template.addAddress.events
   "submit form": (e) ->
@@ -56,6 +62,7 @@ Template.addAddress.events
   "click #close": (e) ->
     $(".add_address").removeClass("is_active").addClass("is_unactive")
     Session.set 'showAddAddressForm', false
+
 
 Template.addAddress.rendered = () ->
   formStatus = Session.get "show_coin_help"

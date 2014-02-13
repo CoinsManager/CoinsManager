@@ -12,7 +12,8 @@
       "font-awesome": {},
       "phantomjs": {},
       "handlebar-helpers": {},
-      "errors": {}
+      "errors": {},
+      "fs": {}
     },
     "packages": {
       "belt-jade-handlebars": {
@@ -54,6 +55,21 @@
         "git": "https://github.com/tmeasday/meteor-errors.git",
         "tag": "v0.2.0",
         "commit": "b7cc525c19defe2dc744e8e34d1328b430f3e03a"
+      },
+      "fs": {
+        "git": "https://github.com/peerlibrary/meteor-fs.git",
+        "tag": "v0.1.2",
+        "commit": "069d7fcaeb5df000a57238fde2785faf6dc1c37c"
+      },
+      "assert": {
+        "git": "https://github.com/peerlibrary/meteor-assert.git",
+        "tag": "v0.2.3",
+        "commit": "9c838fbf5053a9f4c9ea21cad8e2fef8f1374e7c"
+      },
+      "blocking": {
+        "git": "https://github.com/peerlibrary/meteor-blocking.git",
+        "tag": "v0.4.0",
+        "commit": "e25a0be72e771b317b26d2bb5758c983bdcef23c"
       }
     }
   }

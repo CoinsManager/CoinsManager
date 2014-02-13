@@ -53,9 +53,10 @@ class @BaseCrypto
 
     """
     cls = this
-    Meteor.call "call_url", url, (error, result) ->
-      if error
-        throw new Meteor.Error 605, error.reason
+
+    Meteor.call "call_url", url, (err, result) ->
+      if err
+        throw new Meteor.Error err.error, err.reason
       else
         cls.keys.balance = lambda_balance result
         cls.deps.balance.changed()
@@ -67,6 +68,3 @@ class @BaseCrypto
     pass)
     """
     return "Verification for #{@name} has not been implemented yet"
-
-
-@cryptoClassesList = {}

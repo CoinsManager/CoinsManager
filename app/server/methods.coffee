@@ -1,12 +1,18 @@
+global = @  # Shortcut to access Cryptocoins global vars, cf l.11
+
+
 Meteor.methods
   call_url: (url) ->
-    this.unblock()
-    Meteor.http.get url
+    @unblock()
+    try
+      Meteor.http.get url
+    catch error
+      content: error.stack
 
-  verify_address: (address, code) ->
-    if code of cryptoClassesList
-      cryptoClassesList[code].verify_address address
-    else false
+
+  verify_address: (address, name) ->
+    if name of global
+      global[name].verify_address address
 
   add_address: (attributes) ->
     user = Meteor.user()
@@ -33,3 +39,11 @@ Meteor.methods
 
     addressId = Addresses.insert options
     return addressId
+
+  implemented_coins: ->
+    """
+    Returns a list of coins that have been implemented
+    """
+    files = fs.readdirSync './app/models/cryptos/'
+    file.replace(".coffee.js", "") for file in files.filter (file) ->
+      file.search("(base_crypto*)|(js.map)") == -1

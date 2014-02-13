@@ -32,6 +32,3 @@ class @Litecoin extends @BaseCrypto
 
   get_value: ->
     @get_balance() * 23.02
-
-
-@cryptoClassesList[@Litecoin.code] = @Litecoin

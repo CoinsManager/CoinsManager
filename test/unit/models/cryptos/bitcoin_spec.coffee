@@ -8,10 +8,6 @@ describe "the Bitcoin model", ->
     Bitcoin.should.be.ok
     Bitcoin.should.be.an.Object
 
-  it "is in the cryptoClassesList list", ->
-    cryptoClassesList.should.contain.keys "BTC"
-    cryptoClassesList.BTC.should.eql Bitcoin
-
   describe "verify_address", ->
 
     it "is a class method", ->

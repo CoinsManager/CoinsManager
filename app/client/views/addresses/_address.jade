@@ -1,25 +1,25 @@
 template(name="addressItem")
     div.address
-        header 
+        header
             h3
                 span.coin_code
                     {{code}}:
                 span.coin_address
                     {{address}}
-        {{#if get_balance}}
+        {{#ifNumber get_balance}}
         div.coin_balance
             span.coin_value
                 {{get_balance}}
             span.coin_name
-                {{#if name}}                
+                {{#if name}}
                     {{name}}
                 {{else}}
                     {{code}}
-                {{/if}} 
+                {{/if}}
         {{else}}
         div.coin_balance.unavailable
             | Coin balance: Unavailable
-        {{/if}}
+        {{/ifNumber}}
         {{#if get_value}}
         div.fiat_balance
             span.fiat_name

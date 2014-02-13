@@ -10,6 +10,7 @@
     "font-awesome": {},
     "phantomjs": {},
     "handlebar-helpers": {},
-    "errors": {}
+    "errors": {},
+    "fs": {}
   }
 }

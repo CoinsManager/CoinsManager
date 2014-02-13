@@ -20,3 +20,4 @@ accounts-google
 accounts-twitter
 handlebar-helpers
 errors
+fs
