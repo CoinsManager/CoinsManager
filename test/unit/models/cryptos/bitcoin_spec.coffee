@@ -8,6 +8,9 @@ describe "the Bitcoin model", ->
     Bitcoin.should.be.ok
     Bitcoin.should.be.an.Object
 
+  it "has a code BTC", ->
+    Bitcoin.should.have.a.property "code", "BTC"
+
   describe "verify_address", ->
 
     it "is a class method", ->
