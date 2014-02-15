@@ -17,4 +17,9 @@ template(name="alphaLayout")
     {{#if loggedIn}}
     {{> userAddresses}}
     {{/if}}
+    {{#if errors.count}}
+    div.errors_list
+        h2.title Errors
+        {{> meteorErrors}}
+    {{/if}}
     {{> pageFooter}}

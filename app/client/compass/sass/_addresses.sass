@@ -23,8 +23,8 @@ $input_height: 3rem
 	margin: 8rem 0
 	text-align: center
 	color: $secondary-color
-	text-shadow: 0 0.1rem 0.1rem white
 	font-size: 3.6rem
+	@extend %dark_text_shadow
 
 %block_of_address
 	padding: 0 $card_padding
@@ -34,9 +34,6 @@ $input_height: 3rem
 	+address_gradient($blue)
 	+border-radius($border-radius)
 	+box-shadow($shadow_in, $shadow_out)
-
-%text_shadow
-	text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
 
 .addresses	
 	@extend %group
