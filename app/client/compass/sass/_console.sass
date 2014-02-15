@@ -1,0 +1,30 @@
+@import base
+
+// Sizes
+
+$line-height: 2.4rem
+$line-gap: 1rem
+
+.errors_list
+	.title
+		margin: 2rem 0
+		color: $secondary-color
+		font-size: 2.6rem
+		@extend %dark_text_shadow
+	& > .alert
+		margin-bottom: $line-gap
+	button
+		background: rgba(white, 0.2)
+		border: none
+		height: $line-height
+		width: $line-height
+		text-align: center
+		padding: 0
+		margin-right: $line-gap
+		&:hover
+			background: rgba(white, 0.5)
+
+.alert-error
+	line-height: $line-height
+	color: shade(red, 30%)
+	@extend %dark_text_shadow

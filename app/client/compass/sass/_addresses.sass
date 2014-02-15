@@ -31,6 +31,7 @@ $input_height: 3rem
 	text-align: center
 	color: $secondary-color
 	font-size: 3.6rem
+	@extend %dark_text_shadow
 
 %block_of_address
 	padding: 0 $card_padding
@@ -161,6 +162,12 @@ $input_height: 3rem
 		ul
 			padding: 0 0 0 2rem
 			font-size: 1.3rem
+		li
+			line-height: 1.6rem
+			margin-bottom: 0.6rem
+		a
+			+link-colors(white, tint($accent-color, 30%), tint($accent-color, 10%))
+			@extend %text_shadow
 	#close
 		margin-left: 0.5rem
 
