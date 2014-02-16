@@ -54,8 +54,18 @@
             
   <div class="section" id="guidance-for-scribers">
 <h1>Guidance for Scribers<a class="headerlink" href="#guidance-for-scribers" title="Permalink to this headline">¶</a></h1>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#requirements" id="id2">Requirements</a></li>
+<li><a class="reference internal" href="#install-and-run-the-doc-locally" id="id3">Install and run the doc locally</a></li>
+<li><a class="reference internal" href="#publish-documentation-to-the-online-documentation" id="id4">Publish documentation to the Online Documentation</a></li>
+</ul>
+</div>
 <div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Requirements</a><a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Make sure that you have
+<a class="reference external" href="http://sphinx-doc.org/latest/install.html">Python 2.6+ and Sphinx</a>
+installed.</p>
 <p>You will need to write the documentation in RestructuredText.
 The best way is to read the project documentation files, and use them as
 example to write your own documentation.</p>
@@ -63,35 +73,45 @@ example to write your own documentation.</p>
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst">github rst cheatsheet</a></p>
 </div>
-<div class="section" id="publish-documentation-to-the-coinsmanager-online-documentation">
-<span id="git-doc"></span><h3>Publish documentation to the <a class="reference external" href="_online-doc">CoinsManager Online Documentation</a><a class="headerlink" href="#publish-documentation-to-the-coinsmanager-online-documentation" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="install-and-run-the-doc-locally">
+<span id="git-doc"></span><h2><a class="toc-backref" href="#id3">Install and run the doc locally</a><a class="headerlink" href="#install-and-run-the-doc-locally" title="Permalink to this headline">¶</a></h2>
 <p>First, fork the repository in your own github account, then git clone your
 repository and copy it:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone git@github.com:Fandekasp/CoinsManager.git
-<span class="gp">$</span> cp CoinsManager CoinsManagerDoc
-<span class="gp">$</span> <span class="nb">cd </span>CoinsManagerDoc <span class="o">&amp;&amp;</span> git checkout gh-pages
-<span class="gp">$</span> <span class="nb">cd</span> ../CoinsManager <span class="o">&amp;&amp;</span> git checkout develop
-<span class="gp">$</span> <span class="nb">cd </span>docs/
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone git@github.com:CoinsManager/CoinsManager.git CoinsManagerDoc
+<span class="gp">$</span> <span class="nb">cd </span>CoinsManagerDoc <span class="o">&amp;&amp;</span> git checkout gh-pages <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ..
+<span class="gp">$</span> git clone git@github.com:Fandekasp/CoinsManager.git
+<span class="gp">$</span> <span class="nb">cd </span>CoinsManager <span class="o">&amp;&amp;</span> git checkout develop <span class="o">&amp;&amp;</span> <span class="nb">cd </span>docs/
 </pre></div>
 </div>
-<p>Then edit the documentation, and when you&#8217;re finished commiting it, publish as
-follow:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> make html
-<span class="gp">$</span> <span class="nb">cd</span> ../../CoinsManagerDoc/
+<p>Then edit the documentation, and browse it locally:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">(CoinsManager/docs/)$</span> make html
+<span class="gp">(CoinsManager/docs/)$</span> <span class="nb">cd</span> ../../CoinsManagerDoc/
+<span class="gp">(CoinsManagerDocs/)$</span> xdg-open index.html
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you do not have <strong class="program">xdg-open</strong>, try with your browser (eg
+<tt class="docutils literal"><span class="pre">chromium</span> <span class="pre">index.html</span></tt>, or open your browser and access the file via its
+full path.</p>
+</div>
+<p>when you&#8217;re finished writing your rst documentation and commited it on the repo
+<strong>CoinsManager</strong>, do a pull request to <strong>upstream/CoinsManager</strong> (on github)</p>
+</div>
+<div class="section" id="publish-documentation-to-the-online-documentation">
+<h2>Publish documentation to the <a class="reference external" href="_online-doc">Online Documentation</a><a class="headerlink" href="#publish-documentation-to-the-online-documentation" title="Permalink to this headline">¶</a></h2>
+<p>If you are part of the Github contributors team, then you can also directly
+update the upstream gh-pages branch (it&#8217;s recommended to wait for the pull
+request to be merged first).</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd </span>CoinsManagerDoc/
 <span class="gp">$</span> git commit -am <span class="s2">&quot;Rebuild html documentation&quot;</span>
-<span class="gp">$</span> git push origin gh-pages
+<span class="gp">$</span> git push
 </pre></div>
-</div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You need to be part of the Github contributors team in order to push
-directly to the upstream gh-pages branch. If you aren&#8217;t part of the team,
-make a request! Otherwise, do a pull request against the gh-pages branch.</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
 <p class="last"><a class="reference external" href="http://daler.github.io/sphinxdoc-test/includeme.html">Publishing sphinx-generated docs on github</a></p>
-</div>
 </div>
 </div>
 </div>
@@ -108,10 +128,9 @@ make a request! Otherwise, do a pull request against the gh-pages branch.</p>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Guidance for Scribers</a><ul>
-<li><a class="reference internal" href="#requirements">Requirements</a><ul>
-<li><a class="reference internal" href="#publish-documentation-to-the-coinsmanager-online-documentation">Publish documentation to the CoinsManager Online Documentation</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#install-and-run-the-doc-locally">Install and run the doc locally</a></li>
+<li><a class="reference internal" href="#publish-documentation-to-the-online-documentation">Publish documentation to the Online Documentation</a></li>
 </ul>
 </li>
 </ul>

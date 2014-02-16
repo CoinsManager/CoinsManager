@@ -55,17 +55,26 @@
   <div class="section" id="guidance-about-git">
 <h1>Guidance about Git<a class="headerlink" href="#guidance-about-git" title="Permalink to this headline">¶</a></h1>
 <p>Below are described the steps to get started with Git &amp; Github.</p>
-<div class="section" id="installing-the-repo">
-<h2>Installing the repo<a class="headerlink" href="#installing-the-repo" title="Permalink to this headline">¶</a></h2>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#fork" id="id1">Fork</a></li>
+<li><a class="reference internal" href="#clone" id="id2">Clone</a></li>
+<li><a class="reference internal" href="#feature" id="id3">Feature</a></li>
+<li><a class="reference internal" href="#pull-request" id="id4">Pull Request</a></li>
+<li><a class="reference internal" href="#remotes" id="id5">Remotes</a></li>
+<li><a class="reference internal" href="#merge" id="id6">Merge</a></li>
+<li><a class="reference internal" href="#merge-conflict" id="id7">Merge conflict</a></li>
+</ul>
+</div>
 <div class="section" id="fork">
-<h3>Fork<a class="headerlink" href="#fork" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id1">Fork</a><a class="headerlink" href="#fork" title="Permalink to this headline">¶</a></h2>
 <p>First, go to the <a class="reference external" href="https://github.com/CoinsManager/CoinsManager/">CoinsManager Github</a>
 and click on the <strong>Fork</strong> button:</p>
 <img alt="../_images/git_fork.png" src="../_images/git_fork.png" />
 <p>This will create a clone of the main repository in your Github account.</p>
 </div>
 <div class="section" id="clone">
-<h3>Clone<a class="headerlink" href="#clone" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id2">Clone</a><a class="headerlink" href="#clone" title="Permalink to this headline">¶</a></h2>
 <p>In a shell, run:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone git@github.com:YourUsername/CoinsManager.git
 <span class="gp">$</span> <span class="nb">cd </span>CoinsManager <span class="o">&amp;&amp;</span> git flow init
@@ -77,7 +86,7 @@ and click on the <strong>Fork</strong> button:</p>
 </div>
 </div>
 <div class="section" id="feature">
-<h3>Feature<a class="headerlink" href="#feature" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id3">Feature</a><a class="headerlink" href="#feature" title="Permalink to this headline">¶</a></h2>
 <p>So you cloned your repository and would like to work on some feature.
 Because we are using the <a class="reference external" href="http://nvie.com/posts/a-successful-git-branching-model/">Git Flow</a>,
 you can create a new branch as follow:</p>
@@ -102,7 +111,7 @@ you can create a new branch as follow:</p>
 </div>
 </div>
 <div class="section" id="pull-request">
-<h3>Pull Request<a class="headerlink" href="#pull-request" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id4">Pull Request</a><a class="headerlink" href="#pull-request" title="Permalink to this headline">¶</a></h2>
 <p>Great, you create your new code and it&#8217;s available in your github repository.
 But you would like to see it integrated in the main repository. How can you do
 that ?</p>
@@ -126,7 +135,7 @@ be updated with it.</p>
 </div>
 </div>
 <div class="section" id="remotes">
-<span id="git-remotes"></span><h3>Remotes<a class="headerlink" href="#remotes" title="Permalink to this headline">¶</a></h3>
+<span id="git-remotes"></span><h2><a class="toc-backref" href="#id5">Remotes</a><a class="headerlink" href="#remotes" title="Permalink to this headline">¶</a></h2>
 <p>You already did a contribution before, but want to do more, and your repository
 became quite outdated compared to the upstream repository.</p>
 <p>That&#8217;s no problem! Just add a remote for the upstream repository and rebase
@@ -158,7 +167,7 @@ auto-updated!</p>
 </div>
 </div>
 <div class="section" id="merge">
-<h3>Merge<a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id6">Merge</a><a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h2>
 <p>If you are a power user, then you&#8217;ll be able to accept pull requests from other
 users. Go to the <a class="reference external" href="https://github.com/CoinsManager/CoinsManager/pulls">Pull request page</a>,
 select the pull request that you want to merge, and click on <em class="guilabel">Merge
@@ -166,7 +175,7 @@ pull request</em>.</p>
 <img alt="../_images/git_merge.png" src="../_images/git_merge.png" />
 </div>
 <div class="section" id="merge-conflict">
-<h3>Merge conflict<a class="headerlink" href="#merge-conflict" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id7">Merge conflict</a><a class="headerlink" href="#merge-conflict" title="Permalink to this headline">¶</a></h2>
 <p>You tried to merge a pull request from Github, but it failed due to some
 conflict. Two options are available:</p>
 <ul>
@@ -201,7 +210,6 @@ github pull request)</p>
 </ul>
 </div>
 </div>
-</div>
 
 
           </div>
@@ -215,7 +223,6 @@ github pull request)</p>
   <h3><a href="../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Guidance about Git</a><ul>
-<li><a class="reference internal" href="#installing-the-repo">Installing the repo</a><ul>
 <li><a class="reference internal" href="#fork">Fork</a></li>
 <li><a class="reference internal" href="#clone">Clone</a></li>
 <li><a class="reference internal" href="#feature">Feature</a></li>
@@ -223,8 +230,6 @@ github pull request)</p>
 <li><a class="reference internal" href="#remotes">Remotes</a></li>
 <li><a class="reference internal" href="#merge">Merge</a></li>
 <li><a class="reference internal" href="#merge-conflict">Merge conflict</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
