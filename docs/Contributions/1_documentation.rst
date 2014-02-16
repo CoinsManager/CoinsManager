@@ -1,6 +1,10 @@
 Guidance for Scribers
 =====================
 
+.. contents::
+    :depth: 1
+    :local:
+
 
 Requirements
 ------------
@@ -14,15 +18,10 @@ example to write your own documentation.
 
 .. seealso:: `github rst cheatsheet <https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst>`_
 
-
 .. _git-doc:
 
-Publish documentation to the `CoinsManager Online Documentation`__
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-.. _online-doc: http://coinsmanager.github.io/CoinsManager/
-
-__ _online-doc
-
+Install and run the doc locally
+-------------------------------
 
 First, fork the repository in your own github account, then git clone your
 repository and copy it:
@@ -52,6 +51,12 @@ when you're finished writing your rst documentation and commited it on the repo
 **CoinsManager**, do a pull request to **upstream/CoinsManager** (on github)
 
 
+Publish documentation to the `Online Documentation`__
+-----------------------------------------------------
+.. _online-doc: http://coinsmanager.github.io/CoinsManager/
+
+__ _online-doc
+
 If you are part of the Github contributors team, then you can also directly
 update the upstream gh-pages branch (it's recommended to wait for the pull
 request to be merged first).
@@ -61,6 +66,5 @@ request to be merged first).
     $ cd CoinsManagerDoc/
     $ git commit -am "Rebuild html documentation"
     $ git push
-
 
 .. seealso:: `Publishing sphinx-generated docs on github <http://daler.github.io/sphinxdoc-test/includeme.html>`_

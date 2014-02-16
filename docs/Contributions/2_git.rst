@@ -2,12 +2,13 @@ Guidance about Git
 ==================
 Below are described the steps to get started with Git & Github.
 
+.. contents::
+    :depth: 1
+    :local:
 
-Installing the repo
--------------------
 
 Fork
-~~~~
+----
 First, go to the `CoinsManager Github <https://github.com/CoinsManager/CoinsManager/>`_
 and click on the **Fork** button:
 
@@ -16,7 +17,7 @@ and click on the **Fork** button:
 This will create a clone of the main repository in your Github account.
 
 Clone
-~~~~~
+-----
 In a shell, run:
 
 .. code-block:: console
@@ -27,7 +28,7 @@ In a shell, run:
 .. seealso:: :ref:`Copy repository for documentation <git-doc>`
 
 Feature
-~~~~~~~
+-------
 So you cloned your repository and would like to work on some feature.
 Because we are using the `Git Flow <http://nvie.com/posts/a-successful-git-branching-model/>`_,
 you can create a new branch as follow:
@@ -53,7 +54,7 @@ you can create a new branch as follow:
 
 
 Pull Request
-~~~~~~~~~~~~
+------------
 Great, you create your new code and it's available in your github repository.
 But you would like to see it integrated in the main repository. How can you do
 that ?
@@ -88,7 +89,7 @@ contribution!
 .. _git-remotes:
 
 Remotes
-~~~~~~~
+-------
 You already did a contribution before, but want to do more, and your repository
 became quite outdated compared to the upstream repository.
 
@@ -127,7 +128,7 @@ appear:
     auto-updated!
 
 Merge
-~~~~~
+-----
 If you are a power user, then you'll be able to accept pull requests from other
 users. Go to the `Pull request page <https://github.com/CoinsManager/CoinsManager/pulls>`_,
 select the pull request that you want to merge, and click on :guilabel:`Merge
@@ -136,7 +137,7 @@ pull request`.
 .. image:: ../_static/git_merge.png
 
 Merge conflict
-~~~~~~~~~~~~~~
+--------------
 You tried to merge a pull request from Github, but it failed due to some
 conflict. Two options are available:
 

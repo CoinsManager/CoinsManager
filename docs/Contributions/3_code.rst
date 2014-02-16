@@ -4,6 +4,10 @@
 Guidance for Programmers
 ========================
 
+.. contents::
+    :depth: 1
+    :local:
+
 At CoinsManager, we are going to develop a product using the latest
 technologies available, for the best user & developer experiences possible.
 
@@ -75,11 +79,8 @@ Here is the current state of the infrastructure (as per |date|)
 .. image:: ../_static/infrastructure.png
 
 
-Workflow
---------
-
 Test code
-~~~~~~~~~
+---------
 First, install `npm <https://www.npmjs.org/>`_ (Node.js package manager).
 
 .. tip::
@@ -113,13 +114,22 @@ environment, do this instead of `make test`:
     $ ./rtd --debug
 
 
-
 Running code
 ------------
 .. code-block:: console
 
     $ cd app/
     $ meteor run --settings settings.json
+
+Wait, I'm not seeing any design!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Make sure you have `RubyGems <http://rubygems.org/>`_ installed in your system,
+then install the design requirements:
+
+.. code-block:: console
+
+    $ gem update --system
+    $ gem install compass breakpoint susy
 
 
 Deploy code
