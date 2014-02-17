@@ -131,6 +131,13 @@ then install the design requirements:
     $ gem update --system
     $ gem install compass breakpoint susy
 
+When you're done, go generate the css files for the project:
+
+.. code-block:: console
+
+    $ cd app/client/compass
+    $ compass compile
+
 
 Deploy code
 ~~~~~~~~~~~
