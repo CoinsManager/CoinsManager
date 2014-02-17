@@ -121,7 +121,7 @@ migrate the code to <a class="reference external" href="http://angularjs.org/">A
 </div>
 <div class="section" id="infrastructure">
 <h2><a class="toc-backref" href="#id2">Infrastructure</a><a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h2>
-<p>Here is the current state of the infrastructure (as per 2014-02-16)</p>
+<p>Here is the current state of the infrastructure (as per 2014-02-17)</p>
 <img alt="../_images/infrastructure.png" src="../_images/infrastructure.png" />
 </div>
 <div class="section" id="test-code">
@@ -162,6 +162,11 @@ environment, do this instead of <cite>make test</cite>:</p>
 then install the design requirements:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> gem update --system
 <span class="gp">$</span> gem install compass breakpoint susy
+</pre></div>
+</div>
+<p>When you&#8217;re done, go generate the css files for the project:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd </span>app/client/compass
+<span class="gp">$</span> compass compile
 </pre></div>
 </div>
 </div>
