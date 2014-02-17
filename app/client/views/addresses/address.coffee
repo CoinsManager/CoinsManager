@@ -24,12 +24,13 @@ Template.addressItem.helpers
 Template.addressItem.rendered = () ->
   $( ".address .address_title" ).each (
     () ->
-      cardHeaderWidth = $(this).width()
-      codeWidth = $(this).find('.coin_code').width()
+      $this = $(this)
+      cardHeaderWidth = $this.width()
+      codeWidth = $this.find(".coin_code").width()
       addressWidth = cardHeaderWidth - codeWidth
-      $(this).find('.coin_address').truncate
+      $this.find(".coin_address").truncate
           width: addressWidth
-          token: '...'
-          side: 'center'
+          token: "..."
+          side: "center"
           multiline: false
   )

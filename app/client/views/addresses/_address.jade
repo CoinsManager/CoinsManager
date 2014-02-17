@@ -3,7 +3,7 @@ template(name="addressItem")
         header
             h3.address_title
                 span.coin_code {{name}}:
-                span.coin_address {{address}}
+                span.coin_address(data-copy="{{address}}") {{address}}
         {{#ifNumber get_balance}}
         div.coin_balance
             span.coin_name {{get_balance}}
