@@ -21,3 +21,15 @@ Template.addressItem.helpers
     else if 'get_balance' of @
       return @get_balance()
 
+Template.addressItem.rendered = () ->
+  $( ".address .address_title" ).each (
+    () ->
+      cardHeaderWidth = $(this).width()
+      codeWidth = $(this).find('.coin_code').width()
+      addressWidth = cardHeaderWidth - codeWidth
+      $(this).find('.coin_address').truncate
+          width: addressWidth
+          token: '...'
+          side: 'center'
+          multiline: false
+  )

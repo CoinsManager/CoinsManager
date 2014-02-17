@@ -1,7 +1,7 @@
 template(name="addressItem")
     div.address
         header
-            h3
+            h3.address_title
                 span.coin_code {{name}}:
                 span.coin_address {{address}}
         {{#ifNumber get_balance}}
