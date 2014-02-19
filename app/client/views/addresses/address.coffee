@@ -15,3 +15,9 @@ Template.addressItem.helpers
       value = @get_value()
       if _.isNumber value
         return value.toFixed 2
+  get_balance: ->
+    if 'balance' of @
+      return @balance
+    else if 'get_balance' of @
+      return @get_balance()
+
