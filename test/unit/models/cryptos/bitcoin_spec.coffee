@@ -21,7 +21,6 @@ describe "the Bitcoin model", ->
       X5: "Address not base58"
       SZ: "Address not the correct size"
       CK: "Failed hash check"
-      anythingElse: "An error occured"
 
     for error, reason of errors
       do (error, reason) ->

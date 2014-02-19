@@ -61,10 +61,27 @@ class @BaseCrypto
         cls.keys.balance = lambda_balance result
         cls.deps.balance.changed()
 
-  @verify_address: (address) ->
+  @verify_address: (address, url_base) ->
     """
     Override this method from a specific coin class, to verify if the input
     correspond to a correct address (good algorith, correct size, hash check
-    pass)
+    pass). Omit the "url_base" argument.
+
+    If your api returns the same results as provided in the switch statement,
+    you can simply call back this method:
+
+      @verify_address: (address) ->
+        url_base = "#{@api_url}checkaddress/"
+        super address, url_base
     """
+    if url_base
+      console.log "#{url_base}#{address}"
+      result = Meteor.call "call_url", "#{url_base}#{address}"
+      console.log result.content
+      switch result.content
+        when "X5" then throw new Meteor.Error 601, "Address not base58"
+        when "CK" then throw new Meteor.Error 603, "Failed hash check"
+        when "SZ"
+        then throw new Meteor.Error 602, "Address not the correct size"
+        else return false
     return "Verification for #{@name} has not been implemented yet"
