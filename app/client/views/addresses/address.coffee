@@ -22,15 +22,28 @@ Template.addressItem.helpers
       return @get_balance()
 
 Template.addressItem.rendered = () ->
+
+  # Truncate address
+
+  truncate = (elem, fieldWidth) ->
+    elem.truncate
+      width: fieldWidth
+      token: "..."
+      side: "center"
+      multiline: false
+
   $( ".address .address_title" ).each (
     () ->
       $this = $(this)
+      $coinAddress = $this.find(".coin_address")
       cardHeaderWidth = $this.width()
       codeWidth = $this.find(".coin_code").width()
       addressWidth = cardHeaderWidth - codeWidth
-      $this.find(".coin_address").truncate
-          width: addressWidth
-          token: "..."
-          side: "center"
-          multiline: false
+      truncate($coinAddress, addressWidth)
+  )
+
+  # Hover handler
+  $( ".address .address_title" ).hover (
+    () ->
+      $(this).find('.tip').addClass('is_active')
   )

@@ -18,6 +18,8 @@ $coin_balance_height: 7rem
 $fiat_balance_height: 5.5rem
 $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 $input_height: 3rem
+$copy_baloon_height: 2.5rem
+$address_title_height: 4rem
 
 %text_shadow
 	text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
@@ -65,11 +67,37 @@ $input_height: 3rem
 	header
 		@extend %block_of_address
 		height: $header_height
-		padding-top: $card_padding
 		.address_title
 			margin: 0
 			font-size: 2.2rem
 			font-weight: normal
+			position: relative
+			padding-top: $card_padding
+			display: inline-block
+			height: $address_title_height
+			line-height: $address_title_height - $card_padding
+			width: 100%
+			.tip
+				width: 100%
+				position: absolute
+				height: $copy_baloon_height
+				line-height: $copy_baloon_height
+				bottom: 0
+				text-align: center
+				background: $secondary-color
+				font-size: 1.4rem
+				z-index: -1
+				cursor: pointer
+				$transition_time: 0.3s
+				+transition(bottom $transition_time ease-out, z-index 0s ease-out $transition_time)
+				&.is_active
+					bottom: $address_title_height
+					z-index: 1
+					&:hover
+						color: $accent-color
+			.clippy_icon
+				+stretch(0.2rem, 0.2rem)
+
 	&:last-child
 		margin: 0
 
