@@ -18,15 +18,15 @@ Meteor.methods
     user = Meteor.user()
     options =
       address: attributes.address
-      code: attributes.code
+      name: attributes.name
 
     sameAddress = Addresses.findOne options
 
     if not user
       throw new Meteor.Error 401, "You need to login to add a new address"
-    if not attributes.code
-      # TODO: remove this part, code should be found automatically
-      throw new Meteor.Error 422, "Please fill the code input"
+    if not attributes.name
+      # TODO: remove this part, name should be found automatically
+      throw new Meteor.Error 422, "Please fill the name input"
     if attributes.address and sameAddress
       # TODO: Only applies this rule to verified addresses
       throw new Meteor.Error 302, "This address already exists"
@@ -34,8 +34,9 @@ Meteor.methods
     options.userId = user._id
     if "name" of attributes
       options.name = attributes.name
-      options.get_balance = attributes.nb_coin
-      options.get_value = attributes.value
+      options.code = attributes.code
+      options.balance = +attributes.nb_coin
+      options.value = +attributes.value
 
     addressId = Addresses.insert options
     return addressId

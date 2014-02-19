@@ -28,24 +28,24 @@ template(name="addAddress")
                       placeholder="Your public address")
         {{#if coin_recognized}}
         div.control-group
-            label.control-label(for="code-alpha") Cryptocurrency name
+            label.control-label(for="name-alpha") Cryptocurrency name
             div.controls
-                select(name="code-alpha")
+                select(name="name-alpha")
                     {{#each cryptos}}
                     option(value="{{this}}") {{this}}
                     {{/each}}
                 i.fa.fa-plus-square.y-centered
         {{else}}
         div.control-group
-            label.control-label(for="code") Code
-            div.controls
-                input(name="code", type="text",
-                      placeholder="Coin code (eg BTC)")
-        div.control-group
             label.control-label(for="name") Name
             div.controls
                 input(name="name", type="text",
                       placeholder="The coin name")
+        div.control-group
+            label.control-label(for="code") Code
+            div.controls
+                input(name="code", type="text",
+                      placeholder="Coin code (eg BTC)")
         div.control-group
             label.control-label(for="nb_coin") Number of coins
             div.controls

@@ -6,5 +6,18 @@ Template.addressItem.helpers
     """
     this.code or this.constructor.code
   name: ->
-    name = this.constructor.name
+    name = this.name or this.constructor.name
     return name if name isnt 'Object'
+  get_value: ->
+    if 'value' of @
+      return @value
+    else if 'get_value' of this
+      value = @get_value()
+      if _.isNumber value
+        return value.toFixed 2
+  get_balance: ->
+    if 'balance' of @
+      return @balance
+    else if 'get_balance' of @
+      return @get_balance()
+

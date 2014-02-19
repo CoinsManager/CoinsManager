@@ -15,8 +15,8 @@ if Meteor.users.find().count() is 0
 
 
   # Add public addresses for CoinsManager
-  for code, address of Meteor.settings.public.donations
+  for name, address of Meteor.settings.public.donations
     Addresses.insert
       userId: coinsManagerId
-      code: code
+      name: name
       address: address
