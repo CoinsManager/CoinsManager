@@ -6,5 +6,5 @@ Template.addressItem.helpers
     """
     this.code or this.constructor.code
   name: ->
-    name = this.constructor.name
+    name = this.name or this.constructor.name
     return name if name isnt 'Object'

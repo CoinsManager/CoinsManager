@@ -34,8 +34,8 @@ Meteor.methods
     options.userId = user._id
     if "name" of attributes
       options.name = attributes.name
-      options.get_balance = attributes.nb_coin
-      options.get_value = attributes.value
+      options.get_balance = +attributes.nb_coin
+      options.get_value = +attributes.value
 
     addressId = Addresses.insert options
     return addressId
