@@ -4,7 +4,7 @@ Template.alphaLayout.helpers
   errors: ->
     Errors.collection.find()
 
-Template.alphaLayout.rendered = () ->
+Template.alphaLayout.rendered = ->
 
   ZeroClipboard.config
     moviePath: "/swf/ZeroClipboard.swf"
@@ -12,7 +12,6 @@ Template.alphaLayout.rendered = () ->
   clientText = new ZeroClipboard $(".copy")
   clientText.on "load", (clientText) ->
     clientText.on "datarequested", (clientText) ->
-      client.setText(this.innerHTML)
+      client.setText this.innerHTML
     clientText.on "complete", (client, args) ->
-      $(this).parents(".address").find(".tip").text("Address in your clipboard!")
-      console.log "copy"
+      $(this).parents(".address").find(".tip").text "Address in your clipboard!"
