@@ -32,7 +32,7 @@ Template.addAddress.events
           address: address
           name: name
         if not result
-          data.name = $(e.target).find("[name=name]").val()
+          data.code = $(e.target).find("[name=code]").val()
           data.nb_coin = $(e.target).find("[name=nb_coin]").val()
           data.value = $(e.target).find("[name=value]").val()
         else Errors.throw result
