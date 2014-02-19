@@ -8,3 +8,10 @@ Template.addressItem.helpers
   name: ->
     name = this.name or this.constructor.name
     return name if name isnt 'Object'
+  get_value: ->
+    if 'value' of @
+      return @value
+    else if 'get_value' of this
+      value = @get_value()
+      if _.isNumber value
+        return value.toFixed 2

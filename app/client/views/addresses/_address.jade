@@ -14,11 +14,11 @@ template(name="addressItem")
         div.coin_balance.unavailable
             | Coin balance: Unavailable
         {{/ifNumber}}
-        {{#ifNumber get_value}}
+        {{#if get_value}}
         div.fiat_balance
             span.fiat_name USD
             span.fiat_value {{get_value}}
         {{else}}
         div.fiat_balance.unavailable
             | Fiat balance: Unavailable
-        {{/ifNumber}}
+        {{/if}}
