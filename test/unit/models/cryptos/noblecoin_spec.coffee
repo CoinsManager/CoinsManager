@@ -1,21 +1,21 @@
-describe "the Bitcoin model", ->
+describe "NobleCoin", ->
 
   beforeEach ->
     @data =
-      address: "16sVbwiEZo47CSdvc7utB1g5X7fd2CWtc5"
+      address: "9m92Xja31Fa9wMooFrVHrUmY79sHa3rJG9"
 
   it "exists", ->
-    Bitcoin.should.be.ok
-    Bitcoin.should.be.an.Object
+    NobleCoin.should.be.ok
+    NobleCoin.should.be.an.Object
 
-  it "has a code BTC", ->
-    Bitcoin.should.have.a.property "code", "BTC"
+  it "has a code NOBL", ->
+    NobleCoin.should.have.a.property "code", "NOBL"
 
   describe "verify_address", ->
 
     it "is a class method", ->
-      Bitcoin.should.have.a.property "verify_address"
-      Bitcoin.verify_address.should.be.a.Function
+      NobleCoin.should.have.a.property "verify_address"
+      NobleCoin.verify_address.should.be.a.Function
 
     errors =
       X5: "Address not base58"
@@ -29,10 +29,10 @@ describe "the Bitcoin model", ->
           Meteor.call = -> content: error
 
           (->
-            Bitcoin.verify_address address
+            NobleCoin.verify_address address
           ).should.throw reason
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
         content: "00"
-      Bitcoin.verify_address(@data.address).should.eql false
+      NobleCoin.verify_address(@data.address).should.eql false
