@@ -13,13 +13,14 @@ $shadow_out: 0 0.5rem 1.5rem rgba(black, 0.3)
 // Sizes
 
 $card_padding: 1.5rem
-$header_height: 3.5rem
+$header_height: 4rem
 $coin_balance_height: 7rem
 $fiat_balance_height: 5.5rem
 $card_height: $header_height + $coin_balance_height + $fiat_balance_height
 $input_height: 3rem
 $copy_baloon_height: 2.5rem
 $address_title_height: 4rem
+$func_panel_height: 4rem
 
 %text_shadow
 	text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
@@ -62,54 +63,83 @@ $address_title_height: 4rem
 	+span-columns(3, 12)
 	+nth-omega(4n)
 	height: $card_height
+	position: relative
 	@extend %card_template
 	@extend %text_shadow
 	header
 		@extend %block_of_address
 		height: $header_height
+		line-height: $header_height
+		+transition(all 0.3s ease-out)
 		.address_title
 			margin: 0
 			font-size: 2.2rem
 			font-weight: normal
-			position: relative
 			padding-top: $card_padding
 			display: inline-block
-			height: $address_title_height
 			line-height: $address_title_height - $card_padding
 			width: 100%
-			.tip
-				width: 100%
-				position: absolute
-				height: $copy_baloon_height
-				line-height: $copy_baloon_height
-				bottom: 0
-				text-align: center
-				background: $secondary-color
-				font-size: 1.4rem
-				z-index: -1
-				cursor: pointer
-				$transition_time: 0.3s
-				+transition(bottom $transition_time ease-out, z-index 0s ease-out $transition_time)
-				&.is_active
-					bottom: $address_title_height
-					z-index: 1
-					&:hover
-						color: $accent-color
-			.clippy_icon
-				+stretch(0.2rem, 0.2rem)
-
+	&.is_active
+		.address_title
+			padding-top: 0
+		header
+			line-height: $header_height - $func_panel_height/2
+			height: $header_height - $func_panel_height/2
+		.coin_balance
+			line-height: $coin_balance_height - $func_panel_height/2
+			height: $coin_balance_height - $func_panel_height/2
+			padding: 0 $card_padding
+		.func_panel
+			height: $func_panel_height
+			i
+				+opacity(1)
+		.coin_address
+			padding-top: 0
+		.tip
+			top: -$copy_baloon_height
 	&:last-child
 		margin: 0
 
+.tip
+	width: 22rem
+	padding: 0 $card_padding
+	position: absolute
+	height: $copy_baloon_height
+	line-height: $copy_baloon_height
+	top: 5rem
+	left: 0
+	right: 0
+	margin: 0 auto
+	z-index: -1
+	text-align: center
+	background: $secondary-color
+	font-size: 1.4rem
+	cursor: pointer
+	+transition(top 0.3s ease-out)
+
+.func_panel
+	height: 0
+	line-height: $func_panel_height
+	padding: 0 $card_padding
+	overflow: hidden
+	+transition(all 0.3s ease-out)
+	i
+		cursor: pointer
+		+transition(all 0.3s ease-out 0.3s)
+		+opacity(0)
+
 .coin_address
 	margin-left: 1rem
+	+transition(all 0.3s ease-out)
 
 .coin_balance
 	@extend %block_of_address
 	height: $coin_balance_height
-	line-height: $coin_balance_height
+	line-height: 3rem
+	padding: ($coin_balance_height - 3rem)/2 $card_padding
 	font-size: 2.4rem
 	overflow: hidden
+	+transition(all 0.3s ease-out)
 
 .coin_name
 	float: right

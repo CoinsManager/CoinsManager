@@ -1,8 +1,10 @@
 template(name="addressItem")
     div.address
+        span.tip You can click on icons below
+        div.func_panel
+            i.fa.fa-copy.copy(data-clipboard-text="{{address}}")
         header
             h3.address_title
-                span.tip.copy(data-clipboard-text="{{address}}") Copy address to clipoard
                 span.coin_code
                     {{name}}:
                 span.coin_address
