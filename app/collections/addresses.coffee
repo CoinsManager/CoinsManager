@@ -11,8 +11,8 @@ Meteor.startup ->
 @Addresses = new Meteor.Collection "addresses",
   transform: (doc) ->
     # Retrieve class from code, and pass it the address
-    if doc.code in global.implementedCoins
-      new global[doc.code] doc.address
+    if doc.name in global.implementedCoins
+      new global[doc.name] doc.address
     else doc
 
 
