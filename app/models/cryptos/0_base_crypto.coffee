@@ -75,9 +75,7 @@ class @BaseCrypto
         super address, url_base
     """
     if url_base
-      console.log "#{url_base}#{address}"
       result = Meteor.call "call_url", "#{url_base}#{address}"
-      console.log result.content
       switch result.content
         when "X5" then throw new Meteor.Error 601, "Address not base58"
         when "CK" then throw new Meteor.Error 603, "Failed hash check"
