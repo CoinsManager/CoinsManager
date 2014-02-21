@@ -28,11 +28,11 @@ Template.addressItem.rendered = () ->
 
   # Truncate address
 
-  truncate = (elem, fieldWidth) ->
+  truncate = (elem, fieldWidth, position) ->
     elem.truncate
       width: fieldWidth
       token: "..."
-      side: "center"
+      side: position
       multiline: false
 
   $(".address .address_title").each ->
@@ -43,8 +43,20 @@ Template.addressItem.rendered = () ->
     addressWidth = cardHeaderWidth - codeWidth
     truncate $coinAddress, addressWidth
 
+  $(".address .coin_balance").each (
+    () ->
+      $this = $(this)
+      $coinValue = $this.find(".coin_value")
+      coinBalanceWidth = $this.width()
+      nameWidth = $this.find(".coin_name").width()
+      valueWidth = coinBalanceWidth - nameWidth
+      # TODO: Investigate this 10px issue
+      truncate($coinValue, valueWidth - 10, "right")
+  )
+
   # Hover handler
   $(".address").hover ->
     $(".address.is_active").removeClass("is_active").find(".tip").
       text "You can click on icons below"
     $(this).addClass "is_active"
+
