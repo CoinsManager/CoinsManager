@@ -13,7 +13,7 @@ class @BaseCrypto
 
   constructor: (@address) ->
     @keys =
-      balance: "Processing..."
+      balance: 0
     @deps = {}
     @name = ""
 

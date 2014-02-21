@@ -10,7 +10,7 @@ describe "BaseCrypto", ->
   it "has a method get_balance", ->
     @coin.should.have.a.property "get_balance"
     @coin.should.respondTo "get_balance"
-    @coin.get_balance().should.equal "Processing..."
+    @coin.get_balance().should.equal 0
     @coin.keys.balance = 10
     @coin.get_balance().should.equal 10
 
