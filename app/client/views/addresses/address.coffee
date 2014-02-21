@@ -20,11 +20,9 @@ Template.addressItem.helpers
       return @balance
     else if 'get_balance' of @
       return @get_balance()
-    name = this.constructor.name
-    return name if name isnt "Object"
+
 
 Template.addressItem.rendered = () ->
-
   # Truncate function
   truncate = (elem, fieldWidth, position) ->
     elem.truncate
@@ -34,26 +32,26 @@ Template.addressItem.rendered = () ->
       multiline: false
 
   # Truncate address
-  $addressTitle = $(this.find(".address_title"))
+  $addressTitle = $(this.find ".address_title")
   $coinAddress = $addressTitle.find ".coin_address"
   cardHeaderWidth = $addressTitle.width()
   codeWidth = $addressTitle.find(".coin_code").width()
   addressWidth = cardHeaderWidth - codeWidth
-  truncate($coinAddress, addressWidth, "center")
+  #truncate $coinAddress, addressWidth, "center"
   $addressTitle.parents(".address").find(".show_address").
     data "truncated", $coinAddress.text()
 
   # Truncate balance
-  $coinBalance = $(this.find(".coin_balance"))
+  $coinBalance = $(this.find ".coin_balance")
   $coinValue = $coinBalance.find ".coin_value"
   coinBalanceWidth = $coinBalance.width()
   nameWidth = $coinBalance.find(".coin_name").width()
   valueWidth = coinBalanceWidth - nameWidth
   # TODO: Investigate this 10px issue
-  truncate($coinValue, valueWidth - 10, "right")
+  truncate $coinValue, valueWidth - 10, "right"
+
 
 Template.addressItem.events
-
   # Click on element in functional panel
   "click .func_panel i": (e) ->
     $this = $(e.target)
