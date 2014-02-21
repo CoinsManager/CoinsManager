@@ -1,9 +1,9 @@
 class @NobleCoin extends @BaseCrypto
   """
-  This class define all the informations needed for Noblecoin
+  This class define all the informations needed for NobleCoin
   """
   @code = "NOBL"
-  @api_url = "http://cryptexplorer.com/chain/Noblecoin/q/"
+  @api_url = "http://cryptexplorer.com/chain/NobleCoin/q/"
 
   set_balance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
