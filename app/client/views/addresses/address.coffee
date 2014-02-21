@@ -40,7 +40,8 @@ Template.addressItem.rendered = () ->
   codeWidth = $addressTitle.find(".coin_code").width()
   addressWidth = cardHeaderWidth - codeWidth
   truncate($coinAddress, addressWidth, "center")
-  $addressTitle.parents(".address").find(".show_address").data("truncated", $coinAddress.text())
+  $addressTitle.parents(".address").find(".show_address").
+    data "truncated", $coinAddress.text()
 
   # Truncate balance
   $coinBalance = $(this.find(".coin_balance"))
@@ -80,5 +81,6 @@ Template.addressItem.events
   # Hover on any address card
   "mouseenter .address": (e) ->
     $this = $(e.target)
-    $(".address.is_active").removeClass("is_active").find(".tip").text "You can click on icons below"
+    $(".address.is_active").removeClass("is_active").
+      find(".tip").text "You can click on icons below"
     $this.addClass "is_active"
