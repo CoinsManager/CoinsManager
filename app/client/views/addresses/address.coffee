@@ -6,7 +6,6 @@ Template.addressItem.helpers
     """
     this.code or this.constructor.code
   name: ->
-<<<<<<< HEAD
     name = this.name or this.constructor.name
     return name if name isnt 'Object'
   get_value: ->
@@ -52,41 +51,34 @@ Template.addressItem.rendered = () ->
   # TODO: Investigate this 10px issue
   truncate($coinValue, valueWidth - 10, "right")
 
-  # Hover handler
-  $(".address").hover (
-    () ->
-      $(".address.is_active").removeClass("is_active").find(".tip").text "You can click on icons below"
-      $(this).addClass('is_active')
-  )
+Template.addressItem.events
 
-  $(".func_panel i").hover (
-    () ->
-      $this = $(this)
-      if $this.hasClass "copy"
-        message = "Copy address to clipboard"
-      else if $this.hasClass "show_address"
-        message = "Show/Hide full address"
-      $this.parents('.address').find(".tip").text message
-  )
+  # Click on element in functional panel
+  "click .func_panel i": (e) ->
+    $this = $(e.target)
+    if $this.hasClass "show_address"
+      message = "Read your address below"
+    $addressCard = $this.parents ".address"
+    $addressTitle =  $addressCard.find ".address_title"
+    actualAddress = $addressCard.find(".copy").data "clipboard-text"
+    $addressTitle.toggleClass "is_full"
+    if $addressTitle.hasClass "is_full"
+      $addressCard.find(".coin_address").text actualAddress
+      $addressCard.find(".tip").text message
+    else
+      $addressCard.find(".coin_address").text $this.data("truncated")
 
-  # Hover handler
-  $(".address").hover ->
-    $(".address.is_active").removeClass("is_active").find(".tip").
-      text "You can click on icons below"
-    $(this).addClass "is_active"
+  # Hover on element in functional panel
+  "mouseenter .func_panel i": (e) ->
+    $this = $(e.target)
+    if $this.hasClass "copy"
+      message = "Copy address to clipboard"
+    else if $this.hasClass "show_address"
+      message = "Show/Hide full address"
+    $this.parents('.address').find(".tip").text message
 
-  $(".func_panel i").click (
-    () ->
-      $this = $(this)
-      if $this.hasClass "show_address"
-        message = "Read your address below"
-      $addressCard = $this.parents ".address"
-      $addressTitle =  $addressCard.find ".address_title"
-      actualAddress = $addressCard.find(".copy").data "clipboard-text"
-      $addressTitle.toggleClass "is_full"
-      if $addressTitle.hasClass "is_full"
-        $addressCard.find(".coin_address").text actualAddress
-        $addressCard.find(".tip").text message
-      else
-        $addressCard.find(".coin_address").text $this.data("truncated")
-  )
+  # Hover on any address card
+  "mouseenter .address": (e) ->
+    $this = $(e.target)
+    $(".address.is_active").removeClass("is_active").find(".tip").text "You can click on icons below"
+    $this.addClass "is_active"
