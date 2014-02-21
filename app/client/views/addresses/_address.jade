@@ -3,6 +3,7 @@ template(name="addressItem")
         span.tip You can click on icons bel ow
         div.func_panel
             i.fa.fa-copy.copy(data-clipboard-text="{{address}}")
+            i.fa.fa-font.show_address(data-address-text="{{address}}")
         header
             h3.address_title
                 span.coin_code

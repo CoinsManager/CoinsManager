@@ -100,6 +100,14 @@ $func_panel_height: 4rem
 	&:last-child
 		margin: 0
 
+.address_title
+	&.is_full
+		.coin_code
+			display: none
+		.coin_address
+			font-size: 1.1rem
+			margin-left: 0
+
 .tip
 	width: 22rem
 	padding: 0 $card_padding
@@ -125,6 +133,7 @@ $func_panel_height: 4rem
 	+transition(all 0.3s ease-out)
 	i
 		cursor: pointer
+		margin-right: 1rem
 		+transition(all 0.3s ease-out 0.3s)
 		+opacity(0)
 
