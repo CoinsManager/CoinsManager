@@ -1,9 +1,15 @@
 template(name="addressItem")
     div.address
+        span.tip You can click on icons bel ow
+        div.func_panel
+            i.fa.fa-copy.copy(data-clipboard-text="{{address}}")
+            i.fa.fa-font.show_address(data-address-text="{{address}}")
         header
-            h3
-                span.coin_code {{name}}:
-                span.coin_address {{address}}
+            h3.address_title
+                span.coin_code
+                    {{name}}:
+                span.coin_address
+                    {{address}}
         {{#ifNumber get_balance}}
         div.coin_balance
             span.coin_name {{get_balance}}
