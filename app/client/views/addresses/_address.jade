@@ -6,16 +6,14 @@ template(name="addressItem")
             i.fa.fa-font.show_address(data-address-text="{{address}}")
         header
             h3.address_title
-                span.coin_code
-                    {{name}}:
                 span.coin_address
-                    {{address}}
+                    {{truncateMiddle address 16}}
         {{#ifNumber get_balance}}
         div.coin_balance
-            span.coin_name {{get_balance}}
             {{#if code}}
             span.coin_code {{code}}
             {{/if}}
+            span.coin_value {{get_balance}}
         {{else}}
         div.coin_balance.unavailable
             | Coin balance: Unavailable

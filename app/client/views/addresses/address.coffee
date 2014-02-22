@@ -25,10 +25,6 @@ Template.addressItem.rendered = () ->
   # Truncate address
   $addressTitle = $(this.find ".address_title")
   $coinAddress = $addressTitle.find ".coin_address"
-  cardHeaderWidth = $addressTitle.width()
-  codeWidth = $addressTitle.find(".coin_code").width()
-  addressWidth = cardHeaderWidth - codeWidth
-  #truncate $coinAddress, addressWidth, "center"
   $addressTitle.parents(".address").find(".show_address").
     data "truncated", $coinAddress.text()
 
