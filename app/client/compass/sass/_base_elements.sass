@@ -29,7 +29,8 @@ html
     +border-box-sizing
 
 body
-    background: $primary-color image-url("bg.png") top center no-repeat
+    background: $primary-color
+    +background-image(radial-gradient(top, rgba(white,0.3) 1rem, $primary-color 35rem))
     margin-top: $body_margin
     color: white
     font-size: 1.6rem
