@@ -22,12 +22,6 @@ $copy_baloon_height: 2.5rem
 $address_title_height: 4rem
 $func_panel_height: 4rem
 
-%text_shadow
-	text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
-
-%indented_text_shadow
-	text-shadow: 0 0.1rem 0.1rem white
-
 .addresses_title
 	@extend %indented_text_shadow
 	margin: 8rem 0
@@ -50,6 +44,8 @@ $func_panel_height: 4rem
 
 #donation_block
 	&.is_hidden
+		display: none
+	.remove
 		display: none
 
 #close_donation
@@ -102,11 +98,8 @@ $func_panel_height: 4rem
 
 .address_title
 	&.is_full
-		.coin_code
-			display: none
 		.coin_address
 			font-size: 1rem
-			margin-left: 0
 
 .tip
 	width: 22rem
@@ -133,12 +126,18 @@ $func_panel_height: 4rem
 	+transition(all 0.3s ease-out)
 	i
 		cursor: pointer
-		margin-right: 1rem
 		+transition(all 0.3s ease-out 0.3s)
 		+opacity(0)
+	.left
+		float: left
+		i
+			margin-right: 1rem
+	.right
+		float: right
+		i
+			margin-left: 1rem
 
 .coin_address
-	margin-left: 1rem
 	+transition(all 0.3s ease-out)
 
 .coin_balance
