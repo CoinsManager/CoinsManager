@@ -9,6 +9,16 @@ $footer_height: 10rem
 	.logo
 		+sprite-background("logo")
 		margin: 10rem auto
+		position: relative
+		&:after
+			content: "alpha"
+			display: block
+			position: absolute
+			bottom: -0.5rem
+			right: 4rem
+			color: $secondary-color
+			@extend %indented_text_shadow
+			font-size: 2rem
 	.footer_text
 		background: $secondary-color
 		height: $footer_height
