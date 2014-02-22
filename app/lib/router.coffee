@@ -5,14 +5,13 @@ Router.configure
 
 
 class CoinsManagerController extends RouteController
-  template: "coinsManager"
   data: ->
     coinsManager = Meteor.users.findOne
       "emails.address": "coinsmanager@gmail.com"
     if coinsManager
       addresses = Addresses.find
         userId: coinsManager._id
-      return {donationAddresses: addresses}
+      donationAddresses: addresses.fetch()
 
 
 Router.map ->
