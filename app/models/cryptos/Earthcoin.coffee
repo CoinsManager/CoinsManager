@@ -14,4 +14,4 @@ class @Earthcoin extends @BaseCrypto
     super url, @lambda_balance
 
   get_value: ->
-    @get_balance() * 0.0016
+    @get_balance() * 0.00038
