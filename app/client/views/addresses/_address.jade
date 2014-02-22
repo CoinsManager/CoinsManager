@@ -2,11 +2,9 @@ template(name="addressItem")
     div.address
         span.tip Clickable action icons below
         div.func_panel
-            span.left
-                i.fa.fa-copy.copy(data-clipboard-text="{{address}}")
-                i.fa.fa-font.show_address(data-address-text="{{address}}")
-            span.right
-                i.fa.fa-times-circle.remove
+            i.fa.fa-copy.copy(data-clipboard-text="{{address}}")
+            i.fa.fa-font.show_address(data-address-text="{{address}}")
+            i.fa.fa-times-circle.remove
         header
             h3.address_title
                 span.coin_address

@@ -83,5 +83,6 @@ Template.addressItem.events
   # Hover on any address card
   "mouseenter .address": (e) ->
     $this = $(e.target)
-    $(".address.is_active").removeClass("is_active")
+    $(".address.is_active").removeClass("is_active").
+      find(".tip").text "Clickable action icons below"
     $this.addClass "is_active"
