@@ -54,11 +54,11 @@ Template.addressItem.events
         $addressCard.find(".coin_address").text actualAddress
         $addressCard.find(".tip").text message
       else
-        $addressCard.find(".coin_address").text $this.data("truncated")
+        $addressCard.find(".coin_address").text $this.data "truncated"
 
     # Remove address
     if $this.hasClass "remove"
-      if confirm('Delete this address?')
+      if confirm 'Delete this address?'
         actualAddress = $this.parents(".address").find(".copy").
           data "clipboard-text"
         data =
@@ -83,6 +83,5 @@ Template.addressItem.events
   # Hover on any address card
   "mouseenter .address": (e) ->
     $this = $(e.target)
-    $(".address.is_active").removeClass("is_active").
-      find(".tip").text "You can click on icons below"
+    $(".address.is_active").removeClass("is_active")
     $this.addClass "is_active"
