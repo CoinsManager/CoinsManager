@@ -58,15 +58,16 @@ Template.addressItem.events
 
     # Remove address
     if $this.hasClass "remove"
-      actualAddress = $this.parents(".address").find(".copy").
-        data "clipboard-text"
-      data =
-          address: actualAddress
+      if confirm('Delete this address?')
+        actualAddress = $this.parents(".address").find(".copy").
+          data "clipboard-text"
+        data =
+            address: actualAddress
 
-      Meteor.call "remove_address", data, (error, id) ->
-        if error
-          # Display the error
-          Errors.throw error.reason
+        Meteor.call "remove_address", data, (error, id) ->
+          if error
+            # Display the error
+            Errors.throw error.reason
 
   # Hover on element in functional panel
   "mouseenter .func_panel i": (e) ->
@@ -75,6 +76,8 @@ Template.addressItem.events
       message = "Copy address to clipboard"
     else if $this.hasClass "show_address"
       message = "Show/Hide full address"
+    else if $this.hasClass "remove"
+      message = "Remove this address"
     $this.parents(".address").find(".tip").text message
 
   # Hover on any address card
