@@ -20,6 +20,9 @@ Router.map ->
       if coinsManager
         addresses = Addresses.find
           userId: coinsManager._id
+        addresses.observe ->
+          changed: (doc, beforeIndex) ->
+            console.log "addresses changed: #{doc.text}"
         donationAddresses: addresses.fetch().sort (add1, add2) ->
           a = add1.get_value()
           b = add2.get_value()
