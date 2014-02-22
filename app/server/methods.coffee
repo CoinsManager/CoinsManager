@@ -41,6 +41,19 @@ Meteor.methods
     addressId = Addresses.insert options
     return addressId
 
+  remove_address: (attributes) ->
+    user = Meteor.user()
+    options =
+      address: attributes.address
+
+    if not user
+      throw new Meteor.Error 401, "You need to login to remove the address"
+
+    if Addresses.findOne options
+      Addresses.remove options
+    else
+      throw new Meteor.Error 302, "This address doesn't exist"
+
   implemented_coins: ->
     """
     Returns a list of coins that have been implemented

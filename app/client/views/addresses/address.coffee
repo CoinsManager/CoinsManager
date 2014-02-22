@@ -42,17 +42,31 @@ Template.addressItem.events
   # Click on element in functional panel
   "click .func_panel i": (e) ->
     $this = $(e.target)
+
+    # Show/Hide full address
     if $this.hasClass "show_address"
       message = "Read your address below"
-    $addressCard = $this.parents ".address"
-    $addressTitle =  $addressCard.find ".address_title"
-    actualAddress = $addressCard.find(".copy").data "clipboard-text"
-    $addressTitle.toggleClass "is_full"
-    if $addressTitle.hasClass "is_full"
-      $addressCard.find(".coin_address").text actualAddress
-      $addressCard.find(".tip").text message
-    else
-      $addressCard.find(".coin_address").text $this.data("truncated")
+      $addressCard = $this.parents ".address"
+      $addressTitle =  $addressCard.find ".address_title"
+      actualAddress = $addressCard.find(".copy").data "clipboard-text"
+      $addressTitle.toggleClass "is_full"
+      if $addressTitle.hasClass "is_full"
+        $addressCard.find(".coin_address").text actualAddress
+        $addressCard.find(".tip").text message
+      else
+        $addressCard.find(".coin_address").text $this.data("truncated")
+
+    # Remove address
+    if $this.hasClass "remove"
+      actualAddress = $this.parents(".address").find(".copy").
+        data "clipboard-text"
+      data =
+          address: actualAddress
+
+      Meteor.call "remove_address", data, (error, id) ->
+        if error
+          # Display the error
+          Errors.throw error.reason
 
   # Hover on element in functional panel
   "mouseenter .func_panel i": (e) ->
