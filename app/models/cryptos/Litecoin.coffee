@@ -20,15 +20,15 @@ class @Litecoin extends @BaseCrypto
     received = Meteor.call "call_url",
       "#{@api_url}getreceivedbyaddress/#{@address}"
       (error, result) ->
-        cls.keys['received'] = result.content
+        cls.keys.received = result.content
 
     # Get sent coins data and return result
     Meteor.call "call_url",
       "#{@api_url}getsentbyaddress/#{@address}"
       (error, result) ->
         sent = result.content
-        cls.keys['balance'] = cls.lambda_balance(cls.keys['received'], sent)
-        cls.deps['balance'].changed()
+        cls.keys.balance = cls.lambda_balance cls.keys.received, sent
+        cls.deps.balance.changed()
 
   get_value: ->
     @get_balance() * 13.89
