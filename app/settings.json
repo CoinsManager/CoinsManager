@@ -63,10 +63,8 @@
             "address": "mLr4KkfLsHdstPn8GSGNMEGVmTjih5wX6f"
         },
         "Mooncoin": {
-            "address": "2UGNzRy6tD3rZSYYvkctEYCmen98HWtgMU",
-            "code": "MOON",
-            "balance": 300000,
-            "value": 13.5
+            "address": "2aCoinsmYqFKWZzCQrAip7jpUzzvhLMAC2",
+            "code": "MOON"
         },
         "Namecoin": {
             "address": "NCoinsMsR33WsxqmsHKBZYH95WQdcdh2NT"
