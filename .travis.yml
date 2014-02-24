@@ -18,6 +18,7 @@ deploy:
   on:
     all_branches: true
 after_deploy:
-- cd app/client/compass && compass compile && cd -
-- for file in `find . -name "*css"`; do git add -f $file; done; git ci -am "heroku style"
-- cd app/ && meteor reset
+- "cd app/client/compass && compass compile && cd -"
+#- for file in `find . -name "*css"`; do git add -f $file; done; git ci -am "heroku style"
+- "cd app/ && meteor reset"
+- restart
