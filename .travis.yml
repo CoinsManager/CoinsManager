@@ -1,12 +1,23 @@
 language: node_js
 node_js:
-  - "0.10"
+- '0.10'
 before_install:
-  - make install
+- make install
 services:
-  - mongodb
+- mongodb
 notifications:
   email:
-    - coinsmanager@gmail.com
+  - coinsmanager@gmail.com
 git:
   submodules: false
+deploy:
+  provider: heroku
+  app: coinsmanager
+  api_key:
+    secure: Xlph3umYGXA/Qqjj4HMMsK4yc0v7w+cl+w2VY5Met7VR34XSN7x5h4FJCDY5OGbaNNRkLMpivwP9w1j9UJhQK1mc3dMBpz8FVAlmUPenO5aV+SX0yp4MBZOHnuIJfCTUrM7q0GFyQeWrlIpMfP7SaVz8OZ8YMlR4G7HhHR1+KaY=
+  on:
+    all_branches: true
+after_deploy:
+- cd app/client/compass && compass compile && cd -
+- for file in `find . -name "*css"`; do git add -f $file; done; git ci -am "heroku style"
+- cd app/ && meteor reset
