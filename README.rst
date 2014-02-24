@@ -12,3 +12,21 @@ any physical currency.
 
 * Vote & Comment on our
   `Trello board <https://trello.com/b/4ECtz15o/coinsmanager>`_
+
++-----------------------------------------------------+
+|                        Builds                       |
++=================+=================+=================+
+|      master     |      develop    |      alpha      |
++-----------------+-----------------+-----------------+
+| |master-build|  | |develop-build| | |alpha-build|   |
++-----------------+-----------------+-----------------+
+
+
+.. |master-build| image:: https://travis-ci.org/CoinsManager/CoinsManager.png?branch=master
+    :target: https://travis-ci.org/CoinsManager/CoinsManager
+
+.. |develop-build| image:: https://travis-ci.org/CoinsManager/CoinsManager.png?branch=develop
+  :target: https://travis-ci.org/CoinsManager/CoinsManager
+
+.. |alpha-build| image:: https://travis-ci.org/CoinsManager/CoinsManager.png?branch=alpha
+  :target: https://travis-ci.org/CoinsManager/CoinsManager
