@@ -14,7 +14,7 @@ deploy:
   provider: heroku
   app: coinsmanager
   api_key:
-    secure: FjcbJdgcB1IIug3Qf5oFlF5PHW8LYnIUJCSUEz7GI5i6tVvtye1UvqkA12BP+//u3rtPcO3d33rjNY5/qvIRIdJ/wMKACAHdzRa8jWge2dxW7filynF6LVsh5ezwr7Sq/MgNwvqQcRp7eQNsOlBzdZRyQYE0VAa4fAD1+SZPnWQ=
+    - secure: "FjcbJdgcB1IIug3Qf5oFlF5PHW8LYnIUJCSUEz7GI5i6tVvtye1UvqkA12BP+//u3rtPcO3d33rjNY5/qvIRIdJ/wMKACAHdzRa8jWge2dxW7filynF6LVsh5ezwr7Sq/MgNwvqQcRp7eQNsOlBzdZRyQYE0VAa4fAD1+SZPnWQ="
   on:
     all_branches: true
 after_deploy:
