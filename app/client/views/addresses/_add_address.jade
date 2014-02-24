@@ -4,7 +4,7 @@ template(name="addAddress")
             i.fa.fa-times-circle#close
         div.help
             {{#if coin_help}}
-            p Want to have your coin implemented ?
+            h3 Want to have your coin implemented ?
             ul
                 li
                     a(href="https://trello.com/c/p7U95R2D/22-online-visitors-your-suggestions")
@@ -16,6 +16,9 @@ template(name="addAddress")
                     a(href="https://trello.com/c/oIVgdFEB/1-early-contributors")
                         | Contribute&nbsp;
                         i.fa.fa-smile.o
+            hr
+            h3.screencast Screencast to explain how to integrate a new coin to CoinsManager:
+            iframe(width="210" src="http://www.youtube.com/embed/-s4eRUCGifA" frameborder="0" allowfullscreen)
             span.bottom_line
                 i.fa.fa-chevron-up.slide_up#close-coin-help
                 {{else}}

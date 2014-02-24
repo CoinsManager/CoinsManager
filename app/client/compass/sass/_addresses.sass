@@ -231,6 +231,19 @@ $func_panel_height: 4rem
         a
             +link-colors(white, tint($accent-color, 30%), tint($accent-color, 10%))
             @extend %text_shadow
+    h3
+        margin-top: 0
+        @extend %text_shadow
+        font-size: 1.6rem
+        font-weight: normal
+        &.screencast
+            font-size: 1.2rem
+            line-height: 1.4rem
+    hr
+        height: 0.1rem
+        display: block
+        border: 0
+        +background-image(linear-gradient(left, rgba(white,0), rgba(white,1), rgba(white,0)))
     #close
         margin-left: 0.5rem
 
@@ -242,16 +255,18 @@ $func_panel_height: 4rem
         content: ''
         display: block
         width: 40%
-        border-bottom: 0.1rem solid white
         position: absolute
         top: 0
         bottom: 0
         margin: auto
         height: 0.1rem
+        border: 0
     &:after
         left: 0
+        +background-image(linear-gradient(left, rgba(white,0), rgba(white,1)))
     &:before
         right: 0
+        +background-image(linear-gradient(left, rgba(white,1), rgba(white,0)))
     .slide_up
         margin: 1rem auto
         float: none
