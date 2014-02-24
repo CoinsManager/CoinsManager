@@ -24,6 +24,8 @@ Meteor.methods
 
     if not user
       throw new Meteor.Error 401, "You need to login to add a new address"
+    if not attributes.address
+      throw new Meteor.Error 411, "Address is empty"
     if not attributes.name
       # TODO: remove this part, name should be found automatically
       throw new Meteor.Error 422, "Please fill the name input"
