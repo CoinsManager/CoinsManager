@@ -1,0 +1,7 @@
+template(name="userAddresses")
+    h1.addresses_title Your addresses
+    div.addresses
+        {{#each userAddresses}}
+            {{> addressItem}}
+        {{/each}}
+        {{> addAddress}}

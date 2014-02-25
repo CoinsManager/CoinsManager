@@ -1,0 +1,43 @@
+@import base
+
+// Sizes
+
+$footer_height: 10rem
+
+.page_footer
+	margin-bottom: 10rem
+	.logo
+		+sprite-background("logo")
+		margin: 10rem auto
+		position: relative
+		&:after
+			content: "alpha"
+			display: block
+			position: absolute
+			bottom: -0.5rem
+			right: 4rem
+			color: $secondary-color
+			@extend %indented_text_shadow
+			font-size: 2rem
+	.footer_text
+		background: $secondary-color
+		height: $footer_height
+		width: 70rem
+		margin: 0 auto
+		position: relative
+		+border-radius($border-radius)
+		&:before
+			$size: 1rem
+			content: ""
+			display: block
+			margin: 0 auto
+			position: absolute
+			top: -$size
+			left: 0
+			right: 0
+			+triangle(top, $size, $secondary-color)
+		.text_line
+			$height: $footer_height
+			height: $height
+			line-height: $height
+			text-align: center

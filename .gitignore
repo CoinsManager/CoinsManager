@@ -1,0 +1,8 @@
+.sass-cache
+*~
+*.css
+*.swp
+*.swo
+build/
+packages/
+npm-debug.log

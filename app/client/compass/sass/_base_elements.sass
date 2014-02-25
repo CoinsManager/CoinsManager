@@ -1,0 +1,40 @@
+@import base
+
+// Define font
+
++font-face("DroidSans", font-files("DroidSans-webfont.ttf", ttf, "DroidSans-webfont.woff", woff, "DroidSans-webfont.svg", svg), null, normal)
+
++font-face("DroidSans", font-files("DroidSans-Bold-webfont.ttf", ttf, "DroidSans-Bold-webfont.woff", woff, "DroidSans-Bold-webfont.svg", svg), null, bold)
+
+// Trick for force smooth in Chrome. SVG looks better in chrome. Also, Opera
+// needs another fix: ttf after svg for correct rendering
+
+@media screen and (-webkit-min-device-pixel-ratio: 0)
+    +font-face("DroidSans", font-files("DroidSans-webfont.svg", svg, "DroidSans-webfont.ttf", ttf), $weight: normal)
+    +font-face("DroidSans", font-files("DroidSans-Bold-webfont.svg", svg, "DroidSans-Bold-webfont.ttf", ttf), $weight: bold)
+
+// Generating Sprites
+
+@each $i in sprite_names($sprites)
+    .#{$i}
+        +sprite-background($i)
+
+// General page styles
+
+html
+    font-family: "DroidSans"
+    font-size: 62.5%
+    -webkit-text-size-adjust: 100%
+    -ms-text-size-adjust: 100%
+    +border-box-sizing
+
+body
+    background: $primary-color
+    +background-image(radial-gradient(top, rgba(white,0.3) 1rem, $primary-color 35rem))
+    margin-top: $body_margin
+    color: white
+    font-size: 1.6rem
+    +container
+
+a
+    +link-colors($accent-color, shade($accent-color, 20%), shade($accent-color, 40%))

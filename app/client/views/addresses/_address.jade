@@ -1,0 +1,31 @@
+template(name="addressItem")
+    div.address
+        span.tip Clickable action icons below
+        div.func_panel
+            span.left
+                i.fa.fa-copy.copy(data-clipboard-text="{{address}}")
+                i.fa.fa-font.show_address(data-address-text="{{address}}")
+            span.right
+                i.fa.fa-times-circle.remove
+        header
+            h3.address_title
+                span.coin_address
+                    {{truncateMiddle address 16}}
+        {{#ifNumber get_balance}}
+        div.coin_balance
+            {{#if code}}
+            span.coin_code {{code}}
+            {{/if}}
+            span.coin_value {{get_balance}}
+        {{else}}
+        div.coin_balance.unavailable
+            | Coin balance: Unavailable
+        {{/ifNumber}}
+        {{#if get_value}}
+        div.fiat_balance
+            span.fiat_name USD
+            span.fiat_value {{get_value}}
+        {{else}}
+        div.fiat_balance.unavailable
+            | Fiat balance: Unavailable
+        {{/if}}

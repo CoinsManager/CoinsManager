@@ -1,0 +1,9 @@
+template(name="coinsManager")
+
+    div#donation_block(class="{{#if loggedIn}}is_hidden{{/if}}")
+        h1.addresses_title CoinsManager donation addresses
+            i.fa.fa-times#close_donation
+        div.addresses
+            {{#each sortedAddresses}}
+            {{> addressItem}}
+        {{/each}}
