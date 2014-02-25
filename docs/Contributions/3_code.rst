@@ -119,7 +119,8 @@ Running code
 .. code-block:: console
 
     $ cd app/
-    $ meteor run --settings settings.json
+    $ mrt run --settings settings.json
+
 
 Wait, I'm not seeing any design!
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -140,14 +141,14 @@ When you're done, go generate the css files for the project:
 
 
 Deploy code
-~~~~~~~~~~~
+-----------
 we need to specify the settings (containing our
 `Google Analytics <https://atmosphere.meteor.com/package/GAnalytics>`_ code
 among other things) when deploying (note that you need to be a privileged user
 with access to the deployment password).
 
 Meteor hosting
-^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~
 Used temporarily to deploy the **Coming Soon Page**
 
 .. code-block:: console
@@ -155,7 +156,7 @@ Used temporarily to deploy the **Coming Soon Page**
     $ meteor deploy www.coinsmanager.com --password --settings settings.json
 
 Heroku
-^^^^^^
+~~~~~~
 First, install the toolbelt.
 
 .. code-block:: console
@@ -189,6 +190,7 @@ In the following example, we will deploy the **EXAMPLEBRANCH** branch on Heroku:
 .. code-block:: console
 
     $ git co EXAMPLEBRANCH
+    $ heroku config:add METEOR_SETTINGS="`cat app/settings.json`"
     $ cd app/client/compass && compass compile && cd -
     $ for file in `find . -name "*css"`; do git add -f $file; done; git ci -am "heroku style"
     $ git push heroku `git subtree split --prefix app EXAMPLEBRANCH`:master --force

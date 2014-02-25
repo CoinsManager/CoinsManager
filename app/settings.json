@@ -6,7 +6,8 @@
     "email": "coinsmanager@gmail.com",
     "donations": {
         "Aliencoin": {
-            "address": "ASudDLzCsMZMbFNxjTPZTL7Wkizaw293DN"
+            "address": "ASudDLzCsMZMbFNxjTPZTL7Wkizaw293DN",
+            "code": "ALN"
         },
         "Anoncoin": {
             "address": "AaCoinsyJRD8FTeXpnsHHb5P2TJZSNKFx1",
@@ -15,7 +16,8 @@
             "value": 6.04
         },
         "BBQcoin": {
-            "address": "bCoinsM1FHuMGwZDPX4fuTEMuM1CMD6VDR"
+            "address": "bCoinsM1FHuMGwZDPX4fuTEMuM1CMD6VDR",
+            "code": "BBQ"
         },
         "Bitcoin": {
             "address": "1CoinsMPAy5Mz5SVzeAmU6qNmUThiLXYv1"
@@ -27,62 +29,75 @@
             "value": 0.7
         },
         "ColossusCoin": {
-            "address": "288oPahfqp7vvscnxqSh3k6ZFia6QZrVfc"
+            "address": "288oPahfqp7vvscnxqSh3k6ZFia6QZrVfc",
+            "code": "COL"
         },
         "Digitalcoin": {
-            "address": "288oPahfqp7vvscnxqSh3k6ZFia6QZrVfc"
+            "address": "288oPahfqp7vvscnxqSh3k6ZFia6QZrVfc",
+            "code": "DGC"
         },
         "Dimecoin": {
-            "address": "78pgN8DnkPz57gropEsysH81ApUmaUte4v"
+            "address": "78pgN8DnkPz57gropEsysH81ApUmaUte4v",
+            "code": "DIME"
         },
         "Dogecoin": {
-            "address": "D6ascim4uwAbRD7ySqEiJYJKtkW4oSvQDN"
+            "address": "D6ascim4uwAbRD7ySqEiJYJKtkW4oSvQDN",
+            "code": "DOGE"
         },
         "Earthcoin": {
             "address": "ecoinsMG8nXNmqnzYfCokc7SBc3X2SnhBf"
         },
         "eMunie": {
-            "address": "tVPQUZ5fsDBnv9kuszhvA3EZTaoK2foCcN"
+            "address": "tVPQUZ5fsDBnv9kuszhvA3EZTaoK2foCcN",
+            "code": "EMU"
         },
         "Feathercoin": {
-            "address": "FCoinsMTgnyDbXpXrYHAbL2DMmQLpJMxr3"
+            "address": "FCoinsMTgnyDbXpXrYHAbL2DMmQLpJMxr3",
+            "code": "FTC"
         },
         "Franko": {
-            "address": "71CoinsnLeK6xhgdyZKfBeJn8Q6Ng9uVFG"
+            "address": "71CoinsnLeK6xhgdyZKfBeJn8Q6Ng9uVFG",
+            "code": "FRK"
         },
         "Infinitecoin": {
             "address": "iEMHeoZtNdaDrz2TxghtCtbdXHkc8mZ6Kg"
         },
         "Lottocoin": {
-            "address": "M521tEZaawAFx28QSyujStht77b8SEcfrb"
+            "address": "M521tEZaawAFx28QSyujStht77b8SEcfrb",
+            "code": "LOT"
         },
         "Litecoin": {
             "address": "LiCoinshw5X2yd3vmUhubSchmzRehQhJJC"
         },
         "MaxCoin": {
-            "address": "mLr4KkfLsHdstPn8GSGNMEGVmTjih5wX6f"
+            "address": "mLr4KkfLsHdstPn8GSGNMEGVmTjih5wX6f",
+            "code": "MAX"
         },
         "Mooncoin": {
-            "address": "2aCoinsmYqFKWZzCQrAip7jpUzzvhLMAC2",
-            "code": "MOON"
+            "address": "2aCoinsmYqFKWZzCQrAip7jpUzzvhLMAC2"
         },
         "Namecoin": {
-            "address": "NCoinsMsR33WsxqmsHKBZYH95WQdcdh2NT"
+            "address": "NCoinsMsR33WsxqmsHKBZYH95WQdcdh2NT",
+            "code": "NMC"
         },
         "NextCoin": {
-            "address": "10550104963181811448"
+            "address": "10550104963181811448",
+            "code": "NXT"
         },
         "NobleCoin": {
             "address": "9X5vzUYpe2mFWnTnp4N6Y7qT5gZVREjwqS"
         },
         "Novacoin": {
-            "address": "4aCoinsCLFQa6rMME6kEzjy1w2xxcsmE8b"
+            "address": "4aCoinsCLFQa6rMME6kEzjy1w2xxcsmE8b",
+            "code": "NVC"
         },
         "Particle": {
-            "address": "PcoinsM7kZW68uqdA3QMDAvk28ySktkkdF"
+            "address": "PcoinsM7kZW68uqdA3QMDAvk28ySktkkdF",
+            "code": "PRT"
         },
         "Peercoin": {
-            "address": "PCoinsM3swnTHze9155SwDeWJfn83TqSdX"
+            "address": "PCoinsM3swnTHze9155SwDeWJfn83TqSdX",
+            "code": "PPC"
         },
         "PopCoin": {
             "address": "QcoinsM2RDkzSTwCMZLx1r1CNQiPx7u7tk",
@@ -91,10 +106,12 @@
             "value": 50
         },
         "Primecoin": {
-            "address": "AWdyRFoEqZiLPvvqwgmm87Y67gC51x9rDp"
+            "address": "AWdyRFoEqZiLPvvqwgmm87Y67gC51x9rDp",
+            "code": "XPM"
         },
         "Quarkcoin": {
-            "address": "QcoinsM2RDkzSTwCMZLx1r1CNQiPx7u7tk"
+            "address": "QcoinsM2RDkzSTwCMZLx1r1CNQiPx7u7tk",
+            "code": "QRK"
         },
         "Ripple": {
             "address": "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox",
@@ -103,16 +120,20 @@
             "value": 0.4
         },
         "USD-e": {
-            "address": "GcoinsMbigRrzFLVbmxEpgVnXCayxpQz7r"
+            "address": "GcoinsMbigRrzFLVbmxEpgVnXCayxpQz7r",
+            "code": "USDE"
         },
         "Velocitycoin": {
-            "address": "VKsDz6tsomzgfNRmHybEZJMBoRCTaABZ3H"
+            "address": "VKsDz6tsomzgfNRmHybEZJMBoRCTaABZ3H",
+            "code": "VEL"
         },
         "Worldcoin": {
-            "address": "WeZSeE8LjEp3hGyx6gEnCY6WAddDzY2hPZ"
+            "address": "WeZSeE8LjEp3hGyx6gEnCY6WAddDzY2hPZ",
+            "code": "WDC"
         },
         "YaCoin": {
-            "address": "YCoinsMoMu1ds9ab1YJY8ceZnnsBChBKLA"
+            "address": "YCoinsMoMu1ds9ab1YJY8ceZnnsBChBKLA",
+            "code": "YAC"
         }
     }
   }
