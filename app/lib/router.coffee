@@ -1,11 +1,11 @@
 Router.configure
   layoutTemplate: "alphaLayout"
-  #layoutTemplate: "comingSoonLayout"
   loadingTemplate: "loading"
 
 
 class CoinsManagerController extends RouteController
   data: ->
+    do GAnalytics.pageview
     coinsManager = Meteor.users.findOne
       "emails.address": "coinsmanager@gmail.com"
     if coinsManager
@@ -15,8 +15,6 @@ class CoinsManagerController extends RouteController
 
 
 Router.map ->
-  #@route "comingSoon", path: "/", data: ->
-      #do GAnalytics.pageview
   @route "alpha",
     path: "/"
     controller: CoinsManagerController
