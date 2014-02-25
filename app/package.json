@@ -1,0 +1,36 @@
+{
+  "name": "CoinsManager",
+  "version": "0.1",
+  "description": "Free Open-source multi-address multi-currency Portfolio",
+  "author": "CoinsManager <coinsmanager@gmail.com>",
+  "contributors": [
+    {
+      "name": "Adrien Lemaire",
+      "email": "lemaire.adrien@gmail.com"
+    },
+    {
+      "name": "Vladimir Plokhov",
+      "email": "vladimirplokhov@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:CoinsManager/CoinsManager.git"
+  },
+  "keywords": [
+    "cryptocurrency",
+    "bitcoin",
+    "portfolio",
+    "free",
+    "open-source",
+    "meteor",
+    "coffeescript",
+    "jade",
+    "sass"
+  ],
+  "license": "(CC-NC)",
+  "engines": {
+    "node": ">=0.10",
+    "npm": "1.1.32"
+  },
+}
