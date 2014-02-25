@@ -1,4 +1,4 @@
-CoinManager
+CoinsManager
 ===========
 
 CryptoCurrencies wallets manager to have instant-evaluation of your coins in
@@ -16,9 +16,9 @@ any physical currency.
 +-----------------------------------------------------+
 |                        Builds                       |
 +=================+=================+=================+
-|      master     |      develop    |      alpha      |
+|      master     |      develop    | coming_soon     |
 +-----------------+-----------------+-----------------+
-| |master-build|  | |develop-build| | |alpha-build|   |
+| |master-build|  | |develop-build| | |coming-build|  |
 +-----------------+-----------------+-----------------+
 
 
@@ -26,7 +26,7 @@ any physical currency.
     :target: https://travis-ci.org/CoinsManager/CoinsManager
 
 .. |develop-build| image:: https://travis-ci.org/CoinsManager/CoinsManager.png?branch=develop
-  :target: https://travis-ci.org/CoinsManager/CoinsManager
+    :target: https://travis-ci.org/CoinsManager/CoinsManager
 
-.. |alpha-build| image:: https://travis-ci.org/CoinsManager/CoinsManager.png?branch=alpha
-  :target: https://travis-ci.org/CoinsManager/CoinsManager
+.. |coming-build| image:: https://travis-ci.org/CoinsManager/CoinsManager.png?branch=coming_soon
+    :target: https://travis-ci.org/CoinsManager/CoinsManager
