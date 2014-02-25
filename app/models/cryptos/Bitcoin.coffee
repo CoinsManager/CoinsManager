@@ -12,7 +12,7 @@ class @Bitcoin extends @BaseCrypto
 
   set_balance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
-    lambda_balance = (result) -> +result.content / Math.pow(10, 8)
+    lambda_balance = (result) -> +result.content
     super url, lambda_balance
 
   @verify_address: (address) ->
