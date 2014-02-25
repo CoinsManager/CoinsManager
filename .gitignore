@@ -3,4 +3,6 @@
 *.css
 *.swp
 *.swo
-packages
+build/
+packages/
+npm-debug.log

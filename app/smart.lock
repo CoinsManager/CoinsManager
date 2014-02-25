@@ -1,0 +1,76 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "belt-jade-handlebars": {
+        "git": "https://github.com/meteorbelt/belt-jade-handlebars",
+        "tag": "v0.1.0"
+      },
+      "iron-router": {},
+      "spin": {},
+      "GAnalytics": {},
+      "font-awesome": {},
+      "phantomjs": {},
+      "handlebar-helpers": {},
+      "errors": {},
+      "fs": {}
+    },
+    "packages": {
+      "belt-jade-handlebars": {
+        "git": "https://github.com/meteorbelt/belt-jade-handlebars",
+        "tag": "v0.1.0",
+        "commit": "d1f6189203401b677e22c7ef7d171b33185b5e2e"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.6.2",
+        "commit": "ce56e58b45624dce992490f3a1c10f10d3948bae"
+      },
+      "spin": {
+        "git": "https://github.com/SachaG/meteor-spin.git",
+        "tag": "v0.2.2",
+        "commit": "3f655f0016228e4195acc784c45d3e3a247dc39f"
+      },
+      "GAnalytics": {
+        "git": "https://github.com/datariot/meteor-ganalytics.git",
+        "tag": "v0.1.1",
+        "commit": "91b19d37687bb2cd7976fb43b482143a53509d7e"
+      },
+      "font-awesome": {
+        "git": "https://github.com/nate-strauser/meteor-font-awesome.git",
+        "tag": "v4.0.3",
+        "commit": "61e9361384347547ae144f8228faa4deffda23db"
+      },
+      "phantomjs": {
+        "git": "https://github.com/gadicohen/meteor-phantomjs.git",
+        "tag": "v0.0.2",
+        "commit": "a72eb79af068dd5d5d617ac71a42bd74e0cb52a4"
+      },
+      "handlebar-helpers": {
+        "git": "https://github.com/raix/Meteor-handlebar-helpers.git",
+        "tag": "v0.0.9",
+        "commit": "71e94c99462b8801a34c5363510758b6ff5f5ac7"
+      },
+      "errors": {
+        "git": "https://github.com/tmeasday/meteor-errors.git",
+        "tag": "v0.2.0",
+        "commit": "b7cc525c19defe2dc744e8e34d1328b430f3e03a"
+      },
+      "fs": {
+        "git": "https://github.com/peerlibrary/meteor-fs.git",
+        "tag": "v0.1.2",
+        "commit": "069d7fcaeb5df000a57238fde2785faf6dc1c37c"
+      },
+      "assert": {
+        "git": "https://github.com/peerlibrary/meteor-assert.git",
+        "tag": "v0.2.3",
+        "commit": "9c838fbf5053a9f4c9ea21cad8e2fef8f1374e7c"
+      },
+      "blocking": {
+        "git": "https://github.com/peerlibrary/meteor-blocking.git",
+        "tag": "v0.4.0",
+        "commit": "e25a0be72e771b317b26d2bb5758c983bdcef23c"
+      }
+    }
+  }
+}

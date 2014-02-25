@@ -2,12 +2,13 @@ Guidance about Git
 ==================
 Below are described the steps to get started with Git & Github.
 
+.. contents::
+    :depth: 1
+    :local:
 
-Installing the repo
--------------------
 
 Fork
-~~~~
+----
 First, go to the `CoinsManager Github <https://github.com/CoinsManager/CoinsManager/>`_
 and click on the **Fork** button:
 
@@ -16,7 +17,7 @@ and click on the **Fork** button:
 This will create a clone of the main repository in your Github account.
 
 Clone
-~~~~~
+-----
 In a shell, run:
 
 .. code-block:: console
@@ -27,7 +28,7 @@ In a shell, run:
 .. seealso:: :ref:`Copy repository for documentation <git-doc>`
 
 Feature
-~~~~~~~
+-------
 So you cloned your repository and would like to work on some feature.
 Because we are using the `Git Flow <http://nvie.com/posts/a-successful-git-branching-model/>`_,
 you can create a new branch as follow:
@@ -53,7 +54,7 @@ you can create a new branch as follow:
 
 
 Pull Request
-~~~~~~~~~~~~
+------------
 Great, you create your new code and it's available in your github repository.
 But you would like to see it integrated in the main repository. How can you do
 that ?
@@ -65,8 +66,7 @@ Go to your github repository, and you should see something like this:
 Click on :guilabel:`Compare & pull request`, this will bring you to the pull
 request interface.
 
-Note that by default, your branches will always try to merge into the master
-branch:
+Note that your branch will try to merge against the default one automatically.
 
 .. image:: ../_static/git_pull_request_from_1.png
 
@@ -75,9 +75,9 @@ Click on the :guilabel:`Edit` button and change it to the appropriate branch
 
 .. image:: ../_static/git_pull_request_from_2.png
 
-Add a useless message to describe the feature that you want to merge, and press
+Add a useful message to describe the feature you want to merge, and press
 :guilabel:`Send pull request`. Congratulations, you sent your first
-contribution !
+contribution!
 
 .. note::
 
@@ -85,12 +85,15 @@ contribution !
     push them to your feature branch, and the pull request will automatically
     be updated with it.
 
+
+.. _git-remotes:
+
 Remotes
-~~~~~~~
+-------
 You already did a contribution before, but want to do more, and your repository
 became quite outdated compared to the upstream repository.
 
-That's no problem ! Just add a remote for the upstream repository and rebase
+That's no problem! Just add a remote for the upstream repository and rebase
 from it:
 
 .. code-block:: console
@@ -122,10 +125,10 @@ appear:
     you want. If you want to participate in a feature that is awaiting merging
     in a pull request, add that user repo as a new remote, and pull request
     directly to that user branch for the upstream pull request to be
-    auto-updated !
+    auto-updated!
 
 Merge
-~~~~~
+-----
 If you are a power user, then you'll be able to accept pull requests from other
 users. Go to the `Pull request page <https://github.com/CoinsManager/CoinsManager/pulls>`_,
 select the pull request that you want to merge, and click on :guilabel:`Merge
@@ -134,7 +137,7 @@ pull request`.
 .. image:: ../_static/git_merge.png
 
 Merge conflict
-~~~~~~~~~~~~~~
+--------------
 You tried to merge a pull request from Github, but it failed due to some
 conflict. Two options are available:
 

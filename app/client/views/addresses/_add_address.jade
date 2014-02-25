@@ -1,0 +1,69 @@
+template(name="addAddress")
+    form.add_address.is_unactive
+        div.icon_block
+            i.fa.fa-times-circle#close
+        div.help
+            {{#if coin_help}}
+            h3 Want to have your coin implemented ?
+            ul
+                li
+                    a(href="https://trello.com/c/p7U95R2D/22-online-visitors-your-suggestions")
+                        | Request that it be added
+                li
+                    a(href="https://trello.com/c/HU0dPqwB/39-donors")
+                        | Support your coin by making a donation
+                li
+                    a(href="https://trello.com/c/oIVgdFEB/1-early-contributors")
+                        | Contribute&nbsp;
+                        i.fa.fa-smile.o
+            hr
+            h3.screencast Integrate your coin and become a contributor!
+            iframe(width="210" src="http://www.youtube.com/embed/-s4eRUCGifA" frameborder="0" allowfullscreen)
+            span.bottom_line
+                i.fa.fa-chevron-up.slide_up#close-coin-help
+                {{else}}
+                i.fa.fa-question-circle
+                {{/if}}
+        div.control-group
+            label.control-label(for="address") Public Address *
+            div.controls
+                input(name="address", type="text",
+                      placeholder="Your public address")
+        {{#if coin_recognized}}
+        div.control-group
+            label.control-label(for="name-alpha") Cryptocurrency name
+            div.controls
+                select(name="name-alpha")
+                    {{#each cryptos}}
+                    option(value="{{this}}") {{this}}
+                    {{/each}}
+                i.fa.fa-plus-square.y-centered
+        {{else}}
+        div.control-group
+            label.control-label(for="name") Name *
+            div.controls
+                input(name="name", type="text",
+                      placeholder="The coin name")
+        div.control-group
+            label.control-label(for="code") Code
+            div.controls
+                input(name="code", type="text",
+                      placeholder="Coin code (eg BTC)")
+        div.control-group
+            label.control-label(for="nb_coin") Number of coins
+            div.controls
+                input(name="nb_coin", type="number",
+                      placeholder="how many coins do you possess in that address")
+        div.control-group
+            label.control-label(for="value") Asset value
+            div.controls
+                input(name="value", type="number",
+                      placeholder="how much is this address worth in your fiat currency")
+        div.icon_block
+            span.bottom_line
+                i.fa.fa-chevron-up.slide_up#close-form
+        {{/if}}
+
+        div.control-group
+            div.controls
+                input.btn.btn-primary(type="submit", value="Submit")
