@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Guidance for Programmers &mdash; CoinsManager v0.0.1 documentation</title>
+    <title>Guidance for Programmers &mdash; CoinsManager v0.1.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/default.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     'v0.0.1',
+        VERSION:     'v0.1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="CoinsManager v0.0.1 documentation" href="../index.html" />
+    <link rel="top" title="CoinsManager v0.1.1 documentation" href="../index.html" />
     <link rel="up" title="Contribution Documentation" href="0_title.html" />
     <link rel="prev" title="Guidance about Git" href="2_git.html" /> 
   </head>
@@ -38,7 +38,7 @@
         <li class="right" >
           <a href="2_git.html" title="Guidance about Git"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CoinsManager v0.0.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CoinsManager v0.1.1 documentation</a> &raquo;</li>
           <li><a href="0_title.html" accesskey="U">Contribution Documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -56,6 +56,7 @@
 <li><a class="reference internal" href="#infrastructure" id="id2">Infrastructure</a></li>
 <li><a class="reference internal" href="#test-code" id="id3">Test code</a></li>
 <li><a class="reference internal" href="#running-code" id="id4">Running code</a></li>
+<li><a class="reference internal" href="#deploy-code" id="id5">Deploy code</a></li>
 </ul>
 </div>
 <p>At CoinsManager, we are going to develop a product using the latest
@@ -121,7 +122,7 @@ migrate the code to <a class="reference external" href="http://angularjs.org/">A
 </div>
 <div class="section" id="infrastructure">
 <h2><a class="toc-backref" href="#id2">Infrastructure</a><a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h2>
-<p>Here is the current state of the infrastructure (as per 2014-02-24)</p>
+<p>Here is the current state of the infrastructure (as per 2014-02-25)</p>
 <img alt="../_images/infrastructure.png" src="../_images/infrastructure.png" />
 </div>
 <div class="section" id="test-code">
@@ -153,7 +154,7 @@ environment, do this instead of <cite>make test</cite>:</p>
 <div class="section" id="running-code">
 <h2><a class="toc-backref" href="#id4">Running code</a><a class="headerlink" href="#running-code" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd </span>app/
-<span class="gp">$</span> meteor run --settings settings.json
+<span class="gp">$</span> mrt run --settings settings.json
 </pre></div>
 </div>
 <div class="section" id="wait-i-m-not-seeing-any-design">
@@ -170,21 +171,22 @@ then install the design requirements:</p>
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="deploy-code">
-<h3>Deploy code<a class="headerlink" href="#deploy-code" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id5">Deploy code</a><a class="headerlink" href="#deploy-code" title="Permalink to this headline">¶</a></h2>
 <p>we need to specify the settings (containing our
 <a class="reference external" href="https://atmosphere.meteor.com/package/GAnalytics">Google Analytics</a> code
 among other things) when deploying (note that you need to be a privileged user
 with access to the deployment password).</p>
 <div class="section" id="meteor-hosting">
-<h4>Meteor hosting<a class="headerlink" href="#meteor-hosting" title="Permalink to this headline">¶</a></h4>
+<h3>Meteor hosting<a class="headerlink" href="#meteor-hosting" title="Permalink to this headline">¶</a></h3>
 <p>Used temporarily to deploy the <strong>Coming Soon Page</strong></p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> meteor deploy www.coinsmanager.com --password --settings settings.json
 </pre></div>
 </div>
 </div>
 <div class="section" id="heroku">
-<h4>Heroku<a class="headerlink" href="#heroku" title="Permalink to this headline">¶</a></h4>
+<h3>Heroku<a class="headerlink" href="#heroku" title="Permalink to this headline">¶</a></h3>
 <p>First, install the toolbelt.</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> wget -qO- https://toolbelt.heroku.com/install.sh | sh
 <span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;PATH=&quot;/usr/local/heroku/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.profile
@@ -209,6 +211,7 @@ handle it), we need to compile it ourselves and commit it in git before pushing
 it to Heroku.</p>
 <p>In the following example, we will deploy the <strong>EXAMPLEBRANCH</strong> branch on Heroku:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git co EXAMPLEBRANCH
+<span class="gp">$</span> heroku config:add <span class="nv">METEOR_SETTINGS</span><span class="o">=</span><span class="s2">&quot;`cat app/settings.json`&quot;</span>
 <span class="gp">$</span> <span class="nb">cd </span>app/client/compass <span class="o">&amp;&amp;</span> compass compile <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
 <span class="gp">$</span> <span class="k">for </span>file in <span class="sb">`</span>find . -name <span class="s2">&quot;*css&quot;</span><span class="sb">`</span>; <span class="k">do </span>git add -f <span class="nv">$file</span>; <span class="k">done</span>; git ci -am <span class="s2">&quot;heroku style&quot;</span>
 <span class="gp">$</span> git push heroku <span class="sb">`</span>git subtree split --prefix app EXAMPLEBRANCH<span class="sb">`</span>:master --force
@@ -224,7 +227,6 @@ files are ignored by the repo).</li>
 <tt class="file docutils literal"><span class="pre">app/</span></tt> directory to heroku, which expects the code to be at the root
 directory.</li>
 </ul>
-</div>
 </div>
 </div>
 </div>
@@ -252,11 +254,11 @@ directory.</li>
 <li><a class="reference internal" href="#test-code">Test code</a></li>
 <li><a class="reference internal" href="#running-code">Running code</a><ul>
 <li><a class="reference internal" href="#wait-i-m-not-seeing-any-design">Wait, I&#8217;m not seeing any design!</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#deploy-code">Deploy code</a><ul>
 <li><a class="reference internal" href="#meteor-hosting">Meteor hosting</a></li>
 <li><a class="reference internal" href="#heroku">Heroku</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -297,7 +299,7 @@ directory.</li>
         <li class="right" >
           <a href="2_git.html" title="Guidance about Git"
              >previous</a> |</li>
-        <li><a href="../index.html">CoinsManager v0.0.1 documentation</a> &raquo;</li>
+        <li><a href="../index.html">CoinsManager v0.1.1 documentation</a> &raquo;</li>
           <li><a href="0_title.html" >Contribution Documentation</a> &raquo;</li> 
       </ul>
     </div>
