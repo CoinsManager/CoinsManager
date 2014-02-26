@@ -1,5 +1,10 @@
 Meteor.publish 'users', () ->
-  Meteor.users.find()
+  Meteor.users.find
+    $or: [
+      {_id: @userId},
+      {"emails.address": "coinsmanager@gmail.com"},
+    ]
+
 
 Meteor.publish 'donationAddresses', () ->
   coinsManager = Meteor.users.findOne
