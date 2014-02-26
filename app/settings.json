@@ -13,11 +13,17 @@
             "address": "AaCoinsyJRD8FTeXpnsHHb5P2TJZSNKFx1",
             "code": "ANC",
             "balance": 4,
-            "value": 6.04
+            "value": 6.08
         },
         "BBQcoin": {
             "address": "bCoinsM1FHuMGwZDPX4fuTEMuM1CMD6VDR",
             "code": "BBQ"
+        },
+        "BellaCoin": {
+            "address": "BCoinsMbnNPFzBnWBnTbwfMDnUUPB7yebp",
+            "code": "BELA"
+            "balance": 150,
+            "value": 0.01
         },
         "Bitcoin": {
             "address": "1CoinsMPAy5Mz5SVzeAmU6qNmUThiLXYv1"
@@ -117,7 +123,7 @@
             "address": "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox",
             "code": "XRP",
             "balance": 20,
-            "value": 0.4
+            "value": 0.28
         },
         "USD-e": {
             "address": "GcoinsMbigRrzFLVbmxEpgVnXCayxpQz7r",

@@ -11,7 +11,7 @@ class @Mooncoin extends @BaseCrypto
     super url, lambda_balance
 
   get_value: ->
-    @get_balance() * 0.000041
+    @get_balance() * 0.000023
 
   @verify_address: (address) ->
     url_base = "#{@api_url}checkaddress/"
