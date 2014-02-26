@@ -12,13 +12,14 @@ git:
   submodules: false
 deploy:
   provider: heroku
-  app: coinsmanager
+  app:
+    master: coinsmanager-alpha
+    develop: coinsmanager-beta
   api_key:
-    secure: "FjcbJdgcB1IIug3Qf5oFlF5PHW8LYnIUJCSUEz7GI5i6tVvtye1UvqkA12BP+//u3rtPcO3d33rjNY5/qvIRIdJ/wMKACAHdzRa8jWge2dxW7filynF6LVsh5ezwr7Sq/MgNwvqQcRp7eQNsOlBzdZRyQYE0VAa4fAD1+SZPnWQ="
+    secure: "Ff8+oVLq1sby5ZVcSw3LHNV9hj4euNARI2NyzrP5ZgxXfr3d1cNBdQtkatUiZV3NZvZm05qxNs6ZyvaETPcOSQCNWcn/KfkCD8YCIeTfzkKpPrQdXYYGEqtzn7IVt4stU9V2FHcCc5GalZNFYbyT7mZBw9FjR4hThky/qoDRniI="
   on:
     all_branches: true
 after_deploy:
 - "cd app/client/compass && compass compile && cd -"
-#- for file in `find . -name "*css"`; do git add -f $file; done; git ci -am "heroku style"
-- "cd app/ && meteor reset"
+#- cd app/ && meteor reset
 - restart
