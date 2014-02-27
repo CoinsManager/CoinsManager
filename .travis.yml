@@ -20,7 +20,7 @@ deploy:
   on: develop
   run:
   - wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-  - git remote add heroku git@heroku.com:HEROKU_APP_NAME.git
+  - git remote add heroku-beta git@heroku.com:coinsmanager-beta.git
   - echo "Host heroku.com" >> ~/.ssh/config
   - echo "   StrictHostKeyChecking no" >> ~/.ssh/config
   - echo "   CheckHostIP no" >> ~/.ssh/config
