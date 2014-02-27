@@ -21,7 +21,7 @@
         },
         "BellaCoin": {
             "address": "BCoinsMbnNPFzBnWBnTbwfMDnUUPB7yebp",
-            "code": "BELA"
+            "code": "BELA",
             "balance": 150,
             "value": 0.01
         },

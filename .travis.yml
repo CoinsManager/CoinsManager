@@ -3,6 +3,7 @@ node_js:
 - '0.10'
 before_install:
 - make install
+- gem update --system && gem install compass breakpoint susy
 services:
 - mongodb
 notifications:
@@ -17,9 +18,8 @@ deploy:
     develop: coinsmanager-beta
   api_key:
     secure: "Ff8+oVLq1sby5ZVcSw3LHNV9hj4euNARI2NyzrP5ZgxXfr3d1cNBdQtkatUiZV3NZvZm05qxNs6ZyvaETPcOSQCNWcn/KfkCD8YCIeTfzkKpPrQdXYYGEqtzn7IVt4stU9V2FHcCc5GalZNFYbyT7mZBw9FjR4hThky/qoDRniI="
-  on:
-    all_branches: true
-after_deploy:
-- "cd app/client/compass && compass compile && cd -"
-#- cd app/ && meteor reset
-- restart
+  on: develop
+  run:
+    - "cd client/compass && compass compile && cd -"
+    - "meteor reset"
+    - restart
