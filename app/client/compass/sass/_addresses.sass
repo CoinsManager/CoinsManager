@@ -28,13 +28,18 @@ $func_panel_height: 4rem
     text-align: center
     color: $secondary-color
     font-size: 3.6rem
+    +breakpoint($media-small)
+        font-size: 2.6rem
+    +breakpoint($media-micro)
+        font-size: 2.2rem
+        margin: 4rem 0
     @extend %dark_text_shadow
 
 %block_of_address
     padding: 0 $card_padding
 
 %card_template
-    margin-bottom: $gutter-width
+    margin-bottom: $susy_gap
     +address_gradient($blue)
     +border-radius($border-radius)
     +box-shadow($shadow_in, $shadow_out)
@@ -50,14 +55,29 @@ $func_panel_height: 4rem
 
 #close_donation
     margin-left: 3rem
+    +breakpoint($media-small)
+        margin-left: 1.5rem
+    +breakpoint($media-micro)
+        margin-left: 0.5rem
     cursor: pointer
     &:hover
         @extend %text_shadow
         color: white
 
 .address
-    +span-columns(3, 12)
-    +nth-omega(4n)
+    +span(3)
+    +breakpoint($media-large)
+        &:nth-child(4n+4)
+            +last
+    +breakpoint($media-medium)
+        &:nth-child(3n+3)
+            +last
+    +breakpoint($media-small)
+        &:nth-child(2n+2)
+            +last
+    +breakpoint($media-micro)
+        &:nth-child(1n+1)
+            +last
     height: $card_height
     position: relative
     @extend %card_template
@@ -170,7 +190,7 @@ $func_panel_height: 4rem
 // Add address
 
 .add_address
-    +span-columns(3, 12)
+    +span(3)
     margin-right: 0
     &.is_unactive
         div
