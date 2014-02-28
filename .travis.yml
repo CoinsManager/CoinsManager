@@ -10,25 +10,25 @@ notifications:
   - coinsmanager@gmail.com
 git:
   submodules: false
-deploy:
-  provider: heroku
-  app:
-    master: coinsmanager-alpha
-    develop: coinsmanager-beta
-  api_key:
-    secure: "Ff8+oVLq1sby5ZVcSw3LHNV9hj4euNARI2NyzrP5ZgxXfr3d1cNBdQtkatUiZV3NZvZm05qxNs6ZyvaETPcOSQCNWcn/KfkCD8YCIeTfzkKpPrQdXYYGEqtzn7IVt4stU9V2FHcCc5GalZNFYbyT7mZBw9FjR4hThky/qoDRniI="
-  on: develop
-after_success:
-- wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
-- git remote add heroku-beta git@heroku.com:coinsmanager-beta.git
-- echo "Host heroku.com" >> ~/.ssh/config
-- echo "   StrictHostKeyChecking no" >> ~/.ssh/config
-- echo "   CheckHostIP no" >> ~/.ssh/config
-- echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
-- yes | heroku keys:add
-- yes | git push heroku-beta `git subtree split --prefix app develop`:master --force
-- heroku config:add --app coinsmanager-beta METEOR_SETTINGS="`wget https://raw.github.com/CoinsManager/CoinsManager/develop/app/settings.json`"
-- gem update --system && gem install compass breakpoint susy
-- cd client/compass && compass compile && cd -
-- meteor reset
-- restart
+#deploy:
+  #provider: heroku
+  #app:
+    #master: coinsmanager-alpha
+    #develop: coinsmanager-beta
+  #api_key:
+    #secure: "Ff8+oVLq1sby5ZVcSw3LHNV9hj4euNARI2NyzrP5ZgxXfr3d1cNBdQtkatUiZV3NZvZm05qxNs6ZyvaETPcOSQCNWcn/KfkCD8YCIeTfzkKpPrQdXYYGEqtzn7IVt4stU9V2FHcCc5GalZNFYbyT7mZBw9FjR4hThky/qoDRniI="
+  #on: develop
+#after_success:
+#- wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+#- git remote add heroku-beta git@heroku.com:coinsmanager-beta.git
+#- echo "Host heroku.com" >> ~/.ssh/config
+#- echo "   StrictHostKeyChecking no" >> ~/.ssh/config
+#- echo "   CheckHostIP no" >> ~/.ssh/config
+#- echo "   UserKnownHostsFile=/dev/null" >> ~/.ssh/config
+#- yes | heroku keys:add
+#- yes | git push heroku-beta `git subtree split --prefix app develop`:master --force
+#- heroku config:add --app coinsmanager-beta METEOR_SETTINGS="`wget https://raw.github.com/CoinsManager/CoinsManager/develop/app/settings.json`"
+#- gem update --system && gem install compass breakpoint susy
+#- cd client/compass && compass compile && cd -
+#- meteor reset
+#- restart
