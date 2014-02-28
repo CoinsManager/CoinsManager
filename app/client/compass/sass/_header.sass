@@ -19,19 +19,20 @@ $header_height: 5rem
 
 .top_menu
     @extend %top_header_block
-    +span-columns(6, 12)
+    +span(6)
     display: none
 
 .top_wealth
     @extend %top_header_block
-    +span-columns(3 omega, 12)
+    +span(3 omega)
     display: none
 
 // Login Part
 
 #login-buttons
     @extend %top_header_block
-    +span-columns(3, 12)
+    +span(3)
+    display: block
     font-size: 1.6rem
 
 #login-dropdown-list
