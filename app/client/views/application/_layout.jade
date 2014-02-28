@@ -1,15 +1,3 @@
-template(name="comingSoonLayout")
-    div.wrapper
-        div.logo
-        div.slogan The fastest way to evaluate your currencies
-        {{> subscribe}}
-        {{> news}}
-        {{> tour}}
-        div.coming_soon Coming Soon!
-    div.wrapper.left
-        {{> coinsManager}}
-
-
 template(name="alphaLayout")
     {{yield}}
     {{> coinsManager}}

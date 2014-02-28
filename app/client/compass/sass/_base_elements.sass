@@ -35,6 +35,12 @@ body
     color: white
     font-size: 1.6rem
     +container
+    +breakpoint($media-medium)
+        width: span(9)
+    +breakpoint($media-small)
+        width: span(6)
+    +breakpoint($media-micro)
+        width: span(3)
 
 a
     +link-colors($accent-color, shade($accent-color, 20%), shade($accent-color, 40%))

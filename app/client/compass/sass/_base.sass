@@ -6,6 +6,8 @@
 @import susy
 @import media_queries
 
+$DEBUG: false
+
 // Main Colors
 
 $primary-color: #6cae48
@@ -19,10 +21,15 @@ $body_margin: 3rem
 
 // Grid configuration
 
-$total-columns: 12
-$column-width: 60px
-$gutter-width: 30px
-$grid-padding: 0
+$debug_options: (image: show, color: rgba(red, 0.3), output: overlay, toggle: top right)
+
+@if $DEBUG
+    $susy: (columns: 12, gutters: 1/2, math: static, column-width: 6rem, global-box-sizing: border-box,  debug: $debug_options)
+@else
+    $susy: (columns: 12, gutters: 1/2, math: static, column-width: 6rem, global-box-sizing: border-box)
+@endif
+
+$susy_gap: susy-get(column-width, $susy) * susy-get(gutters, $susy)
 
 // Sprites
 
@@ -91,3 +98,9 @@ $sprites-retina: sprite-map("sprites-retina/*.png")
 
 =address_gradient($color)
     +background-image(linear-gradient(left top, $color, shade($color,50%)))
+
+=text_few_lines($height, $lines, $margin_x)
+    height: $height + 0.5rem * ($lines - 1)
+    line-height: $height/$lines + 0.5rem
+    margin: auto $margin_x
+    +stretch-y(0)

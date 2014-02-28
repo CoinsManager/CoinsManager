@@ -5,39 +5,53 @@
 $footer_height: 10rem
 
 .page_footer
-	margin-bottom: 10rem
-	.logo
-		+sprite-background("logo")
-		margin: 10rem auto
-		position: relative
-		&:after
-			content: "alpha"
-			display: block
-			position: absolute
-			bottom: -0.5rem
-			right: 4rem
-			color: $secondary-color
-			@extend %indented_text_shadow
-			font-size: 2rem
-	.footer_text
-		background: $secondary-color
-		height: $footer_height
-		width: 70rem
-		margin: 0 auto
-		position: relative
-		+border-radius($border-radius)
-		&:before
-			$size: 1rem
-			content: ""
-			display: block
-			margin: 0 auto
-			position: absolute
-			top: -$size
-			left: 0
-			right: 0
-			+triangle(top, $size, $secondary-color)
-		.text_line
-			$height: $footer_height
-			height: $height
-			line-height: $height
-			text-align: center
+    margin-bottom: 10rem
+    .logo
+        +sprite-background("logo")
+        margin: 10rem auto
+        position: relative
+        +breakpoint($media-micro)
+            margin: 5rem auto
+            background-size: span(3)
+        &:after
+            content: "alpha"
+            display: block
+            position: absolute
+            bottom: -0.5rem
+            right: 4rem
+            color: $secondary-color
+            @extend %indented_text_shadow
+            font-size: 2rem
+            +breakpoint($media-micro)
+                bottom: 1.5rem
+                right: 7.5rem
+    .footer_text
+        background: $secondary-color
+        height: $footer_height
+        width: span(8)
+        +breakpoint($media-small)
+            width: span(6)
+        +breakpoint($media-micro)
+            width: span(3)
+        margin: 0 auto
+        position: relative
+        +border-radius($border-radius)
+        &:before
+            $size: 1rem
+            content: ""
+            display: block
+            margin: 0 auto
+            position: absolute
+            top: -$size
+            left: 0
+            right: 0
+            +triangle(top, $size, $secondary-color)
+        .text_line
+            $height: $footer_height
+            height: $height
+            line-height: $height
+            text-align: center
+            +breakpoint($media-small)
+                +text_few_lines(4rem, 2, 1rem)
+            +breakpoint($media-micro)
+                +text_few_lines(6rem, 3, 1rem)
