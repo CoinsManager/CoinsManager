@@ -73,7 +73,7 @@ technologies.</p>
 <ul class="simple">
 <li><a class="reference external" href="http://sass-lang.com/">Sass</a></li>
 <li><a class="reference external" href="http://compass-style.org/">Compass</a></li>
-<li><a class="reference external" href="http://susy.oddbird.net/">Susy</a></li>
+<li><a class="reference external" href="http://susy.oddbird.net/">Susy Next</a></li>
 <li><a class="reference external" href="http://breakpoint-sass.com/">Breakpoint</a></li>
 </ul>
 <p>The design workflow looks like this:</p>
@@ -105,7 +105,7 @@ technologies.</p>
 </ul>
 <p>Testing tools:</p>
 <ul class="simple">
-<li><a class="reference external" href="http://arunoda.github.io/laika/">Laika</a></li>
+<li><a class="reference external" href="http://rtd.xolv.io/">RTD</a></li>
 <li><a class="reference external" href="http://visionmedia.github.io/mocha/">Mocha</a></li>
 <li><a class="reference external" href="http://chaijs.com/">Chai</a></li>
 <li><a class="reference external" href="http://sinonjs.org/">Sinon</a></li>
@@ -122,7 +122,7 @@ migrate the code to <a class="reference external" href="http://angularjs.org/">A
 </div>
 <div class="section" id="infrastructure">
 <h2><a class="toc-backref" href="#id2">Infrastructure</a><a class="headerlink" href="#infrastructure" title="Permalink to this headline">¶</a></h2>
-<p>Here is the current state of the infrastructure (as per 2014-02-25)</p>
+<p>Here is the current state of the infrastructure (as per 2014-02-28)</p>
 <img alt="../_images/infrastructure.png" src="../_images/infrastructure.png" />
 </div>
 <div class="section" id="test-code">
@@ -162,7 +162,8 @@ environment, do this instead of <cite>make test</cite>:</p>
 <p>Make sure you have <a class="reference external" href="http://rubygems.org/">RubyGems</a> installed in your system,
 then install the design requirements:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> gem update --system
-<span class="gp">$</span> gem install compass breakpoint susy
+<span class="gp">$</span> gem install compass Breakpoint
+<span class="gp">$</span> gem install susy --pre
 </pre></div>
 </div>
 <p>When you&#8217;re done, go generate the css files for the project:</p>
@@ -196,25 +197,26 @@ with access to the deployment password).</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> heroku login
 </pre></div>
 </div>
-<p>Edit your <tt class="file docutils literal"><span class="pre">.git/config</span></tt> to add the new heroku remote:</p>
-<div class="highlight-python"><div class="highlight"><pre>[remote &quot;heroku&quot;]
-    url = git@heroku.com:coinsmanager.git
+<p>Edit your <tt class="file docutils literal"><span class="pre">.git/config</span></tt> to add the new heroku remote, for example:</p>
+<div class="highlight-python"><div class="highlight"><pre>[remote &quot;heroku-beta&quot;]
+    url = git@heroku.com:coinsmanager-beta.git
     fetch = +refs/heads/*:refs/remotes/heroku/*
 </pre></div>
 </div>
-<p>Now you can push on <strong>heroku</strong> (Heroku git repository) like you would do with
-<strong>origin</strong> (your Github fork) or <strong>upstream</strong> (CoinsManager Github repository).
+<p>Now you can push on <strong>heroku-beta</strong> (Heroku git repository) like you would doesn
+with <strong>origin</strong> (your Github fork) or <strong>upstream</strong> (CoinsManager Github
+repository).
 Confer <a class="reference internal" href="2_git.html#git-remotes"><em>Git Remotes</em></a> if needed.</p>
 <p>Because heroku doesn&#8217;t know yet how to compile our <cite>.sass</cite> files into css
 (missing feature in the buildpack, or missing <strong>meteor-compass</strong> package to
 handle it), we need to compile it ourselves and commit it in git before pushing
 it to Heroku.</p>
-<p>In the following example, we will deploy the <strong>EXAMPLEBRANCH</strong> branch on Heroku:</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git co EXAMPLEBRANCH
-<span class="gp">$</span> heroku config:add <span class="nv">METEOR_SETTINGS</span><span class="o">=</span><span class="s2">&quot;`cat app/settings.json`&quot;</span>
+<p>In the following example, we will deploy the <strong>develop</strong> branch on Heroku beta:</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git co develop
+<span class="gp">$</span> heroku --app coinsmanager-beta config:add <span class="nv">METEOR_SETTINGS</span><span class="o">=</span><span class="s2">&quot;`cat app/settings.json`&quot;</span>
 <span class="gp">$</span> <span class="nb">cd </span>app/client/compass <span class="o">&amp;&amp;</span> compass compile <span class="o">&amp;&amp;</span> <span class="nb">cd</span> -
 <span class="gp">$</span> <span class="k">for </span>file in <span class="sb">`</span>find . -name <span class="s2">&quot;*css&quot;</span><span class="sb">`</span>; <span class="k">do </span>git add -f <span class="nv">$file</span>; <span class="k">done</span>; git ci -am <span class="s2">&quot;heroku style&quot;</span>
-<span class="gp">$</span> git push heroku <span class="sb">`</span>git subtree split --prefix app EXAMPLEBRANCH<span class="sb">`</span>:master --force
+<span class="gp">$</span> git push heroku-beta <span class="sb">`</span>git subtree split --prefix app develop<span class="sb">`</span>:master --force
 <span class="gp">$</span> git reset --soft HEAD~1 <span class="o">&amp;&amp;</span> git reset HEAD .
 </pre></div>
 </div>
