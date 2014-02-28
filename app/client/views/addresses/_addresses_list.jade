@@ -1,5 +1,9 @@
 template(name="userAddresses")
     h1.addresses_title Your addresses
+    div.total_asset
+        {{# with userAddresses}}
+        {{> totalAsset}}
+        {{/with}}
     div.addresses
         {{#isolate}}
         {{#each sortAddresses userAddresses}}
