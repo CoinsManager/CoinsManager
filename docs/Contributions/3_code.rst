@@ -26,7 +26,7 @@ Development tools:
 
 * `Sass <http://sass-lang.com/>`_
 * `Compass <http://compass-style.org/>`_
-* `Susy <http://susy.oddbird.net/>`_
+* `Susy Next <http://susy.oddbird.net/>`_
 * `Breakpoint <http://breakpoint-sass.com/>`_
 
 The design workflow looks like this:
@@ -55,7 +55,7 @@ Development tools:
 
 Testing tools:
 
-* `Laika <http://arunoda.github.io/laika/>`_
+* `RTD <http://rtd.xolv.io/>`_
 * `Mocha <http://visionmedia.github.io/mocha/>`_
 * `Chai <http://chaijs.com/>`_
 * `Sinon <http://sinonjs.org/>`_
@@ -130,7 +130,8 @@ then install the design requirements:
 .. code-block:: console
 
     $ gem update --system
-    $ gem install compass breakpoint susy
+    $ gem install compass Breakpoint
+    $ gem install susy --pre
 
 When you're done, go generate the css files for the project:
 
@@ -170,14 +171,15 @@ Then login with your authorized Heroku account
 
     $ heroku login
 
-Edit your :file:`.git/config` to add the new heroku remote::
+Edit your :file:`.git/config` to add the new heroku remote, for example::
 
-    [remote "heroku"]
-        url = git@heroku.com:coinsmanager.git
+    [remote "heroku-beta"]
+        url = git@heroku.com:coinsmanager-beta.git
         fetch = +refs/heads/*:refs/remotes/heroku/*
 
-Now you can push on **heroku** (Heroku git repository) like you would do with
-**origin** (your Github fork) or **upstream** (CoinsManager Github repository).
+Now you can push on **heroku-beta** (Heroku git repository) like you would doesn
+with **origin** (your Github fork) or **upstream** (CoinsManager Github
+repository).
 Confer :ref:`Git Remotes <git-remotes>` if needed.
 
 Because heroku doesn't know yet how to compile our `.sass` files into css
@@ -185,15 +187,15 @@ Because heroku doesn't know yet how to compile our `.sass` files into css
 handle it), we need to compile it ourselves and commit it in git before pushing
 it to Heroku.
 
-In the following example, we will deploy the **EXAMPLEBRANCH** branch on Heroku:
+In the following example, we will deploy the **develop** branch on Heroku beta:
 
 .. code-block:: console
 
-    $ git co EXAMPLEBRANCH
-    $ heroku config:add METEOR_SETTINGS="`cat app/settings.json`"
+    $ git co develop
+    $ heroku --app coinsmanager-beta config:add METEOR_SETTINGS="`cat app/settings.json`"
     $ cd app/client/compass && compass compile && cd -
     $ for file in `find . -name "*css"`; do git add -f $file; done; git ci -am "heroku style"
-    $ git push heroku `git subtree split --prefix app EXAMPLEBRANCH`:master --force
+    $ git push heroku-beta `git subtree split --prefix app develop`:master --force
     $ git reset --soft HEAD~1 && git reset HEAD .
 
 .. note::
