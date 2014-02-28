@@ -6,10 +6,18 @@ $smartphone-portrait: "only screen" (max-width 479px)
 
 // Tablets
 
-$ipad: "only screen" (min-width 768px) (max-width 1024px)
+$tablet: "only screen" (min-width 768px) (max-width 1024px)
 $ipad-landscape: "only screen" (min-width 768px) (max-width 1024px) (orientation landscape)
 $ipad-portrait: "only screen" (min-width 768px) (max-width 1024px) (orientation portrait)
 
-// Laptops with low height resolution
+// Desktops
 
-$small-height-laptop: "only screen" (min-width 1366px) (max-height 768px)
+$desktop-small: "only screen" (min-width 1025px) (max-width 1279px)
+$desktop: "only screen" (min-width 1280px)
+
+// Custom media queries
+
+$media-micro: "only screen" (max-width 549px)
+$media-small: "only screen" (min-width 550px) (max-width 827px)
+$media-medium: "only screen" (min-width 828px) (max-width 1114px)
+$media-large: "only screen" (min-width 1115px)
