@@ -10,32 +10,39 @@ class @BaseCrypto
     * verify_address
     * get_exchange_rate (TODO: not implemented yet)
   """
+  @keys = {}
+  @deps = {}
 
   constructor: (@address) ->
-    @keys =
-      balance: 0
-    @deps = {}
-    @name = ""
+    @name = @constructor.name
 
-  ensureDeps: (key) ->
-    if not @deps[key]
-      @deps[key] = new Deps.Dependency()
+  ensureDeps: (address, key) ->
+    if not BaseCrypto.deps[@name]
+      BaseCrypto.deps[@name] = {}
+      BaseCrypto.deps[@name][address] = {}
+      BaseCrypto.keys[@name] = {}
+      BaseCrypto.keys[@name][address] = {}
+    if not BaseCrypto.deps[@name][address][key]
+      BaseCrypto.deps[@name][address][key] = new Deps.Dependency()
       switch key
         when 'balance' then @set_balance()
-        when 'value' then @set_value()
+        #when 'value' then @set_value()
         when 'btc2usd' then @set_btc2usd()
 
   get_balance: ->
     """Retrieve value set from @set_balance()"""
-    @ensureDeps "balance"
-    @deps.balance.depend()
-    return @keys.balance
+    @ensureDeps @address, "balance"
+    BaseCrypto.deps[@name][@address].balance.depend()
+    return BaseCrypto.keys[@name][@address].balance
 
   get_btc2usd: ->
     """Retrieve price for 1 bitcoin in US dollar"""
-    @ensureDeps "btc2usd"
-    @deps.btc2usd.depend()
-    return @keys.btc2usd
+    @ensureDeps @address, "btc2usd"
+    BaseCrypto.deps[@name][@address].btc2usd.depend()
+    return BaseCrypto.keys[@name][@address].btc2usd
+
+  get_name: ->
+    if @name then @name else @constructor.name
 
   get_value: ->
     """
@@ -49,9 +56,10 @@ class @BaseCrypto
         return balance * rate
 
     """
-    @ensureDeps "value"
-    @deps.value.depend()
-    return @keys.value * @get_balance() * @get_btc2usd()
+    @ensureDeps @address, "value"
+    BaseCrypto.deps[@name][@address].value.depend()
+    if BaseCrypto.keys[@name][@address].value and @get_btc2usd()
+      return BaseCrypto.keys[@name][@address].value * @get_balance() * @get_btc2usd()
 
   set_btc2usd: ->
     cls = @
@@ -61,8 +69,8 @@ class @BaseCrypto
       if err
         throw new Meteor.Error err.error, err.reason
       else
-        cls.keys.btc2usd = result.data["24h_avg"]
-        cls.deps.btc2usd.changed()
+        BaseCrypto.keys[cls.name][cls.address].btc2usd = result.data["24h_avg"]
+        BaseCrypto.deps[cls.name][cls.address].btc2usd.changed()
 
   set_balance: (url, lambda_balance) ->
     """
@@ -80,25 +88,8 @@ class @BaseCrypto
       if err
         throw new Meteor.Error err.error, err.reason
       else
-        cls.keys.balance = lambda_balance result
-        cls.deps.balance.changed()
-
-  set_value: ->
-    """Set value for 1 coin using CryptoCoinCharts"""
-    cls = @
-    url = "http://www.cryptocoincharts.info/v2/api/listCoins"
-
-    Meteor.call "call_url", url, (err, result) ->
-      if err
-        throw new Meteor.Error err.error, err.reason
-      else
-        resultDict = result.data.toDict 'name'
-        try
-          cls.keys.value = resultDict[cls.constructor.name].price_btc
-        catch error
-          key = cls.constructor.name.replace 'coin', 'Coin'
-          cls.keys.value = resultDict[key].price_btc
-        cls.deps.value.changed()
+        BaseCrypto.keys[cls.name][cls.address].balance = lambda_balance result
+        BaseCrypto.deps[cls.name][cls.address].balance.changed()
 
   @verify_address: (address, url_base) ->
     """

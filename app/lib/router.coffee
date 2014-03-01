@@ -11,7 +11,9 @@ class CoinsManagerController extends RouteController
     if coinsManager
       addresses = Addresses.find
         userId: coinsManager._id
-      donationAddresses: addresses.fetch()
+      fetchedAddresses = addresses.fetch()
+      Session.set 'donationAddresses', fetchedAddresses
+      return {donationAddresses: fetchedAddresses}
 
 
 Router.map ->
@@ -23,4 +25,3 @@ Router.map ->
       Meteor.subscribe collection for collection in collections
       if Meteor.user()
         Meteor.subscribe "userAddresses", Meteor.user()._id
-

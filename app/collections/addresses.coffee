@@ -12,11 +12,13 @@ Meteor.startup ->
   transform: (doc) ->
     # Retrieve class from code, and pass it the address
     if doc.name in global.implementedCoins
-      doc = new global[doc.name] doc.address
+      obj = new global[doc.name] doc.address
     else
-      doc.get_value = -> @value
-      doc.get_balance = -> @balance
-    return doc
+      obj = new BaseCrypto doc.address
+      obj.name = doc.name
+      obj.get_balance = -> doc.balance
+      obj.set_balance = -> doc.balance
+    return obj
 
 
 Addresses.allow
