@@ -6,10 +6,10 @@ class @Bitcoin extends @BaseCrypto
   @code = "BTC"
   @api_url = "http://blockexplorer.com/q/"
 
-  get_value: ->
-    #balance = @get_balance()
-    #_.isNumber(balance) and balance * MtGox.get_value("btc") or balance
-    @get_balance() * 581.64
+#  get_value: ->
+    ##balance = @get_balance()
+    ##_.isNumber(balance) and balance * MtGox.get_value("btc") or balance
+#    @get_balance() * 581.64
 
   set_balance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"

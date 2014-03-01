@@ -14,9 +14,9 @@ describe "BaseCrypto", ->
     @coin.keys.balance = 10
     @coin.get_balance().should.equal 10
 
-  it "has a method get_value", ->
-    @coin.get_value().should
-      .equal "Value calculation has not been implemented for BaseCrypto"
+  #it "has a method get_value", ->
+    #@coin.get_value().should
+      #.equal "Value calculation has not been implemented for BaseCrypto"
 
   it "has a method set_balance", ->
     Meteor.call = -> 'call_url'

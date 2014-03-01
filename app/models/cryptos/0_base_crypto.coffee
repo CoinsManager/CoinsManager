@@ -20,13 +20,22 @@ class @BaseCrypto
   ensureDeps: (key) ->
     if not @deps[key]
       @deps[key] = new Deps.Dependency()
-      @set_balance()
+      switch key
+        when 'balance' then @set_balance()
+        when 'value' then @set_value()
+        when 'btc2usd' then @set_btc2usd()
 
   get_balance: ->
     """Retrieve value set from @set_balance()"""
     @ensureDeps "balance"
     @deps.balance.depend()
     return @keys.balance
+
+  get_btc2usd: ->
+    """Retrieve price for 1 bitcoin in US dollar"""
+    @ensureDeps "btc2usd"
+    @deps.btc2usd.depend()
+    return @keys.btc2usd
 
   get_value: ->
     """
@@ -40,7 +49,20 @@ class @BaseCrypto
         return balance * rate
 
     """
-    return "Value calculation has not been implemented for #{@constructor.name}"
+    @ensureDeps "value"
+    @deps.value.depend()
+    return @keys.value * @get_balance() * @get_btc2usd()
+
+  set_btc2usd: ->
+    cls = @
+
+    url = 'https://api.bitcoinaverage.com/ticker/USD/'
+    Meteor.call "call_url", url, (err, result) ->
+      if err
+        throw new Meteor.Error err.error, err.reason
+      else
+        cls.keys.btc2usd = result.data["24h_avg"]
+        cls.deps.btc2usd.changed()
 
   set_balance: (url, lambda_balance) ->
     """
@@ -52,7 +74,7 @@ class @BaseCrypto
         super url, @lambda_balance
 
     """
-    cls = this
+    cls = @
 
     Meteor.call "call_url", url, (err, result) ->
       if err
@@ -60,6 +82,19 @@ class @BaseCrypto
       else
         cls.keys.balance = lambda_balance result
         cls.deps.balance.changed()
+
+  set_value: ->
+    """Set value for 1 coin using CryptoCoinCharts"""
+    cls = @
+    url = "http://www.cryptocoincharts.info/v2/api/listCoins"
+
+    Meteor.call "call_url", url, (err, result) ->
+      if err
+        throw new Meteor.Error err.error, err.reason
+      else
+        resultDict = result.data.toDict 'name'
+        cls.keys.value = resultDict[cls.constructor.name].price_btc
+        cls.deps.value.changed()
 
   @verify_address: (address, url_base) ->
     """
