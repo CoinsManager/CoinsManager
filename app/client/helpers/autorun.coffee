@@ -8,19 +8,18 @@ Meteor.startup ->
       else
         addresses = Session.get 'donationAddresses'
         addresses.forEach (address) ->
+          if not BaseCrypto.keys[address.name][address.address].balance
+            return
+
           resultDict = result.data.toDict 'name'
-          try
-            BaseCrypto.keys[address.name][address.address].
-              value = +resultDict[address.name].price_btc
-            BaseCrypto.deps[address.name][address.address].value.changed()
-          catch error
+          key = address.name
+          if key not of resultDict
             key = address.name.replace 'coin', 'Coin'
-            if key of resultDict
-              BaseCrypto.keys[address.name][address.address]
-                .value = +resultDict[key].price_btc
-              BaseCrypto.deps[address.name][address.address].value.changed()
-            else
-              0
+          if key not of resultDict
+            return
+          BaseCrypto.keys[address.name][address.address].
+            value = +resultDict[key].price_btc
+          BaseCrypto.deps[address.name][address.address].value.changed()
   ), 2000
 
 

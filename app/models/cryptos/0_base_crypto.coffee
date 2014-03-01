@@ -15,11 +15,13 @@ class @BaseCrypto
 
   constructor: (@address) ->
     @name = @constructor.name
+    @code = @constructor.code
 
   ensureDeps: (address, key) ->
     if not BaseCrypto.deps[@name]
       BaseCrypto.deps[@name] = {}
       BaseCrypto.deps[@name][address] = {}
+    if not BaseCrypto.keys[@name]
       BaseCrypto.keys[@name] = {}
       BaseCrypto.keys[@name][address] = {}
     if not BaseCrypto.deps[@name][address][key]
@@ -58,8 +60,15 @@ class @BaseCrypto
     """
     @ensureDeps @address, "value"
     BaseCrypto.deps[@name][@address].value.depend()
+    if @name is "D6ascim4uwAbRD7ySqEiJYJKtkW4oSvQDN"
+      debugger
+    result = undefined
     if BaseCrypto.keys[@name][@address].value and @get_btc2usd()
-      return BaseCrypto.keys[@name][@address].value * @get_balance() * @get_btc2usd()
+      result = BaseCrypto.keys[@name][@address].value * @get_balance() * @get_btc2usd()
+    else if BaseCrypto.keys[@name][@address].total_value?
+      result = BaseCrypto.keys[@name][@address].total_value
+    if result?
+      return result.toFixed 2
 
   set_btc2usd: ->
     cls = @

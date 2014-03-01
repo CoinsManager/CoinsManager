@@ -1,18 +1,3 @@
-Template.addressItem.helpers
-  code: ->
-    """
-    If the coin hasn"t been implemented, return the code from the mongo document
-    Else, return the class variable code
-    """
-    @code or @constructor.code
-  name: ->
-    name = @name or @constructor.name
-    return name if name isnt "Object"
-  get_value: ->
-    value = @get_value()
-    if _.isNumber value then value.toFixed 2 else value
-
-
 Template.addressItem.rendered = () ->
   # Truncate function
   truncate = (elem, fieldWidth, position) ->
