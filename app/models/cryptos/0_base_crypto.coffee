@@ -93,7 +93,11 @@ class @BaseCrypto
         throw new Meteor.Error err.error, err.reason
       else
         resultDict = result.data.toDict 'name'
-        cls.keys.value = resultDict[cls.constructor.name].price_btc
+        try
+          cls.keys.value = resultDict[cls.constructor.name].price_btc
+        catch error
+          key = cls.constructor.name.replace 'coin', 'Coin'
+          cls.keys.value = resultDict[key].price_btc
         cls.deps.value.changed()
 
   @verify_address: (address, url_base) ->

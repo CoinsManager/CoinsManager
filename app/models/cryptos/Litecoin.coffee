@@ -29,6 +29,3 @@ class @Litecoin extends @BaseCrypto
         sent = result.content
         cls.keys.balance = cls.lambda_balance cls.keys.received, sent
         cls.deps.balance.changed()
-
-  get_value: ->
-    @get_balance() * 14.29

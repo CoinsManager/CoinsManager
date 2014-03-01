@@ -12,6 +12,3 @@ class @Earthcoin extends @BaseCrypto
   set_balance: ->
     url = "#{@api_url}#{@address}"
     super url, @lambda_balance
-
-  get_value: ->
-    @get_balance() * 0.00032
