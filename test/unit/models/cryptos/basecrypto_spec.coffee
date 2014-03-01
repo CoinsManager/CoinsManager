@@ -10,8 +10,10 @@ describe "BaseCrypto", ->
   it "has a method get_balance", ->
     @coin.should.have.a.property "get_balance"
     @coin.should.respondTo "get_balance"
-    @coin.get_balance().should.equal 0
-    @coin.keys.balance = 10
+    expect(@coin.get_balance()).to.be.undefined
+    BaseCrypto.keys[@coin.name] = {}
+    BaseCrypto.keys[@coin.name][@coin.address] =
+      balance: 10
     @coin.get_balance().should.equal 10
 
   #it "has a method get_value", ->
