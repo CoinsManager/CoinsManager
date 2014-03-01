@@ -11,13 +11,16 @@ class @BaseCrypto
     * get_exchange_rate (TODO: not implemented yet)
   """
   @keys = {}
-  @deps = {}
+  @deps =
+    btc2usd: new Deps.Dependency()
 
   constructor: (@address) ->
+    # Set name for instances inheriting BaseCrypto
     @name = @constructor.name
     @code = @constructor.code
 
   ensureDeps: (address, key) ->
+    """Dependencies are set to class attributes, to be retrievable anywhere"""
     if not BaseCrypto.deps[@name]
       BaseCrypto.deps[@name] = {}
       BaseCrypto.deps[@name][address] = {}
@@ -26,22 +29,13 @@ class @BaseCrypto
       BaseCrypto.keys[@name][address] = {}
     if not BaseCrypto.deps[@name][address][key]
       BaseCrypto.deps[@name][address][key] = new Deps.Dependency()
-      switch key
-        when 'balance' then @set_balance()
-        #when 'value' then @set_value()
-        when 'btc2usd' then @set_btc2usd()
+      if key is 'balance' then @set_balance()
 
   get_balance: ->
     """Retrieve value set from @set_balance()"""
     @ensureDeps @address, "balance"
     BaseCrypto.deps[@name][@address].balance.depend()
     return BaseCrypto.keys[@name][@address].balance
-
-  get_btc2usd: ->
-    """Retrieve price for 1 bitcoin in US dollar"""
-    @ensureDeps @address, "btc2usd"
-    BaseCrypto.deps[@name][@address].btc2usd.depend()
-    return BaseCrypto.keys[@name][@address].btc2usd
 
   get_name: ->
     if @name then @name else @constructor.name
@@ -59,27 +53,20 @@ class @BaseCrypto
 
     """
     @ensureDeps @address, "value"
+    # Value depends in on the "coin2btc" value and "btc2fiat" value
     BaseCrypto.deps[@name][@address].value.depend()
-    if @name is "D6ascim4uwAbRD7ySqEiJYJKtkW4oSvQDN"
-      debugger
+    BaseCrypto.deps.btc2usd.depend()
+
     result = undefined
-    if BaseCrypto.keys[@name][@address].value and @get_btc2usd()
-      result = BaseCrypto.keys[@name][@address].value * @get_balance() * @get_btc2usd()
+    if BaseCrypto.keys[@name][@address].value
+      value = BaseCrypto.keys[@name][@address].value
+      btc2usd = BaseCrypto.keys.btc2usd
+      result = value * @get_balance() * btc2usd
     else if BaseCrypto.keys[@name][@address].total_value?
+      # For non-implemented coins
       result = BaseCrypto.keys[@name][@address].total_value
     if result?
       return result.toFixed 2
-
-  set_btc2usd: ->
-    cls = @
-
-    url = 'https://api.bitcoinaverage.com/ticker/USD/'
-    Meteor.call "call_url", url, (err, result) ->
-      if err
-        throw new Meteor.Error err.error, err.reason
-      else
-        BaseCrypto.keys[cls.name][cls.address].btc2usd = result.data["24h_avg"]
-        BaseCrypto.deps[cls.name][cls.address].btc2usd.changed()
 
   set_balance: (url, lambda_balance) ->
     """
