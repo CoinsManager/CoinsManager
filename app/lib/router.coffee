@@ -9,11 +9,20 @@ class CoinsManagerController extends RouteController
     coinsManager = Meteor.users.findOne
       "emails.address": "coinsmanager@gmail.com"
     if coinsManager
-      addresses = Addresses.find
+      donationAddresses = Addresses.find
         userId: coinsManager._id
-      fetchedAddresses = addresses.fetch()
-      Session.set 'donationAddresses', fetchedAddresses
-      return {donationAddresses: fetchedAddresses}
+      userAddresses = Addresses.find
+        userId: Meteor.user()._id
+      allAddresses = Addresses.find
+        $or: [
+          {userId: coinsManager._id}
+          {userId: Meteor.user()._id}
+        ]
+      Session.set 'allAddresses', allAddresses.fetch()
+      return {
+        donationAddresses: donationAddresses.fetch()
+        userAddresses: userAddresses
+      }
 
 
 Router.map ->

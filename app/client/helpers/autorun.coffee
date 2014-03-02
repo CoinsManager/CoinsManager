@@ -15,10 +15,10 @@ Meteor.startup ->
       if err
         throw new Meteor.Error err.error, err.reason
       else
-        addresses = Session.get 'donationAddresses'
+        addresses = Session.get 'allAddresses'
         addresses.forEach (address) ->
           # Do not update the value if there is no balance
-          if not BaseCrypto.keys[address.name][address.address].balance
+          if not BaseCrypto.keys[address.name][address.address].balance?
             return
 
           resultDict = result.data.toDict 'name'
