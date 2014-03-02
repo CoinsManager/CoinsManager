@@ -4,6 +4,6 @@ template(name="coinsManager")
         h1.addresses_title CoinsManager donation addresses
             i.fa.fa-times#close_donation
         div.addresses
-            {{#each sortedAddresses}}
-            {{> addressItem}}
-        {{/each}}
+            {{#each sortAddresses donationAddresses}}
+                {{> addressItem}}
+            {{/each}}

@@ -21,7 +21,7 @@ class CoinsManagerController extends RouteController
       Session.set 'allAddresses', allAddresses.fetch()
       return {
         donationAddresses: donationAddresses.fetch()
-        userAddresses: userAddresses
+        userAddresses: userAddresses.fetch()
       }
 
 
