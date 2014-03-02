@@ -23,9 +23,11 @@ class @BaseCrypto
     """Dependencies are set to class attributes, to be retrievable anywhere"""
     if not BaseCrypto.deps[@name]
       BaseCrypto.deps[@name] = {}
+    if not BaseCrypto.deps[@name][address]
       BaseCrypto.deps[@name][address] = {}
     if not BaseCrypto.keys[@name]
       BaseCrypto.keys[@name] = {}
+    if not BaseCrypto.keys[@name][address]
       BaseCrypto.keys[@name][address] = {}
     if not BaseCrypto.deps[@name][address][key]
       BaseCrypto.deps[@name][address][key] = new Deps.Dependency()
