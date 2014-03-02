@@ -3,9 +3,11 @@ Template.alphaLayout.helpers
     Meteor.user()
   errors: ->
     Errors.collection.find()
+  ShowDonationAddresses: ->
+    Session.get 'ShowDonationAddresses'
+
 
 Template.alphaLayout.rendered = ->
-
   ZeroClipboard.config
     moviePath: "/swf/ZeroClipboard.swf"
     debug: false
