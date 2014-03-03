@@ -3,7 +3,7 @@ Session.set "show_coin_help", false
 
 
 Template.addAddress.created = ->
-  Meteor.call 'implemented_coins', (error, result) ->
+  Meteor.call "implemented_coins", (error, result) ->
     Session.set "cryptos", result
 
 
@@ -54,13 +54,8 @@ Template.addAddress.events
   "click #close-coin-help": (e) ->
     Session.set "show_coin_help", false
 
-  "click .is_unactive": (e) ->
-    $(e.target).toggleClass "is_unactive", "is_active"
-    Session.set 'showAddAddressForm', true
-
   "click #close": (e) ->
-    $(".add_address").toggleClass "is_active", "is_unactive"
-    Session.set 'showAddAddressForm', false
+    Session.set "showCoinForm", false
 
 
 Template.addAddress.rendered = () ->

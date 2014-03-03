@@ -4,4 +4,11 @@ template(name="userAddresses")
         {{#each sortAddresses userAddresses}}
             {{> addressItem}}
         {{/each}}
-        {{> addAddress}}
+
+        {{#if showCoinForm}}
+            {{> addAddress}}
+        {{else}}
+            {{> emptyForm}}
+        {{/if}}
+
+
