@@ -11,35 +11,35 @@ class CoinsManagerController extends RouteController
       "emails.address": "coinsmanager@gmail.com"
 
     if coinsManager
-      donationAddresses = []
-      userAddresses = []
-      allAddresses = []
-      result = []
-
-      donationAddresses = Addresses.find
+      userAddresses = {}
+      allAddresses = {}
+      donationAddresses = Addresses.find(
         userId: coinsManager._id
+      ).fetch()
+
       user = Meteor.user()
       if user
-        userAddresses = Addresses.find
+        userAddresses = Addresses.find(
           userId: Meteor.user()._id
+        ).fetch()
 
       if coinsManager and user
-        allAddresses = Addresses.find
+        allAddresses = Addresses.find(
           $or: [
             {userId: coinsManager._id}
             {userId: Meteor.user()._id}
           ]
-        result =
-          donationAddresses: donationAddresses.fetch()
-          userAddresses: userAddresses.fetch()
-        Session.set 'ShowDonationAddresses', false
-      else
-        allAddresses = _.clone donationAddresses
-        result =
-          donationAddresses: donationAddresses.fetch()
+        ).fetch()
         Session.set 'ShowDonationAddresses', true
+        Session.set 'visibleAddresses', userAddresses
+      else
+        Session.set 'ShowDonationAddresses', true
+        Session.set 'visibleAddresses', donationAddresses
 
-      Session.set 'allAddresses', allAddresses.fetch()
+      result =
+        donationAddresses: donationAddresses
+        userAddresses: userAddresses
+        allAddresses: allAddresses
       return result
 
 

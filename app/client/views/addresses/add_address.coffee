@@ -55,16 +55,15 @@ Template.addAddress.events
     Session.set "show_coin_help", false
 
   "click .is_unactive": (e) ->
-    $(e.target).removeClass "is_unactive"
-    $(e.target).addClass "is_active"
+    $(e.target).toggleClass "is_unactive", "is_active"
     Session.set 'showAddAddressForm', true
 
   "click #close": (e) ->
-    $(".add_address").removeClass("is_active").addClass("is_unactive")
+    $(".add_address").toggleClass "is_active", "is_unactive"
     Session.set 'showAddAddressForm', false
 
 
 Template.addAddress.rendered = () ->
   formStatus = Session.get "show_coin_help"
   if Session.get "showAddAddressForm"
-    $(".add_address").removeClass("is_unactive").addClass("is_active")
+    $(".add_address").toggleClass "is_unactive", "is_active"
