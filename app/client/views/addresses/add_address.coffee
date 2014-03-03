@@ -1,5 +1,5 @@
-Session.set "show_complete_form", false
-Session.set "show_coin_help", false
+Session.set "showCompleteForm", false
+Session.set "showCoinHelp", false
 
 
 Template.addAddress.created = ->
@@ -11,9 +11,9 @@ Template.addAddress.helpers
   cryptos: ->
     Session.get "cryptos"
   coin_recognized: ->
-    not Session.get "show_complete_form"
+    not Session.get "showCompleteForm"
   coin_help: ->
-    Session.get "show_coin_help"
+    Session.get "showCoinHelp"
 
 
 Template.addAddress.events
@@ -43,22 +43,22 @@ Template.addAddress.events
             Errors.throw error.reason
 
   "click .fa-plus-square": (e) ->
-    Session.set "show_complete_form", true
+    Session.set "showCompleteForm", true
 
   "click #close-form": (e) ->
-    Session.set "show_complete_form", false
+    Session.set "showCompleteForm", false
 
   "click .fa-question-circle": (e) ->
-    Session.set "show_coin_help", true
+    Session.set "showCoinHelp", true
 
   "click #close-coin-help": (e) ->
-    Session.set "show_coin_help", false
+    Session.set "showCoinHelp", false
 
   "click #close": (e) ->
     Session.set "showCoinForm", false
 
 
 Template.addAddress.rendered = () ->
-  formStatus = Session.get "show_coin_help"
+  formStatus = Session.get "showCoinHelp"
   if Session.get "showAddAddressForm"
-    $(".add_address").toggleClass "is_unactive", "is_active"
+    $(".add_address").toggleClass "is_inactive", "is_active"
