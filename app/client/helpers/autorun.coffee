@@ -15,7 +15,7 @@ Meteor.startup ->
       if err
         throw new Meteor.Error err.error, err.reason
       else
-        addresses = Session.get 'allAddresses'
+        addresses = Session.get 'visibleAddresses'
 
         if addresses
           addresses.forEach (address) ->
@@ -35,4 +35,4 @@ Meteor.startup ->
               value = +resultDict[key].price_btc
             # Triggers reactivity
             BaseCrypto.deps[address.name][address.address].value.changed()
-    ), 4000
+  ), 3000
