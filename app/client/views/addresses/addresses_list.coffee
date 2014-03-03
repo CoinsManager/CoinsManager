@@ -1,4 +1,5 @@
-Session.set "showCoinForm", false
+Template.userAddresses.created = ->
+  Session.set "showCoinForm", false
 
 
 Template.userAddresses.helpers

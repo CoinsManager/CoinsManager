@@ -1,8 +1,6 @@
-Session.set "showCompleteForm", false
-Session.set "showCoinHelp", false
-
-
 Template.addAddress.created = ->
+  Session.set "showCompleteForm", false
+  Session.set "showCoinHelp", false
   Meteor.call "implemented_coins", (error, result) ->
     Session.set "cryptos", result
 
@@ -59,9 +57,3 @@ Template.addAddress.events
 
   "click #close": (e) ->
     Session.set "showCoinForm", false
-
-
-Template.addAddress.rendered = () ->
-  formStatus = Session.get "showCoinHelp"
-  if Session.get "showAddAddressForm"
-    $(".add_address").toggleClass "is_inactive", "is_active"

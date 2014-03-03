@@ -43,11 +43,11 @@ Template.addressItem.events
 
     # Remove address
     if $this.hasClass "remove"
-      if confirm 'Delete this address?'
+      if confirm "Delete this address?"
         actualAddress = $this.parents(".address").find(".copy").
           data "clipboard-text"
         data =
-            address: actualAddress
+            address: "#{actualAddress}"
 
         Meteor.call "remove_address", data, (error, id) ->
           if error
