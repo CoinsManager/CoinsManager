@@ -34,9 +34,11 @@ template(name="addAddress")
             label.control-label(for="name-alpha") Cryptocurrency name
             div.controls
                 select(name="name-alpha")
+                    {{#isolate}}
                     {{#each cryptos}}
                     option(value="{{this}}") {{this}}
                     {{/each}}
+                    {{/isolate}}
                 i.fa.fa-plus-square.y-centered
         {{else}}
         div.control-group
