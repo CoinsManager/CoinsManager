@@ -5,4 +5,4 @@ Template.totalAsset.helpers
       value = address.get_value()
       if _.isNumber value
         sum += value
-    return sum
+    return sum.toFixed 2
