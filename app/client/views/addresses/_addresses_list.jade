@@ -1,14 +1,14 @@
 template(name="userAddresses")
     h1.addresses_title Your addresses
     div.addresses
+        {{#isolate}}
         {{#each sortAddresses userAddresses}}
             {{> addressItem}}
         {{/each}}
+        {{/isolate}}
 
         {{#if showCoinForm}}
             {{> addAddress}}
         {{else}}
             {{> emptyForm}}
         {{/if}}
-
-

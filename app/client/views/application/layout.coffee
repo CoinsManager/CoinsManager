@@ -3,8 +3,8 @@ Template.alphaLayout.helpers
     Meteor.user()
   errors: ->
     Errors.collection.find()
-  ShowDonationAddresses: ->
-    Session.get 'ShowDonationAddresses'
+  showDonationAddresses: ->
+    Session.get 'showDonationAddresses'
 
 
 Template.alphaLayout.rendered = ->
