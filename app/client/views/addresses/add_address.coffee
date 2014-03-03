@@ -41,6 +41,9 @@ Template.addAddress.events
           if error
             # Display the error
             Errors.throw error.reason
+          else
+            for text in ["showCoinForm", "showCompleteForm", "showCoinHelp"]
+              Session.set text, false
 
   "click .fa-plus-square": (e) ->
     Session.set "showCompleteForm", true
