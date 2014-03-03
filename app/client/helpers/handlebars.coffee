@@ -20,7 +20,7 @@ Handlebars.registerHelper 'truncateMiddle', (fullStr, strLen) ->
 
 
 Handlebars.registerHelper 'sortAddresses', (addresses, options) ->
-  if addresses
+  if addresses and addresses.length
     sortedAddresses = addresses.sort (add1, add2) ->
       a = add1.get_value()
       b = add2.get_value()
