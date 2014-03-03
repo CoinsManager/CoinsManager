@@ -30,7 +30,7 @@ class CoinsManagerController extends RouteController
             {userId: Meteor.user()._id}
           ]
         ).fetch()
-        Session.set 'ShowDonationAddresses', true
+        Session.set 'ShowDonationAddresses', false
         Session.set 'visibleAddresses', userAddresses
       else
         Session.set 'ShowDonationAddresses', true
