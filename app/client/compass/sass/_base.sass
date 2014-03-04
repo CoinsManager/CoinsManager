@@ -46,14 +46,19 @@ $sprites-retina: sprite-map("sprites-retina/*.png")
 
 // Classes
 
-%text_shadow
+%normal_text
+    color: white
     text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
-
-%dark_text_shadow
-    text-shadow: 0 0.1rem 0.1rem rgba(white, 0.6)
 
 %indented_text_shadow
     text-shadow: 0 0.1rem 0.1rem rgba(white, 0.7)
+
+%indented_text
+    color: $secondary_color
+    @extend %indented_text_shadow
+
+
+    
 
 // Retina sprites support
 

@@ -23,17 +23,15 @@ $address_title_height: 4rem
 $func_panel_height: 4rem
 
 .addresses_title
-    @extend %indented_text_shadow
+    @extend %indented_text
     margin: 8rem 0
     text-align: center
-    color: $secondary-color
     font-size: 3.6rem
     +breakpoint($media-small)
         font-size: 2.6rem
     +breakpoint($media-micro)
         font-size: 2.2rem
         margin: 4rem 0
-    @extend %dark_text_shadow
 
 %block_of_address
     padding: 0 $card_padding
@@ -61,8 +59,7 @@ $func_panel_height: 4rem
         margin-left: 0.5rem
     cursor: pointer
     &:hover
-        @extend %text_shadow
-        color: white
+        @extend %normal_text
 
 .address
     +span(3)
@@ -81,7 +78,7 @@ $func_panel_height: 4rem
     height: $card_height
     position: relative
     @extend %card_template
-    @extend %text_shadow
+    @extend %normal_text
     header
         @extend %block_of_address
         height: $header_height
@@ -222,7 +219,7 @@ $func_panel_height: 4rem
     select[name="code-alpha"]
         width: 90%
     label
-        @extend %text_shadow
+        @extend %normal_text
         display: inline-block
         margin-bottom: 0.5rem
     input[type="submit"]
@@ -231,7 +228,7 @@ $func_panel_height: 4rem
     .controls
         @extend %group
     i
-        @extend %text_shadow
+        @extend %normal_text
         $height: 1.6rem
         height: $height
         cursor: pointer
@@ -241,7 +238,7 @@ $func_panel_height: 4rem
     .help
         p
             margin-top: 0
-            @extend %text_shadow
+            @extend %normal_text
         ul
             padding: 0 0 0 2rem
             font-size: 1.3rem
@@ -250,10 +247,10 @@ $func_panel_height: 4rem
             margin-bottom: 0.6rem
         a
             +link-colors(white, tint($accent-color, 30%), tint($accent-color, 10%))
-            @extend %text_shadow
+            @extend %normal_text
     h3
         margin-top: 0
-        @extend %text_shadow
+        @extend %normal_text
         font-size: 1.6rem
         font-weight: normal
         &.screencast
@@ -270,7 +267,7 @@ $func_panel_height: 4rem
 
 .bottom_line
     position: relative
-    @extend %text_shadow
+    @extend %normal_text
     &:after, &:before
         content: ''
         display: block
