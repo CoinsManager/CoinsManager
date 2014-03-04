@@ -1,0 +1,46 @@
+@import base
+
+.mascot_area
+    @extend %group
+    margin: 6rem auto
+
+.owl
+    font-size: 21rem
+    text-align: left
+    @extend %indented_text
+    +span(2)
+    +pre(2)
+    +breakpoint($media-medium)
+        +pre(1)
+    +breakpoint($media-micro)
+        width: 100%
+        text-align: center
+        margin-left: 0
+        float: none
+
+.normal_bubble
+    +speech_bubble(left, 50%, $secondary-color, 0, $secondary-color)
+    height: 10rem
+    width: 15rem
+    padding: 2rem
+    line-height: 2rem
+    +span(6)
+    &:before, &:after
+        +breakpoint($media-small)
+            top: inherit
+        +breakpoint($media-micro)
+            top: inherit
+    +breakpoint($media-medium)
+        +span(5)
+        font-size: 1.4rem
+    +breakpoint($media-small)
+        +speech_bubble(top, 50%, $secondary-color, 0, $secondary-color)
+        margin-top: 6rem
+    +breakpoint($media-micro)
+        +speech_bubble(top, 50%, $secondary-color, 0, $secondary-color)
+        margin-top: 6rem
+        height: 16rem
+        font-size: 1.4rem
+        +span(3)
+    .total
+        color: $accent-color
