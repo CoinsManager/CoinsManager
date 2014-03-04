@@ -7,7 +7,7 @@ Meteor.startup ->
 
 callApis = ->
   # Get The Bitcoin to USD price
-  url = 'https://api.bitcoinaverage.com/ticker/USD/'
+  url = "https://api.bitcoinaverage.com/ticker/USD/"
   Meteor.call "call_url", url, (err, result) ->
     if err
       throw new Meteor.Error err.error, err.reason
@@ -21,7 +21,7 @@ callApis = ->
     if err
       throw new Meteor.Error err.error, err.reason
     else
-      addresses = Session.get 'visibleAddresses'
+      addresses = Session.get "visibleAddresses"
 
       if addresses
         addresses.forEach (address) ->
@@ -29,11 +29,11 @@ callApis = ->
           if not BaseCrypto.keys[address.name][address.address].balance?
             return
 
-          resultDict = result.data.toDict 'name'
+          resultDict = result.data.toDict "name"
           key = address.name
           if key not of resultDict
             # CryptoCoinCharts sometimes writes the wrong typo for coins
-            key = address.name.replace 'coin', 'Coin'
+            key = address.name.replace "coin", "Coin"
           if key not of resultDict
             return
           # Update key value

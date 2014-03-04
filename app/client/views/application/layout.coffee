@@ -4,7 +4,7 @@ Template.alphaLayout.helpers
   errors: ->
     Errors.collection.find()
   showDonationAddresses: ->
-    Session.get 'showDonationAddresses'
+    Session.get "showDonationAddresses"
 
 
 Template.alphaLayout.rendered = ->

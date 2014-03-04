@@ -31,7 +31,7 @@ class @BaseCrypto
       BaseCrypto.keys[@name][address] = {}
     if not BaseCrypto.deps[@name][address][key]
       BaseCrypto.deps[@name][address][key] = new Deps.Dependency()
-      if key is 'balance' then @set_balance()
+      if key is "balance" then @set_balance()
 
   get_balance: ->
     """Retrieve value set from @set_balance()"""
