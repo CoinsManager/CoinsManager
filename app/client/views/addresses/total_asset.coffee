@@ -3,6 +3,6 @@ Template.totalAsset.helpers
     sum = 0
     for address in @
       value = address.get_value()
-      if _.isNumber value
-        sum += value
+      if value?
+        sum += +value
     return sum.toFixed 2
