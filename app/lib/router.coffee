@@ -6,12 +6,41 @@ Router.configure
 class CoinsManagerController extends RouteController
   data: ->
     do GAnalytics.pageview
+
     coinsManager = Meteor.users.findOne
       "emails.address": "coinsmanager@gmail.com"
+
     if coinsManager
-      addresses = Addresses.find
+      userAddresses = {}
+      allAddresses = {}
+      donationAddresses = Addresses.find(
         userId: coinsManager._id
-      donationAddresses: addresses.fetch()
+      ).fetch()
+
+      user = Meteor.user()
+      if user
+        userAddresses = Addresses.find(
+          userId: Meteor.user()._id
+        ).fetch()
+
+      if coinsManager and user
+        allAddresses = Addresses.find(
+          $or: [
+            {userId: coinsManager._id}
+            {userId: Meteor.user()._id}
+          ]
+        ).fetch()
+        Session.set "showDonationAddresses", false
+        Session.set "visibleAddresses", userAddresses
+      else
+        Session.set "showDonationAddresses", true
+        Session.set "visibleAddresses", donationAddresses
+
+      result =
+        donationAddresses: donationAddresses
+        userAddresses: userAddresses
+        allAddresses: allAddresses
+      return result
 
 
 Router.map ->
@@ -23,4 +52,3 @@ Router.map ->
       Meteor.subscribe collection for collection in collections
       if Meteor.user()
         Meteor.subscribe "userAddresses", Meteor.user()._id
-

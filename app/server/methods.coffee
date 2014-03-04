@@ -61,6 +61,6 @@ Meteor.methods
     """
     Returns a list of coins that have been implemented
     """
-    files = fs.readdirSync './app/models/cryptos/'
+    files = fs.readdirSync "./app/models/cryptos/"
     file.replace(".coffee.js", "") for file in files.filter (file) ->
-      file.search("(base_crypto*)|(js.map)") == -1
+      file.search("(base_crypto*)|(js.map)") is -1

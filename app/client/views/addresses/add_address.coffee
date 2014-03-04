@@ -1,9 +1,7 @@
-Session.set "show_complete_form", false
-Session.set "show_coin_help", false
-
-
 Template.addAddress.created = ->
-  Meteor.call 'implemented_coins', (error, result) ->
+  Session.set "showCompleteForm", false
+  Session.set "showCoinHelp", false
+  Meteor.call "implemented_coins", (error, result) ->
     Session.set "cryptos", result
 
 
@@ -11,9 +9,9 @@ Template.addAddress.helpers
   cryptos: ->
     Session.get "cryptos"
   coin_recognized: ->
-    not Session.get "show_complete_form"
+    not Session.get "showCompleteForm"
   coin_help: ->
-    Session.get "show_coin_help"
+    Session.get "showCoinHelp"
 
 
 Template.addAddress.events
@@ -41,30 +39,21 @@ Template.addAddress.events
           if error
             # Display the error
             Errors.throw error.reason
+          else
+            for text in ["showCoinForm", "showCompleteForm", "showCoinHelp"]
+              Session.set text, false
 
   "click .fa-plus-square": (e) ->
-    Session.set "show_complete_form", true
+    Session.set "showCompleteForm", true
 
   "click #close-form": (e) ->
-    Session.set "show_complete_form", false
+    Session.set "showCompleteForm", false
 
   "click .fa-question-circle": (e) ->
-    Session.set "show_coin_help", true
+    Session.set "showCoinHelp", true
 
   "click #close-coin-help": (e) ->
-    Session.set "show_coin_help", false
-
-  "click .is_unactive": (e) ->
-    $(e.target).removeClass "is_unactive"
-    $(e.target).addClass "is_active"
-    Session.set 'showAddAddressForm', true
+    Session.set "showCoinHelp", false
 
   "click #close": (e) ->
-    $(".add_address").removeClass("is_active").addClass("is_unactive")
-    Session.set 'showAddAddressForm', false
-
-
-Template.addAddress.rendered = () ->
-  formStatus = Session.get "show_coin_help"
-  if Session.get "showAddAddressForm"
-    $(".add_address").removeClass("is_unactive").addClass("is_active")
+    Session.set "showCoinForm", false

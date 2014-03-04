@@ -10,23 +10,37 @@ class @BaseCrypto
     * verify_address
     * get_exchange_rate (TODO: not implemented yet)
   """
+  @keys = {}
+  @deps =
+    btc2usd: new Deps.Dependency()
 
   constructor: (@address) ->
-    @keys =
-      balance: 0
-    @deps = {}
-    @name = ""
+    # Set name for instances inheriting BaseCrypto
+    @name = @constructor.name
+    @code = @constructor.code
 
-  ensureDeps: (key) ->
-    if not @deps[key]
-      @deps[key] = new Deps.Dependency()
-      @set_balance()
+  ensureDeps: (address, key) ->
+    """Dependencies are set to class attributes, to be retrievable anywhere"""
+    if not BaseCrypto.deps[@name]
+      BaseCrypto.deps[@name] = {}
+    if not BaseCrypto.deps[@name][address]
+      BaseCrypto.deps[@name][address] = {}
+    if not BaseCrypto.keys[@name]
+      BaseCrypto.keys[@name] = {}
+    if not BaseCrypto.keys[@name][address]
+      BaseCrypto.keys[@name][address] = {}
+    if not BaseCrypto.deps[@name][address][key]
+      BaseCrypto.deps[@name][address][key] = new Deps.Dependency()
+      if key is "balance" then @set_balance()
 
   get_balance: ->
     """Retrieve value set from @set_balance()"""
-    @ensureDeps "balance"
-    @deps.balance.depend()
-    return @keys.balance
+    @ensureDeps @address, "balance"
+    BaseCrypto.deps[@name][@address].balance.depend()
+    return BaseCrypto.keys[@name][@address].balance
+
+  get_name: ->
+    if @name then @name else @constructor.name
 
   get_value: ->
     """
@@ -40,7 +54,21 @@ class @BaseCrypto
         return balance * rate
 
     """
-    return "Value calculation has not been implemented for #{@constructor.name}"
+    @ensureDeps @address, "value"
+    # Value depends in on the "coin2btc" value and "btc2fiat" value
+    BaseCrypto.deps[@name][@address].value.depend()
+    BaseCrypto.deps.btc2usd.depend()
+
+    result = undefined
+    if BaseCrypto.keys[@name][@address].value
+      value = BaseCrypto.keys[@name][@address].value
+      btc2usd = BaseCrypto.keys.btc2usd
+      result = value * @get_balance() * btc2usd
+    else if BaseCrypto.keys[@name][@address].total_value?
+      # For non-implemented coins
+      result = BaseCrypto.keys[@name][@address].total_value
+    if result?
+      return result.toFixed 2
 
   set_balance: (url, lambda_balance) ->
     """
@@ -52,14 +80,14 @@ class @BaseCrypto
         super url, @lambda_balance
 
     """
-    cls = this
+    cls = @
 
     Meteor.call "call_url", url, (err, result) ->
       if err
         throw new Meteor.Error err.error, err.reason
       else
-        cls.keys.balance = lambda_balance result
-        cls.deps.balance.changed()
+        BaseCrypto.keys[cls.name][cls.address].balance = lambda_balance result
+        BaseCrypto.deps[cls.name][cls.address].balance.changed()
 
   @verify_address: (address, url_base) ->
     """

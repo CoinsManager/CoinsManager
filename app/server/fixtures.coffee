@@ -10,8 +10,8 @@ if Meteor.users.find().count() is 0
     email: Meteor.settings.public.email
     profile:
       favorites:
-        fiat: 'USD'
-        exchange: 'MtGox'
+        fiat: "USD"
+        exchange: "MtGox"
 
 
   # Add public addresses for CoinsManager

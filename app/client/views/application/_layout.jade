@@ -1,10 +1,12 @@
 template(name="alphaLayout")
     {{yield}}
-    {{> coinsManager}}
-    // TODO: Add condition if Meteor.user is loaded
-    {{#if loggedIn}}
-    {{> userAddresses}}
+    {{#if showDonationAddresses}}
+        {{> coinsManager}}
     {{/if}}
+    {{#if loggedIn}}
+        {{> userAddresses}}
+    {{/if}}
+
     {{#if errors.count}}
     div.errors_list
         h2.title Errors

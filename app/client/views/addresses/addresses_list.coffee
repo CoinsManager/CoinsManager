@@ -1,6 +1,7 @@
+Template.userAddresses.created = ->
+  Session.set "showCoinForm", false
+
+
 Template.userAddresses.helpers
-  userAddresses: ->
-    addresses = Addresses.find
-      userId: Meteor.user()._id
-    address.set_balance() for address in addresses
-    return addresses
+  showCoinForm: ->
+    Session.get "showCoinForm"
