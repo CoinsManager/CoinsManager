@@ -29,6 +29,9 @@ class @Litecoin extends @BaseCrypto
       "#{@api_url}getsentbyaddress/#{@address}"
       (error, result) ->
         sent = result.content
-        BaseCrypto.keys[cls.name][cls.address].balance = cls.
-          lambda_balance BaseCrypto.keys[cls.name][cls.address].received, sent
+        value = cls.lambda_balance BaseCrypto.keys[cls.name][cls.address].
+          received, sent
+        if isNaN value
+          return
+        BaseCrypto.keys[cls.name][cls.address].balance = value
         BaseCrypto.deps[cls.name][cls.address].balance.changed()
