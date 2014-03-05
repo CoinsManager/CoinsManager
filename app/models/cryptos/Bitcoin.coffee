@@ -3,8 +3,12 @@ class @Bitcoin extends @BaseCrypto
   This class define all the informations needed for Bitcoin.
   The average value corresponds to the user favorite fiat currency.
   """
-  @code = "BTC"
   @api_url = "http://blockexplorer.com/q/"
+  @code = "BTC"
+
+  constructor: ->
+    super
+    @name = "Bitcoin"
 
   set_balance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"

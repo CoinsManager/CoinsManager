@@ -5,6 +5,10 @@ class @Infinitecoin extends @BaseCrypto
   @code = "IFC"
   @api_url = "http://exploretheblocks.com:2750/chain/Infinitecoin/q/"
 
+  constructor: ->
+    super
+    @name = "Infinitecoin"
+
   set_balance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
     lambda_balance = (result) -> +result.content

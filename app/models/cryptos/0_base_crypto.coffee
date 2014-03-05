@@ -16,7 +16,6 @@ class @BaseCrypto
 
   constructor: (@address) ->
     # Set name for instances inheriting BaseCrypto
-    @name = @constructor.name
     @code = @constructor.code
 
   ensureDeps: (address, key) ->
