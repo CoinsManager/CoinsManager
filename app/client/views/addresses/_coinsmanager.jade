@@ -1,8 +1,17 @@
 template(name="coinsManager")
-
     div#donation_block
         h1.addresses_title CoinsManager donation addresses
             i.fa.fa-times#close_donation
+        div.mascot_area
+            div.owl.icon-owl_abacus
+            div.normal_bubble
+                {{# with donationAddresses}}
+                | Thanks for your support! So far, CoinsManager has received 
+                span.total {{> totalAsset}} 
+                | in kind donations from our users, helping to keep this
+                | service in operation. Thanks a bunch.
+                {{/with}}
+        div.received
         div.addresses
             {{#isolate}}
             {{#each sortAddresses donationAddresses}}

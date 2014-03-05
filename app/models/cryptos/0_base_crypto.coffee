@@ -86,7 +86,10 @@ class @BaseCrypto
       if err
         throw new Meteor.Error err.error, err.reason
       else
-        BaseCrypto.keys[cls.name][cls.address].balance = lambda_balance result
+        value = lambda_balance result
+        if isNaN value
+          return
+        BaseCrypto.keys[cls.name][cls.address].balance = value
         BaseCrypto.deps[cls.name][cls.address].balance.changed()
 
   @verify_address: (address, url_base) ->

@@ -23,9 +23,16 @@ $header_height: 5rem
     display: none
 
 .top_wealth
-    @extend %top_header_block
+    height: $header_height
+    line-height: $header_height
+    font-size: 2.2rem
+    font-weight: bold
+    text-align: right
+    @extend %indented_text
     +span(3 omega)
-    display: none
+    +breakpoint($media-micro)
+        margin-top: 1rem
+        text-align: center
 
 // Login Part
 

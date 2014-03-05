@@ -3,8 +3,29 @@
 // Define font
 
 +font-face("DroidSans", font-files("DroidSans-webfont.ttf", ttf, "DroidSans-webfont.woff", woff, "DroidSans-webfont.svg", svg), null, normal)
-
 +font-face("DroidSans", font-files("DroidSans-Bold-webfont.ttf", ttf, "DroidSans-Bold-webfont.woff", woff, "DroidSans-Bold-webfont.svg", svg), null, bold)
++font-face("icon", font-files("icon.ttf", ttf, "icon.woff", woff, "icon.svg", svg), null, normal)
+
+// Custom font with icons
+
+[class^="icon-"], [class*=" icon-"]
+    font-family: 'icon'
+    speak: none
+    font-style: normal
+    font-weight: normal
+    font-variant: normal
+    text-transform: none
+    line-height: 1
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+.icon-logo:before
+    content: "\e600"
+
+.icon-owl_abacus:before
+    content: "\e601"
 
 // Trick for force smooth in Chrome. SVG looks better in chrome. Also, Opera
 // needs another fix: ttf after svg for correct rendering
@@ -15,9 +36,9 @@
 
 // Generating Sprites
 
-@each $i in sprite_names($sprites)
-    .#{$i}
-        +sprite-background($i)
+// @each $i in sprite_names($sprites)
+//     .#{$i}
+//         +sprite-background($i)
 
 // General page styles
 

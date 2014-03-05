@@ -7,24 +7,25 @@ $footer_height: 10rem
 .page_footer
     margin-bottom: 10rem
     .logo
-        +sprite-background("logo")
+        font-size: 20rem
+        text-align: center
         margin: 10rem auto
         position: relative
+        @extend %indented_text
         +breakpoint($media-micro)
             margin: 5rem auto
-            background-size: span(3)
+            font-size: 14rem
         &:after
             content: "alpha"
             display: block
-            position: absolute
-            bottom: -0.5rem
-            right: 4rem
-            color: $secondary-color
-            @extend %indented_text_shadow
+            position: relative
+            bottom: 2rem
+            left: 9rem
+            @extend %indented_text
             font-size: 2rem
             +breakpoint($media-micro)
-                bottom: 1.5rem
-                right: 7.5rem
+                bottom: 1rem
+                left: 6.5rem
     .footer_text
         background: $secondary-color
         height: $footer_height

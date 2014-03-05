@@ -33,3 +33,6 @@ Handlebars.registerHelper 'sortAddresses', (addresses, options) ->
         b = -1
       b - a
     return sortedAddresses
+
+Handlebars.registerHelper "loggedIn", () ->
+  Meteor.user()

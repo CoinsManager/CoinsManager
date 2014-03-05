@@ -1,5 +1,6 @@
 template(name="alphaLayout")
     {{yield}}
+    {{> pageHeader}}
     {{#if showDonationAddresses}}
         {{> coinsManager}}
     {{/if}}

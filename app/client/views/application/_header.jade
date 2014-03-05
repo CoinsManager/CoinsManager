@@ -1,0 +1,12 @@
+template(name="pageHeader")
+    div.top_header
+        {{loginButtons}}
+        nav.top_menu
+            | Lorem ipsum dolor
+        div.top_wealth
+            {{#if loggedIn}}
+            {{# with userAddresses}}
+            | Total: {{> totalAsset}}
+            {{/with}}
+            {{/if}}
+

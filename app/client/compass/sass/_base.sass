@@ -33,8 +33,8 @@ $susy_gap: susy-get(column-width, $susy) * susy-get(gutters, $susy)
 
 // Sprites
 
-$sprites: sprite-map("sprites/*.png")
-$sprites-retina: sprite-map("sprites-retina/*.png")
+// $sprites: sprite-map("sprites/*.png")
+// $sprites-retina: sprite-map("sprites-retina/*.png")
 
 // Helpers
 
@@ -46,14 +46,19 @@ $sprites-retina: sprite-map("sprites-retina/*.png")
 
 // Classes
 
-%text_shadow
+%normal_text
+    color: white
     text-shadow: 0.1rem 0.1rem 0.1rem rgba(black, 0.4)
-
-%dark_text_shadow
-    text-shadow: 0 0.1rem 0.1rem rgba(white, 0.6)
 
 %indented_text_shadow
     text-shadow: 0 0.1rem 0.1rem rgba(white, 0.7)
+
+%indented_text
+    color: $secondary_color
+    @extend %indented_text_shadow
+
+
+    
 
 // Retina sprites support
 
@@ -104,3 +109,43 @@ $sprites-retina: sprite-map("sprites-retina/*.png")
     line-height: $height/$lines + 0.5rem
     margin: auto $margin_x
     +stretch-y(0)
+
+=speech_bubble($arrow_dir: left, $arrow_pos: 50%, $color: black, $border_width: 0.2rem, $border_color: white)
+    border-style: solid
+    border-width: $border_width
+    border-color: $border_color
+    +border-radius
+    background-color: $color
+    position: relative
+    overflow: visible
+ 
+    $dir_x: right
+    $dir_y: top
+    @if $arrow_dir == top
+        $dir_x: bottom
+        $dir_y: left
+    @else if $arrow_dir == right
+        $dir_x: left
+        $dir_y: top
+    @else if $arrow_dir == bottom
+        $dir_x: top
+        $dir_y: left
+ 
+    $default_arrow_width: 1.3rem
+    &:before, &:after
+        content: ''
+        width: 0
+        height: 0
+        border: solid transparent
+        position: absolute
+        #{$dir_x}: 100%
+        #{$dir_y}: $arrow_pos
+    &:before
+        border-width: $default_arrow_width + $border_width
+        border-#{$dir_x}-color: $border_color 
+        margin-#{$dir_y}: ($default_arrow_width + ($border_width * 2)) * -1
+    &:after
+        border-width: $default_arrow_width
+        border-#{$dir_x}-color: $color
+        margin-#{$dir_y}: ($default_arrow_width + $border_width) * -1
+        margin-#{$dir_x}: -0.1rem
