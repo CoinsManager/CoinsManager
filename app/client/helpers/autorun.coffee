@@ -35,6 +35,9 @@ callApis = ->
             # CryptoCoinCharts sometimes writes the wrong typo for coins
             key = address.name.replace "coin", "Coin"
           if key not of resultDict
+            # CryptoCoinCharts randomly choose to use a coin name or code...
+            key = address.code
+          if key not of resultDict
             return
           # Update key value
           BaseCrypto.keys[address.name][address.address].
