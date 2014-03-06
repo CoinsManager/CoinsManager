@@ -8,7 +8,8 @@ Feature: User operations
     Scenario:
         Given I have logged in
         And I click on the icon "add_address"
-        When I enter "16sVbwiEZo47CSdvc7utB1g5X7fd2CWtc5" in the field "address"
-        And I select "Bitcoin" in the field "name-alpha"
+        When I fill in "address" with "16sVbwiEZo47CSdvc7utB1g5X7fd2CWtc5"
+        # TODO: Remove step filling name-alpha
+        And I fill in "name-alpha" with "Bitcoin"
         And I submit the form
         Then I can see the new address in the page

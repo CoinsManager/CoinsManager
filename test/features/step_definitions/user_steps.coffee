@@ -3,7 +3,7 @@ module.exports = ->
   @Given /^I have logged in$/, (callback) ->
     callback.pending()
 
-  @Given /^I click on the icon "([^"]*)"$/, (class, callback) ->
+  @Given /^I click on the icon "([^"]*)"$/, (cssclass, callback) ->
     callback.pending()
 
   @When /^I fill in "([^"]*)" with "([^"]*)"$/, (field, value, callback) ->
