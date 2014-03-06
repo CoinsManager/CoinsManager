@@ -32,7 +32,7 @@
   "dependencies": {
     "coffee-script": "1.7.1"
   },
-  { "devDependencies" : {
+  "devDependencies" : {
     "cucumber": "latest"
   },
   "engines": {
