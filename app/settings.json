@@ -12,8 +12,7 @@
         "Anoncoin": {
             "address": "AaCoinsyJRD8FTeXpnsHHb5P2TJZSNKFx1",
             "code": "ANC",
-            "balance": 4,
-            "value": 6.08
+            "balance": 4
         },
         "BBQcoin": {
             "address": "bCoinsM1FHuMGwZDPX4fuTEMuM1CMD6VDR",
@@ -31,8 +30,7 @@
         "CinnamonCoin": {
             "address": "CcoinsMDcN9cUpL3crTTjAWxQjEm4brXb2",
             "code": "CIN",
-            "balance": 80,
-            "value": 0.7
+            "balance": 80
         },
         "ColossusCoin": {
             "address": "288oPahfqp7vvscnxqSh3k6ZFia6QZrVfc",
@@ -122,8 +120,7 @@
         "Ripple": {
             "address": "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox",
             "code": "XRP",
-            "balance": 20,
-            "value": 0.28
+            "balance": 520
         },
         "USD-e": {
             "address": "GcoinsMbigRrzFLVbmxEpgVnXCayxpQz7r",
