@@ -205,3 +205,24 @@ In the following example, we will deploy the **develop** branch on Heroku beta:
     * the git subtree command is a trick to push only the content from the
       :file:`app/` directory to heroku, which expects the code to be at the root
       directory.
+
+Now, let's say we got a donation for a non-implemented coin, and we want to
+quickly update it without redeploying.
+First, install the **heroku-mongo-sync** application:
+
+.. code-block:: console
+
+    $ heroku plugins:install http://github.com/marcofognog/heroku-mongo-sync
+    $ sudo gem install mongo
+    $ gem install bson_ext
+
+In this example, we will add 500XRP to the Ripple donation address
+rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox in the beta.
+
+.. code-block:: console
+
+    $ heroku mongo:pull --app coinsmanager-beta
+    $ mongo coinsmanager-beta
+    > db.addresses.update({address: "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox"}, {$set: {"balance": db.addresses.findOne({address: "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox"}).balance + 500}})
+    bye
+    $ heroku mongo:push --app coinsmanager-beta
