@@ -32,6 +32,9 @@
   "dependencies": {
     "coffee-script": "1.7.1"
   },
+  { "devDependencies" : {
+    "cucumber": "latest"
+  },
   "engines": {
     "node": "0.10.26",
     "npm": "1.4.3"

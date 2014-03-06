@@ -2,6 +2,7 @@ install:
 	curl https://install.meteor.com | /bin/sh
 	git submodule update --init --recursive
 	npm i -g karma phantomjs istanbul grunt-cli selenium-webdriver coffee-script meteorite
+	npm install --dev
 	cd test/rtd && npm install --save-optional && npm i karma-mocha karma-chai karma-mocha-reporter --save-dev
 
 test:
