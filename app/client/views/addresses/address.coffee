@@ -27,19 +27,20 @@ Template.addressItem.events
   # Click on element in functional panel
   "click .func_panel i": (e) ->
     $this = $(e.target)
+    $addressCard = $this.parents ".address"
+    $addressTitle =  $addressCard.find ".address_title"
+    $addressValue = $addressCard.find(".coin_address")
 
     # Show/Hide full address
     if $this.hasClass "show_address"
       message = "Read your address below"
-      $addressCard = $this.parents ".address"
-      $addressTitle =  $addressCard.find ".address_title"
       actualAddress = $addressCard.find(".copy").data "clipboard-text"
       $addressTitle.toggleClass "is_full"
       if $addressTitle.hasClass "is_full"
-        $addressCard.find(".coin_address").text actualAddress
+        $addressValue.text actualAddress
         $addressCard.find(".tip").text message
       else
-        $addressCard.find(".coin_address").text $this.data "truncated"
+        $addressValue.text $this.data "truncated"
 
     # Remove address
     if $this.hasClass "remove"
@@ -59,6 +60,11 @@ Template.addressItem.events
     $this = $(e.target)
     if $this.hasClass "copy"
       message = "Copy address to clipboard"
+      clients = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+      if clients.test(navigator.userAgent)
+        $addressTitle.addClass "is_full"
+        $addressValue.focus () ->
+          $(this).select()
     else if $this.hasClass "show_address"
       message = "Show/Hide full address"
     else if $this.hasClass "remove"
