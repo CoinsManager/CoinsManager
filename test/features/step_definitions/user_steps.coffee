@@ -1,7 +1,10 @@
 module.exports = ->
 
+  @World = require("../support/world.coffee").World
+
   @Given /^I have logged in$/, (callback) ->
-    callback.pending()
+    @actions.authenticate().then ->
+      callback()
 
   @Given /^I click on the icon "([^"]*)"$/, (cssclass, callback) ->
     callback.pending()
