@@ -1,0 +1,14 @@
+@import base
+
+.pre_version
+    width: span(8)
+    @extend %indented_text
+    @extend %indented_box
+    padding-bottom: 3rem
+    border-bottom: 0.2rem solid $secondary-color
+    margin: 7rem auto
+    +breakpoint($media-small)
+        width: span(6)
+    +breakpoint($media-micro)
+        width: span(3)
+        margin-top: 0
