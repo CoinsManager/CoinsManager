@@ -55,6 +55,16 @@ $sprites-retina: sprite-map("sprites-retina/*.png")
 %indented_text_shadow
     text-shadow: 0 0.1rem 0.1rem rgba(white, 0.7)
 
+%indented_text
+    color: $secondary_color
+    @extend %indented_text_shadow
+
+%indented_box
+    +box-shadow(rgba(white, 0.7) 0 0.1rem 0)
+
+
+    
+
 // Retina sprites support
 
 =sprite-background($name, $add_block_size: true)

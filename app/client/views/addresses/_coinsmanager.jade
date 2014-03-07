@@ -1,5 +1,13 @@
 template(name="coinsManager")
-
+    div.pre_version
+        | This is the alpha website release. It is only updated for critical
+        | security patches.
+        | To test CoinManager's latest features, please check out the 
+        a(href="http://beta.coinsmanager.com/") beta
+        | .
+        | We'd also appreciate any feedback you have on our 
+        a(href="https://trello.com/b/4ECtz15o/coinsmanager") Trello page
+        | . Thanks!
     div#donation_block(class="{{#if loggedIn}}is_hidden{{/if}}")
         h1.addresses_title CoinsManager donation addresses
             i.fa.fa-times#close_donation
