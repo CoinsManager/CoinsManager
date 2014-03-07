@@ -192,7 +192,7 @@ In the following example, we will deploy the **develop** branch on Heroku beta:
 .. code-block:: console
 
     $ git co develop
-    $ heroku --app coinsmanager-beta config:add METEOR_SETTINGS="`cat app/settings.json`"
+    $ heroku config:add --app coinsmanager-beta METEOR_SETTINGS="`cat app/settings.json`"
     $ cd app/client/compass && compass compile && cd -
     $ for file in `find . -name "*css"`; do git add -f $file; done; git ci -am "heroku style"
     $ git push heroku-beta `git subtree split --prefix app develop`:master --force
