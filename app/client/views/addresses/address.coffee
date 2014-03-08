@@ -37,8 +37,8 @@ Template.addressItem.events
     ###
     if $this.hasClass "copy"
       $mobileCopy = $(".mobile_copy")
-      $textarea = $(".mobile_copy").find("textarea")
-      $mobileCopy.addClass('is_active')
+      $textarea = $(".mobile_copy").find "textarea"
+      $mobileCopy.addClass "is_active"
       $textarea.text(actualAddress).select()
 
     # Show/Hide full address

@@ -9,9 +9,9 @@
 Meteor.startup ->
   $("html").attr "lang", "en"
 
-window.isMobile = () ->
+window.isMobile = ->
   clients = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
   result = false
-  if clients.test (navigator.userAgent)
+  if clients.test navigator.userAgent
     result = true
   result

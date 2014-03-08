@@ -1,9 +1,3 @@
-isMobile = () ->
-  clients = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-  if clients.test (navigator.userAgent)
-    true
-
-
 Template.alphaLayout.helpers
   errors: ->
     Errors.collection.find()
