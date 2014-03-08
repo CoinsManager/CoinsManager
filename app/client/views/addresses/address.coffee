@@ -22,19 +22,28 @@ Template.addressItem.rendered = () ->
   # TODO: Investigate this 10px issue
   truncate $coinValue, valueWidth - 10, "right"
 
-
 Template.addressItem.events
   # Click on element in functional panel
   "click .func_panel i": (e) ->
     $this = $(e.target)
     $addressCard = $this.parents ".address"
     $addressTitle =  $addressCard.find ".address_title"
-    $addressValue = $addressCard.find(".coin_address")
+    $addressValue = $addressCard.find ".coin_address"
+    actualAddress = $addressCard.find(".copy").data "clipboard-text"
+
+    ###
+    On destop version it will be replaced with swf object,
+    so there are no reason to check for mobile
+    ###
+    if $this.hasClass "copy"
+      $mobileCopy = $(".mobile_copy")
+      $textarea = $(".mobile_copy").find("textarea")
+      $mobileCopy.addClass('is_active')
+      $textarea.text(actualAddress).select()
 
     # Show/Hide full address
     if $this.hasClass "show_address"
       message = "Read your address below"
-      actualAddress = $addressCard.find(".copy").data "clipboard-text"
       $addressTitle.toggleClass "is_full"
       if $addressTitle.hasClass "is_full"
         $addressValue.text actualAddress
@@ -60,11 +69,6 @@ Template.addressItem.events
     $this = $(e.target)
     if $this.hasClass "copy"
       message = "Copy address to clipboard"
-      clients = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
-      if clients.test(navigator.userAgent)
-        $addressTitle.addClass "is_full"
-        $addressValue.focus () ->
-          $(this).select()
     else if $this.hasClass "show_address"
       message = "Show/Hide full address"
     else if $this.hasClass "remove"
