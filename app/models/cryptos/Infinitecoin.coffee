@@ -8,6 +8,7 @@ class @Infinitecoin extends @BaseCrypto
   constructor: ->
     super
     @name = "Infinitecoin"
+    @cryptocoinchartsName = "InfiniteCoin"
 
   set_balance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"

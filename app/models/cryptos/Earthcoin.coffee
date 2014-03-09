@@ -10,6 +10,7 @@ class @Earthcoin extends @BaseCrypto
     @api_url = "http://earthchain.info/chain/Earthcoin/q/addressbalance/"
     @lambda_balance = (result) -> +result.content
     @name = "Earthcoin"
+    @cryptocoinchartsName = "EarthCoin"
 
   set_balance: ->
     url = "#{@api_url}#{@address}"

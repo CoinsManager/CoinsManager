@@ -9,6 +9,7 @@ class @Franko extends @BaseCrypto
     @api_url = "http://frk.cryptocoinexplorer.com/chain/Franko/q/"
     @lambda_balance = (received, sent) -> (+received - +sent)
     @name = "Franko"
+    @cryptocoinchartsName = "FrankoCoin"
 
   set_balance: ->
     """

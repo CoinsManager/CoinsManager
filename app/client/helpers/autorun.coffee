@@ -32,6 +32,10 @@ callApis = ->
           resultDict = result.data.toDict "name"
           key = address.name
           if key not of resultDict
+            key = address.cryptocoinchartsName
+
+          # More tests for Non-implemented coins
+          if key not of resultDict
             # CryptoCoinCharts sometimes writes the wrong typo for coins
             key = address.name.replace "coin", "Coin"
           if key not of resultDict
@@ -39,6 +43,7 @@ callApis = ->
             key = address.code
           if key not of resultDict
             return
+
           # Update key value
           BaseCrypto.keys[address.name][address.address].
             value = +resultDict[key].price_btc
