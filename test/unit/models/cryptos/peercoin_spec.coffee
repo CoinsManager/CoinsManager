@@ -17,22 +17,19 @@ describe "Peercoin", ->
       Peercoin.should.have.a.property "verify_address"
       Peercoin.verify_address.should.be.a.Function
 
-    errors =
-      X5: "Address not base58"
-      SZ: "Address not the correct size"
-      CK: "Failed hash check"
-
-    for error, reason of errors
-      do (error, reason) ->
-        it "can return an error '#{reason}'", ->
-          address = @data.address
-          Meteor.call = -> content: error
-
-          (->
-            Peercoin.verify_address address
-          ).should.throw reason
+    it "returns true if the address is correct", ->
+      Meteor.call = ->
+        data:
+          data:
+            is_valid: true
+      Peercoin.verify_address(@data.address).should.be.false
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
-        content: "00"
-      Peercoin.verify_address(@data.address).should.eql false
+        data:
+          data:
+            is_valid: false
+      address = @data.address
+      (->
+        Peercoin.verify_address address
+      ).should.throw "Address incorrect"

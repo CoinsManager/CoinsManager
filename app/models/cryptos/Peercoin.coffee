@@ -16,4 +16,6 @@ class @Peercoin extends @BaseCrypto
 
   @verify_address: (address) ->
     result = Meteor.call "call_url", "#{@api_url}#{address}"
-    result.data.data.is_valid is "true"
+    if not result.data.data.is_valid
+      throw new Meteor.Error 605, "Address incorrect"
+    return false
