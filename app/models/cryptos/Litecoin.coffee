@@ -8,7 +8,7 @@ class @Litecoin extends @BaseCrypto
   constructor: ->
     super
     @api_url = "http://explorer.litecoin.net/chain/Litecoin/q/"
-    @lambda_balance = (received, sent) -> (+received - +sent) / Math.pow(10, 8)
+    @lambda_balance = (received, sent) -> (+received - +sent)
     @name = "Litecoin"
 
   set_balance: ->
