@@ -18,7 +18,8 @@ Template.totalAsset.helpers
 
 Template.totalAsset.events
   "change select": (e, t) ->
-    fiat = t.find("option:selected").value
-    Meteor.call "set_fiat_preference", fiat, (error, id) ->
-      if error
-        Errors.throw error.reason
+    if Meteor.user()
+      fiat = t.find("option:selected").value
+      Meteor.call "set_fiat_preference", fiat, (error, id) ->
+        if error
+          Errors.throw error.reason

@@ -1,8 +1,12 @@
 template(name="totalAsset")
     {{totalValue}}
+    {{#if loggedIn}}
     select.fiat-list
         {{#select userFiat}}
         {{#each fiatList}}
         option(value="{{this}}") {{this}}
         {{/each}}
         {{/select}}
+    {{else}}
+    i.fa.fa-dollar
+    {{/if}}
