@@ -1,4 +1,4 @@
-Template.addressItem.rendered = () ->
+Template.addressItem.rendered = ->
   # Truncate function
   truncate = (elem, fieldWidth, position) ->
     elem.truncate

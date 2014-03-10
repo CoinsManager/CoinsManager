@@ -7,11 +7,6 @@ Template.totalAsset.helpers
         sum += +value
     return sum.toFixed 2
 
-  userFiat: (option) ->
-    user = Meteor.user()
-    if user and "fiat" of user
-      Meteor.user().fiat
-
   fiatList: ->
     #TODO: Implement following, client synchronous http call
     #url = "https://api.bitcoinaverage.com/ticker/"

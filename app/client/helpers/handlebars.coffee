@@ -6,6 +6,7 @@ Helpers registered:
   * select
   * sortAddresses
   * truncateMiddle
+  * userFiat
 """
 
 Handlebars.registerHelper "ifNumber", (context, options) ->
@@ -54,3 +55,9 @@ Handlebars.registerHelper "truncateMiddle", (fullStr, strLen) ->
   else
     result = fullStr
   return result
+
+
+Handlebars.registerHelper "userFiat", ->
+  user = Meteor.user()
+  if user and "fiat" of user
+    user.fiat
