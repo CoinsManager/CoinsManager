@@ -9,7 +9,6 @@ Meteor.methods
     catch error
       content: error.stack
 
-
   verify_address: (address, name) ->
     if name of global
       global[name].verify_address address

@@ -1,5 +1,8 @@
 template(name="totalAsset")
     {{totalValue}}
-    {{#if fiat}}{{fiat}}
-    {{else}}USD
-    {{/if}}
+    select(name="fiat-list")
+        {{#select userFiat}}
+        {{#each fiatList}}
+        option(value="{{this}}") {{this}}
+        {{/each}}
+        {{/select}}

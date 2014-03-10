@@ -1,25 +1,32 @@
-Handlebars.registerHelper 'ifNumber', (context, options) ->
+"""
+Helpers registered:
+
+  * ifNumber
+  * loggedIn
+  * select
+  * sortAddresses
+  * truncateMiddle
+"""
+
+Handlebars.registerHelper "ifNumber", (context, options) ->
   if _.isNumber context
     return options.fn this
   else
     return options.inverse this
 
 
-Handlebars.registerHelper 'truncateMiddle', (fullStr, strLen) ->
-  if fullStr.length > strLen
-    separator = '...'
-    sepLen = separator.length
-    charsToShow = strLen - sepLen
-    frontChars = Math.ceil charsToShow/2
-    backChars = Math.floor charsToShow/2
-    result = fullStr.substr(0, frontChars) + separator +
-      fullStr.substr(fullStr.length - backChars)
-  else
-    result = fullStr
-  return result
+Handlebars.registerHelper "loggedIn", ->
+  Meteor.user()
 
 
-Handlebars.registerHelper 'sortAddresses', (addresses, options) ->
+Handlebars.registerHelper "select", (value, options) ->
+  $el = $("<select />").html options.fn(this)
+  $el.find("[value=#{value}]").attr
+    selected: "selected"
+  $el.html()
+
+
+Handlebars.registerHelper "sortAddresses", (addresses, options) ->
   if addresses and addresses.length
     sortedAddresses = addresses.sort (add1, add2) ->
       a = add1.get_value()
@@ -34,5 +41,16 @@ Handlebars.registerHelper 'sortAddresses', (addresses, options) ->
       b - a
     return sortedAddresses
 
-Handlebars.registerHelper "loggedIn", () ->
-  Meteor.user()
+
+Handlebars.registerHelper "truncateMiddle", (fullStr, strLen) ->
+  if fullStr.length > strLen
+    separator = "..."
+    sepLen = separator.length
+    charsToShow = strLen - sepLen
+    frontChars = Math.ceil charsToShow/2
+    backChars = Math.floor charsToShow/2
+    result = fullStr.substr(0, frontChars) + separator +
+      fullStr.substr(fullStr.length - backChars)
+  else
+    result = fullStr
+  return result
