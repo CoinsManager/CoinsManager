@@ -11,11 +11,11 @@ describe "NobleCoin", ->
   it "has a code NOBL", ->
     NobleCoin.should.have.a.property "code", "NOBL"
 
-  describe "verify_address", ->
+  describe "verifyAddress", ->
 
     it "is a class method", ->
-      NobleCoin.should.have.a.property "verify_address"
-      NobleCoin.verify_address.should.be.a.Function
+      NobleCoin.should.have.a.property "verifyAddress"
+      NobleCoin.verifyAddress.should.be.a.Function
 
     errors =
       X5: "Address not base58"
@@ -29,10 +29,10 @@ describe "NobleCoin", ->
           Meteor.call = -> content: error
 
           (->
-            NobleCoin.verify_address address
+            NobleCoin.verifyAddress address
           ).should.throw reason
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
         content: "00"
-      NobleCoin.verify_address(@data.address).should.eql false
+      NobleCoin.verifyAddress(@data.address).should.eql false

@@ -11,11 +11,11 @@ describe "the Bitcoin model", ->
   it "has a code BTC", ->
     Bitcoin.should.have.a.property "code", "BTC"
 
-  describe "verify_address", ->
+  describe "verifyAddress", ->
 
     it "is a class method", ->
-      Bitcoin.should.have.a.property "verify_address"
-      Bitcoin.verify_address.should.be.a.Function
+      Bitcoin.should.have.a.property "verifyAddress"
+      Bitcoin.verifyAddress.should.be.a.Function
 
     errors =
       X5: "Address not base58"
@@ -29,10 +29,10 @@ describe "the Bitcoin model", ->
           Meteor.call = -> content: error
 
           (->
-            Bitcoin.verify_address address
+            Bitcoin.verifyAddress address
           ).should.throw reason
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
         content: "00"
-      Bitcoin.verify_address(@data.address).should.eql false
+      Bitcoin.verifyAddress(@data.address).should.eql false

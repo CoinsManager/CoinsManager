@@ -11,11 +11,11 @@ describe "Infinitecoin", ->
   it "has a code IFC", ->
     Infinitecoin.should.have.a.property "code", "IFC"
 
-  describe "verify_address", ->
+  describe "verifyAddress", ->
 
     it "is a class method", ->
-      Infinitecoin.should.have.a.property "verify_address"
-      Infinitecoin.verify_address.should.be.a.Function
+      Infinitecoin.should.have.a.property "verifyAddress"
+      Infinitecoin.verifyAddress.should.be.a.Function
 
     errors =
       X5: "Address not base58"
@@ -29,10 +29,10 @@ describe "Infinitecoin", ->
           Meteor.call = -> content: error
 
           (->
-            Infinitecoin.verify_address address
+            Infinitecoin.verifyAddress address
           ).should.throw reason
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
         content: "00"
-      Infinitecoin.verify_address(@data.address).should.eql false
+      Infinitecoin.verifyAddress(@data.address).should.eql false
