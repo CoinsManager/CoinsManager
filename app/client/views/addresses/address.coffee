@@ -59,7 +59,7 @@ Template.addressItem.events
         data =
             address: "#{actualAddress}"
 
-        Meteor.call "remove_address", data, (error, id) ->
+        Meteor.call "removeAddress", data, (error, id) ->
           if error
             # Display the error
             Errors.throw error.reason

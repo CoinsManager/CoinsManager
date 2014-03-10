@@ -15,6 +15,6 @@ class @Dogecoin extends @BaseCrypto
     lambda_balance = (result) -> +result.content
     super url, lambda_balance
 
-  @verify_address: (address) ->
+  @verifyAddress: (address) ->
     url_base = "#{@api_url}checkaddress/"
     super address, url_base

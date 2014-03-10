@@ -14,8 +14,8 @@ class @Peercoin extends @BaseCrypto
     lambda_balance = (result) -> +result.data.data.balance
     super url, lambda_balance
 
-  @verify_address: (address) ->
-    result = Meteor.call "call_url", "#{@api_url}#{address}"
+  @verifyAddress: (address) ->
+    result = Meteor.call "callUrl", "#{@api_url}#{address}"
     if not result.data.data.is_valid
       throw new Meteor.Error 605, "Address incorrect"
     return false

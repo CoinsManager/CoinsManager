@@ -19,13 +19,13 @@ class @Franko extends @BaseCrypto
     cls = this
 
     # Get received coins data
-    received = Meteor.call "call_url",
+    received = Meteor.call "callUrl",
       "#{@api_url}getreceivedbyaddress/#{@address}"
       (error, result) ->
         BaseCrypto.keys[cls.name][cls.address].received = result.content
 
     # Get sent coins data and return result
-    Meteor.call "call_url",
+    Meteor.call "callUrl",
       "#{@api_url}getsentbyaddress/#{@address}"
       (error, result) ->
         sent = result.content
@@ -36,6 +36,6 @@ class @Franko extends @BaseCrypto
         BaseCrypto.keys[cls.name][cls.address].balance = value
         BaseCrypto.deps[cls.name][cls.address].balance.changed()
 
-  @verify_address: (address) ->
+  @verifyAddress: (address) ->
     url_base = "#{@api_url}checkaddress/"
     super address, url_base

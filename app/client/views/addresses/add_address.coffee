@@ -1,7 +1,7 @@
 Template.addAddress.created = ->
   Session.set "showCompleteForm", false
   Session.set "showCoinHelp", false
-  Meteor.call "implemented_coins", (error, result) ->
+  Meteor.call "implementedCoins", (error, result) ->
     Session.set "cryptos", result
 
 
@@ -22,7 +22,7 @@ Template.addAddress.events
       name = $(e.target).find("[name=name]").val()
     address = $(e.target).find("[name=address]").val()
 
-    Meteor.call "verify_address", address, name, (error, result) ->
+    Meteor.call "verifyAddress", address, name, (error, result) ->
       if error
         Errors.throw error.reason
       else
@@ -35,7 +35,7 @@ Template.addAddress.events
           data.value = $(e.target).find("[name=value]").val()
         else Errors.throw result
 
-        Meteor.call "add_address", data, (error, id) ->
+        Meteor.call "addAddress", data, (error, id) ->
           if error
             # Display the error
             Errors.throw error.reason

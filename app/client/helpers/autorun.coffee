@@ -12,7 +12,7 @@ callApis = ->
   if user and "fiat" of user
     fiat = user.fiat
   url = "https://api.bitcoinaverage.com/ticker/#{fiat}/"
-  Meteor.call "call_url", url, (err, result) ->
+  Meteor.call "callUrl", url, (err, result) ->
     if err
       throw new Meteor.Error err.error, err.reason
     else
@@ -21,7 +21,7 @@ callApis = ->
 
   # Get the alt coins to BTC prices
   url = "http://www.cryptocoincharts.info/v2/api/listCoins"
-  Meteor.call "call_url", url, (err, result) ->
+  Meteor.call "callUrl", url, (err, result) ->
     if err
       throw new Meteor.Error err.error, err.reason
     else
