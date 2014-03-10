@@ -1,2 +1,5 @@
 template(name="totalAsset")
-    | {{totalValue}} USD
+    {{totalValue}}
+    {{#if fiat}}{{fiat}}
+    {{else}}USD
+    {{/if}}

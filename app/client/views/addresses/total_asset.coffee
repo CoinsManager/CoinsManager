@@ -6,3 +6,6 @@ Template.totalAsset.helpers
       if value?
         sum += +value
     return sum.toFixed 2
+  fiat: ->
+    if "fiat" of Meteor.user()
+      Meteor.user().fiat

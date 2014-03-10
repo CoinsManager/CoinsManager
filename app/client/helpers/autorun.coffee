@@ -7,7 +7,10 @@ Meteor.startup ->
 
 callApis = ->
   # Get The Bitcoin to USD price
-  url = "https://api.bitcoinaverage.com/ticker/USD/"
+  fiat = "USD"
+  if "fiat" of Meteor.user()
+    fiat = Meteor.user().fiat
+  url = "https://api.bitcoinaverage.com/ticker/#{fiat}/"
   Meteor.call "call_url", url, (err, result) ->
     if err
       throw new Meteor.Error err.error, err.reason
