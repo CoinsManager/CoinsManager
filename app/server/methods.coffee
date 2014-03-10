@@ -1,18 +1,17 @@
+"""
+Methods:
+
+  * add_address
+  * call_url
+  * implemented_coins
+  * remove_address
+  * set_fiat_preference
+  * verify_address
+"""
 global = @  # Shortcut to access Cryptocoins global vars, cf l.11
 
 
 Meteor.methods
-  call_url: (url) ->
-    @unblock()
-    try
-      Meteor.http.get url
-    catch error
-      content: error.stack
-
-  verify_address: (address, name) ->
-    if name of global
-      global[name].verify_address address
-
   add_address: (attributes) ->
     user = Meteor.user()
     options =
@@ -42,6 +41,21 @@ Meteor.methods
     addressId = Addresses.insert options
     return addressId
 
+  call_url: (url) ->
+    @unblock()
+    try
+      Meteor.http.get url
+    catch error
+      content: error.stack
+
+  implemented_coins: ->
+    """
+    Returns a list of coins that have been implemented
+    """
+    files = fs.readdirSync "./app/models/cryptos/"
+    file.replace(".coffee.js", "") for file in files.filter (file) ->
+      file.search("(base_crypto*)|(js.map)") is -1
+
   remove_address: (attributes) ->
     user = Meteor.user()
     options =
@@ -56,10 +70,14 @@ Meteor.methods
     else
       throw new Meteor.Error 302, "This address doesn't exist"
 
-  implemented_coins: ->
-    """
-    Returns a list of coins that have been implemented
-    """
-    files = fs.readdirSync "./app/models/cryptos/"
-    file.replace(".coffee.js", "") for file in files.filter (file) ->
-      file.search("(base_crypto*)|(js.map)") is -1
+  set_fiat_preference: (fiat) ->
+    user = Meteor.user()
+    Meteor.users.update(
+      {_id: user._id}
+      $set:
+        fiat: fiat
+    )
+
+  verify_address: (address, name) ->
+    if name of global
+      global[name].verify_address address

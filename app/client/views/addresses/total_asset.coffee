@@ -8,7 +8,8 @@ Template.totalAsset.helpers
     return sum.toFixed 2
 
   userFiat: (option) ->
-    if "fiat" of Meteor.user()
+    user = Meteor.user()
+    if user and "fiat" of user
       Meteor.user().fiat
 
   fiatList: ->
@@ -18,3 +19,11 @@ Template.totalAsset.helpers
     #fiat for fiat of fiatList when fiat isnt "all"
     ["AUD", "BRL", "CAD", "CHF", "CNY", "EUR", "GBP", "ILS", "JPY", "NOK",
      "NZD", "PLN", "RUB", "SEK", "SGD", "TRY", "USD", "ZAR"]
+
+
+Template.totalAsset.events
+  "change select": (e, t) ->
+    fiat = t.find("option:selected").value
+    Meteor.call "set_fiat_preference", fiat, (error, id) ->
+      if error
+        Errors.throw error.reason
