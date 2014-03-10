@@ -63,6 +63,12 @@
             "address": "FCoinsMTgnyDbXpXrYHAbL2DMmQLpJMxr3",
             "code": "FRK"
         },
+        "Icecoin": {
+            "address": "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox",
+            "code": "ICE",
+            "balance": 10,
+            "value": 0.01
+        },
         "Infinitecoin": {
             "address": "iEMHeoZtNdaDrz2TxghtCtbdXHkc8mZ6Kg"
         },
