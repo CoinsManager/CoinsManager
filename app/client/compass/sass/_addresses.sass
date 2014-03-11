@@ -50,6 +50,57 @@ $func_panel_height: 4rem
         display: none
     .remove
         display: none
+    // Rules related to top addresses section
+    position: relative
+    .address
+        &:nth-child(1), &:nth-child(2), &:nth-child(3)
+            .tip
+                display: none
+            position: absolute
+            &.is_centered
+                .tip
+                    display: block
+            &:after
+                position: absolute
+                display: block
+                content: ""
+        // Winner
+        &:nth-child(1)
+            top: 50rem
+            @extend %absolute_x_center
+            &:after
+                top: 15rem
+                right: 2rem
+                +sprite-background("main_island")
+        // Second & Third
+        $top: 56rem
+        &:nth-child(2), &:nth-child(3)
+            &:after
+                top: 11rem
+                left: 2.2rem
+                +sprite-background("mountain_island")
+        &:nth-child(2)
+            +transform(scale(0.8))
+            top: $top
+            left: 10rem
+        &:nth-child(3)
+            +transform(scale(0.6))
+            top: $top
+            right: 10rem
+            margin-right: 0
+
+// Top addresses section
+.received
+    height: 42rem
+    width: 96rem
+    margin: 10rem auto
+    +clip-path($custom_clip_1)
+    background: image-url("star_back.jpg") no-repeat
+    background-size: cover
+    +box-shadow(inset 0 0 7rem 2rem rgba(black, 0.8), rgba(white, 0.7) 0 0.1rem 0)
+    position: relative
+    z-index: -2
+    
 
 #close_donation
     margin-left: 3rem
