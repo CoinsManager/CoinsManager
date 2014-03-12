@@ -9,7 +9,7 @@ class @Feathercoin extends @BaseCrypto
     super
     @name = "Feathercoin"
 
-  set_balance: ->
+  setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
     lambda_balance = (result) -> +result.content
     super url, lambda_balance

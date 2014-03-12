@@ -12,6 +12,6 @@ class @Earthcoin extends @BaseCrypto
     @name = "Earthcoin"
     @cryptocoinchartsName = "EarthCoin"
 
-  set_balance: ->
+  setBalance: ->
     url = "#{@api_url}#{@address}"
     super url, @lambda_balance

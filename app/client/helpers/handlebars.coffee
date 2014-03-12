@@ -59,11 +59,11 @@ Handlebars.registerHelper "select", (value, options) ->
 Handlebars.registerHelper "sortAddresses", (addresses, options) ->
   if addresses and addresses.length
     sortedAddresses = addresses.sort (add1, add2) ->
-      a = add1.get_value()
-      b = add2.get_value()
+      a = add1.getValue()
+      b = add2.getValue()
       if not a? and not b?
-        a = add1.get_balance()
-        b = add2.get_balance()
+        a = add1.getBalance()
+        b = add2.getBalance()
       if not a?
         a = -1
       if not b?
@@ -97,7 +97,7 @@ Handlebars.registerHelper "userFiat", ->
 Handlebars.registerHelper  "totalValue", ->
   sum = 0
   for address in @
-    value = address.get_value()
+    value = address.getValue()
     if value?
       sum += +value
   return sum.toFixed 2

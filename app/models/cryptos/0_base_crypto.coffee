@@ -5,10 +5,10 @@ class @BaseCrypto
   This class needs to be inherited by specific coins classes, and following
   methods should be overrided:
 
-    * get_value
-    * set_balance
+    * getValue
+    * setBalance
     * verifyAddress
-    * get_exchange_rate (TODO: not implemented yet)
+    * getExchangeRate (TODO: not implemented yet)
   """
   @keys = {}
   @deps =
@@ -30,10 +30,10 @@ class @BaseCrypto
       BaseCrypto.keys[@name][address] = {}
     if not BaseCrypto.deps[@name][address][key]
       BaseCrypto.deps[@name][address][key] = new Deps.Dependency()
-      if key is "balance" then @set_balance()
+      if key is "balance" then @setBalance()
 
-  get_balance: ->
-    """Retrieve value set from @set_balance()"""
+  getBalance: ->
+    """Retrieve value set from @setBalance()"""
     @ensureDeps @address, "balance"
     BaseCrypto.deps[@name][@address].balance.depend()
     return BaseCrypto.keys[@name][@address].balance
@@ -41,15 +41,15 @@ class @BaseCrypto
   get_name: ->
     if @name then @name else @constructor.name
 
-  get_value: ->
+  getValue: ->
     """
     Override this method from a specific coin class, to calculate the value of
     an address using the balance and exchange rate.
     Should look like this:
 
-      get_value: ->
-        balance = @get_balance()
-        rate = @get_exchange_rate()
+      getValue: ->
+        balance = @getBalance()
+        rate = @getExchangeRate()
         return balance * rate
 
     """
@@ -62,19 +62,19 @@ class @BaseCrypto
     if BaseCrypto.keys[@name][@address].value
       value = BaseCrypto.keys[@name][@address].value
       btc2usd = BaseCrypto.keys.btc2usd
-      result = value * @get_balance() * btc2usd
+      result = value * @getBalance() * btc2usd
     else if BaseCrypto.keys[@name][@address].total_value?
       # For non-implemented coins
       result = BaseCrypto.keys[@name][@address].total_value
     if result?
       return result.toFixed 2
 
-  set_balance: (url, lambda_balance) ->
+  setBalance: (url, lambda_balance) ->
     """
     create a method with the same name but without arguments in the coin class.
     Method should look like this:
 
-      set_balance: ->
+      setBalance: ->
         url = @api_url + @address
         super url, @lambda_balance
 
@@ -106,6 +106,7 @@ class @BaseCrypto
     """
     if url_base
       result = Meteor.call "callUrl", "#{url_base}#{address}"
+      console.dir result.content
       switch result.content
         when "X5" then throw new Meteor.Error 601, "Address not base58"
         when "CK" then throw new Meteor.Error 603, "Failed hash check"

@@ -9,7 +9,7 @@ class @Peercoin extends @BaseCrypto
     super
     @name = "Peercoin"
 
-  set_balance: ->
+  setBalance: ->
     url = "#{@constructor.api_url}#{@address}"
     lambda_balance = (result) -> +result.data.data.balance
     super url, lambda_balance

@@ -9,7 +9,7 @@ class @Mooncoin extends @BaseCrypto
     super
     @name = "Mooncoin"
 
-  set_balance: ->
+  setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
     lambda_balance = (result) -> +result.content
     super url, lambda_balance

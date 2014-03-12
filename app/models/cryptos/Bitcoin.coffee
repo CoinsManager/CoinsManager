@@ -10,7 +10,7 @@ class @Bitcoin extends @BaseCrypto
     super
     @name = "Bitcoin"
 
-  set_balance: ->
+  setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
     lambda_balance = (result) -> +result.content
     super url, lambda_balance

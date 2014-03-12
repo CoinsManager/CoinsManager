@@ -11,7 +11,7 @@ class @Franko extends @BaseCrypto
     @name = "Franko"
     @cryptocoinchartsName = "FrankoCoin"
 
-  set_balance: ->
+  setBalance: ->
     """
     We need to get the "received coins" value, then substract to it the
     "sent coins" value
