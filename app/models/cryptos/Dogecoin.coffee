@@ -2,7 +2,7 @@ class @Dogecoin extends @BaseCrypto
   """
   This class define all the informations needed for Dogecoin
   """
-  @address_format = "CK"
+  @address_format = "1E"
   @api_url = "http://dogechain.info/chain/Dogecoin/q/"
   @code = "DOGE"
 

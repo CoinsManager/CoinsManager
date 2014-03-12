@@ -2,7 +2,7 @@ class @Earthcoin extends @BaseCrypto
   """
   This class define all the informations needed for Earthcoin.
   """
-  @address_format = "37"
+  @address_format = "5D"
   @api_url = "http://earthchain.info/chain/Earthcoin/q/"
   @code = "EAC"
 
