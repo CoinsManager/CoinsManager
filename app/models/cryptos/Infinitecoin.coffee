@@ -2,8 +2,9 @@ class @Infinitecoin extends @BaseCrypto
   """
   This class define all the informations needed for Infinitecoin
   """
-  @code = "IFC"
+  @address_format = "66"
   @api_url = "http://exploretheblocks.com:2750/chain/Infinitecoin/q/"
+  @code = "IFC"
 
   constructor: ->
     super
@@ -17,4 +18,4 @@ class @Infinitecoin extends @BaseCrypto
 
   @verifyAddress: (address) ->
     url_base = "#{@api_url}checkaddress/"
-    super address, url_base
+    super address, url_base, @address_format

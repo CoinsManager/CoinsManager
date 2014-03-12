@@ -2,6 +2,7 @@ class @NobleCoin extends @BaseCrypto
   """
   This class define all the informations needed for NobleCoin
   """
+  @address_format = "15"
   @api_url = "http://cryptexplorer.com/chain/NobleCoin/q/"
   @code = "NOBL"
 
@@ -16,4 +17,4 @@ class @NobleCoin extends @BaseCrypto
 
   @verifyAddress: (address) ->
     url_base = "#{@api_url}checkaddress/"
-    super address, url_base
+    super address, url_base, @address_format

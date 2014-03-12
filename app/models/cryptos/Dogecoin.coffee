@@ -2,8 +2,9 @@ class @Dogecoin extends @BaseCrypto
   """
   This class define all the informations needed for Dogecoin
   """
-  @code = "DOGE"
+  @address_format = "CK"
   @api_url = "http://dogechain.info/chain/Dogecoin/q/"
+  @code = "DOGE"
 
   constructor: ->
     super
@@ -17,4 +18,4 @@ class @Dogecoin extends @BaseCrypto
 
   @verifyAddress: (address) ->
     url_base = "#{@api_url}checkaddress/"
-    super address, url_base
+    super address, url_base, @address_format

@@ -2,8 +2,9 @@ class @Peercoin extends @BaseCrypto
   """
   This class define all the informations needed for Peercoin
   """
-  @code = "PPC"
+  @address_format = "37"
   @api_url = "http://ppc.blockr.io/api/v1/address/info/"
+  @code = "PPC"
 
   constructor: ->
     super
