@@ -90,6 +90,8 @@ Handlebars.registerHelper "userFiat", ->
   user = Meteor.user()
   if user and "fiat" of user
     user.fiat
+  else
+    "USD"
 
 
 Handlebars.registerHelper  "totalValue", ->
