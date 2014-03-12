@@ -56,11 +56,9 @@ Meteor.methods
     file.replace(".coffee.js", "") for file in files.filter (file) ->
       file.search("(base_crypto*)|(js.map)") is -1
 
-  removeAddress: (attributes) ->
+  removeAddress: (options) ->
     user = Meteor.user()
-    options =
-      address: attributes.address
-      userId: user._id
+    options.userId = user._id
 
     if not user
       throw new Meteor.Error 401, "You need to login to remove the address"

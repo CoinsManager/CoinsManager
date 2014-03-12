@@ -1,6 +1,7 @@
 template(name="addressItem")
     div.address
         span.tip Clickable action icons below
+        span.coin_name {{name}}
         div.func_panel
             span.left
                 i.fa.fa-copy.copy(data-clipboard-text="{{address}}")
