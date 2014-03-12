@@ -4,9 +4,21 @@ setNewFiat = (fiat)->
       if error
         Errors.throw error.reason
 
+
 Template.totalAssetSelect.events
   "change select": (e, t) ->
     setNewFiat t.find("option:selected").value
+
+
+Template.totalAssetUl.helpers
+  selectedClass: (code) ->
+    user = Meteor.user()
+    if user and "fiat" of user and code is user.fiat
+      return "selected"
+    else
+      return "unselected"
+
+
 
 Template.totalAssetUl.events
   "click .fiat-value": (e) ->

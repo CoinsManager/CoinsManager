@@ -5,13 +5,11 @@ template(name="totalAssetUl")
         | USD
         i.fa.fa-edit
     ul.fiat-list
-        {{#setActiveFiatList userFiat}}
         {{#each fiatList}}
-        li(data-value="{{this.code}}")
+        li(class="{{selectedClass this.code}}", data-value="{{this.code}}")
             span.left{{this.name}}
             span.right{{this.code}}
         {{/each}}
-        {{/setActiveFiatList}}
     {{else}}
     i.fa.fa-dollar
     {{/if}}
