@@ -91,7 +91,7 @@ class @BaseCrypto
         BaseCrypto.keys[cls.name][cls.address].balance = value
         BaseCrypto.deps[cls.name][cls.address].balance.changed()
 
-  @verifyAddress: (address, url_base) ->
+  @verifyAddress: (address, url_base, address_format) ->
     """
     Override this method from a specific coin class, to verify if the input
     correspond to a correct address (good algorith, correct size, hash check
@@ -106,11 +106,11 @@ class @BaseCrypto
     """
     if url_base
       result = Meteor.call "callUrl", "#{url_base}#{address}"
-      console.dir result.content
       switch result.content
         when "X5" then throw new Meteor.Error 601, "Address not base58"
         when "CK" then throw new Meteor.Error 603, "Failed hash check"
         when "SZ"
         then throw new Meteor.Error 602, "Address not the correct size"
-        else return false
+        when address_format then return false
+        else throw new Meteor.Error 604, "Address is not valid"
     return "Verification for #{@name} has not been implemented yet"
