@@ -34,5 +34,5 @@ describe "Dogecoin", ->
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
-        content: "00"
+        content: "1E"
       Dogecoin.verifyAddress(@data.address).should.eql false

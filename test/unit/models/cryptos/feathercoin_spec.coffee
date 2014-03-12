@@ -34,5 +34,5 @@ describe "Feathercoin", ->
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
-        content: "00"
+        content: "0E"
       Feathercoin.verifyAddress(@data.address).should.eql false
