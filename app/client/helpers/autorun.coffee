@@ -2,7 +2,7 @@ Meteor.startup ->
   @counter = 0
   # 3rd part apis are not Meteor projects, therefore we cannot get the prices
   # updates reactively, a setInterval is required.
-  # @timer = Meteor.setInterval callApis, counter
+  @timer = Meteor.setInterval callApis, counter
 
 
 callApis = ->

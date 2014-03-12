@@ -2,7 +2,7 @@ template(name="totalAssetUl")
     {{totalValue}}
     {{#if loggedIn}}
     span.fiat-value
-        | USD
+        | {{userFiat}}
         i.fa.fa-edit
     ul.fiat-list
         {{#each fiatList}}

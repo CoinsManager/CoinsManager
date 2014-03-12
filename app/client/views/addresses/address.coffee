@@ -22,6 +22,7 @@ Template.addressItem.rendered = ->
   # TODO: Investigate this 10px issue
   truncate $coinValue, valueWidth - 10, "right"
 
+
 Template.addressItem.events
   # Click on element in functional panel
   "click .func_panel i": (e) ->
