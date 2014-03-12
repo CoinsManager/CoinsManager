@@ -6,7 +6,6 @@ template(name="pageHeader")
         div.top_wealth
             {{#if loggedIn}}
             {{# with userAddresses}}
-            | Total: {{> totalAsset}}
+            | Total: {{> totalAssetUl}}
             {{/with}}
             {{/if}}
-

@@ -1,10 +1,28 @@
-template(name="totalAsset")
+template(name="totalAssetUl")
     {{totalValue}}
     {{#if loggedIn}}
-    select.fiat-list
+    span.fiat-value
+        | USD
+        i.fa.fa-edit
+    ul.fiat-list
+        {{#setActiveFiatList userFiat}}
+        {{#each fiatList}}
+        li(data-value="{{this.code}}")
+            span.left{{this.name}}
+            span.right{{this.code}}
+        {{/each}}
+        {{/setActiveFiatList}}
+    {{else}}
+    i.fa.fa-dollar
+    {{/if}}
+
+template(name="totalAssetSelect")
+    {{totalValue}}
+    {{#if loggedIn}}
+    select.sb-fiat-list
         {{#select userFiat}}
         {{#each fiatList}}
-        option(value="{{this.code}}") {{this.name}}
+        option(value="{{this.code}}") {{this.code}}
         {{/each}}
         {{/select}}
     {{else}}
