@@ -1,4 +1,5 @@
-setNewFiat = (fiat)->
+_setNewFiat = (fiat)->
+  """Refactored method to call in templates event"""
   if Meteor.user()
     Meteor.call "setFiatPreference", fiat, (error, id) ->
       if error
@@ -7,7 +8,7 @@ setNewFiat = (fiat)->
 
 Template.totalAssetSelect.events
   "change select": (e, t) ->
-    setNewFiat t.find("option:selected").value
+    _setNewFiat t.find("option:selected").value
 
 
 Template.totalAssetUl.helpers
@@ -19,7 +20,6 @@ Template.totalAssetUl.helpers
       return "unselected"
 
 
-
 Template.totalAssetUl.events
   "click .fiat-value": (e) ->
     $(".fiat-list").toggleClass "is_active"
@@ -29,5 +29,5 @@ Template.totalAssetUl.events
       $selectedValue = $selectedValue.parent()
     $selectedValue.siblings().removeClass "is_active"
     $selectedValue.addClass "is_active"
-    setNewFiat $selectedValue.data("value")
+    _setNewFiat $selectedValue.data("value")
     $(".fiat-list").toggleClass "is_active"
