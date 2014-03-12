@@ -1,6 +1,7 @@
 template(name="addressItem")
     div.address
         span.tip Clickable action icons below
+        span.coin_name {{name}}
         div.func_panel
             span.left
                 i.fa.fa-copy.copy(data-clipboard-text="{{address}}")
@@ -11,20 +12,20 @@ template(name="addressItem")
             h3.address_title
                 span.coin_address
                     {{truncateMiddle address 16}}
-        {{#ifNumber get_balance}}
+        {{#ifNumber getBalance}}
         div.coin_balance
             {{#if code}}
             span.coin_code {{code}}
             {{/if}}
-            span.coin_value {{get_balance}}
+            span.coin_value {{getBalance}}
         {{else}}
         div.coin_balance.unavailable
             | Coin balance: Unavailable
         {{/ifNumber}}
-        {{#if get_value}}
+        {{#if getValue}}
         div.fiat_balance
             span.fiat_name {{userFiat}}
-            span.fiat_value {{get_value}}
+            span.fiat_value {{getValue}}
         {{else}}
         div.fiat_balance.unavailable
             | Fiat balance: Unavailable

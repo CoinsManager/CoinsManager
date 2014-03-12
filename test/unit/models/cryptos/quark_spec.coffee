@@ -34,5 +34,5 @@ describe "Quark", ->
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
-        content: "00"
+        content: "3A"
       Quark.verifyAddress(@data.address).should.eql false

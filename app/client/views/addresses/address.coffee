@@ -57,8 +57,10 @@ Template.addressItem.events
       if confirm "Delete this address?"
         actualAddress = $this.parents(".address").find(".copy").
           data "clipboard-text"
+        name = $this.parents(".address").find(".coin_name").text()
         data =
-            address: "#{actualAddress}"
+            address: actualAddress
+            name: name
 
         Meteor.call "removeAddress", data, (error, id) ->
           if error

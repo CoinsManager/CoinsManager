@@ -34,5 +34,5 @@ describe "Franko", ->
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
-        content: "00"
+        content: "23"
       Franko.verifyAddress(@data.address).should.eql false

@@ -17,6 +17,7 @@ Meteor.methods
     options =
       address: attributes.address
       name: attributes.name
+      userId: user._id
 
     sameAddress = Addresses.findOne options
 
@@ -32,8 +33,7 @@ Meteor.methods
       throw new Meteor.Error 302, "This address already exists"
 
     options.userId = user._id
-    if "name" of attributes
-      options.name = attributes.name
+    if "code" of attributes
       options.code = attributes.code
       options.balance = +attributes.nb_coin
       options.value = +attributes.value
@@ -56,11 +56,9 @@ Meteor.methods
     file.replace(".coffee.js", "") for file in files.filter (file) ->
       file.search("(base_crypto*)|(js.map)") is -1
 
-  removeAddress: (attributes) ->
+  removeAddress: (options) ->
     user = Meteor.user()
-    options =
-      address: attributes.address
-      userId: user._id
+    options.userId = user._id
 
     if not user
       throw new Meteor.Error 401, "You need to login to remove the address"

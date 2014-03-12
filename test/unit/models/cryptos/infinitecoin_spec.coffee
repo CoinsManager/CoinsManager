@@ -34,5 +34,5 @@ describe "Infinitecoin", ->
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
-        content: "00"
+        content: "66"
       Infinitecoin.verifyAddress(@data.address).should.eql false

@@ -11,12 +11,12 @@ class @BaseExchange
     if not @deps[key]
       @deps[key] = new Deps.Dependency()
 
-  @get_value = (key) ->
+  @getValue = (key) ->
     @ensureDeps key
     @deps[key].depend()
     return @keys[key]
 
-  @set_value = (url, key, lambda_value) ->
+  @setValue = (url, key, lambda_value) ->
     cls = this
     Meteor.call "callUrl", url, (error, result) ->
       if error

@@ -34,5 +34,5 @@ describe "NobleCoin", ->
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
-        content: "00"
+        content: "15"
       NobleCoin.verifyAddress(@data.address).should.eql false

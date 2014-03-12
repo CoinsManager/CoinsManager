@@ -17,7 +17,7 @@ Meteor.startup ->
       obj = new BaseCrypto doc.address
       obj.name = doc.name
       obj.code = doc.code
-      obj.set_balance = -> doc.balance
+      obj.setBalance = -> doc.balance
       BaseCrypto.keys[obj.name] = {}
       BaseCrypto.keys[obj.name][obj.address] =
         balance: doc.balance

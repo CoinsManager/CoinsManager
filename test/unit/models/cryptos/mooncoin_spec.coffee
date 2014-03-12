@@ -34,5 +34,5 @@ describe "Mooncoin", ->
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
-        content: "00"
+        content: "03"
       Mooncoin.verifyAddress(@data.address).should.eql false
