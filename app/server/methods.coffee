@@ -17,6 +17,7 @@ Meteor.methods
     options =
       address: attributes.address
       name: attributes.name
+      userId: user._id
 
     sameAddress = Addresses.findOne options
 
@@ -32,8 +33,7 @@ Meteor.methods
       throw new Meteor.Error 302, "This address already exists"
 
     options.userId = user._id
-    if "name" of attributes
-      options.name = attributes.name
+    if "code" of attributes
       options.code = attributes.code
       options.balance = +attributes.nb_coin
       options.value = +attributes.value
