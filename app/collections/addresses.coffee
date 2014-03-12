@@ -4,7 +4,7 @@ global = @
 
 
 Meteor.startup ->
-  Meteor.call "implemented_coins", (err, result) ->
+  Meteor.call "implementedCoins", (err, result) ->
     global.implementedCoins = result
 
 

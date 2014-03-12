@@ -34,6 +34,35 @@ $header_height: 5rem
         margin-top: 1rem
         text-align: center
 
+.fiat-value
+    cursor: pointer
+    i
+        margin-left: 1rem
+    &:hover i
+        @extend %normal_text
+
+.fiat-list
+    visibility: hidden
+    +border-radius($border-radius)
+    +text-shadow(none)
+    background: $secondary-color
+    list-style: none
+    padding: 1rem
+    z-index: 5
+    +speech_bubble(top, 18.5rem, $secondary-color, 0, $secondary-color)
+    &.is_active
+        @extend .bigEntrance
+    & > li
+        height: 2rem
+        line-height: 2rem
+        font-size: 1.3rem
+        font-weight: normal
+        padding: 0 1rem
+        cursor: pointer
+        color: white
+        &:hover, &.is_active
+            color: $accent-color
+
 // Login Part
 
 #login-buttons

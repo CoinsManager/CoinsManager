@@ -19,13 +19,13 @@ class @Litecoin extends @BaseCrypto
     cls = this
 
     # Get received coins data
-    received = Meteor.call "call_url",
+    received = Meteor.call "callUrl",
       "#{@api_url}getreceivedbyaddress/#{@address}"
       (error, result) ->
         BaseCrypto.keys[cls.name][cls.address].received = result.content
 
     # Get sent coins data and return result
-    Meteor.call "call_url",
+    Meteor.call "callUrl",
       "#{@api_url}getsentbyaddress/#{@address}"
       (error, result) ->
         sent = result.content

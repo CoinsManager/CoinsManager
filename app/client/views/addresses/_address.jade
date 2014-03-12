@@ -23,7 +23,7 @@ template(name="addressItem")
         {{/ifNumber}}
         {{#if get_value}}
         div.fiat_balance
-            span.fiat_name USD
+            span.fiat_name {{userFiat}}
             span.fiat_value {{get_value}}
         {{else}}
         div.fiat_balance.unavailable

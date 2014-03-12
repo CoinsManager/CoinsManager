@@ -11,11 +11,11 @@ describe "Feathercoin", ->
   it "has a code FTC", ->
     Feathercoin.should.have.a.property "code", "FTC"
 
-  describe "verify_address", ->
+  describe "verifyAddress", ->
 
     it "is a class method", ->
-      Feathercoin.should.have.a.property "verify_address"
-      Feathercoin.verify_address.should.be.a.Function
+      Feathercoin.should.have.a.property "verifyAddress"
+      Feathercoin.verifyAddress.should.be.a.Function
 
     errors =
       X5: "Address not base58"
@@ -29,10 +29,10 @@ describe "Feathercoin", ->
           Meteor.call = -> content: error
 
           (->
-            Feathercoin.verify_address address
+            Feathercoin.verifyAddress address
           ).should.throw reason
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
         content: "00"
-      Feathercoin.verify_address(@data.address).should.eql false
+      Feathercoin.verifyAddress(@data.address).should.eql false

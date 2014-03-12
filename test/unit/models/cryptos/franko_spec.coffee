@@ -11,11 +11,11 @@ describe "Franko", ->
   it "has a code FRK", ->
     Franko.should.have.a.property "code", "FRK"
 
-  describe "verify_address", ->
+  describe "verifyAddress", ->
 
     it "is a class method", ->
-      Franko.should.have.a.property "verify_address"
-      Franko.verify_address.should.be.a.Function
+      Franko.should.have.a.property "verifyAddress"
+      Franko.verifyAddress.should.be.a.Function
 
     errors =
       X5: "Address not base58"
@@ -29,10 +29,10 @@ describe "Franko", ->
           Meteor.call = -> content: error
 
           (->
-            Franko.verify_address address
+            Franko.verifyAddress address
           ).should.throw reason
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
         content: "00"
-      Franko.verify_address(@data.address).should.eql false
+      Franko.verifyAddress(@data.address).should.eql false

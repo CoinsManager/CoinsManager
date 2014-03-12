@@ -18,7 +18,7 @@ class @BaseExchange
 
   @set_value = (url, key, lambda_value) ->
     cls = this
-    Meteor.call "call_url", url, (error, result) ->
+    Meteor.call "callUrl", url, (error, result) ->
       if error
         throw error
       new_value = lambda_value(result)

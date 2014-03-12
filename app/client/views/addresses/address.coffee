@@ -1,4 +1,4 @@
-Template.addressItem.rendered = () ->
+Template.addressItem.rendered = ->
   # Truncate function
   truncate = (elem, fieldWidth, position) ->
     elem.truncate
@@ -21,6 +21,7 @@ Template.addressItem.rendered = () ->
   valueWidth = coinBalanceWidth - nameWidth
   # TODO: Investigate this 10px issue
   truncate $coinValue, valueWidth - 10, "right"
+
 
 Template.addressItem.events
   # Click on element in functional panel
@@ -59,7 +60,7 @@ Template.addressItem.events
         data =
             address: "#{actualAddress}"
 
-        Meteor.call "remove_address", data, (error, id) ->
+        Meteor.call "removeAddress", data, (error, id) ->
           if error
             # Display the error
             Errors.throw error.reason

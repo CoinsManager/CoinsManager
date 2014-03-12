@@ -11,11 +11,11 @@ describe "Quark", ->
   it "has a code QRK", ->
     Quark.should.have.a.property "code", "QRK"
 
-  describe "verify_address", ->
+  describe "verifyAddress", ->
 
     it "is a class method", ->
-      Quark.should.have.a.property "verify_address"
-      Quark.verify_address.should.be.a.Function
+      Quark.should.have.a.property "verifyAddress"
+      Quark.verifyAddress.should.be.a.Function
 
     errors =
       X5: "Address not base58"
@@ -29,10 +29,10 @@ describe "Quark", ->
           Meteor.call = -> content: error
 
           (->
-            Quark.verify_address address
+            Quark.verifyAddress address
           ).should.throw reason
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
         content: "00"
-      Quark.verify_address(@data.address).should.eql false
+      Quark.verifyAddress(@data.address).should.eql false

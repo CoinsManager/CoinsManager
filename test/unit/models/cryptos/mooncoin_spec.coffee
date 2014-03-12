@@ -11,11 +11,11 @@ describe "Mooncoin", ->
   it "has a code MOON", ->
     Mooncoin.should.have.a.property "code", "MOON"
 
-  describe "verify_address", ->
+  describe "verifyAddress", ->
 
     it "is a class method", ->
-      Mooncoin.should.have.a.property "verify_address"
-      Mooncoin.verify_address.should.be.a.Function
+      Mooncoin.should.have.a.property "verifyAddress"
+      Mooncoin.verifyAddress.should.be.a.Function
 
     errors =
       X5: "Address not base58"
@@ -29,10 +29,10 @@ describe "Mooncoin", ->
           Meteor.call = -> content: error
 
           (->
-            Mooncoin.verify_address address
+            Mooncoin.verifyAddress address
           ).should.throw reason
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
         content: "00"
-      Mooncoin.verify_address(@data.address).should.eql false
+      Mooncoin.verifyAddress(@data.address).should.eql false

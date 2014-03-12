@@ -11,18 +11,18 @@ describe "Peercoin", ->
   it "has a code PPC", ->
     Peercoin.should.have.a.property "code", "PPC"
 
-  describe "verify_address", ->
+  describe "verifyAddress", ->
 
     it "is a class method", ->
-      Peercoin.should.have.a.property "verify_address"
-      Peercoin.verify_address.should.be.a.Function
+      Peercoin.should.have.a.property "verifyAddress"
+      Peercoin.verifyAddress.should.be.a.Function
 
     it "returns true if the address is correct", ->
       Meteor.call = ->
         data:
           data:
             is_valid: true
-      Peercoin.verify_address(@data.address).should.be.false
+      Peercoin.verifyAddress(@data.address).should.be.false
 
     it "returns false if the address is correct", ->
       Meteor.call = ->
@@ -31,5 +31,5 @@ describe "Peercoin", ->
             is_valid: false
       address = @data.address
       (->
-        Peercoin.verify_address address
+        Peercoin.verifyAddress address
       ).should.throw "Address incorrect"

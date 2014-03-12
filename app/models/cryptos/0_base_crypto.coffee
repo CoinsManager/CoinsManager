@@ -7,7 +7,7 @@ class @BaseCrypto
 
     * get_value
     * set_balance
-    * verify_address
+    * verifyAddress
     * get_exchange_rate (TODO: not implemented yet)
   """
   @keys = {}
@@ -81,7 +81,7 @@ class @BaseCrypto
     """
     cls = @
 
-    Meteor.call "call_url", url, (err, result) ->
+    Meteor.call "callUrl", url, (err, result) ->
       if err
         throw new Meteor.Error err.error, err.reason
       else
@@ -91,7 +91,7 @@ class @BaseCrypto
         BaseCrypto.keys[cls.name][cls.address].balance = value
         BaseCrypto.deps[cls.name][cls.address].balance.changed()
 
-  @verify_address: (address, url_base) ->
+  @verifyAddress: (address, url_base) ->
     """
     Override this method from a specific coin class, to verify if the input
     correspond to a correct address (good algorith, correct size, hash check
@@ -100,12 +100,12 @@ class @BaseCrypto
     If your api returns the same results as provided in the switch statement,
     you can simply call back this method:
 
-      @verify_address: (address) ->
+      @verifyAddress: (address) ->
         url_base = "#{@api_url}checkaddress/"
         super address, url_base
     """
     if url_base
-      result = Meteor.call "call_url", "#{url_base}#{address}"
+      result = Meteor.call "callUrl", "#{url_base}#{address}"
       switch result.content
         when "X5" then throw new Meteor.Error 601, "Address not base58"
         when "CK" then throw new Meteor.Error 603, "Failed hash check"
