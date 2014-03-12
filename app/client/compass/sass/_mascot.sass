@@ -22,8 +22,17 @@
     +speech_bubble(left, 50%, $secondary-color, 0, $secondary-color)
     height: 10rem
     width: 15rem
-    padding: 2rem
-    line-height: 2rem
+    padding: 1.6rem 2rem
+    line-height: 2.2rem
+    .sb-fiat-list
+        margin: 0
+        padding: 0
+        height: 2rem
+        font-size: 1.4rem
+        background: $secondary-color
+        border: 0.1rem dashed $accent-color
+        color: white
+        cursor: pointer
     +span(6)
     &:before, &:after
         +breakpoint($media-small)

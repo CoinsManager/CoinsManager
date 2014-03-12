@@ -15,9 +15,7 @@ Template.totalAssetUl.helpers
   selectedClass: (code) ->
     user = Meteor.user()
     if user and "fiat" of user and code is user.fiat
-      return "selected"
-    else
-      return "unselected"
+      return "is_active"
 
 
 Template.totalAssetUl.events
