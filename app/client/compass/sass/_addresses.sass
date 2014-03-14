@@ -53,10 +53,12 @@ $func_panel_height: 4rem
     // Rules related to top addresses section
     position: relative
     .address
-        &:nth-child(1), &:nth-child(2), &:nth-child(3)
+        &.top_coin
+            position: absolute
+            visibility: hidden
+            +transition(all 0.3s ease-in-out)
             .tip
                 display: none
-            position: absolute
             &.is_centered
                 .tip
                     display: block
@@ -64,8 +66,9 @@ $func_panel_height: 4rem
                 position: absolute
                 display: block
                 content: ""
+                cursor: pointer
         // Winner
-        &:nth-child(1)
+        &.first
             top: 50rem
             @extend %absolute_x_center
             &:after
@@ -74,16 +77,17 @@ $func_panel_height: 4rem
                 +sprite-background("main_island")
         // Second & Third
         $top: 56rem
-        &:nth-child(2), &:nth-child(3)
+        &.second, &.third
+            cursor: pointer
             &:after
                 top: 11rem
                 left: 2.2rem
                 +sprite-background("mountain_island")
-        &:nth-child(2)
+        &.second
             +transform(scale(0.8))
             top: $top
             left: 10rem
-        &:nth-child(3)
+        &.third
             +transform(scale(0.6))
             top: $top
             right: 10rem
@@ -91,16 +95,20 @@ $func_panel_height: 4rem
 
 // Top addresses section
 .received
-    height: 42rem
-    width: 96rem
+    height: 45rem
+    width: 100%
     margin: 10rem auto
-    +clip-path($custom_clip_1)
+    +box-shadow(inset 0 0 7rem 2rem rgba(black, 0.8), rgba(white, 0.7) 0 0.1rem 0)
     background: image-url("star_back.jpg") no-repeat
     background-size: cover
-    +box-shadow(inset 0 0 7rem 2rem rgba(black, 0.8), rgba(white, 0.7) 0 0.1rem 0)
     position: relative
-    z-index: -2
-    
+
+.additional_info
+    background: $secondary-color
+    +border-radius($border-radius)
+    margin: 10rem auto
+    width: span(6)
+    height: 10rem
 
 #close_donation
     margin-left: 3rem
