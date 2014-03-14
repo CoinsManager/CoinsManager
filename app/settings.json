@@ -45,8 +45,7 @@
             "code": "DIME"
         },
         "Dogecoin": {
-            "address": "D6ascim4uwAbRD7ySqEiJYJKtkW4oSvQDN",
-            "code": "DOGE"
+            "address": "D6ascim4uwAbRD7ySqEiJYJKtkW4oSvQDN"
         },
         "Earthcoin": {
             "address": "ecoinsMG8nXNmqnzYfCokc7SBc3X2SnhBf"
@@ -56,12 +55,10 @@
             "code": "EMU"
         },
         "Feathercoin": {
-            "address": "71CoinsnLeK6xhgdyZKfBeJn8Q6Ng9uVFG",
-            "code": "FTC"
+            "address": "71CoinsnLeK6xhgdyZKfBeJn8Q6Ng9uVFG"
         },
         "Franko": {
-            "address": "FCoinsMTgnyDbXpXrYHAbL2DMmQLpJMxr3",
-            "code": "FRK"
+            "address": "FCoinsMTgnyDbXpXrYHAbL2DMmQLpJMxr3"
         },
         "Icecoin": {
             "address": "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox",
@@ -78,6 +75,9 @@
         },
         "Litecoin": {
             "address": "LiCoinshw5X2yd3vmUhubSchmzRehQhJJC"
+        },
+        "Mastercoin": {
+            "address": "1CoinsMPAy5Mz5SVzeAmU6qNmUThiLXYv1"
         },
         "MaxCoin": {
             "address": "mLr4KkfLsHdstPn8GSGNMEGVmTjih5wX6f",
@@ -102,12 +102,10 @@
             "code": "NVC"
         },
         "Particle": {
-            "address": "PcoinsM7kZW68uqdA3QMDAvk28ySktkkdF",
-            "code": "PRT"
+            "address": "PcoinsM7kZW68uqdA3QMDAvk28ySktkkdF"
         },
         "Peercoin": {
-            "address": "PCoinsM3swnTHze9155SwDeWJfn83TqSdX",
-            "code": "PPC"
+            "address": "PCoinsM3swnTHze9155SwDeWJfn83TqSdX"
         },
         "PopCoin": {
             "address": "QcoinsM2RDkzSTwCMZLx1r1CNQiPx7u7tk",
@@ -120,8 +118,7 @@
             "code": "XPM"
         },
         "Quark": {
-            "address": "QcoinsM2RDkzSTwCMZLx1r1CNQiPx7u7tk",
-            "code": "QRK"
+            "address": "QcoinsM2RDkzSTwCMZLx1r1CNQiPx7u7tk"
         },
         "Ripple": {
             "address": "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox",
