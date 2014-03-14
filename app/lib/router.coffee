@@ -8,7 +8,7 @@ class CoinsManagerController extends RouteController
     do GAnalytics.pageview
 
     coinsManager = Meteor.users.findOne
-      "emails.address": "coinsmanager@gmail.com"
+      "emails.address": Meteor.settings.public.email
 
     if coinsManager
       userAddresses = {}

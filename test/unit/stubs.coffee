@@ -1,8 +1,7 @@
 # Core
-Meteor.users.find = ->
-  count: ->
-  fetch: ->
-  observeChanges: ->
+Accounts.createUser = ->
+  _id: 0
+
 
 Deps =
   autorun: (func) ->

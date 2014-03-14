@@ -13,8 +13,12 @@ class @Mastercoin extends @BaseCrypto
   setBalance: ->
     url = "https://masterchain.info/addr/#{@address}.json"
     lambda_balance = (result) ->
-      content = JSON.parse result.content
-      +content[0].balance
+      try
+        content = JSON.parse result.content
+        +content[0].balance
+      catch error
+        # Address not found on blockchain
+        return 0
     super url, lambda_balance
 
   @verifyAddress: (address) ->
