@@ -9,6 +9,10 @@ class @Infinitecoin extends @BaseCrypto
   constructor: ->
     super
     @name = "Infinitecoin"
+    @foundation_msg = "This is a tweet-like message from the foundation"
+    @total_coin = "90.6 billion"
+    @hash_algo = "scrypt"
+    @protocol = "Proof-of-work"
     @cryptocoinchartsName = "InfiniteCoin"
 
   setBalance: ->
