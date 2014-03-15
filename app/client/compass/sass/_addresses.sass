@@ -24,10 +24,11 @@ $input_height: 3rem
 $copy_baloon_height: 2.5rem
 $address_title_height: 4rem
 $func_panel_height: 4rem
+$address_margin: 3rem
 
 .addresses_title
     @extend %indented_text
-    margin: 3rem 0
+    margin: $address_margin 0
     text-align: center
     font-size: 3.6rem
     +breakpoint($media-small)
@@ -55,32 +56,50 @@ $func_panel_height: 4rem
         display: none
     // Rules related to top addresses section
     position: relative
-    $top_offset: 40rem
+    $y_offset: 38rem
+    $y_offset_mobile: 50rem
     .address
         &.top_coin
             position: absolute
             cursor: pointer
             +transition(all 0.3s ease-in-out)
+            +breakpoint($media-micro)
+                position: relative
+                top: 0 !important
+                bottom: 0 !important
+                left: 0 !important
+                right: 0 !important
+            +breakpoint($media-micro)
+                +transform(none !important)
+            // Fix z-index bug with scale
             .tip
                 display: none
+                +breakpoint($media-micro)
+                    display: block
             &:after
                 position: absolute
                 display: block
                 content: ""
-                cursor: pointer
+                +breakpoint($media-micro)
+                    display: none !important
         // Winner
         &.first
             +address_gradient($gold)
             +transform(scale(0.8))
-            margin-bottom: $susy_gap
-            top: $top_offset
+            margin-bottom: $address_margin !important
+            top: $y_offset
             @extend %absolute_x_center
             &:after
                 top: 15rem
                 right: 2rem
                 +sprite-background("main_island")
+            +breakpoint($media-small)
+                top: 50rem
         // Second & Third
-        $top: $top_offset + 6rem
+        $y_additional_offset: $y_offset + 6rem
+        $x_offset: 10rem
+        $x_offset_mobile: 1rem
+        $y_additional_offset_mobile: 30rem
         &.second, &.third
             &:after
                 top: 11rem
@@ -89,14 +108,22 @@ $func_panel_height: 4rem
         &.second
             +address_gradient($silver)
             +transform(scale(0.8))
-            top: $top
-            left: 10rem
+            top: $y_additional_offset
+            left: $x_offset
+            +breakpoint($media-medium)
+                left: $x_offset_mobile
+            +breakpoint($media-small)
+                top: $y_offset_mobile + $y_additional_offset_mobile
         &.third
             +address_gradient($bronze)
             +transform(scale(0.6))
-            top: $top
-            right: 10rem
+            top: $y_additional_offset
+            right: $x_offset
             margin-right: 0
+            +breakpoint($media-medium)
+                right: $x_offset_mobile
+            +breakpoint($media-small)
+                top: $y_offset_mobile + $y_additional_offset_mobile*2
         &.is_active_top
             cursor: normal
             +transform(scale(1))
@@ -114,6 +141,10 @@ $func_panel_height: 4rem
     background-size: cover
     position: relative
     +border-radius($border-radius)
+    +breakpoint($media-small)
+        height: 95rem
+    +breakpoint($media-micro)
+        display: none
 
 .additional_info
     background: $secondary-color
