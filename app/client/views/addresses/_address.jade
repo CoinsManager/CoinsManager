@@ -30,3 +30,32 @@ template(name="addressItem")
         div.fiat_balance.unavailable
             | Fiat balance: Unavailable
         {{/if}}
+
+    //- div.additional_info(class="{{#unless hash_algo}}is_empty{{/unless}}")
+    //-     {{#unless hash_algo}}
+    //-     | No specifications for this coin. Please request it
+    //-     | <a href="https://trello.com/c/p7U95R2D">here</a>
+    //-     {{/unless}}
+    //-     div.logo
+    //-         // Get logo from public/img/coins_logo
+    //-     p.coin_name {{name}}
+    //-     {{#if total_coin}}
+    //-     p
+    //-         span.title Total Coins:
+    //-         {{total_coin}}
+    //-     {{/if}}
+    //-     {{#if hash_algo}}
+    //-     p
+    //-         span.title Hash algorithm:
+    //-         {{hash_algo}}
+    //-     {{/if}}
+    //-     {{#if protocol}}
+    //-     p
+    //-         span.title protocol:
+    //-         {{protocol}}
+    //-     {{/if}}
+    //-     {{#if foundation_msg}}
+    //-     div.message
+    //-         span.title Foundation message:
+    //-         {{foundation_msg}}
+    //-     {{/if}}

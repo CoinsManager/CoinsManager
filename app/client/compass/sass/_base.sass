@@ -5,6 +5,7 @@
 @import breakpoint
 @import susy
 @import media_queries
+@import clip_path
 
 $DEBUG: false
 
@@ -33,8 +34,8 @@ $susy_gap: susy-get(column-width, $susy) * susy-get(gutters, $susy)
 
 // Sprites
 
-// $sprites: sprite-map("sprites/*.png")
-// $sprites-retina: sprite-map("sprites-retina/*.png")
+$sprites: sprite-map("sprites/*.png")
+$sprites-retina: sprite-map("sprites-retina/*.png")
 
 // Helpers
 
@@ -44,6 +45,10 @@ $susy_gap: susy-get(column-width, $susy) * susy-get(gutters, $susy)
         display: table
         clear: both
 
+%absolute_x_center
+    left: 0
+    right: 0
+    margin: 0 auto
 // Classes
 
 %normal_text
@@ -59,9 +64,6 @@ $susy_gap: susy-get(column-width, $susy) * susy-get(gutters, $susy)
 
 %indented_box
     +box-shadow(rgba(white, 0.7) 0 0.1rem 0)
-
-
-    
 
 // Retina sprites support
 

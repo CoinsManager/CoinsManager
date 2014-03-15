@@ -3,6 +3,9 @@
 // Colors
 
 $blue: #5895ef
+$gold: #c5b358
+$silver: #838996
+$bronze: #cd7f32
 $new_address: white
 
 // Shadows
@@ -21,10 +24,11 @@ $input_height: 3rem
 $copy_baloon_height: 2.5rem
 $address_title_height: 4rem
 $func_panel_height: 4rem
+$address_margin: 3rem
 
 .addresses_title
     @extend %indented_text
-    margin: 8rem 0
+    margin: $address_margin 0
     text-align: center
     font-size: 3.6rem
     +breakpoint($media-small)
@@ -50,6 +54,109 @@ $func_panel_height: 4rem
         display: none
     .remove
         display: none
+    // Rules related to top addresses section
+    position: relative
+    $y_offset: 38rem
+    $y_offset_mobile: 50rem
+    .address
+        &.top_coin
+            position: absolute
+            cursor: pointer
+            +transition(all 0.3s ease-in-out)
+            +breakpoint($media-micro)
+                position: relative
+                top: 0 !important
+                bottom: 0 !important
+                left: 0 !important
+                right: 0 !important
+            +breakpoint($media-micro)
+                +transform(none !important)
+            // Fix z-index bug with scale
+            .tip
+                display: none
+                +breakpoint($media-micro)
+                    display: block
+            &:after
+                position: absolute
+                display: block
+                content: ""
+                +breakpoint($media-micro)
+                    display: none !important
+        // Winner
+        &.first
+            +address_gradient($gold)
+            +transform(scale(0.8))
+            margin-bottom: $address_margin !important
+            top: $y_offset
+            @extend %absolute_x_center
+            &:after
+                top: 15rem
+                right: 2rem
+                +sprite-background("main_island")
+            +breakpoint($media-small)
+                top: 50rem
+        // Second & Third
+        $y_additional_offset: $y_offset + 6rem
+        $x_offset: 10rem
+        $x_offset_mobile: 1rem
+        $y_additional_offset_mobile: 30rem
+        &.second, &.third
+            &:after
+                top: 11rem
+                left: 2.2rem
+                +sprite-background("mountain_island")
+        &.second
+            +address_gradient($silver)
+            +transform(scale(0.8))
+            top: $y_additional_offset
+            left: $x_offset
+            +breakpoint($media-medium)
+                left: $x_offset_mobile
+            +breakpoint($media-small)
+                top: $y_offset_mobile + $y_additional_offset_mobile
+        &.third
+            +address_gradient($bronze)
+            +transform(scale(0.6))
+            top: $y_additional_offset
+            right: $x_offset
+            margin-right: 0
+            +breakpoint($media-medium)
+                right: $x_offset_mobile
+            +breakpoint($media-small)
+                top: $y_offset_mobile + $y_additional_offset_mobile*2
+        &.is_active_top
+            cursor: normal
+            +transform(scale(1))
+            &.is_active
+                .tip
+                    display: block
+
+// Top addresses section
+.received
+    height: 45rem
+    width: 100%
+    margin: 4rem auto
+    +box-shadow(inset 0 0 7rem 2rem rgba(black, 0.8), rgba(white, 0.7) 0 0.1rem 0)
+    background: image-url("star_back.jpg") no-repeat
+    background-size: cover
+    position: relative
+    +border-radius($border-radius)
+    +breakpoint($media-small)
+        height: 95rem
+    +breakpoint($media-micro)
+        display: none
+
+.additional_info
+    background: $secondary-color
+    +border-radius($border-radius)
+    margin: 10rem auto
+    width: span(6)
+    min-height: 10rem
+    padding: 1rem
+    p
+        line-height: 1.6rem
+    .title
+        color: $accent-color
 
 #close_donation
     margin-left: 3rem
