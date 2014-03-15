@@ -12,7 +12,10 @@ class @NobleCoin extends @BaseCrypto
 
   setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
-    lambda_balance = (result) -> +result.content
+    lambda_balance = (result) ->
+      #+result.content
+      #BROKEN: return hard-coded value
+      200000
     super url, lambda_balance
 
   @verifyAddress: (address) ->
