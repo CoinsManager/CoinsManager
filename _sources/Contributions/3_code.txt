@@ -194,8 +194,8 @@ In the following example, we will deploy the **develop** branch on Heroku beta:
     $ git co develop
     $ heroku config:add --app coinsmanager-beta METEOR_SETTINGS="`cat app/settings.json`"
     $ cd app/client/compass && compass compile && cd -
-    $ for file in `find . -name '*css)'`; do git add -f $file; done; git ci -am "heroku style"
-    $ for file in `find . -name 'sprites-*.png)'`; do git add -f $file; done; git ci -am "heroku sprites"
+    $ for file in `find . -name '*css'`; do git add -f $file; done; git ci -am "heroku style"
+    $ for file in `find . -name 'sprites-*.png'`; do git add -f $file; done; git ci -am "heroku sprites"
     $ git push heroku-beta `git subtree split --prefix app develop`:master --force
     $ git reset --soft HEAD~2 && git reset HEAD .
 
