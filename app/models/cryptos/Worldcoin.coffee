@@ -8,9 +8,10 @@ class @Worldcoin extends @BaseCrypto
 
   constructor: ->
     super
-    @name = "Worldcoin"
-    @hash_algo = "scrypt"
     @cryptocoinchartsName = "WorldCoin"
+    @hash_algo = "scrypt"
+    @lambda_balance = (received, sent) -> (+received - +sent)
+    @name = "Worldcoin"
 
   setBalance: ->
     """
