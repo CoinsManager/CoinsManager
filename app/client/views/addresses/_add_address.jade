@@ -29,18 +29,20 @@ template(name="addAddress")
             div.controls
                 input(name="address", type="text",
                       placeholder="Your public address")
-        {{#if coin_recognized}}
+        {{#if coinsList}}
         div.control-group
             label.control-label(for="name-alpha") Cryptocurrency name
             div.controls
                 select(name="name-alpha")
                     {{#isolate}}
-                    {{#each cryptos}}
+                    {{#each coinsList}}
                     option(value="{{this}}") {{this}}
                     {{/each}}
                     {{/isolate}}
                 i.fa.fa-plus-square.y-centered
-        {{else}}
+        {{/if}}
+
+        {{#unless coin_recognized}}
         div.control-group
             label.control-label(for="name") Name *
             div.controls
@@ -64,8 +66,8 @@ template(name="addAddress")
         div.icon_block
             span.bottom_line
                 i.fa.fa-chevron-up.slide_up#close-form
-        {{/if}}
+        {{/unless}}
 
         div.control-group
             div.controls
-                input.btn.btn-primary(type="submit", value="Submit")
+                input.btn.btn-primary(type="submit", value="Ok")

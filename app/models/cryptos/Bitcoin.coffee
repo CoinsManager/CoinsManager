@@ -4,7 +4,6 @@ class @Bitcoin extends @BaseCrypto
   The average value corresponds to the user favorite fiat currency.
   """
   @address_format = "00"
-  @api_url = "http://blockexplorer.com/q/"
   @code = "BTC"
 
   constructor: ->
@@ -15,7 +14,3 @@ class @Bitcoin extends @BaseCrypto
     url = "#{@constructor.api_url}addressbalance/#{@address}"
     lambda_balance = (result) -> +result.content
     super url, lambda_balance
-
-  @verifyAddress: (address) ->
-    url_base = "#{@api_url}checkaddress/"
-    super address, url_base, @address_format

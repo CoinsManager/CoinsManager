@@ -1,13 +1,11 @@
 Template.addAddress.created = ->
   Session.set "showCompleteForm", false
   Session.set "showCoinHelp", false
-  Meteor.call "implementedCoins", (error, result) ->
-    Session.set "cryptos", result
 
 
 Template.addAddress.helpers
-  cryptos: ->
-    Session.get "cryptos"
+  coinsList: ->
+    Session.get "coinsList"
   coin_recognized: ->
     not Session.get "showCompleteForm"
   coin_help: ->
@@ -17,31 +15,31 @@ Template.addAddress.helpers
 Template.addAddress.events
   "submit form": (e) ->
     e.preventDefault()
-    name = $(e.target).find("[name=name-alpha]").val()
-    if not name
-      name = $(e.target).find("[name=name]").val()
     address = $(e.target).find("[name=address]").val()
 
-    Meteor.call "verifyAddress", address, name, (error, result) ->
+    Meteor.call "verifyAddress", address, (error, result) ->
       if error
         Errors.throw error.reason
       else
-        data =
-          address: address
-          name: name
-        if not result
-          data.code = $(e.target).find("[name=code]").val()
-          data.nb_coin = $(e.target).find("[name=nb_coin]").val()
-          data.value = $(e.target).find("[name=value]").val()
-        else Errors.throw result
+        if result isnt true
+          Session.set "coinsList", result
 
-        Meteor.call "addAddress", data, (error, id) ->
-          if error
-            # Display the error
-            Errors.throw error.reason
-          else
-            for text in ["showCoinForm", "showCompleteForm", "showCoinHelp"]
-              Session.set text, false
+#        data =
+          #address: address
+          #name: name
+        #if not result
+          #data.code = $(e.target).find("[name=code]").val()
+          #data.nb_coin = $(e.target).find("[name=nb_coin]").val()
+          #data.value = $(e.target).find("[name=value]").val()
+        #else Errors.throw result
+
+        #Meteor.call "addAddress", data, (error, id) ->
+          #if error
+            ## Display the error
+            #Errors.throw error.reason
+          #else
+            #for text in ["showCoinForm", "showCompleteForm", "showCoinHelp"]
+              #Session.set text, false
 
   "click .fa-plus-square": (e) ->
     Session.set "showCompleteForm", true

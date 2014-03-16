@@ -3,13 +3,16 @@ Methods:
 
   * addAddress
   * callUrl
-  * implementedCoins
   * removeAddress
   * setFiatPreference
   * verifyAddress
 """
 global = @  # Shortcut to access Cryptocoins global vars, cf l.11
 
+readDir = (path) ->
+  files = fs.readdirSync path
+  file.replace(".coffee.js", "") for file in files.filter (file) ->
+    file.search("(base_crypto*)|(js.map)") is -1
 
 Meteor.methods
   addAddress: (attributes) ->
@@ -52,9 +55,7 @@ Meteor.methods
     """
     Returns a list of coins that have been implemented
     """
-    files = fs.readdirSync "./app/models/cryptos/"
-    file.replace(".coffee.js", "") for file in files.filter (file) ->
-      file.search("(base_crypto*)|(js.map)") is -1
+    readDir "./app/models/cryptos/"
 
   removeAddress: (options) ->
     user = Meteor.user()
@@ -76,6 +77,20 @@ Meteor.methods
         fiat: fiat
     )
 
-  verifyAddress: (address, name) ->
-    if name of global
-      global[name].verifyAddress address
+  verifyAddress: (address) ->
+    """
+    Returns a list of coins that have been implemented ank
+    match the given address format
+    """
+    address_format = BaseCrypto.getAddressFormat address
+    matches = []
+
+    coins = readDir "./app/models/cryptos/"
+
+    for name in coins
+      if global[name].address_format is address_format
+        matches.push name
+    if matches.length is 1
+      return true
+    else
+      return matches
