@@ -90,7 +90,4 @@ Meteor.methods
     for name in coins
       if global[name].address_format is address_format
         matches.push name
-    if matches.length is 1
-      return true
-    else
-      return matches
+    return matches
