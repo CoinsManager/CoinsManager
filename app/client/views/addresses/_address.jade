@@ -20,7 +20,10 @@ template(name="addressItem")
             span.coin_value {{getBalance}}
         {{else}}
         div.coin_balance.unavailable
-            | Coin balance: Unavailable
+            {{#if code}}
+            span.coin_code {{code}}
+            {{/if}}
+            span.coin_value Unavailable
         {{/ifNumber}}
         {{#if getValue}}
         div.fiat_balance
@@ -28,7 +31,6 @@ template(name="addressItem")
             span.fiat_value {{getValue}}
         {{else}}
         div.fiat_balance.unavailable
-            | Fiat balance: Unavailable
         {{/if}}
 
     //- div.additional_info(class="{{#unless hash_algo}}is_empty{{/unless}}")
