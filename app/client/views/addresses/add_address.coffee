@@ -1,4 +1,5 @@
 Template.addAddress.created = ->
+  Session.set "coinsList", false
   Session.set "showCompleteForm", false
   Session.set "showCoinHelp", false
 
@@ -23,6 +24,9 @@ Template.addAddress.events
       else
         if result.length > 1 and not Session.get "coinsList"
           Session.set "coinsList", result
+          return
+        else if result.length is 0
+          Session.set "showCompleteForm", true
           return
 
         data =
