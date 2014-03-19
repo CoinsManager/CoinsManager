@@ -6,7 +6,7 @@ Template.addAddress.created = ->
 Template.addAddress.helpers
   coinsList: ->
     Session.get "coinsList"
-  coin_recognized: ->
+  coinRecognized: ->
     not Session.get "showCompleteForm"
   coin_help: ->
     Session.get "showCoinHelp"
@@ -45,6 +45,7 @@ Template.addAddress.events
 
   "click .fa-plus-square": (e) ->
     Session.set "showCompleteForm", true
+    Session.set "coinsList", false
 
   "click #close-form": (e) ->
     Session.set "showCompleteForm", false

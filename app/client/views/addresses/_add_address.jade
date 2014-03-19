@@ -31,9 +31,9 @@ template(name="addAddress")
                       placeholder="Your public address")
         {{#if coinsList}}
         div.control-group
-            label.control-label(for="name-alpha") Cryptocurrency name
+            label.control-label(for="name") Name *
             div.controls
-                select(name="name-alpha")
+                select(name="name")
                     {{#isolate}}
                     {{#each coinsList}}
                     option(value="{{this}}") {{this}}
@@ -42,7 +42,7 @@ template(name="addAddress")
                 i.fa.fa-plus-square.y-centered
         {{/if}}
 
-        {{#unless coin_recognized}}
+        {{#unless coinRecognized}}
         div.control-group
             label.control-label(for="name") Name *
             div.controls

@@ -4,6 +4,7 @@ class @Bitcoin extends @BaseCrypto
   The average value corresponds to the user favorite fiat currency.
   """
   @address_format = "00"
+  @api_url = "http://blockexplorer.com/q/"
   @code = "BTC"
 
   constructor: ->
