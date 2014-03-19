@@ -59,6 +59,20 @@ $address_margin: 3rem
     $y_offset: 38rem
     $y_offset_mobile: 50rem
     .address
+        +span(3)
+        +breakpoint($media-large)
+            &:nth-child(4n+3)
+                +last
+        +breakpoint($media-medium)
+            &:nth-child(3n+3)
+                +last
+        +breakpoint($media-small)
+            &:nth-child(2n+3)
+                +last
+        +breakpoint($media-micro)
+            &:nth-child(1n+1)
+                +last
+        +breakpoint($media-small)
         &.top_coin
             position: absolute
             cursor: pointer
@@ -171,13 +185,13 @@ $address_margin: 3rem
 .address
     +span(3)
     +breakpoint($media-large)
-        &:nth-child(4n+3)
+        &:nth-child(4n+4)
             +last
     +breakpoint($media-medium)
         &:nth-child(3n+3)
             +last
     +breakpoint($media-small)
-        &:nth-child(2n+3)
+        &:nth-child(2n+2)
             +last
     +breakpoint($media-micro)
         &:nth-child(1n+1)
