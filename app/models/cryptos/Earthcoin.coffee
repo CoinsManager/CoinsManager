@@ -16,7 +16,3 @@ class @Earthcoin extends @BaseCrypto
   setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
     super url, @lambda_balance
-
-  @verifyAddress: (address) ->
-    url_base = "#{@api_url}checkaddress/"
-    super address, url_base, @address_format

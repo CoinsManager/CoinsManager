@@ -20,7 +20,3 @@ class @Mastercoin extends @BaseCrypto
         # Address not found on blockchain
         return 0
     super url, lambda_balance
-
-  @verifyAddress: (address) ->
-    url_base = "http://blockexplorer.com/q/checkaddress/"
-    super address, url_base, @address_format

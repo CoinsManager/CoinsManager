@@ -17,7 +17,3 @@ class @NobleCoin extends @BaseCrypto
       #BROKEN: return hard-coded value
       200000
     super url, lambda_balance
-
-  @verifyAddress: (address) ->
-    url_base = "#{@api_url}checkaddress/"
-    super address, url_base, @address_format
