@@ -26,11 +26,11 @@ describe "BaseCrypto", ->
     @coin.should.respondTo "setBalance"
     @coin.setBalance().should.equal 'call_url'
 
-  it "has a class method verifyAddress", ->
-    BaseCrypto.should.have.a.property "verifyAddress"
+  it "has a class method getAddressFormat", ->
+    BaseCrypto.should.have.a.property "getAddressFormat"
 
     class TestCoin extends BaseCrypto
 
-    TestCoin.verifyAddress("Address").should
-      .equal "Verification for TestCoin has not been implemented yet"
+    #TestCoin.getAddressFormat("Address").should
+      #.equal "Verification for TestCoin has not been implemented yet"
 
