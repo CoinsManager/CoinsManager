@@ -1,11 +1,11 @@
-Template.alphaLayout.helpers
+Template.mainLayout.helpers
   errors: ->
     Errors.collection.find()
   showDonationAddresses: ->
     Session.get "showDonationAddresses"
 
 
-Template.alphaLayout.rendered = ->
+Template.mainLayout.rendered = ->
   if not isMobile()
     ZeroClipboard.config
       moviePath: "/swf/ZeroClipboard.swf"

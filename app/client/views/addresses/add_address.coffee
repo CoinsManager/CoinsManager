@@ -16,6 +16,8 @@ Template.addAddress.helpers
 Template.addAddress.events
   "submit form": (e) ->
     e.preventDefault()
+    Errors.clearSeen()
+
     address = $(e.target).find("[name=address]").val()
 
     Meteor.call "verifyAddress", address, (error, result) ->
@@ -32,7 +34,8 @@ Template.addAddress.events
         data =
           address: address
           name: $(e.target).find(":selected").val() or
-                $(e.target).find("[name=name]").val()
+                $(e.target).find("[name=name]").val() or
+                result[0]
           code: $(e.target).find("[name=code]").val()
           nb_coin: $(e.target).find("[name=nb_coin]").val()
           value: $(e.target).find("[name=value]").val()
