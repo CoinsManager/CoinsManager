@@ -27,11 +27,12 @@ Template.addAddress.events
 
         data =
           address: address
-          name: if result.length is 1 then result[0] else Session.get "coinsList"
+          name:
+            if result.length is 1 then result[0]
+            else Session.get "coinsList"
           code: $(e.target).find("[name=code]").val()
           nb_coin: $(e.target).find("[name=nb_coin]").val()
           value: $(e.target).find("[name=value]").val()
-        if result.length is 1
 
         Meteor.call "addAddress", data, (error, id) ->
           if error
