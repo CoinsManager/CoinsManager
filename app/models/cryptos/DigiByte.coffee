@@ -4,7 +4,7 @@ class @DigiByte extends @BaseCrypto
   """
   @address_format = "1E"
   @api_url = "http://cryptexplorer.com/chain/DigiByte/q/"
-  @code = "DGC"
+  @code = "DGB"
 
   constructor: ->
     super
