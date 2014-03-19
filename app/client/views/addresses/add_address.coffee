@@ -27,9 +27,7 @@ Template.addAddress.events
 
         data =
           address: address
-          name:
-            if result.length is 1 then result[0]
-            else Session.get "coinsList"
+          name: $(e.target).find(":selected").val()
           code: $(e.target).find("[name=code]").val()
           nb_coin: $(e.target).find("[name=nb_coin]").val()
           value: $(e.target).find("[name=value]").val()
