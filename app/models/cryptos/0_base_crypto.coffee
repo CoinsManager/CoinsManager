@@ -10,6 +10,7 @@ class @BaseCrypto
     * verifyAddress
     * getExchangeRate (TODO: not implemented yet)
   """
+  api_url = "http://blockexplorer.com/q/"
   @keys = {}
   @deps =
     btc2usd: new Deps.Dependency()
@@ -91,26 +92,14 @@ class @BaseCrypto
         BaseCrypto.keys[cls.name][cls.address].balance = value
         BaseCrypto.deps[cls.name][cls.address].balance.changed()
 
-  @verifyAddress: (address, url_base, address_format) ->
+  @getAddressFormat: (address) ->
     """
-    Override this method from a specific coin class, to verify if the input
-    correspond to a correct address (good algorith, correct size, hash check
-    pass). Omit the "url_base" argument.
-
-    If your api returns the same results as provided in the switch statement,
-    you can simply call back this method:
-
-      @verifyAddress: (address) ->
-        url_base = "#{@api_url}checkaddress/"
-        super address, url_base
+    Returns the address format, or an error if address is not valid
     """
-    if url_base
-      result = Meteor.call "callUrl", "#{url_base}#{address}"
-      switch result.content
-        when "X5" then throw new Meteor.Error 601, "Address not base58"
-        when "CK" then throw new Meteor.Error 603, "Failed hash check"
-        when "SZ"
-        then throw new Meteor.Error 602, "Address not the correct size"
-        when address_format then return false
-        else throw new Meteor.Error 604, "Address is not valid"
-    return "Verification for #{@name} has not been implemented yet"
+    result = Meteor.call "callUrl", "#{api_url}checkaddress/#{address}"
+    switch result.content
+      when "X5" then throw new Meteor.Error 601, "Address not base58"
+      when "CK" then throw new Meteor.Error 603, "Failed hash check"
+      when "SZ"
+      then throw new Meteor.Error 602, "Address not the correct size"
+      else result.content

@@ -1,5 +1,5 @@
 Router.configure
-  layoutTemplate: "alphaLayout"
+  layoutTemplate: "mainLayout"
   loadingTemplate: "loading"
 
 

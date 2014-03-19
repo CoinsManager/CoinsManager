@@ -1,14 +1,13 @@
 Template.addAddress.created = ->
+  Session.set "coinsList", false
   Session.set "showCompleteForm", false
   Session.set "showCoinHelp", false
-  Meteor.call "implementedCoins", (error, result) ->
-    Session.set "cryptos", result
 
 
 Template.addAddress.helpers
-  cryptos: ->
-    Session.get "cryptos"
-  coin_recognized: ->
+  coinsList: ->
+    Session.get "coinsList"
+  coinRecognized: ->
     not Session.get "showCompleteForm"
   coin_help: ->
     Session.get "showCoinHelp"
@@ -17,34 +16,42 @@ Template.addAddress.helpers
 Template.addAddress.events
   "submit form": (e) ->
     e.preventDefault()
-    name = $(e.target).find("[name=name-alpha]").val()
-    if not name
-      name = $(e.target).find("[name=name]").val()
+    Errors.clearSeen()
+
     address = $(e.target).find("[name=address]").val()
 
-    Meteor.call "verifyAddress", address, name, (error, result) ->
+    Meteor.call "verifyAddress", address, (error, result) ->
       if error
         Errors.throw error.reason
       else
+        if result.length > 1 and not Session.get "coinsList"
+          Session.set "coinsList", result
+          return
+        else if result.length is 0 and not Session.get "showCompleteForm"
+          Session.set "showCompleteForm", true
+          return
+
         data =
           address: address
-          name: name
-        if not result
-          data.code = $(e.target).find("[name=code]").val()
-          data.nb_coin = $(e.target).find("[name=nb_coin]").val()
-          data.value = $(e.target).find("[name=value]").val()
-        else Errors.throw result
+          name: $(e.target).find(":selected").val() or
+                $(e.target).find("[name=name]").val() or
+                result[0]
+          code: $(e.target).find("[name=code]").val()
+          nb_coin: $(e.target).find("[name=nb_coin]").val()
+          value: $(e.target).find("[name=value]").val()
 
         Meteor.call "addAddress", data, (error, id) ->
           if error
             # Display the error
             Errors.throw error.reason
           else
-            for text in ["showCoinForm", "showCompleteForm", "showCoinHelp"]
-              Session.set text, false
+            for variable in ["showCoinForm", "showCompleteForm",
+                         "showCoinHelp", "coinsList"]
+              Session.set variable, false
 
   "click .fa-plus-square": (e) ->
     Session.set "showCompleteForm", true
+    Session.set "coinsList", false
 
   "click #close-form": (e) ->
     Session.set "showCompleteForm", false

@@ -19,10 +19,10 @@ Meteor.Error = (error, reason) ->
 # templates
 Template.stub "addAddress"
 Template.stub "addressItem"
-Template.stub "alphaLayout"
+Template.stub "mainLayout"
 Template.stub "coinsManager"
 Template.stub "emptyForm"
-Template.stub "meteorError"
+Template.stub "meteorErrors"
 Template.stub "pageFooter"
 Template.stub "totalAssetSelect"
 Template.stub "totalAssetUl"
