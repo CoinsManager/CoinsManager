@@ -36,8 +36,11 @@
             "address": "288oPahfqp7vvscnxqSh3k6ZFia6QZrVfc",
             "code": "COL"
         },
+        "DigiByte": {
+            "address": "DCoinsMBp9SZnNrJToJJ1jSJB3yDfSCw7t"
+        },
         "Digitalcoin": {
-            "address": "288oPahfqp7vvscnxqSh3k6ZFia6QZrVfc",
+            "address": "DCoinsMBp9SZnNrJToJJ1jSJB3yDfSCw7t",
             "code": "DGC"
         },
         "Dimecoin": {
@@ -45,7 +48,7 @@
             "code": "DIME"
         },
         "Dogecoin": {
-            "address": "D6ascim4uwAbRD7ySqEiJYJKtkW4oSvQDN"
+            "address": "DCoinsMBp9SZnNrJToJJ1jSJB3yDfSCw7t"
         },
         "Earthcoin": {
             "address": "ecoinsMG8nXNmqnzYfCokc7SBc3X2SnhBf"
