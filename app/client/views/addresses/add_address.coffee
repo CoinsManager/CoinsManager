@@ -25,13 +25,14 @@ Template.addAddress.events
         if result.length > 1 and not Session.get "coinsList"
           Session.set "coinsList", result
           return
-        else if result.length is 0
+        else if result.length is 0 and not Session.get "showCompleteForm"
           Session.set "showCompleteForm", true
           return
 
         data =
           address: address
-          name: $(e.target).find(":selected").val()
+          name: $(e.target).find(":selected").val() or
+                $(e.target).find("[name=name]").val()
           code: $(e.target).find("[name=code]").val()
           nb_coin: $(e.target).find("[name=nb_coin]").val()
           value: $(e.target).find("[name=value]").val()
@@ -41,9 +42,9 @@ Template.addAddress.events
             # Display the error
             Errors.throw error.reason
           else
-            for text in ["showCoinForm", "showCompleteForm",
+            for variable in ["showCoinForm", "showCompleteForm",
                          "showCoinHelp", "coinsList"]
-              Session.set text, false
+              Session.set variable, false
 
   "click .fa-plus-square": (e) ->
     Session.set "showCompleteForm", true
