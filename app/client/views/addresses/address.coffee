@@ -1,5 +1,6 @@
 exports = this
 
+
 Template.addressItem.rendered = ->
   # Truncate function
   truncate = (elem, fieldWidth, position) ->

@@ -1,8 +1,6 @@
 Template.mainLayout.helpers
-  errors: ->
-    Errors.collection.find()
-  showDonationAddresses: ->
-    Session.get "showDonationAddresses"
+  errors: -> Errors.collection.find()
+  showDonationAddresses: -> Session.get "showDonationAddresses"
 
 
 Template.mainLayout.rendered = ->
