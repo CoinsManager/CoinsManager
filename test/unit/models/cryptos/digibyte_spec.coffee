@@ -2,7 +2,7 @@ describe "DigiByte", ->
 
   beforeEach ->
     @data =
-      address: "iMXPEVoAVfLHhMrP18PoCHKVSzgeV3vK9f"
+      address: "DCoinsMBp9SZnNrJToJJ1jSJB3yDfSCw7t"
 
   it "exists", ->
     DigiByte.should.be.ok

@@ -10,7 +10,6 @@ class @Digitalcoin extends @BaseCrypto
     super
     @lambda_balance = (received, sent) -> (+received - +sent)
     @name = "DGC"
-    @cryptocoinchartsName = "Digitalcoin"
 
   setBalance: ->
     """
