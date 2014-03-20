@@ -73,6 +73,18 @@ $address_margin: 3rem
             &:nth-child(1n+1)
                 +last
         +breakpoint($media-small)
+        &.thousandplus
+            +address_gradient(red)
+        &.hundredplus
+            +address_gradient(red)
+        &.tenplus
+            +address_gradient(red)
+        &.oneplus
+            +address_gradient(orange)
+        &.zeroplus
+            +address_gradient($blue)
+        &.notimplemented
+            +address_gradient(gray)
         &.top_coin
             position: absolute
             cursor: pointer
