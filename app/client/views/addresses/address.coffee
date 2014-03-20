@@ -1,6 +1,11 @@
 exports = this
 
 
+Template.addressItem.created = ->
+  # Fix bug with ZeroClipboard
+  Session.set "cancelMouseLeave", false
+
+
 Template.addressItem.rendered = ->
   # Truncate function
   truncate = (elem, fieldWidth, position) ->
@@ -72,6 +77,7 @@ Template.addressItem.events
 
   # Hover on element in functional panel
   "mouseenter .func_panel i": (e) ->
+    e.preventDefault()
     $this = $(e.target)
     if $this.hasClass "copy"
       message = "Copy address to clipboard"
@@ -85,11 +91,15 @@ Template.addressItem.events
   "mouseenter .address": (e) ->
     $this = $(e.target)
     $this.addClass "is_active"
-
-  "mouseenter .is_active": (e) ->
     Meteor.clearInterval timer
 
+  "mouseenter .copy": (e) ->
+    Session.set "cancelMouseLeave", true
+
   "mouseleave .is_active": (e) ->
-    exports.timer = Meteor.setInterval callApis, counter
-    $this = $(e.target)
-    $(".address.is_active").removeClass "is_active"
+    if not Session.get "cancelMouseLeave"
+      exports.timer = Meteor.setInterval callApis, counter
+      $this = $(e.target)
+      $(".address.is_active").removeClass "is_active"
+    else
+      Session.set "cancelMouseLeave", false
