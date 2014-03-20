@@ -2,10 +2,10 @@ Meteor.startup ->
   @counter = 0
   # 3rd part apis are not Meteor projects, therefore we cannot get the prices
   # updates reactively, a setInterval is required.
-  @timer = Meteor.setInterval callApis, counter
+  @timer = Meteor.setInterval @callApis, counter
 
 
-callApis = ->
+@callApis = ->
   # Get The Bitcoin to USD price
   fiat = "USD"
   user = Meteor.user()
@@ -59,4 +59,4 @@ callApis = ->
     # progressively lower the frequency. From 0 to 10seconds between each call
     @counter += 1000
     Meteor.clearInterval @timer
-    @timer = Meteor.setInterval callApis, counter
+    @timer = Meteor.setInterval @callApis, counter

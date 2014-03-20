@@ -1,3 +1,5 @@
+exports = this
+
 Template.addressItem.rendered = ->
   # Truncate function
   truncate = (elem, fieldWidth, position) ->
@@ -81,6 +83,12 @@ Template.addressItem.events
   # Hover on any address card
   "mouseenter .address": (e) ->
     $this = $(e.target)
-    $(".address.is_active").removeClass("is_active").
-      find(".tip").text "Clickable action icons below"
     $this.addClass "is_active"
+
+  "mouseenter .is_active": (e) ->
+    Meteor.clearInterval timer
+
+  "mouseleave .is_active": (e) ->
+    exports.timer = Meteor.setInterval callApis, counter
+    $this = $(e.target)
+    $(".address.is_active").removeClass "is_active"
