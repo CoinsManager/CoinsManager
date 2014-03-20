@@ -2,7 +2,7 @@ class @Franko extends @BaseCrypto
   """
   This class define all the informations needed for Franko.
   """
-  @address_format = "23"
+  @address_format = "35"
   @api_url = "http://frk.cryptocoinexplorer.com/chain/Franko/q/"
   @code = "FRK"
 
