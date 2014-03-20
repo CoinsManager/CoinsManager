@@ -14,6 +14,9 @@
             "code": "ANC",
             "balance": 4
         },
+        "Auroracoin": {
+            "address": "AaCoinsyJRD8FTeXpnsHHb5P2TJZSNKFx1"
+        },
         "BBQcoin": {
             "address": "bCoinsM1FHuMGwZDPX4fuTEMuM1CMD6VDR",
             "code": "BBQ"
@@ -40,8 +43,7 @@
             "address": "DCoinsMBp9SZnNrJToJJ1jSJB3yDfSCw7t"
         },
         "Digitalcoin": {
-            "address": "DCoinsMBp9SZnNrJToJJ1jSJB3yDfSCw7t",
-            "code": "DGC"
+            "address": "DCoinsMBp9SZnNrJToJJ1jSJB3yDfSCw7t"
         },
         "Dimecoin": {
             "address": "78pgN8DnkPz57gropEsysH81ApUmaUte4v",
@@ -59,6 +61,9 @@
         },
         "Feathercoin": {
             "address": "71CoinsnLeK6xhgdyZKfBeJn8Q6Ng9uVFG"
+        },
+        "FedoraCoin": {
+            "address": "EKeraAhz78YYtwuC1KtKqmbmBDHk41owq1"
         },
         "Franko": {
             "address": "FCoinsMTgnyDbXpXrYHAbL2DMmQLpJMxr3"
@@ -127,6 +132,9 @@
             "address": "rDY3Nh9dYxxoYqsmBwG2cRU2FDteft9Xox",
             "code": "XRP",
             "balance": 520
+        },
+        "Spaincoin": {
+            "address": "SZzRDMn6PcL13duYtWyaBBS6Ph6PdPteUT"
         },
         "USD-e": {
             "address": "GcoinsMbigRrzFLVbmxEpgVnXCayxpQz7r",
