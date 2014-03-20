@@ -34,6 +34,7 @@ Template.addressItem.rendered = ->
 Template.addressItem.events
   # Click on element in functional panel
   "click .func_panel i": (e) ->
+    e.preventDefault()
     $this = $(e.target)
     $addressCard = $this.parents ".address"
     $addressTitle =  $addressCard.find ".address_title"
@@ -89,14 +90,17 @@ Template.addressItem.events
 
   # Hover on any address card
   "mouseenter .address": (e) ->
+    e.preventDefault()
     $this = $(e.target)
     $this.addClass "is_active"
     Meteor.clearInterval timer
 
   "mouseenter .copy": (e) ->
+    e.preventDefault()
     Session.set "cancelMouseLeave", true
 
   "mouseleave .is_active": (e) ->
+    e.preventDefault()
     if not Session.get "cancelMouseLeave"
       exports.timer = Meteor.setInterval callApis, counter
       $this = $(e.target)
