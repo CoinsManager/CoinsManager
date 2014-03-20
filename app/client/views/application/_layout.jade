@@ -1,9 +1,17 @@
 template(name="mainLayout")
     {{yield}}
+
+    {{#if notification}}
+    div.notifications
+        {{notification}}
+    {{/if}}
+
     {{> pageHeader}}
+
     {{#if showDonationAddresses}}
         {{> coinsManager}}
     {{/if}}
+
     {{#if loggedIn}}
         {{> userAddresses}}
     {{/if}}

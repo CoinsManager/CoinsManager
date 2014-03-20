@@ -7,6 +7,12 @@ Template.addressItem.created = ->
 
 
 Template.addressItem.rendered = ->
+  # Set top3 coins
+  $(".address").slice(0,3).addClass "top_coin"
+  $(".address:eq(0)").addClass "first is_active_top"
+  $(".address:eq(1)").addClass "second"
+  $(".address:eq(2)").addClass "third"
+
   # Truncate function
   truncate = (elem, fieldWidth, position) ->
     elem.truncate
@@ -94,6 +100,7 @@ Template.addressItem.events
     $this = $(e.target)
     $this.addClass "is_active"
     Meteor.clearInterval timer
+    Session.set "notification", "Price updates halted"
 
   "mouseenter .copy": (e) ->
     e.preventDefault()
@@ -103,6 +110,7 @@ Template.addressItem.events
     e.preventDefault()
     if not Session.get "cancelMouseLeave"
       exports.timer = Meteor.setInterval callApis, counter
+      Session.set "notification", "Price updates resumed"
       $this = $(e.target)
       $(".address.is_active").removeClass "is_active"
     else
