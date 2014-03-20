@@ -10,6 +10,7 @@ class @FedoraCoin extends @BaseCrypto
   constructor: ->
     super
     @name = "FedoraCoin"
+    @cryptocoinchartsName = "Fedoracoin"
 
   setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"

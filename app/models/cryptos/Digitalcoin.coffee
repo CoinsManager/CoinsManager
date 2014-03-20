@@ -3,13 +3,13 @@ class @Digitalcoin extends @BaseCrypto
   This class define all the informations needed for Franko.
   """
   @address_format = "1E"
-  @api_url = "http://dgc.cryptocoinexplorer.com/q/"
+  @api_url = "http://dgc.cryptocoinexplorer.com/chain/Digitalcoin/q/"
   @code = "DGC"
 
   constructor: ->
     super
     @lambda_balance = (received, sent) -> (+received - +sent)
-    @name = "DGC"
+    @name = "Digitalcoin"
 
   setBalance: ->
     """

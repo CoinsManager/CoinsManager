@@ -8,5 +8,5 @@ describe "Digitalcoin", ->
     Digitalcoin.should.be.ok
     Digitalcoin.should.be.an.Object
 
-  it "has a code TIPS", ->
+  it "has a code DGC", ->
     Digitalcoin.should.have.a.property "code", "DGC"

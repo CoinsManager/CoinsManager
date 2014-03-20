@@ -10,6 +10,7 @@ class @Spaincoin extends @BaseCrypto
   constructor: ->
     super
     @name = "Spaincoin"
+    @cryptocoinchartsName = "SpainCoin"
 
   setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
