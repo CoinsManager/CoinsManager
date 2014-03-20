@@ -4,6 +4,9 @@
 
 $blue: #5895ef
 $gold: #c5b358
+$gray: gray
+$orange: orange
+$red: red
 $silver: #838996
 $bronze: #cd7f32
 $new_address: white
@@ -74,17 +77,17 @@ $address_margin: 3rem
                 +last
         +breakpoint($media-small)
         &.thousandplus
-            +address_gradient(red)
+            +address_gradient($red)
         &.hundredplus
-            +address_gradient(red)
+            +address_gradient($red)
         &.tenplus
-            +address_gradient(red)
+            +address_gradient($red)
         &.oneplus
-            +address_gradient(orange)
+            +address_gradient($orange)
         &.zeroplus
             +address_gradient($blue)
         &.notimplemented
-            +address_gradient(gray)
+            +address_gradient($gray)
         &.top_coin
             position: absolute
             cursor: pointer
