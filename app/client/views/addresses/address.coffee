@@ -1,4 +1,18 @@
+exports = this
+
+
+Template.addressItem.created = ->
+  # Fix bug with ZeroClipboard
+  Session.set "cancelMouseLeave", false
+
+
 Template.addressItem.rendered = ->
+  # Set top3 coins
+  $(".address").slice(0,3).addClass "top_coin"
+  $(".address:eq(0)").addClass "first is_active_top"
+  $(".address:eq(1)").addClass "second"
+  $(".address:eq(2)").addClass "third"
+
   # Truncate function
   truncate = (elem, fieldWidth, position) ->
     elem.truncate
@@ -26,6 +40,7 @@ Template.addressItem.rendered = ->
 Template.addressItem.events
   # Click on element in functional panel
   "click .func_panel i": (e) ->
+    e.preventDefault()
     $this = $(e.target)
     $addressCard = $this.parents ".address"
     $addressTitle =  $addressCard.find ".address_title"
@@ -69,6 +84,7 @@ Template.addressItem.events
 
   # Hover on element in functional panel
   "mouseenter .func_panel i": (e) ->
+    e.preventDefault()
     $this = $(e.target)
     if $this.hasClass "copy"
       message = "Copy address to clipboard"
@@ -80,7 +96,22 @@ Template.addressItem.events
 
   # Hover on any address card
   "mouseenter .address": (e) ->
+    e.preventDefault()
     $this = $(e.target)
-    $(".address.is_active").removeClass("is_active").
-      find(".tip").text "Clickable action icons below"
     $this.addClass "is_active"
+    Meteor.clearInterval timer
+    Session.set "notification", "Price updates halted"
+
+  "mouseenter .copy": (e) ->
+    e.preventDefault()
+    Session.set "cancelMouseLeave", true
+
+  "mouseleave .is_active": (e) ->
+    e.preventDefault()
+    if not Session.get "cancelMouseLeave"
+      exports.timer = Meteor.setInterval callApis, counter
+      Session.set "notification", "Price updates resumed"
+      $this = $(e.target)
+      $(".address.is_active").removeClass "is_active"
+    else
+      Session.set "cancelMouseLeave", false
