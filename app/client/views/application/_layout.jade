@@ -1,11 +1,7 @@
 template(name="mainLayout")
     {{yield}}
 
-    {{#if notification}}
-    div.notifications
-        {{notification}}
-    {{/if}}
-
+    {{> notifications}}
     {{> pageHeader}}
 
     {{#if showDonationAddresses}}
