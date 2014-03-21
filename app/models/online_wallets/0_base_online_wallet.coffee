@@ -1,9 +1,9 @@
 ###
-Base class for Exchanges
+Base class for Online wallets
 ###
 
 
-class @BaseExchange
+class @BaseWebsite
   @keys = {}
   @deps = {}
 
@@ -26,6 +26,3 @@ class @BaseExchange
         return
       cls.keys[key] = new_value
       cls.deps[key].changed()
-
-
-exports.BaseExchange = BaseExchange unless Meteor?
