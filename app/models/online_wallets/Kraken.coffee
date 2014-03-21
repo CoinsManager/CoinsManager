@@ -11,4 +11,13 @@ class @Kraken extends @BaseWebsite
     super
     @name = "Kraken"
 
-  fetchAddresses: (user) ->
+  @fetchAddresses: (options) ->
+    console.log "enter Kraken.fetchAddresses"
+    kraken = new KrakenClient options.api_key, options.api_secret
+    console.log "call api"
+    kraken.api 'Balance', null, (error, data) ->
+      if error
+        Errors.throw error.reason
+      else
+        debugger
+        console.log data.result

@@ -9,16 +9,14 @@ Template.fetchAddresses.events
     e.preventDefault()
     Errors.clearSeen()
 
-    data:
+    data =
       name: $(e.target).find(":selected").val()
       api_key: $(e.target).find("[name=api_key]").val()
       api_secret: $(e.target).find("[name=api_secret]").val()
 
-    Meteor.call "addOnlineWallet", data, (error, id) ->
+    console.log "call fetchAddresses"
+    Meteor.call "fetchAddresses", data, (error, id) ->
       if error
-        # Display the error
         Errors.throw error.reason
       else
         Session.set "showImportForm", false
-
-    alert "TODO! integrate #{name}"

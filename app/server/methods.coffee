@@ -2,8 +2,8 @@
 Methods:
 
   * addAddress
-  * addOnlineWallet
   * callUrl
+  * fetchAddresses
   * implementedCoins
   * implementedWebsites
   * removeAddress
@@ -49,18 +49,22 @@ Meteor.methods
     addressId = Addresses.insert options
     return addressId
 
-  addOnlineWallet: (options) ->
-    user = Meteor.user()
-    options.userId = user._id
-
-    OnlineWallets.insert options
-
   callUrl: (url) ->
     @unblock()
     try
       Meteor.http.get url
     catch error
       content: error.stack
+
+  fetchAddresses: (options) ->
+    """
+    Connect to the Online wallet API, retrieve all addresses and add them
+    """
+    console.log "enter fetchAddresses"
+    user = Meteor.user()
+    options.userId = user._id
+    console.log "call " + options.name
+    addresses = global[options.name].fetchAddresses options
 
   implementedCoins: ->
     """
