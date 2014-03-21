@@ -7,7 +7,6 @@ class @BaseCrypto
 
     * getValue
     * setBalance
-    * verifyAddress
     * getExchangeRate (TODO: not implemented yet)
   """
   api_url = "http://blockexplorer.com/q/"
