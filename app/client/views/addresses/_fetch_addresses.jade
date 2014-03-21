@@ -5,11 +5,14 @@ template(name="fetchAddresses")
         div.help
             This feature allows you to get all public addresses from your
             online wallets.
+            hr
+
         div.control-group
             label.control-label(for="name") Select online wallet
             div.controls
                 select(name="name")
-                    option(value="test") Test
-                    option(value="test2") Test2
-                    option(value="test3") Test3
-
+                    option(value="kraken") Kraken
+                    option(value="coinbase") Coinbase
+        div.control-group
+            div.controls
+                input.btn.btn-primary(type="submit", value="Ok")
