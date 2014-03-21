@@ -1,5 +1,6 @@
 template(name="userAddresses")
     h1.addresses_title Your addresses
+
     div.addresses
         {{#isolate}}
         {{#each sortAddresses userAddresses}}
@@ -11,4 +12,10 @@ template(name="userAddresses")
             {{> addAddress}}
         {{else}}
             {{> emptyForm}}
+        {{/if}}
+
+        {{#if showImportForm}}
+            {{> fetchAddresses}}
+        {{else}}
+            {{> emptyImportForm}}
         {{/if}}

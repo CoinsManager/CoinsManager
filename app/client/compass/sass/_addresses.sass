@@ -324,9 +324,9 @@ $address_margin: 3rem
 
 // Add address
 
-.addAddress
+.addAddress, .fetchAddresses
     +span(3)
-    margin-right: 0
+    margin-right: 3rem
     &.is_inactive
         div
             display: none
@@ -336,7 +336,7 @@ $address_margin: 3rem
         position: relative
         cursor: pointer
         &:after
-            content: '+'
+            content: "\2295"
             color: $new_address
             font-size: 15rem
             display: inline-block
@@ -401,6 +401,11 @@ $address_margin: 3rem
         +background-image(linear-gradient(left, rgba(white,0), rgba(white,1), rgba(white,0)))
     #close
         margin-left: 0.5rem
+
+
+.fetchAddresses.is_inactive
+    &:after
+        content: "\229B"
 
 
 .bottom_line
