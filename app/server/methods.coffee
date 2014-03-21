@@ -2,17 +2,22 @@
 Methods:
 
   * addAddress
+  * addOnlineWallet
   * callUrl
+  * implementedCoins
+  * implementedWebsites
   * removeAddress
   * setFiatPreference
   * verifyAddress
 """
 global = @  # Shortcut to access Cryptocoins global vars, cf l.11
 
+
 readDir = (path) ->
   files = fs.readdirSync path
   file.replace(".coffee.js", "") for file in files.filter (file) ->
-    file.search("(base_crypto*)|(js.map)") is -1
+    file.search("(0_*)|(js.map)") is -1
+
 
 Meteor.methods
   addAddress: (attributes) ->
@@ -44,6 +49,12 @@ Meteor.methods
     addressId = Addresses.insert options
     return addressId
 
+  addOnlineWallet: (options) ->
+    user = Meteor.user()
+    options.userId = user._id
+
+    OnlineWallets.insert options
+
   callUrl: (url) ->
     @unblock()
     try
@@ -56,6 +67,13 @@ Meteor.methods
     Returns a list of coins that have been implemented
     """
     readDir "./app/models/cryptos/"
+
+  implementedWebsites: ->
+    """
+    Returns a list of online wallets that have been implemented
+    """
+    readDir "./app/models/online_wallets/"
+
 
   removeAddress: (options) ->
     user = Meteor.user()

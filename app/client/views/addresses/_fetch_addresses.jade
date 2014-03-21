@@ -8,11 +8,25 @@ template(name="fetchAddresses")
             hr
 
         div.control-group
-            label.control-label(for="name") Select online wallet
+            label.control-label(for="name") Select online wallet *
             div.controls
                 select(name="name")
-                    option(value="kraken") Kraken
-                    option(value="coinbase") Coinbase
+                    {{#isolate}}
+                    {{#each websitesList}}
+                        option(value="{{this}}") {{this}}
+                    {{/each}}
+                    {{/isolate}}
+        div.control-group
+            label.control-label(for="api_key") API Key *
+            div.controls
+                input(name="api_key", type="text",
+                      placeholder="Key required to make queries to the API")
+        div.control-group
+            label.control-label(for="api_secret") API Secret *
+            div.controls
+                input(name="api_secret", type="text",
+                      placeholder="Private key used to sign API messages")
+
         div.control-group
             div.controls
                 input.btn.btn-primary(type="submit", value="Ok")
