@@ -13,6 +13,7 @@ class @BaseCrypto
   @keys = {}
   @deps =
     btc2fiat: new Deps.Dependency()
+    btc2usd: new Deps.Dependency()
 
   constructor: (@address) ->
     # Set name for instances inheriting BaseCrypto

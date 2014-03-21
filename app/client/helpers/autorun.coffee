@@ -1,8 +1,26 @@
 Meteor.startup ->
   @counter = 0
+  @usdCounter = 0
   # 3rd part apis are not Meteor projects, therefore we cannot get the prices
   # updates reactively, a setInterval is required.
-  @timer = Meteor.setInterval @callApis, counter
+  @timer = Meteor.setInterval @callApis, @counter
+  @usdTimer = Meteor.setInterval @btc2usd, @usdCounter
+
+
+@btc2usd = ->
+  url = "https://api.bitcoinaverage.com/ticker/USD/"
+  Meteor.call "callUrl", url, (err, result) ->
+    if err
+      throw new Meteor.Error err.error, err.reason
+    else
+      BaseCrypto.keys.btc2usd = result.data["24h_avg"]
+      BaseCrypto.deps.btc2usd.changed()
+  if @usdCounter is 0
+    # Trick to call the apis frequently when the page is open, then
+    # progressively lower the frequency. From 0 to 10seconds between each call
+    @usdCounter = 100000
+    Meteor.clearInterval @usdTimer
+    Meteor.setInterval @btc2usd, @usdCounter
 
 
 @callApis = ->
@@ -16,9 +34,6 @@ Meteor.startup ->
     if err
       throw new Meteor.Error err.error, err.reason
     else
-      if fiat is "USD"
-        BaseCrypto.keys.btc2usd = result.data["24h_avg"]
-        BaseCrypto.deps.btc2usd.changed()
       BaseCrypto.keys.btc2fiat = result.data["24h_avg"]
       BaseCrypto.deps.btc2fiat.changed()
 
@@ -62,4 +77,4 @@ Meteor.startup ->
     # progressively lower the frequency. From 0 to 10seconds between each call
     @counter += 1000
     Meteor.clearInterval @timer
-    @timer = Meteor.setInterval @callApis, counter
+    @timer = Meteor.setInterval @callApis, @counter
