@@ -6,6 +6,10 @@ $blue: #5895ef
 $gold: #c5b358
 $silver: #838996
 $bronze: #cd7f32
+$gray: #9e9e9e
+$quiet_orange: #f7834d
+$quiet_red: #fa4646
+$cyan: #40b8b8
 $new_address: white
 
 // Shadows
@@ -72,7 +76,18 @@ $address_margin: 3rem
         +breakpoint($media-micro)
             &:nth-child(1n+1)
                 +last
-        +breakpoint($media-small)
+        &.thousandplus
+            +address_gradient($quiet_red)
+        &.hundredplus
+            +address_gradient($quiet_red)
+        &.tenplus
+            +address_gradient($quiet_orange)
+        &.oneplus
+            +address_gradient($cyan)
+        &.zeroplus
+            +address_gradient($blue)
+        &.notimplemented
+            +address_gradient($gray)
         &.top_coin
             position: absolute
             cursor: pointer

@@ -1,6 +1,7 @@
 """
 Helpers registered:
 
+  * classByValue
   * fiatList
   * ifNumber
   * loggedIn
@@ -10,7 +11,19 @@ Helpers registered:
   * userFiat
 """
 
-Handlebars.registerHelper  "fiatList", ->
+
+Handlebars.registerHelper "classByValue", ->
+  value = +@getValue()
+  switch
+    when value > 1000 then "thousandplus"
+    when value > 100 then "hundredplus"
+    when value > 10 then "tenplus"
+    when value > 1 then "oneplus"
+    when value >= 0 then "zeroplus"
+    else "notimplemented"
+
+
+Handlebars.registerHelper "fiatList", ->
   #TODO: Implement following, client synchronous http call
   #url = "https://api.bitcoinaverage.com/ticker/"
   #fiatList = Meteor.call "callUrl", url
@@ -26,7 +39,6 @@ Handlebars.registerHelper  "fiatList", ->
     {code: "ILS", name: "Israeli New Shekel"}
     {code: "JPY", name: "Japanese Yen"}
     {code: "NOK", name: "Norwegian Krone"}
-
     {code: "NZD", name: "New Zealand Dollar"}
     {code: "PLN", name: "Polish Zloty"}
     {code: "RUB", name: "Russian Ruble"}
@@ -40,9 +52,9 @@ Handlebars.registerHelper  "fiatList", ->
 
 Handlebars.registerHelper "ifNumber", (context, options) ->
   if _.isNumber context
-    return options.fn this
+    options.fn this
   else
-    return options.inverse this
+    options.inverse this
 
 
 Handlebars.registerHelper "loggedIn", ->
