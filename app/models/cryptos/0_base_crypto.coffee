@@ -12,7 +12,7 @@ class @BaseCrypto
   api_url = "http://blockexplorer.com/q/"
   @keys = {}
   @deps =
-    btc2usd: new Deps.Dependency()
+    btc2fiat: new Deps.Dependency()
 
   constructor: (@address) ->
     # Set name for instances inheriting BaseCrypto
@@ -41,7 +41,7 @@ class @BaseCrypto
   get_name: ->
     if @name then @name else @constructor.name
 
-  getValue: ->
+  getValue: (withUSD=false) ->
     """
     Override this method from a specific coin class, to calculate the value of
     an address using the balance and exchange rate.
@@ -56,13 +56,17 @@ class @BaseCrypto
     @ensureDeps @address, "value"
     # Value depends in on the "coin2btc" value and "btc2fiat" value
     BaseCrypto.deps[@name][@address].value.depend()
-    BaseCrypto.deps.btc2usd.depend()
+    BaseCrypto.deps.btc2fiat.depend()
 
     result = undefined
     if _.isNumber BaseCrypto.keys[@name][@address].value
       value = BaseCrypto.keys[@name][@address].value
-      btc2usd = BaseCrypto.keys.btc2usd
-      result = value * @getBalance() * btc2usd
+      if withUSD is true
+        btc2fiat = BaseCrypto.keys.btc2usd
+      else
+        btc2fiat = BaseCrypto.keys.btc2fiat
+
+      result = value * @getBalance() * btc2fiat
     else if BaseCrypto.keys[@name][@address].total_value?
       # For non-implemented coins
       result = BaseCrypto.keys[@name][@address].total_value

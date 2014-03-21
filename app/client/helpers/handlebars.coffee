@@ -13,7 +13,7 @@ Helpers registered:
 
 
 Handlebars.registerHelper "classByValue", ->
-  value = +@getValue()
+  value = +@getValue(true)
   switch
     when value > 1000 then "thousandplus"
     when value > 100 then "hundredplus"

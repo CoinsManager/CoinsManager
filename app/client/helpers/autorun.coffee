@@ -16,8 +16,11 @@ Meteor.startup ->
     if err
       throw new Meteor.Error err.error, err.reason
     else
-      BaseCrypto.keys.btc2usd = result.data["24h_avg"]
-      BaseCrypto.deps.btc2usd.changed()
+      if fiat is "USD"
+        BaseCrypto.keys.btc2usd = result.data["24h_avg"]
+        BaseCrypto.deps.btc2usd.changed()
+      BaseCrypto.keys.btc2fiat = result.data["24h_avg"]
+      BaseCrypto.deps.btc2fiat.changed()
 
   # Get the alt coins to BTC prices
   url = "http://www.cryptocoincharts.info/v2/api/listCoins"
