@@ -59,7 +59,7 @@ class @BaseCrypto
     BaseCrypto.deps.btc2usd.depend()
 
     result = undefined
-    if BaseCrypto.keys[@name][@address].value
+    if _.isNumber BaseCrypto.keys[@name][@address].value
       value = BaseCrypto.keys[@name][@address].value
       btc2usd = BaseCrypto.keys.btc2usd
       result = value * @getBalance() * btc2usd
