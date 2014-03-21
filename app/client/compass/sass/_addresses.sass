@@ -76,18 +76,6 @@ $address_margin: 3rem
         +breakpoint($media-micro)
             &:nth-child(1n+1)
                 +last
-        &.thousandplus
-            +address_gradient($quiet_red)
-        &.hundredplus
-            +address_gradient($quiet_red)
-        &.tenplus
-            +address_gradient($quiet_orange)
-        &.oneplus
-            +address_gradient($cyan)
-        &.zeroplus
-            +address_gradient($blue)
-        &.notimplemented
-            +address_gradient($gray)
         &.top_coin
             position: absolute
             cursor: pointer
@@ -211,6 +199,18 @@ $address_margin: 3rem
     +breakpoint($media-micro)
         &:nth-child(1n+1)
             +last
+    &.thousandplus
+        +address_gradient($quiet_red)
+    &.hundredplus
+        +address_gradient($quiet_red)
+    &.tenplus
+        +address_gradient($quiet_orange)
+    &.oneplus
+        +address_gradient($cyan)
+    &.zeroplus
+        +address_gradient($blue)
+    &.notimplemented
+        +address_gradient($gray)
     height: $card_height
     position: relative
     @extend %card_template
