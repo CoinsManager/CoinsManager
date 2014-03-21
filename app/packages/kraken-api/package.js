@@ -4,5 +4,5 @@ Npm.depends({
 
 
 Package.on_use(function (api) {
-  api.add_files('kraken.js', 'server');
+  api.add_files('kraken.js', ['server', 'client', 'models']);
 });
