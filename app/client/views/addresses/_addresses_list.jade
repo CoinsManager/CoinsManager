@@ -1,6 +1,13 @@
 template(name="userAddresses")
     h1.addresses_title Your addresses
 
+    div
+        {{kraken_balance}}
+        {{kraken_time}}
+        {{kraken_assets}}
+        {{kraken_ticker}}
+        {{kraken_spread}}
+
     div.addresses
         {{#isolate}}
         {{#each sortAddresses userAddresses}}
