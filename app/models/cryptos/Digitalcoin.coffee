@@ -1,8 +1,8 @@
 class @Digitalcoin extends @BaseCrypto
   """
-  This class define all the informations needed for Franko.
+  This class define all the informations needed for Digitalcoin.
   """
-  @address_format = "1E"
+  @address_format = "30"
   @api_url = "http://dgc.cryptocoinexplorer.com/chain/Digitalcoin/q/"
   @code = "DGC"
 
