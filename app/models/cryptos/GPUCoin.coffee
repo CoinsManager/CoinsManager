@@ -1,6 +1,6 @@
-class @Gpucoin extends @BaseCrypto
+class @GPUCoin extends @BaseCrypto
   """
-  This class define all the informations needed for Mooncoin
+  This class define all the informations needed for GPUCoin
   """
   @address_format = "26"
   @api_url = "http://explorer3.sancrypto.info/chain/GPUCoin/q/"
@@ -8,7 +8,8 @@ class @Gpucoin extends @BaseCrypto
 
   constructor: ->
     super
-    @name = "Gpucoin"
+    @name = "GPUCoin"
+    @cryptocoinchartsName = "GPU"
 
   setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
