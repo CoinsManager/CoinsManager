@@ -8,5 +8,5 @@ describe "GPUCoin", ->
     GPUCoin.should.be.ok
     GPUCoin.should.be.an.Object
 
-  it "has a code GPU", ->
-    GPUCoin.should.have.a.property "code", "GPU"
+  it "has a code GPUC", ->
+    GPUCoin.should.have.a.property "code", "GPUC"

@@ -4,12 +4,12 @@ class @GPUCoin extends @BaseCrypto
   """
   @address_format = "26"
   @api_url = "http://explorer3.sancrypto.info/chain/GPUCoin/q/"
-  @code = "GPU"
+  @code = "GPUC"
 
   constructor: ->
     super
     @name = "GPUCoin"
-    @cryptocoinchartsName = "GPU"
+    @cryptocoinchartsName = "GPUC"
 
   setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
