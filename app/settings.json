@@ -133,6 +133,9 @@
             "code": "XRP",
             "balance": 520
         },
+        "Rubycoin": {
+            "address": "RivUDHhhDdDMDfqVWyRqSWEPHuv18x6dhG"
+        },
         "Spaincoin": {
             "address": "SZzRDMn6PcL13duYtWyaBBS6Ph6PdPteUT"
         },
