@@ -133,6 +133,9 @@
             "code": "XRP",
             "balance": 520
         },
+        "RotoCoin": {
+            "address": "RpkqKhxnws1v2PBUusaD5kR3fHamhMC39J"
+        },
         "Rubycoin": {
             "address": "RivUDHhhDdDMDfqVWyRqSWEPHuv18x6dhG"
         },
