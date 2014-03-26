@@ -9,7 +9,6 @@ class @Execoin extends @BaseCrypto
   constructor: ->
     super
     @name = "Execoin"
-    @cryptocoinchartsName = "EXE"
 
   setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
