@@ -9,6 +9,7 @@ class @RotoCoin extends @BaseCrypto
   constructor: ->
     super
     @name = "RotoCoin"
+    @cryptocoinchartsName = "RT2"
 
   setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
