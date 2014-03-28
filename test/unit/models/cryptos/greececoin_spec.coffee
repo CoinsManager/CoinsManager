@@ -1,4 +1,4 @@
-describe "Greececoin", ->
+describe "GreeceCoin", ->
 
   beforeEach ->
     @data =
