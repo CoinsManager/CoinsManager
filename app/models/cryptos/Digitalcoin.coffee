@@ -3,7 +3,7 @@ class @Digitalcoin extends @BaseCrypto
   This class define all the informations needed for Digitalcoin.
   """
   @address_format = "30"
-  @api_url = "http://dgc.cryptocoinexplorer.com/q/"
+  @api_url = "http://dgc.cryptocoinexplorer.com/chain/Digitalcoin/q/"
   @code = "DGC"
 
   constructor: ->
