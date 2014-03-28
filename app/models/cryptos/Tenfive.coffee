@@ -1,6 +1,6 @@
 class @Tenfive extends @BaseCrypto
   """
-  This class define all the informations needed for Mooncoin
+  This class define all the informations needed for Tenfive
   """
   @address_format = "42"
   @api_url = "http://explorer.tenfivecoin.com/chain/Tenfive/q/"
