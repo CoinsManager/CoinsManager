@@ -1,14 +1,14 @@
-class @Greececoin extends @BaseCrypto
+class @GreeceCoin extends @BaseCrypto
   """
   This class define all the informations needed for Greececoin
   """
   @address_format = "26"
-  @api_url = "http://cryptoblox.com/chain/Greececoin/q/"
+  @api_url = "http://cryptoblox.com/chain/GreeceCoin/q/"
   @code = "GRCE"
 
   constructor: ->
     super
-    @name = "Greececoin"
+    @name = "GreeceCoin"
     @cryptocoinchartsName = "GRCE"
 
   setBalance: ->
