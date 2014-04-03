@@ -3,12 +3,13 @@ class @Rubycoin extends @BaseCrypto
   This class define all the informations needed for Mooncoin
   """
   @address_format = "3D"
-  @api_url = "http://explorer.rubycoin.org/chain/Rubycoin/q/"
+  @api_url = "http://explorer.rubycoin.org/chain/RubyCoin/q/"
   @code = "RUBY"
 
   constructor: ->
     super
-    @name = "Rubycoin"
+    @name = "RubyCoin"
+    @cryptocoinchartsName = "RUBY"
 
   setBalance: ->
     url = "#{@constructor.api_url}addressbalance/#{@address}"
