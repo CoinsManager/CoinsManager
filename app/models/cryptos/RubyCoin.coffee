@@ -1,6 +1,6 @@
-class @Rubycoin extends @BaseCrypto
+class @RubyCoin extends @BaseCrypto
   """
-  This class define all the informations needed for Mooncoin
+  This class define all the informations needed for RubyCoin
   """
   @address_format = "3D"
   @api_url = "http://explorer.rubycoin.org/chain/RubyCoin/q/"
