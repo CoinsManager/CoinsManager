@@ -55,15 +55,21 @@
         "Earthcoin": {
             "address": "ecoinsMG8nXNmqnzYfCokc7SBc3X2SnhBf"
         },
+        "Einsteinium": {
+            "address": "EcoinsMYvoCodPtQZ1f5F4TSsgTbRrPUMx"
+        },
         "eMunie": {
             "address": "tVPQUZ5fsDBnv9kuszhvA3EZTaoK2foCcN",
             "code": "EMU"
+        },
+        "Execoin": {
+            "address": "EcoinsMYvoCodPtQZ1f5F4TSsgTbRrPUMx"
         },
         "Feathercoin": {
             "address": "71CoinsnLeK6xhgdyZKfBeJn8Q6Ng9uVFG"
         },
         "FedoraCoin": {
-            "address": "EKeraAhz78YYtwuC1KtKqmbmBDHk41owq1"
+            "address": "EcoinsMYvoCodPtQZ1f5F4TSsgTbRrPUMx"
         },
         "Franko": {
             "address": "FCoinsMTgnyDbXpXrYHAbL2DMmQLpJMxr3"
