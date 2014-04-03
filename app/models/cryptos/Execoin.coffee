@@ -1,6 +1,6 @@
 class @Execoin extends @BaseCrypto
   """
-  This class define all the informations needed for Mooncoin
+  This class define all the informations needed for Execoin
   """
   @address_format = "21"
   @api_url = "http://explorer.execoin.net/chain/Execoin/q/"

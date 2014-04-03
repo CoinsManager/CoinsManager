@@ -1,7 +1,6 @@
 class @Auroracoin extends @BaseCrypto
   """
-  This class define all the informations needed for Bitcoin.
-  The average value corresponds to the user favorite fiat currency.
+  This class define all the informations needed for AuroraCoin.
   """
   @address_format = "17"
   @api_url = "http://blockexplorer.auroracoin.eu/chain/AuroraCoin/q/"

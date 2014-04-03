@@ -1,6 +1,6 @@
 class @Einsteinium extends @BaseCrypto
   """
-  This class define all the informations needed for DigiByte
+  This class define all the informations needed for Einsteinium
   """
   @address_format = "21"
   @api_url = "http://cryptexplorer.com/chain/Einsteinium/q/"
@@ -9,6 +9,7 @@ class @Einsteinium extends @BaseCrypto
   constructor: ->
     super
     @name = "Einsteinium"
+    @cryptocoinchartsName = "EMC2"
     @total_coin = "299,792,458"
 
   setBalance: ->

@@ -1,6 +1,6 @@
 class @RotoCoin extends @BaseCrypto
   """
-  This class define all the informations needed for Mooncoin
+  This class define all the informations needed for RotoCoin
   """
   @address_format = "3D"
   @api_url = "http://cryptexplorer.com/chain/rotoCoin/q/"
