@@ -1,7 +1,6 @@
 class @Spaincoin extends @BaseCrypto
   """
-  This class define all the informations needed for Bitcoin.
-  The average value corresponds to the user favorite fiat currency.
+  This class define all the informations needed for Spaincoin.
   """
   @address_format = "3F"
   @api_url = "http://explorer.spaincoin.org/chain/Spaincoin/q/"

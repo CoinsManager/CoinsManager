@@ -1,7 +1,6 @@
 class @Octocoin extends @BaseCrypto
   """
-  This class define all the informations needed for Bitcoin.
-  The average value corresponds to the user favorite fiat currency.
+  This class define all the informations needed for Octocoin.
   """
   @address_format = "12"
   @api_url = "http://explorer.octocoin.org/chain/OctoCoin/q/"

@@ -1,7 +1,6 @@
 class @FedoraCoin extends @BaseCrypto
   """
-  This class define all the informations needed for Bitcoin.
-  The average value corresponds to the user favorite fiat currency.
+  This class define all the informations needed for FedoraCoin
   """
   @address_format = "21"
   @api_url = "http://fedoracha.in/chain/FedoraCoin/q/"
