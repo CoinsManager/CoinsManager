@@ -11,9 +11,12 @@
       "GAnalytics": {},
       "font-awesome": {},
       "phantomjs": {},
-      "handlebar-helpers": {},
+      "handlebar-helpers": {
+        "version": "0.0.9"
+      },
       "errors": {},
-      "fs": {}
+      "fs": {},
+      "npm": {}
     },
     "packages": {
       "belt-jade-handlebars": {
@@ -23,8 +26,8 @@
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.6.2",
-        "commit": "ce56e58b45624dce992490f3a1c10f10d3948bae"
+        "tag": "v0.6.4",
+        "commit": "927bbaed1b87894fb6fb70807f74ff3a5bd89f29"
       },
       "spin": {
         "git": "https://github.com/SachaG/meteor-spin.git",
@@ -53,13 +56,18 @@
       },
       "errors": {
         "git": "https://github.com/tmeasday/meteor-errors.git",
-        "tag": "v0.2.0",
-        "commit": "b7cc525c19defe2dc744e8e34d1328b430f3e03a"
+        "tag": "v0.2.1",
+        "commit": "f2af03510a9e3d9952601f5f091aa76bfbcbf224"
       },
       "fs": {
         "git": "https://github.com/peerlibrary/meteor-fs.git",
         "tag": "v0.1.2",
         "commit": "069d7fcaeb5df000a57238fde2785faf6dc1c37c"
+      },
+      "npm": {
+        "git": "https://github.com/arunoda/meteor-npm.git",
+        "tag": "v0.2.6",
+        "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
       },
       "assert": {
         "git": "https://github.com/peerlibrary/meteor-assert.git",

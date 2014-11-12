@@ -5,12 +5,9 @@ Template.addAddress.created = ->
 
 
 Template.addAddress.helpers
-  coinsList: ->
-    Session.get "coinsList"
-  coinRecognized: ->
-    not Session.get "showCompleteForm"
-  coin_help: ->
-    Session.get "showCoinHelp"
+  coinsList: -> Session.get "coinsList"
+  coinRecognized: -> not Session.get "showCompleteForm"
+  coin_help: -> Session.get "showCoinHelp"
 
 
 Template.addAddress.events

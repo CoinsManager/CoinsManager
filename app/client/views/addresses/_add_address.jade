@@ -29,6 +29,11 @@ template(name="addAddress")
             div.controls
                 input(name="address", type="text",
                       placeholder="Your public address")
+                {{#unless coinsList}}
+                {{#if coinRecognized}}
+                i.fa.fa-plus-square.y-centered
+                {{/if}}
+                {{/unless}}
         {{#if coinsList}}
         div.control-group
             label.control-label(for="name") Name *
@@ -39,7 +44,9 @@ template(name="addAddress")
                     option(value="{{this}}") {{this}}
                     {{/each}}
                     {{/isolate}}
+                {{#if coinRecognized}}
                 i.fa.fa-plus-square.y-centered
+                {{/if}}
         {{/if}}
 
         {{#unless coinRecognized}}
