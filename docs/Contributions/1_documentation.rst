@@ -12,6 +12,10 @@ Make sure that you have
 `Python 2.6+ and Sphinx <http://sphinx-doc.org/latest/install.html>`_
 installed.
 
+For example::
+
+    $ sudo pip install -U Sphinx
+
 You will need to write the documentation in RestructuredText.
 The best way is to read the project documentation files, and use them as
 example to write your own documentation.
