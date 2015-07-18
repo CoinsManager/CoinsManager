@@ -89,7 +89,7 @@ First, install `npm <https://www.npmjs.org/>`_ (Node.js package manager).
 
     .. code-block:: console
 
-        $ echo "prefix = /usr/local" > ~/.npmrc
+        $ echo "prefix = /usr/local" >> ~/.npmrc
         $ chown -R youruser /usr/local
 
 Then, run the following steps to execute your tests
