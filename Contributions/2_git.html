@@ -8,7 +8,7 @@
     
     <title>Guidance about Git &mdash; CoinsManager v0.1.1 documentation</title>
     
-    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="CoinsManager v0.1.1 documentation" href="../index.html" />
     <link rel="up" title="Contribution Documentation" href="0_title.html" />
     <link rel="next" title="Guidance for Programmers" href="3_code.html" />
     <link rel="prev" title="Guidance for Scribers" href="1_documentation.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -42,15 +42,15 @@
         <li class="right" >
           <a href="1_documentation.html" title="Guidance for Scribers"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">CoinsManager v0.1.1 documentation</a> &raquo;</li>
-          <li><a href="0_title.html" accesskey="U">Contribution Documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CoinsManager v0.1.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="0_title.html" accesskey="U">Contribution Documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="guidance-about-git">
 <h1>Guidance about Git<a class="headerlink" href="#guidance-about-git" title="Permalink to this headline">¶</a></h1>
@@ -82,7 +82,7 @@ and click on the <strong>Fork</strong> button:</p>
 </div>
 <div class="admonition seealso">
 <p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="1_documentation.html#git-doc"><em>Copy repository for documentation</em></a></p>
+<p class="last"><a class="reference internal" href="1_documentation.html#git-doc"><span>Copy repository for documentation</span></a></p>
 </div>
 </div>
 <div class="section" id="feature">
@@ -98,13 +98,13 @@ you can create a new branch as follow:</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
 <p class="last">That git flow command is equivalent to
-<tt class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">feature/my_new_feature</span> <span class="pre">develop</span></tt></p>
+<code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">feature/my_new_feature</span> <span class="pre">develop</span></code></p>
 </div>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
 <p>If you&#8217;re going to work on a specific branch (for example
 <strong>alpha</strong>), and wish to use git flow for it, you&#8217;ll need to change your
-<tt class="file docutils literal"><span class="pre">.git/config</span></tt> to match your new main development branch:</p>
+<code class="file docutils literal"><span class="pre">.git/config</span></code> to match your new main development branch:</p>
 <blockquote class="last">
 <div><img alt="../_images/git_gitflow_develop.png" src="../_images/git_gitflow_develop.png" />
 </div></blockquote>
@@ -117,15 +117,15 @@ But you would like to see it integrated in the main repository. How can you do
 that ?</p>
 <p>Go to your github repository, and you should see something like this:</p>
 <img alt="../_images/git_compare_and_pull_request.png" src="../_images/git_compare_and_pull_request.png" />
-<p>Click on <em class="guilabel">Compare &amp; pull request</em>, this will bring you to the pull
+<p>Click on <span class="guilabel">Compare &amp; pull request</span>, this will bring you to the pull
 request interface.</p>
 <p>Note that your branch will try to merge against the default one automatically.</p>
 <img alt="../_images/git_pull_request_from_1.png" src="../_images/git_pull_request_from_1.png" />
-<p>Click on the <em class="guilabel">Edit</em> button and change it to the appropriate branch
+<p>Click on the <span class="guilabel">Edit</span> button and change it to the appropriate branch
 (most often <strong>develop</strong>)</p>
 <img alt="../_images/git_pull_request_from_2.png" src="../_images/git_pull_request_from_2.png" />
 <p>Add a useful message to describe the feature you want to merge, and press
-<em class="guilabel">Send pull request</em>. Congratulations, you sent your first
+<span class="guilabel">Send pull request</span>. Congratulations, you sent your first
 contribution!</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -170,8 +170,8 @@ auto-updated!</p>
 <h2><a class="toc-backref" href="#id6">Merge</a><a class="headerlink" href="#merge" title="Permalink to this headline">¶</a></h2>
 <p>If you are a power user, then you&#8217;ll be able to accept pull requests from other
 users. Go to the <a class="reference external" href="https://github.com/CoinsManager/CoinsManager/pulls">Pull request page</a>,
-select the pull request that you want to merge, and click on <em class="guilabel">Merge
-pull request</em>.</p>
+select the pull request that you want to merge, and click on <span class="guilabel">Merge
+pull request</span>.</p>
 <img alt="../_images/git_merge.png" src="../_images/git_merge.png" />
 </div>
 <div class="section" id="merge-conflict">
@@ -181,7 +181,7 @@ conflict. Two options are available:</p>
 <ul>
 <li><p class="first">Merge is too difficult to resolve, or you lack time to resolve it: Ask the
 author of the pull request to rebase his feature from upstream (therefore
-he&#8217;ll need to deal with the conflict, then <tt class="docutils literal"><span class="pre">push</span> <span class="pre">--force</span></tt> to update his
+he&#8217;ll need to deal with the conflict, then <code class="docutils literal"><span class="pre">push</span> <span class="pre">--force</span></code> to update his
 github pull request)</p>
 <p>The Author would need to proceed as follow:</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git checkout feature/&lt;NAME&gt;
@@ -215,7 +215,7 @@ github pull request)</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo_green_128.png" alt="Logo"/>
@@ -240,12 +240,14 @@ github pull request)</p>
   <h4>Next topic</h4>
   <p class="topless"><a href="3_code.html"
                         title="next chapter">Guidance for Programmers</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/Contributions/2_git.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/Contributions/2_git.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -262,7 +264,7 @@ github pull request)</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -274,13 +276,13 @@ github pull request)</p>
         <li class="right" >
           <a href="1_documentation.html" title="Guidance for Scribers"
              >previous</a> |</li>
-        <li><a href="../index.html">CoinsManager v0.1.1 documentation</a> &raquo;</li>
-          <li><a href="0_title.html" >Contribution Documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">CoinsManager v0.1.1 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="0_title.html" >Contribution Documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
+    <div class="footer" role="contentinfo">
         &copy; Copyright 2013, Adrien Lemaire, Vladimir Plokhov.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

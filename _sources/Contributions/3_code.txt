@@ -130,7 +130,7 @@ then install the design requirements:
 .. code-block:: console
 
     $ gem update --system
-    $ gem install compass Breakpoint
+    $ gem install compass breakpoint
     $ gem install susy --pre
 
 When you're done, go generate the css files for the project:
@@ -150,7 +150,7 @@ with access to the deployment password).
 
 Meteor hosting
 ~~~~~~~~~~~~~~
-Used temporarily to deploy the **Coming Soon Page**
+Used to deploy the old **Coming Soon Page**
 
 .. code-block:: console
 
