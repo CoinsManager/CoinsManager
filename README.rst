@@ -1,3 +1,8 @@
+Warning
+=======
+This project has been discontinued, and the .com domain has been bought back by someone else claiming to be the author of this project, without any prior contact. We disapprove and recommend to ignore whatever they wrote on their website.
+
+
 CoinsManager
 ===========
 
